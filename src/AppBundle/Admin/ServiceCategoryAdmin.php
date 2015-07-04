@@ -96,6 +96,7 @@ class ServiceCategoryAdmin extends BaseAdmin
     {
         // $myEntity = $this->getSubject();
         $formMapper
+            ->with('Categoria', array('class' => 'col-md-6'))
             ->add(
                 'name',
                 null,
@@ -103,6 +104,8 @@ class ServiceCategoryAdmin extends BaseAdmin
                     'label' => 'Nom',
                 )
             )
+            ->end()
+            ->with('Controls', array('class' => 'col-md-6'))
             ->add(
                 'position',
                 null,
@@ -117,6 +120,7 @@ class ServiceCategoryAdmin extends BaseAdmin
                     'label'    => 'Actiu',
                     'required' => false,
                 )
-            );
+            )
+            ->end();
     }
 }

@@ -27,6 +27,14 @@ class ServiceAdmin extends BaseAdmin
     {
         $mapper
             ->add(
+                'imageFile',
+                null,
+                array(
+                    'label'    => 'Imatge',
+                    'template' => '::Admin/list__cell_image_field.html.twig'
+                )
+            )
+            ->add(
                 'category',
                 null,
                 array(
@@ -83,7 +91,7 @@ class ServiceAdmin extends BaseAdmin
                 'category',
                 null,
                 array(
-                    'label'    => 'Categoria',
+                    'label' => 'Categoria',
                 )
             )
             ->add(
@@ -111,6 +119,7 @@ class ServiceAdmin extends BaseAdmin
     {
         // $myEntity = $this->getSubject();
         $formMapper
+            ->with('Servei', array('class' => 'col-md-6'))
             ->add(
                 'category',
                 null,
@@ -137,6 +146,19 @@ class ServiceAdmin extends BaseAdmin
                     )
                 )
             )
+            ->end()
+            ->with('Imatge', array('class' => 'col-md-6'))
+            ->add(
+                'imageFile',
+                'file',
+                array(
+                    'label'    => 'Arxiu',
+                    'required' => false,
+                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
+                )
+            )
+            ->end()
+            ->with('Controls', array('class' => 'col-md-6'))
             ->add(
                 'position',
                 null,
@@ -151,6 +173,7 @@ class ServiceAdmin extends BaseAdmin
                     'label'    => 'Actiu',
                     'required' => false,
                 )
-            );
+            )
+            ->end();
     }
 }

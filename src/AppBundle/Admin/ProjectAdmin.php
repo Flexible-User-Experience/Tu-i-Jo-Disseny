@@ -111,6 +111,7 @@ class ProjectAdmin extends BaseAdmin
     {
         // $myEntity = $this->getSubject();
         $formMapper
+            ->with('Projecte', array('class' => 'col-md-6'))
             ->add(
                 'service',
                 null,
@@ -137,6 +138,8 @@ class ProjectAdmin extends BaseAdmin
                     )
                 )
             )
+            ->end()
+            ->with('Controls', array('class' => 'col-md-6'))
             ->add(
                 'position',
                 null,
@@ -151,6 +154,7 @@ class ProjectAdmin extends BaseAdmin
                     'label'    => 'Actiu',
                     'required' => false,
                 )
-            );
+            )
+            ->end();
     }
 }
