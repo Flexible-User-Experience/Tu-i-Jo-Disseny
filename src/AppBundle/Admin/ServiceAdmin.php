@@ -5,7 +5,6 @@ namespace AppBundle\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Route\RouteCollection;
 
 /**
  * Class ServiceAdmin
@@ -153,15 +152,5 @@ class ServiceAdmin extends BaseAdmin
                     'required' => false,
                 )
             );
-    }
-
-    /**
-     * Configure route collection
-     *
-     * @param RouteCollection $collection
-     */
-    protected function configureRoutes(RouteCollection $collection)
-    {
-        $collection->remove('show');
     }
 }

@@ -99,6 +99,7 @@ sonata_admin:
     dashboard:
         groups:
             Serveis:
+            Projectes:
 
 # Swiftmailer Configuration
 swiftmailer:

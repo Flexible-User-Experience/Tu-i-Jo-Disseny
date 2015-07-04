@@ -3,6 +3,7 @@
 namespace AppBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 /**
  * Class BaseAdmin
@@ -13,6 +14,16 @@ use Sonata\AdminBundle\Admin\Admin;
  */
 abstract class BaseAdmin extends Admin
 {
+    /**
+     * Configure route collection
+     *
+     * @param RouteCollection $collection
+     */
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection->remove('show');
+    }
+
     /**
      * Get export formats
      *

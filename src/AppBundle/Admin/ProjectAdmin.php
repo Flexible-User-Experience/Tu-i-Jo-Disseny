@@ -7,16 +7,16 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
 /**
- * Class ServiceCategoryAdmin
+ * Class ServiceAdmin
  *
  * @category Admin
  * @package  AppBundle\Admin
  * @author   David Romaní <david@flux.cat>
  */
-class ServiceCategoryAdmin extends BaseAdmin
+class ProjectAdmin extends BaseAdmin
 {
-    protected $baseRoutePattern = 'services/category';
-    protected $datagridValues = array('_sort_by' => 'position');
+    protected $baseRoutePattern = 'projects/project';
+    protected $datagridValues = array('_sort_by' => 'service.category.position');
 
     /**
      * Configure list view
@@ -26,6 +26,14 @@ class ServiceCategoryAdmin extends BaseAdmin
     protected function configureListFields(ListMapper $mapper)
     {
         $mapper
+            ->add(
+                'service',
+                null,
+                array(
+                    'label'    => 'Servei',
+                    'editable' => false,
+                )
+            )
             ->add(
                 'name',
                 null,
@@ -72,6 +80,13 @@ class ServiceCategoryAdmin extends BaseAdmin
     {
         $datagrid
             ->add(
+                'service',
+                null,
+                array(
+                    'label'    => 'Servei',
+                )
+            )
+            ->add(
                 'name',
                 null,
                 array(
@@ -97,10 +112,29 @@ class ServiceCategoryAdmin extends BaseAdmin
         // $myEntity = $this->getSubject();
         $formMapper
             ->add(
+                'service',
+                null,
+                array(
+                    'label'    => 'Servei',
+                    'required' => true,
+                )
+            )
+            ->add(
                 'name',
                 null,
                 array(
                     'label' => 'Nom',
+                )
+            )
+            ->add(
+                'description',
+                null,
+                array(
+                    'label' => 'Descripció',
+                    'attr'  => array(
+                        'style' => 'resize:vertical',
+                        'rows'  => 8,
+                    )
                 )
             )
             ->add(

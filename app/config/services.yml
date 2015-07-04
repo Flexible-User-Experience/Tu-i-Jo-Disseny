@@ -20,3 +20,13 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [AppBundle] ]
+    sonata.admin.projects_project:
+        class: AppBundle\Admin\ProjectAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Projectes", label: "Projecte" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Project
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle] ]
