@@ -1,6 +1,14 @@
 ## Service categories
 AppBundle\Entity\ServiceCategory:
-  serviceCategory{1..4}:
+  serviceCategory{1..10}:
     name: <current()> <sentence(2)>
     position: <current()>
     enabled: <boolean(70)>
+
+## Services
+AppBundle\Entity\Service:
+  service{1..20}:
+    name: <current()> <sentence(4)>
+    position: <current()>
+    enabled: <boolean(70)>
+    category: @serviceCategory<numberBetween(1, 10)>

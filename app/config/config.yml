@@ -3,10 +3,8 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
 
-# Put parameters here that don't need to change on each machine where the app is deployed
-# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: ca
 
 framework:
     #esi:             ~
@@ -87,6 +85,20 @@ sonata_block:
     blocks:
         sonata.admin.block.admin_list:
             contexts:   [ admin ]
+
+# Sonata Admin
+sonata_admin:
+    title: 'Tu&Jo CMS'
+#    title_logo: /bundles/demofony2app/images/logo-without-text-admin.png
+    options:
+        html5_validate: true
+        confirm_exit:   true
+        use_select2:    true
+        pager_links:    10
+    persist_filters: true
+    dashboard:
+        groups:
+            Serveis:
 
 # Swiftmailer Configuration
 swiftmailer:

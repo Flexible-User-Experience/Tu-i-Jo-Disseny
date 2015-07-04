@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
@@ -16,42 +17,80 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ServiceCategoryRepository")
  * @Gedmo\SoftDeleteable(fieldName="removedAt")
  */
-class ServiceCategory extends AbstractBase
+class ServiceCategory extends ServiceBase
 {
     /**
-     * @var string
+     * @ORM\OneToMany(targetEntity="Service", mappedBy="category", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\OrderBy({"position" = "ASC"})
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @var ArrayCollection
      */
-    protected $name;
+    protected $services;
 
-    /**
+    /*
      *
      * Methods
      *
      */
 
     /**
-     * Set Name
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->services = new ArrayCollection();
+    }
+
+    /**
+     * Set Services
      *
-     * @param string $name
+     * @param ArrayCollection $services
      *
      * @return $this
      */
-    public function setName($name)
+    public function setServices($services)
     {
-        $this->name = $name;
+        $this->services = $services;
 
         return $this;
     }
 
     /**
-     * Get Name
+     * Get Services
      *
-     * @return string
+     * @return ArrayCollection
      */
-    public function getName()
+    public function getServices()
     {
-        return $this->name;
+        return $this->services;
+    }
+
+    /**
+     * Add service
+     *
+     * @param Service $service
+     *
+     * @return $this
+     */
+    public function addService(Service $service)
+    {
+        $service->setCategory($this);
+        $this->services[] = $service;
+
+        return $this;
+    }
+
+    /**
+     * Remove service
+     *
+     * @param Service $service
+     *
+     * @return $this
+     */
+    public function removeService(Service $service)
+    {
+        $this->services->removeElement($service);
+
+        return $this;
     }
 }
