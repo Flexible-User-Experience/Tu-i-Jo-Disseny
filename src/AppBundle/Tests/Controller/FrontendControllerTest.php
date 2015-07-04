@@ -13,13 +13,29 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class FrontendControllerTest extends WebTestCase
 {
-    public function testIndex()
+    /**
+     * Test HTTP request is successful
+     *
+     * @dataProvider provideUrls
+     * @param string $url
+     */
+    public function testFrontendPagesAreSuccessful($url)
     {
-        $client = static::createClient();
+        $client = $this->createClient();
+        $client->request('GET', $url);
 
-        $crawler = $client->request('GET', '/app/example');
+        $this->assertTrue($client->getResponse()->isSuccessful());
+    }
 
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertTrue($crawler->filter('html:contains("Homepage")')->count() > 0);
+    /**
+     * Urls provider.
+     *
+     * @return array
+     */
+    public function provideUrls()
+    {
+        return array(
+            array('/app/example'),
+        );
     }
 }
