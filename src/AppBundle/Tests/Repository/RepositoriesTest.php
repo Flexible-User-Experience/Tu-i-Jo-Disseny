@@ -6,13 +6,13 @@ use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * Class ServiceCategoryRepositoryTest
+ * Class RepositoriesTest
  *
  * @category Test
  * @package  AppBundle\Tests\Repository
  * @author   David Romaní <david@flux.cat>
  */
-class ServiceCategoryRepositoryTest extends WebTestCase
+class RepositoriesTest extends WebTestCase
 {
     /** @var EntityManager */
     private $em;
@@ -30,5 +30,6 @@ class ServiceCategoryRepositoryTest extends WebTestCase
     public function testRepository()
     {
         $this->assertEquals(5, $this->em->getRepository('AppBundle:ServiceCategory')->getInstancesAmount());
+        $this->assertEquals(10, $this->em->getRepository('AppBundle:Service')->getInstancesAmount());
     }
 }

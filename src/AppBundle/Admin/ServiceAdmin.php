@@ -8,15 +8,15 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 
 /**
- * Class ServiceCategoryAdmin
+ * Class ServiceAdmin
  *
  * @category Admin
  * @package  AppBundle\Admin
  * @author   David Romaní <david@flux.cat>
  */
-class ServiceCategoryAdmin extends BaseAdmin
+class ServiceAdmin extends BaseAdmin
 {
-    protected $baseRoutePattern = 'services/category';
+    protected $baseRoutePattern = 'services/service';
     protected $datagridValues = array('_sort_by' => 'position');
 
     /**
