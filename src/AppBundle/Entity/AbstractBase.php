@@ -19,12 +19,19 @@ abstract class AbstractBase
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      *
-     * @var int
+     * @var integer
      */
     protected $id;
 
     /**
-     * @ORM\Column(name="enabled", type="boolean", nullable=false)
+     * @ORM\Column(type="integer")
+     *
+     * @var integer
+     */
+    protected $position = 1;
+
+    /**
+     * @ORM\Column(type="boolean")
      *
      * @var boolean
      */
@@ -67,6 +74,30 @@ abstract class AbstractBase
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set Position
+     *
+     * @param int $position
+     *
+     * @return $this
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get Position
+     *
+     * @return int
+     */
+    public function getPosition()
+    {
+        return $this->position;
     }
 
     /**

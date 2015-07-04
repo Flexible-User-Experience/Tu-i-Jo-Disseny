@@ -22,6 +22,7 @@
         "incenteev/composer-parameter-handler": "~2.0",
 
         "cypresslab/gitelephant-bundle": "dev-develop",
+        "hautelook/alice-bundle": "0.*",
         "sonata-project/admin-bundle": "2.4.x-dev",
         "sonata-project/doctrine-orm-admin-bundle": "2.4.x-dev",
         "stof/doctrine-extensions-bundle": "1.*"

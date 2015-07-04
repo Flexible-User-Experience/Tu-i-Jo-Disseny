@@ -12,8 +12,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @package  AppBundle\Entity
  * @author   David Romaní <david@flux.cat>
  *
- * @ORM\Table()
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ServiceCategoryRepository")
  * @Gedmo\SoftDeleteable(fieldName="removedAt")
  */
 class ServiceCategory extends AbstractBase
@@ -24,4 +24,34 @@ class ServiceCategory extends AbstractBase
      * @ORM\Column(name="name", type="string", length=255)
      */
     protected $name;
+
+    /**
+     *
+     * Methods
+     *
+     */
+
+    /**
+     * Set Name
+     *
+     * @param string $name
+     *
+     * @return $this
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get Name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 }

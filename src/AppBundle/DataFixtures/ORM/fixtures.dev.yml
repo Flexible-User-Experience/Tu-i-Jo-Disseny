@@ -1,0 +1,6 @@
+## Service categories
+AppBundle\Entity\ServiceCategory:
+  serviceCategory{1..4}:
+    name: <current()> <sentence(2)>
+    position: <current()>
+    enabled: <boolean(70)>
