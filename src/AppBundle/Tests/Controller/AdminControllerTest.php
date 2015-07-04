@@ -39,6 +39,10 @@ class AdminControllerTest extends WebTestCase
     {
         return array(
             array('/admin/dashboard'),
+            array('/admin/services/category/list'),
+            array('/admin/services/category/create'),
+            array('/admin/services/category/1/edit'),
+            array('/admin/services/category/1/delete'),
         );
     }
 }
