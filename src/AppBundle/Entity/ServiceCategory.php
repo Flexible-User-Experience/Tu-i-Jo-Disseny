@@ -48,7 +48,7 @@ class ServiceCategory extends Base
      *
      * @return $this
      */
-    public function setServices($services)
+    public function setServices(ArrayCollection $services)
     {
         $this->services = $services;
 

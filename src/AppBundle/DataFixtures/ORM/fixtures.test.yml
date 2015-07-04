@@ -10,6 +10,7 @@ AppBundle\Entity\Service:
   service{1..10}:
     name: <current()> <sentence(4)>
     description: <text(500)>
+    imageName: <numberBetween(1, 5)>.jpg
     position: <current()>
     enabled: <boolean(70)>
     category: @serviceCategory<numberBetween(1, 5)>

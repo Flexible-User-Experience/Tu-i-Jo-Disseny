@@ -5,6 +5,8 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Class Service
@@ -16,6 +18,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ServiceRepository")
  * @Gedmo\SoftDeleteable(fieldName="removedAt")
+ * @Vich\Uploadable
  */
 class Service extends Base
 {
@@ -36,6 +39,20 @@ class Service extends Base
     protected $category;
 
     /**
+     * @Vich\UploadableField(mapping="service", fileNameProperty="imageName")
+     *
+     * @var File $imageFile
+     */
+    protected $imageFile;
+
+    /**
+     * @ORM\Column(name="image_name", type="string", length=255)
+     *
+     * @var string $imageName
+     */
+    protected $imageName;
+
+    /**
      * @var string
      *
      * @ORM\Column(type="text", length=2000, nullable=true)
@@ -49,13 +66,21 @@ class Service extends Base
      */
 
     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->projects = new ArrayCollection();
+    }
+
+    /**
      * Set Projects
      *
      * @param ArrayCollection $projects
      *
      * @return $this
      */
-    public function setProjects($projects)
+    public function setProjects(ArrayCollection $projects)
     {
         $this->projects = $projects;
 
@@ -108,7 +133,7 @@ class Service extends Base
      *
      * @return $this
      */
-    public function setCategory($category)
+    public function setCategory(ServiceCategory $category)
     {
         $this->category = $category;
 
@@ -123,6 +148,57 @@ class Service extends Base
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set ImageFile
+     *
+     * @param File $imageFile
+     *
+     * @return $this
+     */
+    public function setImageFile(File $imageFile = null)
+    {
+        $this->imageFile = $imageFile;
+        if ($imageFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Get ImageFile
+     *
+     * @return File
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * Set ImageName
+     *
+     * @param string $imageName
+     *
+     * @return $this
+     */
+    public function setImageName($imageName)
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    /**
+     * Get ImageName
+     *
+     * @return string
+     */
+    public function getImageName()
+    {
+        return $this->imageName;
     }
 
     /**

@@ -46,7 +46,7 @@ class Project extends Base
      *
      * @return $this
      */
-    public function setService($service)
+    public function setService(Service $service)
     {
         $this->service = $service;
 
