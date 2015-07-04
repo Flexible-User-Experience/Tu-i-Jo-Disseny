@@ -17,7 +17,7 @@ abstract class ServiceBase extends AbstractBase
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     protected $name;
 

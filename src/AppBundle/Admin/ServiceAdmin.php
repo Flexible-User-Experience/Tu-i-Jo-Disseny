@@ -128,6 +128,17 @@ class ServiceAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'description',
+                null,
+                array(
+                    'label' => 'Descripció',
+                    'attr'  => array(
+                        'style' => 'resize:vertical',
+                        'rows'  => 8,
+                    )
+                )
+            )
+            ->add(
                 'position',
                 null,
                 array(

@@ -27,6 +27,13 @@ class Service extends ServiceBase
     protected $category;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="text", length=2000, nullable=true)
+     */
+    protected $description;
+
+    /**
      *
      * Methods
      *
@@ -54,5 +61,29 @@ class Service extends ServiceBase
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set Description
+     *
+     * @param string $description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get Description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }
