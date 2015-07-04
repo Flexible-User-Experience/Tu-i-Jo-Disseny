@@ -24,16 +24,23 @@ abstract class AbstractBase
     protected $id;
 
     /**
-     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="enabled", type="boolean", nullable=false)
+     *
+     * @var boolean
+     */
+    protected $enabled = true;
+
+    /**
      * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="create")
      *
      * @var \DateTime
      */
     protected $createdAt;
 
     /**
-     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime", nullable=true)
+     * @Gedmo\Timestampable(on="update")
      *
      * @var \DateTime
      */
@@ -47,6 +54,14 @@ abstract class AbstractBase
     protected $removedAt;
 
     /**
+     *
+     * Methods
+     *
+     */
+
+    /**
+     * Get id
+     *
      * @return int
      */
     public function getId()
@@ -55,14 +70,46 @@ abstract class AbstractBase
     }
 
     /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     *
+     * @return $this
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * Set createdAt
+     *
      * @param \DateTime $createdAt
+     *
+     * @return $this
      */
     public function setCreatedAt(\DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
+
+        return $this;
     }
 
     /**
+     * Get createdAt
+     *
      * @return \DateTime
      */
     public function getCreatedAt()
@@ -71,14 +118,22 @@ abstract class AbstractBase
     }
 
     /**
+     * Set updatedAt
+     *
      * @param \DateTime $updatedAt
+     *
+     * @return $this
      */
     public function setUpdatedAt(\DateTime $updatedAt)
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
     }
 
     /**
+     * Get updatedAt
+     *
      * @return \DateTime
      */
     public function getUpdatedAt()
@@ -87,14 +142,22 @@ abstract class AbstractBase
     }
 
     /**
+     * Set removedAt
+     *
      * @param \DateTime $removedAt
+     *
+     * @return $this
      */
     public function setRemovedAt(\DateTime $removedAt)
     {
         $this->removedAt = $removedAt;
+
+        return $this;
     }
 
     /**
+     * Get removedAt
+     *
      * @return \DateTime
      */
     public function getRemovedAt()
@@ -103,17 +166,24 @@ abstract class AbstractBase
     }
 
     /**
+     * Remove (soft delete)
+     *
+     * @return $this
      */
     public function remove()
     {
         $this->setRemovedAt(new \DateTime());
+
+        return $this;
     }
 
     /**
+     * Is deleted?
+     *
      * @return bool
      */
     public function isDeleted()
     {
-        return $this->getRemovedAt() !== null;
+        return $this->removedAt !== null;
     }
 }
