@@ -9,6 +9,6 @@ namespace AppBundle\Repository;
  * @package  AppBundle\Repository
  * @author   David Romaní <david@flux.cat>
  */
-class ServiceRepository extends ServiceBaseRepository
+class ServiceRepository extends BaseRepository
 {
 }

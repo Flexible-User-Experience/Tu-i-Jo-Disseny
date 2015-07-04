@@ -13,3 +13,12 @@ AppBundle\Entity\Service:
     position: <current()>
     enabled: <boolean(70)>
     category: @serviceCategory<numberBetween(1, 5)>
+
+## Projects
+AppBundle\Entity\Project:
+  project{1..20}:
+    name: <current()> <sentence(3)>
+    description: <text(1000)>
+    position: <current()>
+    enabled: <boolean(70)>
+    service: @service<numberBetween(1, 10)>
