@@ -115,7 +115,8 @@ class ServiceCategoryAdmin extends BaseAdmin
                 'enabled',
                 null,
                 array(
-                    'label' => 'Actiu',
+                    'label'    => 'Actiu',
+                    'required' => false,
                 )
             );
     }
