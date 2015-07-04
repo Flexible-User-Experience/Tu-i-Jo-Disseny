@@ -20,6 +20,13 @@ use Gedmo\Mapping\Annotation as Gedmo;
 class Project extends Base
 {
     /**
+     * @ORM\ManyToMany(targetEntity="Partner", mappedBy="projects")
+     *
+     * @var ArrayCollection
+     */
+    protected $partners;
+
+    /**
      * @ORM\OneToMany(targetEntity="ProjectImage", mappedBy="project", cascade={"persist", "remove"}, orphanRemoval=true)
      * @ORM\OrderBy({"position" = "ASC"})
      *
@@ -53,7 +60,8 @@ class Project extends Base
      */
     public function __construct()
     {
-        $this->images = new ArrayCollection();
+        $this->partners = new ArrayCollection();
+        $this->images   = new ArrayCollection();
     }
 
     /**

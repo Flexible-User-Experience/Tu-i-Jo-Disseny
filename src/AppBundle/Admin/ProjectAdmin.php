@@ -139,7 +139,7 @@ class ProjectAdmin extends BaseAdmin
                 )
             )
             ->end();
-        if ($this->id($this->getSubject())) { // is edit mode, disable on new subjects
+        if ($this->id($this->getSubject())) { // only on edit mode, disable when creating new subjects
             $formMapper
                 ->with('Imatges', array('class' => 'col-md-6'))
                 ->add(

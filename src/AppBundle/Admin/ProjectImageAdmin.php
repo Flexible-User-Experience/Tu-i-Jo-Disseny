@@ -16,7 +16,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 class ProjectImageAdmin extends BaseAdmin
 {
     protected $baseRoutePattern = 'projects/image';
-    protected $datagridValues = array('_sort_by' => 'project.service.category.position');
+    protected $datagridValues = array('_sort_by' => 'position');
 
     /**
      * Configure list view
@@ -38,8 +38,11 @@ class ProjectImageAdmin extends BaseAdmin
                 'project',
                 null,
                 array(
-                    'label'    => 'Projecte',
-                    'editable' => false,
+                    'label'                            => 'Projecte',
+                    'editable'                         => false,
+                    'sortable'                         => true,
+                    'sort_field_mapping'               => array('fieldName' => 'name'),
+                    'sort_parent_association_mappings' => array(array('fieldName' => 'project')),
                 )
             )
             ->add(
@@ -103,23 +106,27 @@ class ProjectImageAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         // $myEntity = $this->getSubject();
+        $imageHelp = $this->getImageHelperFormMapperWithThumbnail();
         $formMapper
             ->with('Imatge', array('class' => 'col-md-6'))
             ->add(
                 'imageFile',
                 'file',
                 array(
-                    'label'    => 'Arxiu',
-                    'required' => false,
-                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
+                    'label'       => 'Arxiu',
+                    'required'    => false,
+                    'sonata_help' => $imageHelp,
+                    'help'        => $imageHelp,
                 )
             )
             ->add(
                 'project',
                 null,
                 array(
-                    'label'    => 'Projecte',
-                    'required' => true,
+                    'label' => 'Projecte',
+                    'attr'  => array(
+                        'hidden' => true,
+                    )
                 )
             )
             ->end()
