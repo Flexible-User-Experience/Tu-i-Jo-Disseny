@@ -11,3 +11,4 @@ AppBundle\Entity\Service:
     name: <current()> <sentence(4)>
     position: <current()>
     enabled: <boolean(70)>
+    category: @serviceCategory<numberBetween(1, 10)>

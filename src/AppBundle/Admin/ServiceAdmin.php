@@ -17,7 +17,7 @@ use Sonata\AdminBundle\Route\RouteCollection;
 class ServiceAdmin extends BaseAdmin
 {
     protected $baseRoutePattern = 'services/service';
-    protected $datagridValues = array('_sort_by' => 'position');
+    protected $datagridValues = array('_sort_by' => 'category.position');
 
     /**
      * Configure list view
@@ -27,6 +27,14 @@ class ServiceAdmin extends BaseAdmin
     protected function configureListFields(ListMapper $mapper)
     {
         $mapper
+            ->add(
+                'category',
+                null,
+                array(
+                    'label'    => 'Categoria',
+                    'editable' => false,
+                )
+            )
             ->add(
                 'name',
                 null,
@@ -73,6 +81,13 @@ class ServiceAdmin extends BaseAdmin
     {
         $datagrid
             ->add(
+                'category',
+                null,
+                array(
+                    'label'    => 'Categoria',
+                )
+            )
+            ->add(
                 'name',
                 null,
                 array(
@@ -97,6 +112,14 @@ class ServiceAdmin extends BaseAdmin
     {
         // $myEntity = $this->getSubject();
         $formMapper
+            ->add(
+                'category',
+                null,
+                array(
+                    'label'    => 'Categoria',
+                    'required' => true,
+                )
+            )
             ->add(
                 'name',
                 null,

@@ -18,4 +18,41 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Service extends ServiceBase
 {
+    /**
+     * @ORM\ManyToOne(targetEntity="ServiceCategory", inversedBy="services")
+     * @ORM\JoinColumns({@ORM\JoinColumn(name="category_id", referencedColumnName="id")})
+     *
+     * @var ServiceCategory
+     */
+    protected $category;
+
+    /**
+     *
+     * Methods
+     *
+     */
+
+    /**
+     * Set Category
+     *
+     * @param ServiceCategory $category
+     *
+     * @return $this
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get Category
+     *
+     * @return ServiceCategory
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
 }
