@@ -30,3 +30,13 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [AppBundle] ]
+    sonata.admin.projects_image:
+        class: AppBundle\Admin\ProjectImageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Projectes", label: "Imatge", show_in_dashboard: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\ProjectImage
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle] ]

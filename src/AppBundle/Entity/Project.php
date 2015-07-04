@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
@@ -18,6 +19,14 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Project extends Base
 {
+    /**
+     * @ORM\OneToMany(targetEntity="ProjectImage", mappedBy="project", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\OrderBy({"position" = "ASC"})
+     *
+     * @var ArrayCollection
+     */
+    protected $images;
+
     /**
      * @ORM\ManyToOne(targetEntity="Service", inversedBy="projects")
      * @ORM\JoinColumns({@ORM\JoinColumn(name="service_id", referencedColumnName="id")})
@@ -38,6 +47,67 @@ class Project extends Base
      * Methods
      *
      */
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
+
+    /**
+     * Set Images
+     *
+     * @param ArrayCollection $images
+     *
+     * @return $this
+     */
+    public function setImages(ArrayCollection $images)
+    {
+        $this->images = $images;
+
+        return $this;
+    }
+
+    /**
+     * Get Images
+     *
+     * @return ArrayCollection
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * Add image
+     *
+     * @param ProjectImage $image
+     *
+     * @return $this
+     */
+    public function addImage(ProjectImage $image)
+    {
+        $image->setProject($this);
+        $this->images[] = $image;
+
+        return $this;
+    }
+
+    /**
+     * Remove image
+     *
+     * @param ProjectImage $image
+     *
+     * @return $this
+     */
+    public function removeImage(ProjectImage $image)
+    {
+        $this->images->removeElement($image);
+
+        return $this;
+    }
 
     /**
      * Set Service

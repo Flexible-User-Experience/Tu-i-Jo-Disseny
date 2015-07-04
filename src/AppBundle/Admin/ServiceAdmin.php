@@ -35,19 +35,19 @@ class ServiceAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'category',
-                null,
-                array(
-                    'label'    => 'Categoria',
-                    'editable' => false,
-                )
-            )
-            ->add(
                 'name',
                 null,
                 array(
                     'label'    => 'Nom',
                     'editable' => true,
+                )
+            )
+            ->add(
+                'category',
+                null,
+                array(
+                    'label'    => 'Categoria',
+                    'editable' => false,
                 )
             )
             ->add(
@@ -88,17 +88,17 @@ class ServiceAdmin extends BaseAdmin
     {
         $datagrid
             ->add(
-                'category',
-                null,
-                array(
-                    'label' => 'Categoria',
-                )
-            )
-            ->add(
                 'name',
                 null,
                 array(
                     'label' => 'Nom',
+                )
+            )
+            ->add(
+                'category',
+                null,
+                array(
+                    'label' => 'Categoria',
                 )
             )
             ->add(
@@ -121,14 +121,6 @@ class ServiceAdmin extends BaseAdmin
         $formMapper
             ->with('Servei', array('class' => 'col-md-6'))
             ->add(
-                'category',
-                null,
-                array(
-                    'label'    => 'Categoria',
-                    'required' => true,
-                )
-            )
-            ->add(
                 'name',
                 null,
                 array(
@@ -144,6 +136,14 @@ class ServiceAdmin extends BaseAdmin
                         'style' => 'resize:vertical',
                         'rows'  => 8,
                     )
+                )
+            )
+            ->add(
+                'category',
+                null,
+                array(
+                    'label'    => 'Categoria',
+                    'required' => true,
                 )
             )
             ->end()

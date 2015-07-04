@@ -23,3 +23,11 @@ AppBundle\Entity\Project:
     position: <current()>
     enabled: <boolean(70)>
     service: @service<numberBetween(1, 10)>
+
+## Project images
+AppBundle\Entity\ProjectImage:
+  projectImage{1..40}:
+    imageName: <numberBetween(1, 5)>.jpg
+    position: <current()>
+    enabled: <boolean(70)>
+    project: @project<numberBetween(1, 20)>

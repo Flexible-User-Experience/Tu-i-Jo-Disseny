@@ -7,16 +7,16 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
 /**
- * Class ServiceAdmin
+ * Class ProjectImageAdmin
  *
  * @category Admin
  * @package  AppBundle\Admin
  * @author   David Romaní <david@flux.cat>
  */
-class ProjectAdmin extends BaseAdmin
+class ProjectImageAdmin extends BaseAdmin
 {
-    protected $baseRoutePattern = 'projects/project';
-    protected $datagridValues = array('_sort_by' => 'service.category.position');
+    protected $baseRoutePattern = 'projects/image';
+    protected $datagridValues = array('_sort_by' => 'project.service.category.position');
 
     /**
      * Configure list view
@@ -27,18 +27,18 @@ class ProjectAdmin extends BaseAdmin
     {
         $mapper
             ->add(
-                'name',
+                'imageFile',
                 null,
                 array(
-                    'label'    => 'Nom',
-                    'editable' => true,
+                    'label'    => 'Imatge',
+                    'template' => '::Admin/list__cell_image_field.html.twig'
                 )
             )
             ->add(
-                'service',
+                'project',
                 null,
                 array(
-                    'label'    => 'Servei',
+                    'label'    => 'Projecte',
                     'editable' => false,
                 )
             )
@@ -80,17 +80,10 @@ class ProjectAdmin extends BaseAdmin
     {
         $datagrid
             ->add(
-                'name',
+                'project',
                 null,
                 array(
-                    'label' => 'Nom',
-                )
-            )
-            ->add(
-                'service',
-                null,
-                array(
-                    'label' => 'Servei',
+                    'label' => 'Projecte',
                 )
             )
             ->add(
@@ -111,57 +104,25 @@ class ProjectAdmin extends BaseAdmin
     {
         // $myEntity = $this->getSubject();
         $formMapper
-            ->with('Projecte', array('class' => 'col-md-6'))
+            ->with('Imatge', array('class' => 'col-md-6'))
             ->add(
-                'name',
-                null,
+                'imageFile',
+                'file',
                 array(
-                    'label' => 'Nom',
+                    'label'    => 'Arxiu',
+                    'required' => false,
+                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
                 )
             )
             ->add(
-                'description',
+                'project',
                 null,
                 array(
-                    'label' => 'Descripció',
-                    'attr'  => array(
-                        'style' => 'resize:vertical',
-                        'rows'  => 8,
-                    )
-                )
-            )
-            ->add(
-                'service',
-                null,
-                array(
-                    'label'    => 'Servei',
+                    'label'    => 'Projecte',
                     'required' => true,
                 )
             )
-            ->end();
-        if ($this->id($this->getSubject())) { // is edit mode, disable on new subjects
-            $formMapper
-                ->with('Imatges', array('class' => 'col-md-6'))
-                ->add(
-                    'images',
-                    'sonata_type_collection',
-                    array(
-                        'cascade_validation' => true,
-                    ),
-                    array(
-                        'edit'     => 'inline',
-                        'inline'   => 'table',
-                        'sortable' => 'position',
-                    )
-                )
-                ->end()
-                ->setHelps(
-                    array(
-                        'images' => 'Màxim 10MB amb format PNG, JPG o GIF. Imatge amb amplada mínima de 1.200px'
-                    )
-                );
-        }
-        $formMapper
+            ->end()
             ->with('Controls', array('class' => 'col-md-6'))
             ->add(
                 'position',
