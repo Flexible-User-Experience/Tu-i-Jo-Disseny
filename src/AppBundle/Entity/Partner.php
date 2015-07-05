@@ -125,7 +125,6 @@ class Partner extends Base
      */
     public function addProject(Project $project)
     {
-        $project->setPartner($this);
         $this->projects[] = $project;
 
         return $this;
