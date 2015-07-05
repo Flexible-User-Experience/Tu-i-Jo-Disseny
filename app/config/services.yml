@@ -50,3 +50,23 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [AppBundle] ]
+    sonata.admin.blog_tag:
+        class: AppBundle\Admin\BlogTagAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Blog", label: "Etiqueta" }
+        arguments:
+            - ~
+            - AppBundle\Entity\BlogTag
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle] ]
+    sonata.admin.blog_post:
+        class: AppBundle\Admin\BlogPostAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Blog", label: "Post" }
+        arguments:
+            - ~
+            - AppBundle\Entity\BlogPost
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle] ]
