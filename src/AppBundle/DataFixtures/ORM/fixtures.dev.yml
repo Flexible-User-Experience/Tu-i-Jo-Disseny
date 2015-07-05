@@ -44,3 +44,19 @@ AppBundle\Entity\Partner:
     twitter: <username()>
     position: <current()>
     enabled: <boolean(70)>
+
+## Tags
+AppBundle\Entity\BlogTag:
+  tag{1..10}:
+    name: <current()> <word()>
+    position: <current()>
+    enabled: <boolean(70)>
+
+## Posts
+AppBundle\Entity\BlogPost:
+  post{1..40}:
+    name: <current()> <word()>
+    description: <text(1000)>
+    tags: <numberBetween(0, 6)>x @tag*
+    position: <current()>
+    enabled: <boolean(70)>
