@@ -59,6 +59,7 @@ class Partner extends Base
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Url()
      *
      * @var string
      */
@@ -66,6 +67,11 @@ class Partner extends Base
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Email(
+     *  checkHost = true,
+     *  checkMX = true,
+     *  strict = true
+     * )
      *
      * @var string
      */
