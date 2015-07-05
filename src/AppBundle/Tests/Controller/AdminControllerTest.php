@@ -55,6 +55,10 @@ class AdminControllerTest extends WebTestCase
             array('/admin/projects/image/create'),
             array('/admin/projects/image/1/edit'),
             array('/admin/projects/image/1/delete'),
+            array('/admin/partners/partner/list'),
+            array('/admin/partners/partner/create'),
+            array('/admin/partners/partner/1/edit'),
+            array('/admin/partners/partner/1/delete'),
         );
     }
 }

@@ -116,6 +116,7 @@ sonata_admin:
         groups:
             Serveis:
             Projectes:
+            Equip:
 
 # Swiftmailer Configuration
 swiftmailer:

@@ -15,9 +15,9 @@ use Gedmo\Mapping\Annotation as Gedmo;
 abstract class Base extends AbstractBase
 {
     /**
-     * @var string
-     *
      * @ORM\Column(type="string", length=255)
+     *
+     * @var string
      */
     protected $name;
 

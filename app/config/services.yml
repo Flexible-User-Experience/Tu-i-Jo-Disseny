@@ -40,3 +40,13 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [AppBundle] ]
+    sonata.admin.partners_partner:
+        class: AppBundle\Admin\PartnerAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Equip", label: "Col·laborador" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Partner
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle] ]

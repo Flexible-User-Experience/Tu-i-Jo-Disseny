@@ -59,9 +59,9 @@ class Service extends Base
     protected $imageName;
 
     /**
-     * @var string
-     *
      * @ORM\Column(type="text", length=2000, nullable=true)
+     *
+     * @var string
      */
     protected $description;
 

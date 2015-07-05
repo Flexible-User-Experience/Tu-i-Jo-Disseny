@@ -26,8 +26,21 @@ AppBundle\Entity\Project:
 
 ## Project images
 AppBundle\Entity\ProjectImage:
-  projectImage{1..40}:
+  imageProject{1..40}:
     imageName: <numberBetween(1, 5)>.jpg
     position: <current()>
     enabled: <boolean(70)>
     project: @project<numberBetween(1, 20)>
+
+## Partners
+AppBundle\Entity\Partner:
+  partner{1..5}:
+    name: <current()> <firstName()> <lastName()>
+    description: <text(100)>
+    projects: <numberBetween(0, 3)>x @project*
+    imageName: <numberBetween(1, 5)>.jpg
+    web: <url()>
+    email: <email()>
+    twitter: <username()>
+    position: <current()>
+    enabled: <boolean(70)>

@@ -43,9 +43,9 @@ class Project extends Base
     protected $service;
 
     /**
-     * @var string
-     *
      * @ORM\Column(type="text", length=2000, nullable=true)
+     *
+     * @var string
      */
     protected $description;
 

@@ -32,5 +32,6 @@ class RepositoriesTest extends WebTestCase
         $this->assertEquals(5, $this->em->getRepository('AppBundle:ServiceCategory')->getInstancesAmount());
         $this->assertEquals(10, $this->em->getRepository('AppBundle:Service')->getInstancesAmount());
         $this->assertEquals(20, $this->em->getRepository('AppBundle:Project')->getInstancesAmount());
+        $this->assertEquals(5, $this->em->getRepository('AppBundle:Partner')->getInstancesAmount());
     }
 }

@@ -32,9 +32,9 @@ class Partner extends Base
     protected $projects;
 
     /**
-     * @var string
-     *
      * @ORM\Column(type="text", length=2000, nullable=true)
+     *
+     * @var string
      */
     protected $description;
 
@@ -58,23 +58,23 @@ class Partner extends Base
     protected $imageName;
 
     /**
-     * @var string
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
-     * @ORM\Column(type="text", length=255, nullable=true)
+     * @var string
      */
     protected $web;
 
     /**
-     * @var string
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
-     * @ORM\Column(type="text", length=255, nullable=true)
+     * @var string
      */
     protected $email;
 
     /**
-     * @var string
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
-     * @ORM\Column(type="text", length=255, nullable=true)
+     * @var string
      */
     protected $twitter;
 
