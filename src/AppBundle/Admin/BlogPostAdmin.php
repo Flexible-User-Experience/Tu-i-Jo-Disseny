@@ -88,7 +88,7 @@ class BlogPostAdmin extends BaseAdmin
     {
         // $myEntity = $this->getSubject();
         $formMapper
-            ->with('Post', array('class' => 'col-md-6'))
+            ->with('Article', array('class' => 'col-md-6'))
             ->add(
                 'name',
                 null,

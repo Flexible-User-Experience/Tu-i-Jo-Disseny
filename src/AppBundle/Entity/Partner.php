@@ -23,6 +23,8 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class Partner extends Base
 {
+    use Traits\ImageTrait;
+
     /**
      * @ORM\ManyToMany(targetEntity="Project", inversedBy="partners")
      * @ORM\JoinTable(name="partners_projects")
@@ -49,13 +51,6 @@ class Partner extends Base
      * @var File $imageFile
      */
     protected $imageFile;
-
-    /**
-     * @ORM\Column(name="image_name", type="string", length=255)
-     *
-     * @var string $imageName
-     */
-    protected $imageName;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -148,57 +143,6 @@ class Partner extends Base
         $this->projects->removeElement($project);
 
         return $this;
-    }
-
-    /**
-     * Set ImageFile
-     *
-     * @param File $imageFile
-     *
-     * @return $this
-     */
-    public function setImageFile(File $imageFile = null)
-    {
-        $this->imageFile = $imageFile;
-        if ($imageFile) {
-            $this->updatedAt = new \DateTime('now');
-        }
-
-        return $this;
-    }
-
-    /**
-     * Get ImageFile
-     *
-     * @return File
-     */
-    public function getImageFile()
-    {
-        return $this->imageFile;
-    }
-
-    /**
-     * Set ImageName
-     *
-     * @param string $imageName
-     *
-     * @return $this
-     */
-    public function setImageName($imageName)
-    {
-        $this->imageName = $imageName;
-
-        return $this;
-    }
-
-    /**
-     * Get ImageName
-     *
-     * @return string
-     */
-    public function getImageName()
-    {
-        return $this->imageName;
     }
 
     /**

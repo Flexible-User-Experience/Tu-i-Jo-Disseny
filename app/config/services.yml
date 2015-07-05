@@ -63,7 +63,7 @@ services:
     sonata.admin.blog_post:
         class: AppBundle\Admin\BlogPostAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Blog", label: "Post" }
+            - { name: sonata.admin, manager_type: orm, group: "Blog", label: "Article" }
         arguments:
             - ~
             - AppBundle\Entity\BlogPost

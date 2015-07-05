@@ -5,6 +5,9 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Class BlogPost
@@ -16,9 +19,12 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BlogPostRepository")
  * @Gedmo\SoftDeleteable(fieldName="removedAt")
+ * @Vich\Uploadable
  */
 class BlogPost extends Base
 {
+    use Traits\ImageTrait;
+
     /**
      * @ORM\ManyToMany(targetEntity="BlogTag", inversedBy="posts")
      * @ORM\JoinTable(name="posts_tags")
@@ -33,6 +39,18 @@ class BlogPost extends Base
      * @var string
      */
     protected $description;
+
+    /**
+     * @Vich\UploadableField(mapping="post", fileNameProperty="imageName")
+     * @Assert\File(
+     *     maxSize = "10M",
+     *     mimeTypes = {"image/jpg", "image/jpeg", "image/png", "image/gif"},
+     * )
+     * @Assert\Image(minWidth = 1200)
+     *
+     * @var File $imageFile
+     */
+    protected $imageFile;
 
     /*
      *

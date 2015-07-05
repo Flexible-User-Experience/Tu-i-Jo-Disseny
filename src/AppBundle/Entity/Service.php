@@ -23,6 +23,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Service extends Base
 {
+    use Traits\ImageTrait;
+
     /**
      * @ORM\OneToMany(targetEntity="Project", mappedBy="service", cascade={"persist", "remove"}, orphanRemoval=true)
      * @ORM\OrderBy({"position" = "ASC"})
@@ -50,13 +52,6 @@ class Service extends Base
      * @var File $imageFile
      */
     protected $imageFile;
-
-    /**
-     * @ORM\Column(name="image_name", type="string", length=255)
-     *
-     * @var string $imageName
-     */
-    protected $imageName;
 
     /**
      * @ORM\Column(type="text", length=2000, nullable=true)
@@ -154,57 +149,6 @@ class Service extends Base
     public function getCategory()
     {
         return $this->category;
-    }
-
-    /**
-     * Set ImageFile
-     *
-     * @param File $imageFile
-     *
-     * @return $this
-     */
-    public function setImageFile(File $imageFile = null)
-    {
-        $this->imageFile = $imageFile;
-        if ($imageFile) {
-            $this->updatedAt = new \DateTime('now');
-        }
-
-        return $this;
-    }
-
-    /**
-     * Get ImageFile
-     *
-     * @return File
-     */
-    public function getImageFile()
-    {
-        return $this->imageFile;
-    }
-
-    /**
-     * Set ImageName
-     *
-     * @param string $imageName
-     *
-     * @return $this
-     */
-    public function setImageName($imageName)
-    {
-        $this->imageName = $imageName;
-
-        return $this;
-    }
-
-    /**
-     * Get ImageName
-     *
-     * @return string
-     */
-    public function getImageName()
-    {
-        return $this->imageName;
     }
 
     /**
