@@ -3,12 +3,12 @@
 namespace AppBundle\Repository;
 
 /**
- * Class ServiceCategoryRepository
+ * Class PartnerRepository
  *
  * @category Repository
  * @package  AppBundle\Repository
  * @author   David Romaní <david@flux.cat>
  */
-class ServiceCategoryRepository extends BaseRepository
+class PartnerRepository extends BaseRepository
 {
 }

@@ -5,7 +5,6 @@ namespace AppBundle\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Route\RouteCollection;
 
 /**
  * Class ServiceCategoryAdmin
@@ -97,6 +96,7 @@ class ServiceCategoryAdmin extends BaseAdmin
     {
         // $myEntity = $this->getSubject();
         $formMapper
+            ->with('Categoria', array('class' => 'col-md-6'))
             ->add(
                 'name',
                 null,
@@ -104,6 +104,8 @@ class ServiceCategoryAdmin extends BaseAdmin
                     'label' => 'Nom',
                 )
             )
+            ->end()
+            ->with('Controls', array('class' => 'col-md-6'))
             ->add(
                 'position',
                 null,
@@ -118,16 +120,7 @@ class ServiceCategoryAdmin extends BaseAdmin
                     'label'    => 'Actiu',
                     'required' => false,
                 )
-            );
-    }
-
-    /**
-     * Configure route collection
-     *
-     * @param RouteCollection $collection
-     */
-    protected function configureRoutes(RouteCollection $collection)
-    {
-        $collection->remove('show');
+            )
+            ->end();
     }
 }

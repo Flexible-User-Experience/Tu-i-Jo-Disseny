@@ -5,41 +5,40 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * Class Service
+ * Class Partner
  *
  * @category Entity
  * @package  AppBundle\Entity
  * @author   David Romaní <david@flux.cat>
  *
  * @ORM\Entity
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ServiceRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PartnerRepository")
  * @Gedmo\SoftDeleteable(fieldName="removedAt")
  * @Vich\Uploadable
  */
-class Service extends Base
+class Partner extends Base
 {
     use Traits\ImageTrait;
 
     /**
-     * @ORM\OneToMany(targetEntity="Project", mappedBy="service", cascade={"persist", "remove"}, orphanRemoval=true)
-     * @ORM\OrderBy({"position" = "ASC"})
+     * @ORM\ManyToMany(targetEntity="Project", inversedBy="partners")
+     * @ORM\JoinTable(name="partners_projects")
      *
      * @var ArrayCollection
      */
     protected $projects;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ServiceCategory", inversedBy="services")
-     * @ORM\JoinColumns({@ORM\JoinColumn(name="category_id", referencedColumnName="id")})
+     * @ORM\Column(type="text", length=2000, nullable=true)
      *
-     * @var ServiceCategory
+     * @var string
      */
-    protected $category;
+    protected $description;
 
     /**
      * @Vich\UploadableField(mapping="service", fileNameProperty="imageName")
@@ -54,11 +53,31 @@ class Service extends Base
     protected $imageFile;
 
     /**
-     * @ORM\Column(type="text", length=2000, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Url()
      *
      * @var string
      */
-    protected $description;
+    protected $web;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Email(
+     *  checkHost = true,
+     *  checkMX = true,
+     *  strict = true
+     * )
+     *
+     * @var string
+     */
+    protected $email;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @var string
+     */
+    protected $twitter;
 
     /**
      *
@@ -107,7 +126,6 @@ class Service extends Base
      */
     public function addProject(Project $project)
     {
-        $project->setService($this);
         $this->projects[] = $project;
 
         return $this;
@@ -125,30 +143,6 @@ class Service extends Base
         $this->projects->removeElement($project);
 
         return $this;
-    }
-
-    /**
-     * Set Category
-     *
-     * @param ServiceCategory $category
-     *
-     * @return $this
-     */
-    public function setCategory(ServiceCategory $category)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get Category
-     *
-     * @return ServiceCategory
-     */
-    public function getCategory()
-    {
-        return $this->category;
     }
 
     /**
@@ -173,5 +167,77 @@ class Service extends Base
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set Web
+     *
+     * @param string $web
+     *
+     * @return $this
+     */
+    public function setWeb($web)
+    {
+        $this->web = $web;
+
+        return $this;
+    }
+
+    /**
+     * Get Web
+     *
+     * @return string
+     */
+    public function getWeb()
+    {
+        return $this->web;
+    }
+
+    /**
+     * Set Email
+     *
+     * @param string $email
+     *
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get Email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set Twitter
+     *
+     * @param string $twitter
+     *
+     * @return $this
+     */
+    public function setTwitter($twitter)
+    {
+        $this->twitter = $twitter;
+
+        return $this;
+    }
+
+    /**
+     * Get Twitter
+     *
+     * @return string
+     */
+    public function getTwitter()
+    {
+        return $this->twitter;
     }
 }

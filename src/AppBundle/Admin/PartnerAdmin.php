@@ -7,16 +7,16 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
 /**
- * Class ServiceAdmin
+ * Class PartnerAdmin
  *
  * @category Admin
  * @package  AppBundle\Admin
  * @author   David Romaní <david@flux.cat>
  */
-class ServiceAdmin extends BaseAdmin
+class PartnerAdmin extends BaseAdmin
 {
-    protected $baseRoutePattern = 'services/service';
-    protected $datagridValues = array('_sort_by' => 'category.position');
+    protected $baseRoutePattern = 'partners/partner';
+    protected $datagridValues = array('_sort_by' => 'name');
 
     /**
      * Configure list view
@@ -43,11 +43,27 @@ class ServiceAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'category',
+                'projects',
                 null,
                 array(
-                    'label'    => 'Categoria',
+                    'label'    => 'Projectes',
                     'editable' => false,
+                )
+            )
+            ->add(
+                'email',
+                null,
+                array(
+                    'label'    => 'Email',
+                    'editable' => true,
+                )
+            )
+            ->add(
+                'twitter',
+                null,
+                array(
+                    'label'    => 'Twitter',
+                    'editable' => true,
                 )
             )
             ->add(
@@ -95,10 +111,24 @@ class ServiceAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'category',
+                'projects',
                 null,
                 array(
-                    'label' => 'Categoria',
+                    'label' => 'Projectes',
+                )
+            )
+            ->add(
+                'email',
+                null,
+                array(
+                    'label' => 'Email',
+                )
+            )
+            ->add(
+                'twitter',
+                null,
+                array(
+                    'label' => 'Twitter',
                 )
             )
             ->add(
@@ -119,7 +149,7 @@ class ServiceAdmin extends BaseAdmin
     {
         // $myEntity = $this->getSubject();
         $formMapper
-            ->with('Servei', array('class' => 'col-md-6'))
+            ->with('Col·laborador', array('class' => 'col-md-6'))
             ->add(
                 'name',
                 null,
@@ -139,11 +169,11 @@ class ServiceAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'category',
+                'projects',
                 null,
                 array(
-                    'label'    => 'Categoria',
-                    'required' => true,
+                    'label'    => 'Projectes',
+                    'required' => false,
                 )
             )
             ->end()
@@ -155,6 +185,29 @@ class ServiceAdmin extends BaseAdmin
                     'label'    => 'Arxiu',
                     'required' => false,
                     'help'     => $this->getImageHelperFormMapperWithThumbnail(),
+                )
+            )
+            ->end()
+            ->with('Contacte', array('class' => 'col-md-6'))
+            ->add(
+                'web',
+                null,
+                array(
+                    'label' => 'Web',
+                )
+            )
+            ->add(
+                'email',
+                null,
+                array(
+                    'label' => 'Email',
+                )
+            )
+            ->add(
+                'twitter',
+                null,
+                array(
+                    'label' => 'Twitter',
                 )
             )
             ->end()

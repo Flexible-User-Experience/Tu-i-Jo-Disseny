@@ -7,16 +7,16 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
 /**
- * Class ServiceAdmin
+ * Class ProjectImageAdmin
  *
  * @category Admin
  * @package  AppBundle\Admin
  * @author   David Romaní <david@flux.cat>
  */
-class ServiceAdmin extends BaseAdmin
+class ProjectImageAdmin extends BaseAdmin
 {
-    protected $baseRoutePattern = 'services/service';
-    protected $datagridValues = array('_sort_by' => 'category.position');
+    protected $baseRoutePattern = 'projects/image';
+    protected $datagridValues = array('_sort_by' => 'position');
 
     /**
      * Configure list view
@@ -35,19 +35,14 @@ class ServiceAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'name',
+                'project',
                 null,
                 array(
-                    'label'    => 'Nom',
-                    'editable' => true,
-                )
-            )
-            ->add(
-                'category',
-                null,
-                array(
-                    'label'    => 'Categoria',
-                    'editable' => false,
+                    'label'                            => 'Projecte',
+                    'editable'                         => false,
+                    'sortable'                         => true,
+                    'sort_field_mapping'               => array('fieldName' => 'name'),
+                    'sort_parent_association_mappings' => array(array('fieldName' => 'project')),
                 )
             )
             ->add(
@@ -88,17 +83,10 @@ class ServiceAdmin extends BaseAdmin
     {
         $datagrid
             ->add(
-                'name',
+                'project',
                 null,
                 array(
-                    'label' => 'Nom',
-                )
-            )
-            ->add(
-                'category',
-                null,
-                array(
-                    'label' => 'Categoria',
+                    'label' => 'Projecte',
                 )
             )
             ->add(
@@ -118,43 +106,27 @@ class ServiceAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         // $myEntity = $this->getSubject();
+        $imageHelp = $this->getImageHelperFormMapperWithThumbnail();
         $formMapper
-            ->with('Servei', array('class' => 'col-md-6'))
-            ->add(
-                'name',
-                null,
-                array(
-                    'label' => 'Nom',
-                )
-            )
-            ->add(
-                'description',
-                null,
-                array(
-                    'label' => 'Descripció',
-                    'attr'  => array(
-                        'style' => 'resize:vertical',
-                        'rows'  => 8,
-                    )
-                )
-            )
-            ->add(
-                'category',
-                null,
-                array(
-                    'label'    => 'Categoria',
-                    'required' => true,
-                )
-            )
-            ->end()
             ->with('Imatge', array('class' => 'col-md-6'))
             ->add(
                 'imageFile',
                 'file',
                 array(
-                    'label'    => 'Arxiu',
-                    'required' => false,
-                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
+                    'label'       => 'Arxiu',
+                    'required'    => false,
+                    'sonata_help' => $imageHelp,
+                    'help'        => $imageHelp,
+                )
+            )
+            ->add(
+                'project',
+                null,
+                array(
+                    'label' => 'Projecte',
+                    'attr'  => array(
+                        'hidden' => true,
+                    )
                 )
             )
             ->end()

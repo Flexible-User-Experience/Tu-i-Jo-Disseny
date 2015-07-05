@@ -7,16 +7,16 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
 /**
- * Class ServiceAdmin
+ * Class BlogPostAdmin
  *
  * @category Admin
  * @package  AppBundle\Admin
  * @author   David Romaní <david@flux.cat>
  */
-class ServiceAdmin extends BaseAdmin
+class BlogPostAdmin extends BaseAdmin
 {
-    protected $baseRoutePattern = 'services/service';
-    protected $datagridValues = array('_sort_by' => 'category.position');
+    protected $baseRoutePattern = 'blog/post';
+    protected $datagridValues = array('_sort_by' => 'createdAt');
 
     /**
      * Configure list view
@@ -27,34 +27,10 @@ class ServiceAdmin extends BaseAdmin
     {
         $mapper
             ->add(
-                'imageFile',
-                null,
-                array(
-                    'label'    => 'Imatge',
-                    'template' => '::Admin/list__cell_image_field.html.twig'
-                )
-            )
-            ->add(
                 'name',
                 null,
                 array(
                     'label'    => 'Nom',
-                    'editable' => true,
-                )
-            )
-            ->add(
-                'category',
-                null,
-                array(
-                    'label'    => 'Categoria',
-                    'editable' => false,
-                )
-            )
-            ->add(
-                'position',
-                null,
-                array(
-                    'label'    => 'Posició',
                     'editable' => true,
                 )
             )
@@ -95,13 +71,6 @@ class ServiceAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'category',
-                null,
-                array(
-                    'label' => 'Categoria',
-                )
-            )
-            ->add(
                 'enabled',
                 null,
                 array(
@@ -119,7 +88,7 @@ class ServiceAdmin extends BaseAdmin
     {
         // $myEntity = $this->getSubject();
         $formMapper
-            ->with('Servei', array('class' => 'col-md-6'))
+            ->with('Article', array('class' => 'col-md-6'))
             ->add(
                 'name',
                 null,
@@ -127,45 +96,8 @@ class ServiceAdmin extends BaseAdmin
                     'label' => 'Nom',
                 )
             )
-            ->add(
-                'description',
-                null,
-                array(
-                    'label' => 'Descripció',
-                    'attr'  => array(
-                        'style' => 'resize:vertical',
-                        'rows'  => 8,
-                    )
-                )
-            )
-            ->add(
-                'category',
-                null,
-                array(
-                    'label'    => 'Categoria',
-                    'required' => true,
-                )
-            )
-            ->end()
-            ->with('Imatge', array('class' => 'col-md-6'))
-            ->add(
-                'imageFile',
-                'file',
-                array(
-                    'label'    => 'Arxiu',
-                    'required' => false,
-                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
-                )
-            )
             ->end()
             ->with('Controls', array('class' => 'col-md-6'))
-            ->add(
-                'position',
-                null,
-                array(
-                    'label' => 'Posició',
-                )
-            )
             ->add(
                 'enabled',
                 null,

@@ -13,10 +13,10 @@ use Sonata\AdminBundle\Form\FormMapper;
  * @package  AppBundle\Admin
  * @author   David Romaní <david@flux.cat>
  */
-class ServiceAdmin extends BaseAdmin
+class ProjectAdmin extends BaseAdmin
 {
-    protected $baseRoutePattern = 'services/service';
-    protected $datagridValues = array('_sort_by' => 'category.position');
+    protected $baseRoutePattern = 'projects/project';
+    protected $datagridValues = array('_sort_by' => 'service.category.position');
 
     /**
      * Configure list view
@@ -27,14 +27,6 @@ class ServiceAdmin extends BaseAdmin
     {
         $mapper
             ->add(
-                'imageFile',
-                null,
-                array(
-                    'label'    => 'Imatge',
-                    'template' => '::Admin/list__cell_image_field.html.twig'
-                )
-            )
-            ->add(
                 'name',
                 null,
                 array(
@@ -43,10 +35,10 @@ class ServiceAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'category',
+                'service',
                 null,
                 array(
-                    'label'    => 'Categoria',
+                    'label'    => 'Servei',
                     'editable' => false,
                 )
             )
@@ -95,10 +87,10 @@ class ServiceAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'category',
+                'service',
                 null,
                 array(
-                    'label' => 'Categoria',
+                    'label' => 'Servei',
                 )
             )
             ->add(
@@ -119,7 +111,7 @@ class ServiceAdmin extends BaseAdmin
     {
         // $myEntity = $this->getSubject();
         $formMapper
-            ->with('Servei', array('class' => 'col-md-6'))
+            ->with('Projecte', array('class' => 'col-md-6'))
             ->add(
                 'name',
                 null,
@@ -139,25 +131,37 @@ class ServiceAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'category',
+                'service',
                 null,
                 array(
-                    'label'    => 'Categoria',
+                    'label'    => 'Servei',
                     'required' => true,
                 )
             )
-            ->end()
-            ->with('Imatge', array('class' => 'col-md-6'))
-            ->add(
-                'imageFile',
-                'file',
-                array(
-                    'label'    => 'Arxiu',
-                    'required' => false,
-                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
+            ->end();
+        if ($this->id($this->getSubject())) { // only on edit mode, disable when creating new subjects
+            $formMapper
+                ->with('Imatges', array('class' => 'col-md-6'))
+                ->add(
+                    'images',
+                    'sonata_type_collection',
+                    array(
+                        'cascade_validation' => true,
+                    ),
+                    array(
+                        'edit'     => 'inline',
+                        'inline'   => 'table',
+                        'sortable' => 'position',
+                    )
                 )
-            )
-            ->end()
+                ->end()
+                ->setHelps(
+                    array(
+                        'images' => 'Màxim 10MB amb format PNG, JPG o GIF. Imatge amb amplada mínima de 1.200px'
+                    )
+                );
+        }
+        $formMapper
             ->with('Controls', array('class' => 'col-md-6'))
             ->add(
                 'position',

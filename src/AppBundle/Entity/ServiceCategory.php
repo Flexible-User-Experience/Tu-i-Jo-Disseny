@@ -17,7 +17,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ServiceCategoryRepository")
  * @Gedmo\SoftDeleteable(fieldName="removedAt")
  */
-class ServiceCategory extends ServiceBase
+class ServiceCategory extends Base
 {
     /**
      * @ORM\OneToMany(targetEntity="Service", mappedBy="category", cascade={"persist", "remove"}, orphanRemoval=true)
@@ -48,7 +48,7 @@ class ServiceCategory extends ServiceBase
      *
      * @return $this
      */
-    public function setServices($services)
+    public function setServices(ArrayCollection $services)
     {
         $this->services = $services;
 

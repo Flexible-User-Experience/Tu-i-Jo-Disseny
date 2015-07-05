@@ -5,13 +5,13 @@ namespace AppBundle\Repository;
 use Doctrine\ORM\EntityRepository;
 
 /**
- * Class ServiceBaseRepository
+ * Class BaseRepository
  *
  * @category Repository
  * @package  AppBundle\Repository
  * @author   David Romaní <david@flux.cat>
  */
-abstract class ServiceBaseRepository extends EntityRepository
+abstract class BaseRepository extends EntityRepository
 {
     /**
      * Get total amount of instances persisted

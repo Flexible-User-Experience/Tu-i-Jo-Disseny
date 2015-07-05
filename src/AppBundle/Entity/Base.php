@@ -6,18 +6,18 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Class ServiceBase
+ * Class Base
  *
  * @category Entity
  * @package  AppBundle\Entity
  * @author   David Romaní <david@flux.cat>
  */
-abstract class ServiceBase extends AbstractBase
+abstract class Base extends AbstractBase
 {
     /**
-     * @var string
+     * @ORM\Column(type="string", length=255)
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @var string
      */
     protected $name;
 
