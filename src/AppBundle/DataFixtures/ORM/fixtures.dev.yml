@@ -61,3 +61,15 @@ AppBundle\Entity\BlogPost:
     imageName: <numberBetween(1, 5)>.jpg
     position: <current()>
     enabled: <boolean(70)>
+
+## Admin users
+AppBundle\Entity\User:
+    user1:
+        username: admin
+        plainPassword: admin
+        email: "admin@admin.com"
+        firstname: <name()>
+        lastname: <lastname()>
+        enabled: true
+        roles:
+            - ROLE_ADMIN

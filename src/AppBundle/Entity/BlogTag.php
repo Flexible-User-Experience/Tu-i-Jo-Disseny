@@ -13,8 +13,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @package  AppBundle\Entity
  * @author   David Romaní <david@flux.cat>
  *
- * @ORM\Entity
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BlogTagRepository")
+ * @ORM\Table(name="blog_tag")
  * @Gedmo\SoftDeleteable(fieldName="removedAt")
  */
 class BlogTag extends Base

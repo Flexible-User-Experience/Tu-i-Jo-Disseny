@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use Sonata\UserBundle\Entity\BaseGroup as BaseGroup;
 
 /**
@@ -10,11 +11,18 @@ use Sonata\UserBundle\Entity\BaseGroup as BaseGroup;
  * @category Entity
  * @package  AppBundle\Entity
  * @author   David Romaní <david@flux.cat>
+ *
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\GroupRepository")
+ * @ORM\Table(name="admin_group")
  */
 class Group extends BaseGroup
 {
     /**
-     * @var integer $id
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
+     *
+     * @var integer
      */
     protected $id;
 

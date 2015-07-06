@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use Sonata\UserBundle\Entity\BaseUser as BaseUser;
 
 /**
@@ -10,11 +11,18 @@ use Sonata\UserBundle\Entity\BaseUser as BaseUser;
  * @category Entity
  * @package  AppBundle\Entity
  * @author   David Romaní <david@flux.cat>
+ *
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
+ * @ORM\Table(name="admin_user")
  */
 class User extends BaseUser
 {
     /**
-     * @var integer $id
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
+     *
+     * @var integer
      */
     protected $id;
 
