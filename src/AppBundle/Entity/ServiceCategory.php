@@ -13,8 +13,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @package  AppBundle\Entity
  * @author   David Romaní <david@flux.cat>
  *
- * @ORM\Entity
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ServiceCategoryRepository")
+ * @ORM\Table(name="service_category")
  * @Gedmo\SoftDeleteable(fieldName="removedAt")
  */
 class ServiceCategory extends Base

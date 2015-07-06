@@ -16,8 +16,8 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @package  AppBundle\Entity
  * @author   David Romaní <david@flux.cat>
  *
- * @ORM\Entity
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PartnerRepository")
+ * @ORM\Table(name="partner")
  * @Gedmo\SoftDeleteable(fieldName="removedAt")
  * @Vich\Uploadable
  */

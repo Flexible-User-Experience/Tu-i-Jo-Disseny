@@ -22,11 +22,13 @@
         "incenteev/composer-parameter-handler": "~2.0",
 
         "cypresslab/gitelephant-bundle": "dev-develop",
-        "egulias/email-validator": "1.2.*",
         "hautelook/alice-bundle": "0.*",
         "liip/imagine-bundle": "1.*",
         "sonata-project/admin-bundle": "2.4.x-dev",
+        "sonata-project/datagrid-bundle": "2.2.x-dev",
         "sonata-project/doctrine-orm-admin-bundle": "2.4.x-dev",
+        "sonata-project/intl-bundle": "2.2.x-dev",
+        "sonata-project/user-bundle": "2.3.x-dev",
         "stof/doctrine-extensions-bundle": "1.*",
         "vich/uploader-bundle": "0.*"
     },
