@@ -2,6 +2,7 @@
 /app/cache/*
 !app/cache/.gitkeep
 /app/config/parameters.yml
+/app/config/deploy.rb
 /app/databases/*
 !app/databases/.gitkeep
 /app/logs/*
@@ -11,10 +12,12 @@
 /bin/
 /bower_components/*
 /build/
+/Capfile
 /composer.phar
 /components/*
 /gulp-config.json
 /node_modules/*
+/src/AppBundle/DataFixtures/ORM/fixtures.prod.yml
 /vendor/
 /web/bundles/
 /web/media/cache/
