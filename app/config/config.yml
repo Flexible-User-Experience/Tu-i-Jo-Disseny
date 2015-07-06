@@ -124,6 +124,8 @@ sonata_admin:
             Projectes:
             Equip:
             Blog:
+    templates:
+        layout: ::Admin/layout.html.twig
 
 # Sonata Block
 sonata_block:

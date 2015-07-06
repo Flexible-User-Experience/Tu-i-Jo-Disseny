@@ -21,10 +21,19 @@ class AdminControllerTest extends WebTestCase
      */
     public function testAdminPagesAreSuccessful($url)
     {
-        $client = $this->createClient(array(), array(
-            'PHP_AUTH_USER' => 'admin',
+        $client = static::createClient(array(), array(
+            'PHP_AUTH_USER' => 'admin@admin.com',
             'PHP_AUTH_PW'   => 'admin',
         ));
+//        $client = static::createClient();
+//        $crawler = $client->request('GET', '/admin/login');
+//        $form = $crawler->selectButton('submit')->form(
+//            array(
+//                'username' => 'admin',
+//                'password' => 'admin',
+//            )
+//        );
+//        $client->submit($form);
         $client->request('GET', $url);
 
         $this->assertTrue($client->getResponse()->isSuccessful());
