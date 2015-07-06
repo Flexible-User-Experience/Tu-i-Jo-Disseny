@@ -110,22 +110,36 @@ liip_imagine:
 
 # Sonata Admin
 sonata_admin:
-    title: 'Tu&Jo CMS'
-#    title_logo: /bundles/demofony2app/images/logo-without-text-admin.png
+    title: " "
+    title_logo: "/bundles/app/images/logotip-fons-2.png"
     options:
         html5_validate: true
         confirm_exit:   true
         use_select2:    true
         pager_links:    10
     persist_filters: true
-    dashboard:
-        groups:
-            Serveis:
-            Projectes:
-            Equip:
-            Blog:
     templates:
         layout: ::Admin/layout.html.twig
+    dashboard:
+        blocks:
+            -
+                position: top
+                type: sonata.block.service.text
+                class: col-md-12
+                settings:
+                    content: >
+                        <h1 style="margin: -20px 0 10px 0">Administrador de continguts</h1>
+                        <h4 style="margin-bottom: 40px">Benvingut a l'administrador de continguts de la pàgina web <a href="http://www.tujodisseny.com" target="_blank">www.tujodisseny.com</a></h4>
+            -
+                position: left
+                type: sonata.admin.block.admin_list
+            -
+                position: bottom
+                type: sonata.block.service.text
+                class: col-md-12
+                settings:
+                    content: >
+                        <div class="alert alert-primary" style="margin:40px 0"><p><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Per rebre assistència tècnica o ajuda envieu un missatge a <a href="mailto:suport@flux.cat?subject=Ajuda administrador de continguts Tu&Jo Disseny" style="color:#000">suport@flux.cat</a></p></div>
 
 # Sonata Block
 sonata_block:
