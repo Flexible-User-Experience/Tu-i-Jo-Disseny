@@ -1,10 +1,15 @@
 imports:
     - { resource: config_dev.yml }
 
+security:
+    firewalls:
+        admin:
+            http_basic: ~
+
 framework:
     test: ~
     session:
-        storage_id: session.storage.mock_file
+        storage_id: session.storage.filesystem
     profiler:
         collect: false
 
@@ -20,3 +25,7 @@ doctrine:
         driver: "pdo_sqlite"
         path:   "%kernel.root_dir%/databases/test.db3"
         memory: true
+
+liip_functional_test:
+    cache_sqlite_db: true
+    query_count.max_query_count: 50

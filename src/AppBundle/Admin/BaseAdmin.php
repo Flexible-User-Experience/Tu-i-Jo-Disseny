@@ -24,6 +24,8 @@ abstract class BaseAdmin extends Admin
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->remove('show');
+        $collection->remove('delete');
+        $collection->remove('batch');
     }
 
     /**

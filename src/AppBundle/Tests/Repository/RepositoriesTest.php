@@ -19,7 +19,7 @@ class RepositoriesTest extends WebTestCase
 
     public function setUp()
     {
-        $kernel = static::createKernel();
+        $kernel = $this->createKernel();
         $kernel->boot();
         $this->em = $kernel->getContainer()->get('doctrine.orm.entity_manager');
     }
