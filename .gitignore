@@ -17,7 +17,6 @@
 /components/*
 /gulp-config.json
 /node_modules/*
-/src/AppBundle/DataFixtures/ORM/fixtures.prod.yml
 /vendor/
 /web/bundles/
 /web/media/cache/
