@@ -27,7 +27,6 @@ class AppKernel extends Kernel
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\DatagridBundle\SonataDatagridBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
-            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Sonata\IntlBundle\SonataIntlBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
