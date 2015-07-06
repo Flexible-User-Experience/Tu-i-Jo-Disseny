@@ -121,6 +121,11 @@ sonata_admin:
     templates:
         layout: ::Admin/layout.html.twig
     dashboard:
+        groups:
+            Serveis:
+            Projectes:
+            Equip:
+            Blog:
         blocks:
             -
                 position: top
