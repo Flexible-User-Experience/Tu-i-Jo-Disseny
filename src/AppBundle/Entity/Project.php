@@ -5,6 +5,9 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Project
@@ -16,15 +19,30 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProjectRepository")
  * @ORM\Table(name="project")
  * @Gedmo\SoftDeleteable(fieldName="removedAt")
+ * @Vich\Uploadable
  */
 class Project extends Base
 {
+    use Traits\ImageTrait;
+
     /**
      * @ORM\ManyToMany(targetEntity="Partner", mappedBy="projects")
      *
      * @var ArrayCollection
      */
     protected $partners;
+
+    /**
+     * @Vich\UploadableField(mapping="project", fileNameProperty="imageName")
+     * @Assert\File(
+     *     maxSize = "10M",
+     *     mimeTypes = {"image/jpg", "image/jpeg", "image/png", "image/gif"},
+     * )
+     * @Assert\Image(minWidth = 1200)
+     *
+     * @var File $imageFile
+     */
+    protected $imageFile;
 
     /**
      * @ORM\OneToMany(targetEntity="ProjectImage", mappedBy="project", cascade={"persist", "remove"}, orphanRemoval=true)

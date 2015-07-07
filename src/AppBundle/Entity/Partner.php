@@ -41,7 +41,7 @@ class Partner extends Base
     protected $description;
 
     /**
-     * @Vich\UploadableField(mapping="service", fileNameProperty="imageName")
+     * @Vich\UploadableField(mapping="partner", fileNameProperty="imageName")
      * @Assert\File(
      *     maxSize = "10M",
      *     mimeTypes = {"image/jpg", "image/jpeg", "image/png", "image/gif"},

@@ -27,6 +27,14 @@ class ProjectAdmin extends BaseAdmin
     {
         $mapper
             ->add(
+                'imageFile',
+                null,
+                array(
+                    'label'    => 'Imatge',
+                    'template' => '::Admin/list__cell_image_field.html.twig'
+                )
+            )
+            ->add(
                 'name',
                 null,
                 array(
@@ -154,15 +162,26 @@ class ProjectAdmin extends BaseAdmin
                     'required' => false,
                 )
             )
+            ->end()
+            ->with('Imatge principal', array('class' => 'col-md-6'))
+            ->add(
+                'imageFile',
+                'file',
+                array(
+                    'label'    => 'Arxiu',
+                    'required' => false,
+                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
+                )
+            )
             ->end();
         if ($this->id($this->getSubject())) { // only on edit mode, disable when creating new subjects
             $formMapper
-                ->with('Imatges', array('class' => 'col-md-6'))
+                ->with('Imatges addicionals', array('class' => 'col-md-6'))
                 ->add(
                     'images',
                     'sonata_type_collection',
                     array(
-                        'label'              => 'Arxius',
+                        'label'              => ' ',
                         'required'           => false,
                         'cascade_validation' => true,
                     ),

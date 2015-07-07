@@ -16,7 +16,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 class BlogPostAdmin extends BaseAdmin
 {
     protected $baseRoutePattern = 'blog/post';
-    protected $datagridValues = array('_sort_by' => 'createdAt');
+    protected $datagridValues = array('_sort_by' => 'publishedAt');
 
     /**
      * Configure list view
@@ -27,11 +27,35 @@ class BlogPostAdmin extends BaseAdmin
     {
         $mapper
             ->add(
+                'imageFile',
+                null,
+                array(
+                    'label'    => 'Imatge',
+                    'template' => '::Admin/list__cell_image_field.html.twig'
+                )
+            )
+            ->add(
                 'name',
                 null,
                 array(
                     'label'    => 'Nom',
                     'editable' => true,
+                )
+            )
+            ->add(
+                'tags',
+                null,
+                array(
+                    'label'    => 'Etiquetes',
+                    'editable' => false,
+                )
+            )
+            ->add(
+                'publishedAt',
+                null,
+                array(
+                    'label'    => 'Data publicació',
+                    'editable' => false,
                 )
             )
             ->add(
@@ -70,6 +94,20 @@ class BlogPostAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'tags',
+                null,
+                array(
+                    'label'    => 'Etiquetes',
+                )
+            )
+            ->add(
+                'publishedAt',
+                null,
+                array(
+                    'label'    => 'Data publicació',
+                )
+            )
+            ->add(
                 'enabled',
                 null,
                 array(
@@ -85,7 +123,6 @@ class BlogPostAdmin extends BaseAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        // $myEntity = $this->getSubject();
         $formMapper
             ->with('Article', array('class' => 'col-md-6'))
             ->add(
@@ -93,6 +130,43 @@ class BlogPostAdmin extends BaseAdmin
                 null,
                 array(
                     'label' => 'Nom',
+                )
+            )
+            ->add(
+                'description',
+                null,
+                array(
+                    'label' => 'Descripció',
+                    'attr'  => array(
+                        'style' => 'resize:vertical',
+                        'rows'  => 13,
+                    )
+                )
+            )
+            ->add(
+                'tags',
+                null,
+                array(
+                    'label'    => 'Etiquetes',
+                    'required' => false,
+                )
+            )
+            ->add(
+                'publishedAt',
+                null,
+                array(
+                    'label'    => 'Data publicació',
+                )
+            )
+            ->end()
+            ->with('Imatge', array('class' => 'col-md-6'))
+            ->add(
+                'imageFile',
+                'file',
+                array(
+                    'label'    => 'Arxiu',
+                    'required' => false,
+                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
                 )
             )
             ->end()

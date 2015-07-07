@@ -52,6 +52,13 @@ class BlogPost extends Base
      */
     protected $imageFile;
 
+    /**
+     * @ORM\Column(type="date")
+     *
+     * @var \DateTime
+     */
+    protected $publishedAt;
+
     /*
      *
      * Methods
@@ -140,5 +147,29 @@ class BlogPost extends Base
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set PublishedAt
+     *
+     * @param \DateTime $publishedAt
+     *
+     * @return $this
+     */
+    public function setPublishedAt($publishedAt)
+    {
+        $this->publishedAt = $publishedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get PublishedAt
+     *
+     * @return \DateTime
+     */
+    public function getPublishedAt()
+    {
+        return $this->publishedAt;
     }
 }
