@@ -2,8 +2,7 @@
 
 namespace AppBundle\Tests\Repository;
 
-use Doctrine\ORM\EntityManager;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Liip\FunctionalTestBundle\Test\WebTestCase;
 
 /**
  * Class RepositoriesTest
@@ -14,26 +13,18 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  */
 class RepositoriesTest extends WebTestCase
 {
-    /** @var EntityManager */
-    private $em;
-
-    public function setUp()
-    {
-        $kernel = $this->createKernel();
-        $kernel->boot();
-        $this->em = $kernel->getContainer()->get('doctrine.orm.entity_manager');
-    }
-
     /**
      * Test repository methods
      */
     public function testRepository()
     {
-        $this->assertEquals(5, $this->em->getRepository('AppBundle:ServiceCategory')->getInstancesAmount());
-        $this->assertEquals(10, $this->em->getRepository('AppBundle:Service')->getInstancesAmount());
-        $this->assertEquals(20, $this->em->getRepository('AppBundle:Project')->getInstancesAmount());
-        $this->assertEquals(5, $this->em->getRepository('AppBundle:Partner')->getInstancesAmount());
-        $this->assertEquals(5, $this->em->getRepository('AppBundle:BlogTag')->getInstancesAmount());
-        $this->assertEquals(10, $this->em->getRepository('AppBundle:BlogPost')->getInstancesAmount());
+        $this->loadFixtures(array('AppBundle\DataFixtures\ORM\LoadFixtures'));
+        $em = $this->getContainer()->get('doctrine')->getManager();
+        $this->assertEquals(5, $em->getRepository('AppBundle:ServiceCategory')->getInstancesAmount());
+        $this->assertEquals(10, $em->getRepository('AppBundle:Service')->getInstancesAmount());
+        $this->assertEquals(20, $em->getRepository('AppBundle:Project')->getInstancesAmount());
+        $this->assertEquals(5, $em->getRepository('AppBundle:Partner')->getInstancesAmount());
+        $this->assertEquals(5, $em->getRepository('AppBundle:BlogTag')->getInstancesAmount());
+        $this->assertEquals(10, $em->getRepository('AppBundle:BlogPost')->getInstancesAmount());
     }
 }

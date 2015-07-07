@@ -14,6 +14,11 @@ use Symfony\Bundle\FrameworkBundle\Client;
  */
 class AdminControllerTest extends WebTestCase
 {
+    public function setUp()
+    {
+        $this->loadFixtures(array('AppBundle\DataFixtures\ORM\LoadFixtures'));
+    }
+
     /**
      * Test HTTP request is successful
      *
@@ -83,26 +88,30 @@ class AdminControllerTest extends WebTestCase
     public function provideNotFoundUrls()
     {
         return array(
+            array('/admin/services/category/1/show'),
             array('/admin/services/category/1/delete'),
+            array('/admin/services/service/1/show'),
             array('/admin/services/service/1/delete'),
+            array('/admin/projects/project/1/show'),
             array('/admin/projects/project/1/delete'),
+            array('/admin/projects/image/1/show'),
             array('/admin/projects/image/1/delete'),
+            array('/admin/partners/partner/1/show'),
             array('/admin/partners/partner/1/delete'),
-            array('/admin/blog/post/1/delete'),
+            array('/admin/blog/tag/1/show'),
+            array('/admin/blog/tag/1/delete'),
+            array('/admin/blog/post/1/show'),
             array('/admin/blog/post/1/delete'),
         );
     }
 
     /**
-     * Get authenticated user
+     * Get authenticated user with Liip Funcitonal Test Bundle
      *
      * @return Client
      */
     private function getAuthenticadedUser()
     {
-        return $this->createClient(array(), array(
-            'PHP_AUTH_USER' => 'admin',
-            'PHP_AUTH_PW'   => 'admin',
-        ));
+        return static::makeClient(true);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace AppBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Liip\FunctionalTestBundle\Test\WebTestCase;
 
 /**
  * Class FrontendControllerTest
@@ -21,7 +21,8 @@ class FrontendControllerTest extends WebTestCase
      */
     public function testFrontendPagesAreSuccessful($url)
     {
-        $client = $this->createClient();
+        $this->loadFixtures(array());
+        $client = static::createClient();
         $client->request('GET', $url);
 
         $this->assertTrue($client->getResponse()->isSuccessful());
