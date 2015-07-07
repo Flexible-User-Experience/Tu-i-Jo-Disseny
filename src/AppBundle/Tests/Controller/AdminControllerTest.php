@@ -14,6 +14,9 @@ use Symfony\Bundle\FrameworkBundle\Client;
  */
 class AdminControllerTest extends WebTestCase
 {
+    /**
+     * Set up test
+     */
     public function setUp()
     {
         $this->loadFixtures(array('AppBundle\DataFixtures\ORM\LoadFixtures'));
@@ -30,6 +33,7 @@ class AdminControllerTest extends WebTestCase
         $client = $this->getAuthenticadedUser();
         $client->request('GET', $url);
 
+        //$this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
@@ -90,18 +94,25 @@ class AdminControllerTest extends WebTestCase
         return array(
             array('/admin/services/category/1/show'),
             array('/admin/services/category/1/delete'),
+            array('/admin/services/category/batch'),
             array('/admin/services/service/1/show'),
             array('/admin/services/service/1/delete'),
+            array('/admin/services/service/batch'),
             array('/admin/projects/project/1/show'),
             array('/admin/projects/project/1/delete'),
+            array('/admin/projects/project/batch'),
             array('/admin/projects/image/1/show'),
             array('/admin/projects/image/1/delete'),
+            array('/admin/projects/image/batch'),
             array('/admin/partners/partner/1/show'),
             array('/admin/partners/partner/1/delete'),
+            array('/admin/partners/partner/batch'),
             array('/admin/blog/tag/1/show'),
             array('/admin/blog/tag/1/delete'),
+            array('/admin/blog/tag/batch'),
             array('/admin/blog/post/1/show'),
             array('/admin/blog/post/1/delete'),
+            array('/admin/blog/post/batch'),
         );
     }
 

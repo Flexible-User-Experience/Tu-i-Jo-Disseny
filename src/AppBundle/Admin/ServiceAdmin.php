@@ -133,7 +133,7 @@ class ServiceAdmin extends BaseAdmin
                     'label' => 'Descripció',
                     'attr'  => array(
                         'style' => 'resize:vertical',
-                        'rows'  => 8,
+                        'rows'  => 13,
                     )
                 )
             )

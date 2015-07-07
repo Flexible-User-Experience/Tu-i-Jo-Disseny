@@ -35,12 +35,12 @@ class Project extends Base
     protected $images;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Service", inversedBy="projects")
-     * @ORM\JoinColumns({@ORM\JoinColumn(name="service_id", referencedColumnName="id")})
+     * @ORM\ManyToMany(targetEntity="Service", inversedBy="projects")
+     * @ORM\JoinTable(name="projects_services")
      *
-     * @var Service
+     * @var ArrayCollection
      */
-    protected $service;
+    protected $services;
 
     /**
      * @ORM\Column(type="text", length=2000, nullable=true)
@@ -62,6 +62,7 @@ class Project extends Base
     {
         $this->partners = new ArrayCollection();
         $this->images   = new ArrayCollection();
+        $this->services = new ArrayCollection();
     }
 
     /**
@@ -170,27 +171,55 @@ class Project extends Base
     }
 
     /**
-     * Set Service
+     * Set Services
      *
-     * @param Service $service
+     * @param ArrayCollection $services
      *
      * @return $this
      */
-    public function setService(Service $service)
+    public function setServices(ArrayCollection $services)
     {
-        $this->service = $service;
+        $this->services = $services;
 
         return $this;
     }
 
     /**
-     * Get Service
+     * Get Services
      *
-     * @return Service
+     * @return ArrayCollection
      */
-    public function getService()
+    public function getServices()
     {
-        return $this->service;
+        return $this->services;
+    }
+
+    /**
+     * Add service
+     *
+     * @param Service $service
+     *
+     * @return $this
+     */
+    public function addService(Service $service)
+    {
+        $this->services[] = $service;
+
+        return $this;
+    }
+
+    /**
+     * Remove service
+     *
+     * @param Service $service
+     *
+     * @return $this
+     */
+    public function removeService(Service $service)
+    {
+        $this->services->removeElement($service);
+
+        return $this;
     }
 
     /**
