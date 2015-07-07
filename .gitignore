@@ -36,3 +36,4 @@
 !web/uploads/projects/4.jpg
 !web/uploads/projects/5.jpg
 !.travis.yml
+/secret.hack
