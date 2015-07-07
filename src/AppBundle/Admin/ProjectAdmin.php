@@ -146,17 +146,6 @@ class ProjectAdmin extends BaseAdmin
                 )
             )
             ->end()
-            ->with('Imatge', array('class' => 'col-md-6'))
-            ->add(
-                'imageFile',
-                'file',
-                array(
-                    'label'    => 'Arxiu',
-                    'required' => false,
-                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
-                )
-            )
-            ->end()
             ->with('Controls', array('class' => 'col-md-6'))
             ->add(
                 'position',
@@ -171,6 +160,17 @@ class ProjectAdmin extends BaseAdmin
                 array(
                     'label'    => 'Actiu',
                     'required' => false,
+                )
+            )
+            ->end()
+            ->with('Imatge principal', array('class' => 'col-md-6'))
+            ->add(
+                'imageFile',
+                'file',
+                array(
+                    'label'    => 'Arxiu',
+                    'required' => false,
+                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
                 )
             )
             ->end();

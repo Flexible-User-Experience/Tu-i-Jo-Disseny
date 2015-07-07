@@ -66,8 +66,8 @@ AppBundle\Entity\BlogPost:
 ## Admin users
 AppBundle\Entity\User:
     user1:
-        username: "%private_test_user%"
-        plainPassword: "%private_test_pass%"
+        username: admin
+        plainPassword: admin
         email: "admin@admin.com"
         firstname: <name()>
         lastname: <lastname()>
