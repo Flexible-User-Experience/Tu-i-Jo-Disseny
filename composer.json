@@ -1,5 +1,6 @@
 {
     "name": "david/tu.i.jo.disseny",
+    "description": "Tu&Jo Disseny Symfony2 webapp",
     "license": "proprietary",
     "type": "project",
     "autoload": {

@@ -28,5 +28,5 @@ doctrine:
 liip_functional_test:
     cache_sqlite_db: true
     authentication:
-        username: "admin"
-        password: "admin"
+        username: "%private_test_user%"
+        password: "%private_test_pass%"
