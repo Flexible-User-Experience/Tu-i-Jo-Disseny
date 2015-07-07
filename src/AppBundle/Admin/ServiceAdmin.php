@@ -72,7 +72,6 @@ class ServiceAdmin extends BaseAdmin
                 array(
                     'actions' => array(
                         'edit'   => array(),
-                        'delete' => array(),
                     ),
                     'label'   => 'Accions',
                 )
@@ -134,7 +133,7 @@ class ServiceAdmin extends BaseAdmin
                     'label' => 'Descripció',
                     'attr'  => array(
                         'style' => 'resize:vertical',
-                        'rows'  => 8,
+                        'rows'  => 13,
                     )
                 )
             )

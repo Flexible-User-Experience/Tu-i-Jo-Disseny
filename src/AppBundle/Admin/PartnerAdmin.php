@@ -16,7 +16,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 class PartnerAdmin extends BaseAdmin
 {
     protected $baseRoutePattern = 'partners/partner';
-    protected $datagridValues = array('_sort_by' => 'name');
+    protected $datagridValues = array('_sort_by' => 'position');
 
     /**
      * Configure list view
@@ -40,14 +40,6 @@ class PartnerAdmin extends BaseAdmin
                 array(
                     'label'    => 'Nom',
                     'editable' => true,
-                )
-            )
-            ->add(
-                'projects',
-                null,
-                array(
-                    'label'    => 'Projectes',
-                    'editable' => false,
                 )
             )
             ->add(
@@ -88,7 +80,6 @@ class PartnerAdmin extends BaseAdmin
                 array(
                     'actions' => array(
                         'edit'   => array(),
-                        'delete' => array(),
                     ),
                     'label'   => 'Accions',
                 )
@@ -164,7 +155,7 @@ class PartnerAdmin extends BaseAdmin
                     'label' => 'Descripció',
                     'attr'  => array(
                         'style' => 'resize:vertical',
-                        'rows'  => 8,
+                        'rows'  => 13,
                     )
                 )
             )

@@ -1,4 +1,6 @@
-tu-i-jo-disseny
-===============
+Tu&Jo Disseny Symfony2 webapp
+=============================
 
-A Symfony project created on July 3, 2015, 6:20 pm.
+[![Build Status](https://travis-ci.org/Flexible-User-Experience/Tu-i-Jo-Disseny.svg?branch=master)](https://travis-ci.org/Flexible-User-Experience/Tu-i-Jo-Disseny)
+
+Custom webpage with simple & easy content management system

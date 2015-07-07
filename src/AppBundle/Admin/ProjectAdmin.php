@@ -16,7 +16,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 class ProjectAdmin extends BaseAdmin
 {
     protected $baseRoutePattern = 'projects/project';
-    protected $datagridValues = array('_sort_by' => 'service.category.position');
+    protected $datagridValues = array('_sort_by' => 'name');
 
     /**
      * Configure list view
@@ -35,10 +35,10 @@ class ProjectAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'service',
+                'services',
                 null,
                 array(
-                    'label'    => 'Servei',
+                    'label'    => 'Serveis',
                     'editable' => false,
                 )
             )
@@ -63,8 +63,7 @@ class ProjectAdmin extends BaseAdmin
                 'actions',
                 array(
                     'actions' => array(
-                        'edit'   => array(),
-                        'delete' => array(),
+                        'edit' => array(),
                     ),
                     'label'   => 'Accions',
                 )
@@ -87,10 +86,10 @@ class ProjectAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'service',
+                'services',
                 null,
                 array(
-                    'label' => 'Servei',
+                    'label' => 'Serveis',
                 )
             )
             ->add(
@@ -126,42 +125,19 @@ class ProjectAdmin extends BaseAdmin
                     'label' => 'Descripció',
                     'attr'  => array(
                         'style' => 'resize:vertical',
-                        'rows'  => 8,
+                        'rows'  => 13,
                     )
                 )
             )
             ->add(
-                'service',
+                'services',
                 null,
                 array(
-                    'label'    => 'Servei',
-                    'required' => true,
+                    'label'    => 'Serveis',
+                    'required' => false,
                 )
             )
-            ->end();
-        if ($this->id($this->getSubject())) { // only on edit mode, disable when creating new subjects
-            $formMapper
-                ->with('Imatges', array('class' => 'col-md-6'))
-                ->add(
-                    'images',
-                    'sonata_type_collection',
-                    array(
-                        'cascade_validation' => true,
-                    ),
-                    array(
-                        'edit'     => 'inline',
-                        'inline'   => 'table',
-                        'sortable' => 'position',
-                    )
-                )
-                ->end()
-                ->setHelps(
-                    array(
-                        'images' => 'Màxim 10MB amb format PNG, JPG o GIF. Imatge amb amplada mínima de 1.200px'
-                    )
-                );
-        }
-        $formMapper
+            ->end()
             ->with('Controls', array('class' => 'col-md-6'))
             ->add(
                 'position',
@@ -179,5 +155,24 @@ class ProjectAdmin extends BaseAdmin
                 )
             )
             ->end();
+        if ($this->id($this->getSubject())) { // only on edit mode, disable when creating new subjects
+            $formMapper
+                ->with('Imatges', array('class' => 'col-md-6'))
+                ->add(
+                    'images',
+                    'sonata_type_collection',
+                    array(
+                        'label'              => 'Arxius',
+                        'required'           => false,
+                        'cascade_validation' => true,
+                    ),
+                    array(
+                        'edit'     => 'inline',
+                        'inline'   => 'table',
+                        'sortable' => 'position',
+                    )
+                )
+                ->end();
+        }
     }
 }

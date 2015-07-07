@@ -26,7 +26,7 @@ class Service extends Base
     use Traits\ImageTrait;
 
     /**
-     * @ORM\OneToMany(targetEntity="Project", mappedBy="service", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\ManyToMany(targetEntity="Project", mappedBy="services", cascade={"persist", "remove"}, orphanRemoval=true)
      * @ORM\OrderBy({"position" = "ASC"})
      *
      * @var ArrayCollection
@@ -107,7 +107,6 @@ class Service extends Base
      */
     public function addProject(Project $project)
     {
-        $project->setService($this);
         $this->projects[] = $project;
 
         return $this;

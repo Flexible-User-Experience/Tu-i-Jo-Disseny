@@ -1,6 +1,6 @@
 ## Service categories
 AppBundle\Entity\ServiceCategory:
-  serviceCategory{1..10}:
+  category{1..10}:
     name: <sentence(2)>
     position: <current()>
     enabled: <boolean(70)>
@@ -13,7 +13,7 @@ AppBundle\Entity\Service:
     imageName: <numberBetween(1, 5)>.jpg
     position: <current()>
     enabled: <boolean(70)>
-    category: @serviceCategory<numberBetween(1, 10)>
+    category: @category<numberBetween(1, 10)>
 
 ## Projects
 AppBundle\Entity\Project:
@@ -22,7 +22,7 @@ AppBundle\Entity\Project:
     description: <text(1000)>
     position: <current()>
     enabled: <boolean(70)>
-    service: @service<numberBetween(1, 20)>
+    services: <numberBetween(0, 5)>x @service*
 
 ## Project images
 AppBundle\Entity\ProjectImage:
