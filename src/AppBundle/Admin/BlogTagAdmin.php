@@ -70,6 +70,13 @@ class BlogTagAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'posts',
+                null,
+                array(
+                    'label' => 'Articles',
+                )
+            )
+            ->add(
                 'enabled',
                 null,
                 array(

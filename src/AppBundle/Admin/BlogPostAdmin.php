@@ -27,11 +27,27 @@ class BlogPostAdmin extends BaseAdmin
     {
         $mapper
             ->add(
+                'imageFile',
+                null,
+                array(
+                    'label'    => 'Imatge',
+                    'template' => '::Admin/list__cell_image_field.html.twig'
+                )
+            )
+            ->add(
                 'name',
                 null,
                 array(
                     'label'    => 'Nom',
                     'editable' => true,
+                )
+            )
+            ->add(
+                'tags',
+                null,
+                array(
+                    'label'    => 'Etiquetes',
+                    'editable' => false,
                 )
             )
             ->add(
@@ -70,6 +86,14 @@ class BlogPostAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'tags',
+                null,
+                array(
+                    'label'    => 'Etiquetes',
+                    'editable' => false,
+                )
+            )
+            ->add(
                 'enabled',
                 null,
                 array(
@@ -85,7 +109,6 @@ class BlogPostAdmin extends BaseAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        // $myEntity = $this->getSubject();
         $formMapper
             ->with('Article', array('class' => 'col-md-6'))
             ->add(
@@ -93,6 +116,36 @@ class BlogPostAdmin extends BaseAdmin
                 null,
                 array(
                     'label' => 'Nom',
+                )
+            )
+            ->add(
+                'description',
+                null,
+                array(
+                    'label' => 'Descripció',
+                    'attr'  => array(
+                        'style' => 'resize:vertical',
+                        'rows'  => 13,
+                    )
+                )
+            )
+            ->add(
+                'tags',
+                null,
+                array(
+                    'label'    => 'Etiquetes',
+                    'required' => false,
+                )
+            )
+            ->end()
+            ->with('Imatge', array('class' => 'col-md-6'))
+            ->add(
+                'imageFile',
+                'file',
+                array(
+                    'label'    => 'Arxiu',
+                    'required' => false,
+                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
                 )
             )
             ->end()

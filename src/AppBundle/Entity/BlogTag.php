@@ -20,7 +20,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 class BlogTag extends Base
 {
     /**
-     * @ORM\ManyToMany(targetEntity="BlogPost", mappedBy="tags")
+     * @ORM\ManyToMany(targetEntity="BlogPost", mappedBy="tags", cascade={"persist", "remove"}, orphanRemoval=true)
      *
      * @var ArrayCollection
      */
@@ -73,7 +73,7 @@ class BlogTag extends Base
      */
     public function addPost(BlogPost $post)
     {
-        $post->setTag($this);
+        $post->addTag($this);
         $this->posts[] = $post;
 
         return $this;
