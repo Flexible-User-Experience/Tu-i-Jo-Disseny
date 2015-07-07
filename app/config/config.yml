@@ -25,6 +25,7 @@ framework:
     trusted_proxies: ~
     session:
         handler_id: ~
+        name:       tuijo
     fragments:       ~
     http_method_override: true
 
