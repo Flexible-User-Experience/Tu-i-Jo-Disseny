@@ -60,6 +60,7 @@ AppBundle\Entity\BlogPost:
     description: <text(1000)>
     tags: <numberBetween(0, 6)>x @tag*
     imageName: <numberBetween(1, 5)>.jpg
+    publishedAt: <dateTimeBetween('-2 day', '+2 day')>
     position: <current()>
     enabled: <boolean(70)>
 

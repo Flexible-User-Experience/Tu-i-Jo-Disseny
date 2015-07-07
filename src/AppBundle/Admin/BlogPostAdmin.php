@@ -16,7 +16,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 class BlogPostAdmin extends BaseAdmin
 {
     protected $baseRoutePattern = 'blog/post';
-    protected $datagridValues = array('_sort_by' => 'createdAt');
+    protected $datagridValues = array('_sort_by' => 'publishedAt');
 
     /**
      * Configure list view
@@ -47,6 +47,14 @@ class BlogPostAdmin extends BaseAdmin
                 null,
                 array(
                     'label'    => 'Etiquetes',
+                    'editable' => false,
+                )
+            )
+            ->add(
+                'publishedAt',
+                null,
+                array(
+                    'label'    => 'Data publicació',
                     'editable' => false,
                 )
             )
@@ -90,7 +98,13 @@ class BlogPostAdmin extends BaseAdmin
                 null,
                 array(
                     'label'    => 'Etiquetes',
-                    'editable' => false,
+                )
+            )
+            ->add(
+                'publishedAt',
+                null,
+                array(
+                    'label'    => 'Data publicació',
                 )
             )
             ->add(
@@ -135,6 +149,13 @@ class BlogPostAdmin extends BaseAdmin
                 array(
                     'label'    => 'Etiquetes',
                     'required' => false,
+                )
+            )
+            ->add(
+                'publishedAt',
+                null,
+                array(
+                    'label'    => 'Data publicació',
                 )
             )
             ->end()
