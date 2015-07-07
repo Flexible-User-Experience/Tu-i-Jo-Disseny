@@ -19,6 +19,7 @@ AppBundle\Entity\Service:
 AppBundle\Entity\Project:
   project{1..20}:
     name: <current()> <sentence(3)>
+    imageName: <numberBetween(1, 5)>.jpg
     description: <text(1000)>
     position: <current()>
     enabled: <boolean(70)>
@@ -65,8 +66,8 @@ AppBundle\Entity\BlogPost:
 ## Admin users
 AppBundle\Entity\User:
     user1:
-        username: admin
-        plainPassword: admin
+        username: "%private_test_user%"
+        plainPassword: "%private_test_pass%"
         email: "admin@admin.com"
         firstname: <name()>
         lastname: <lastname()>
