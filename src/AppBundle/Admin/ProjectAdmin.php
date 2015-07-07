@@ -137,6 +137,23 @@ class ProjectAdmin extends BaseAdmin
                     'required' => false,
                 )
             )
+            ->end()
+            ->with('Controls', array('class' => 'col-md-6'))
+            ->add(
+                'position',
+                null,
+                array(
+                    'label' => 'Posició',
+                )
+            )
+            ->add(
+                'enabled',
+                null,
+                array(
+                    'label'    => 'Actiu',
+                    'required' => false,
+                )
+            )
             ->end();
         if ($this->id($this->getSubject())) { // only on edit mode, disable when creating new subjects
             $formMapper
@@ -155,30 +172,7 @@ class ProjectAdmin extends BaseAdmin
                         'sortable' => 'position',
                     )
                 )
-                ->end()
-                ->setHelps(
-                    array(
-                        'images' => 'Màxim 10MB amb format PNG, JPG o GIF. Imatge amb amplada mínima de 1.200px'
-                    )
-                );
+                ->end();
         }
-        $formMapper
-            ->with('Controls', array('class' => 'col-md-6'))
-            ->add(
-                'position',
-                null,
-                array(
-                    'label' => 'Posició',
-                )
-            )
-            ->add(
-                'enabled',
-                null,
-                array(
-                    'label'    => 'Actiu',
-                    'required' => false,
-                )
-            )
-            ->end();
     }
 }

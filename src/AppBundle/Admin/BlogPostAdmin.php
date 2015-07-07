@@ -48,7 +48,6 @@ class BlogPostAdmin extends BaseAdmin
                 array(
                     'actions' => array(
                         'edit'   => array(),
-                        'delete' => array(),
                     ),
                     'label'   => 'Accions',
                 )
