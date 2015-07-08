@@ -58,7 +58,7 @@ assetic:
     assets:
         mycss:
             inputs:
-                - "@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle.less"
+                - "@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle-fa4.less"
                 - "@AppBundle/Resources/public/css/frontend.less"
         myjs:
             inputs:
