@@ -4,7 +4,8 @@ if [ -z "$1" ]
   then
     php app/console doctrine:database:drop --force
     php app/console doctrine:database:create
-    php app/console doctrine:migrations:migrate
+    php app/console doctrine:schema:update --force
+    #php app/console doctrine:migrations:migrate
     php app/console doctrine:fixtures:load -n
   else
     if [ "$1" = "dev" -o "$1" = "test" -o "$1" = "prod" -o "$1" = "remote" ]

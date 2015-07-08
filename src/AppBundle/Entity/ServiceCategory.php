@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class ServiceCategory
@@ -16,9 +17,12 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ServiceCategoryRepository")
  * @ORM\Table(name="service_category")
  * @Gedmo\SoftDeleteable(fieldName="removedAt")
+ * @Gedmo\TranslationEntity(class="AppBundle\Entity\Translations\ServiceCategoryTranslation")
  */
 class ServiceCategory extends Base
 {
+    use Traits\TranslationTrait;
+
     /**
      * @ORM\OneToMany(targetEntity="Service", mappedBy="category", cascade={"persist", "remove"}, orphanRemoval=true)
      * @ORM\OrderBy({"position" = "ASC"})
@@ -26,6 +30,17 @@ class ServiceCategory extends Base
      * @var ArrayCollection
      */
     protected $services;
+
+    /**
+     * @ORM\OneToMany(
+     *   targetEntity="AppBundle\Entity\Translations\ServiceCategoryTranslation",
+     *   mappedBy="object",
+     *   cascade={"persist", "remove"}
+     * )
+     *
+     * @var ArrayCollection
+     */
+    protected $translations;
 
     /*
      *
@@ -38,7 +53,8 @@ class ServiceCategory extends Base
      */
     public function __construct()
     {
-        $this->services = new ArrayCollection();
+        $this->services     = new ArrayCollection();
+        $this->translations = new ArrayCollection();
     }
 
     /**

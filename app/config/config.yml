@@ -33,6 +33,9 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        google_analytics_enabled: %google_analytics_enabled%
+        google_analytics_account: "%google_analytics_account%"
 
 # Assetic Configuration
 assetic:
@@ -63,6 +66,13 @@ doctrine:
         auto_generate_proxy_classes:  "%kernel.debug%"
         naming_strategy:              doctrine.orm.naming_strategy.underscore
         auto_mapping:                 true
+        mappings:
+            gedmo_translatable:
+                type: annotation
+                prefix: Gedmo\Translatable\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+                alias: GedmoTranslatable
+                is_bundle: false
         filters:
             softdeleteable:
                 class:    Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
@@ -74,12 +84,19 @@ stof_doctrine_extensions:
     translation_fallback: true
     orm:
         default:
-            translatable:   false
+            translatable:   true
             softdeleteable: true
             timestampable:  true
             sluggable:      true
             tree:           false
             sortable:       false
+
+# A2lix Translations
+a2lix_translation_form:
+    locales:          [ es, en ]
+    default_required: true
+    manager_registry: doctrine
+    #templating:       "::A2lix/default.html.twig"
 
 # FOS User
 fos_user:
@@ -91,6 +108,12 @@ fos_user:
         group_manager: sonata.user.orm.group_manager
     service:
         user_manager: sonata.user.orm.user_manager
+
+# JMS i18n Routing
+jms_i18n_routing:
+    default_locale: "%locale%"
+    locales: [ ca, es, en]
+    strategy: prefix_except_default
 
 # Liip Imagine
 liip_imagine:

@@ -36,7 +36,9 @@ class FrontendControllerTest extends WebTestCase
     public function provideUrls()
     {
         return array(
-            array('/app/example'),
+            array('/app/exemple'),
+            array('/es/app/ejemplo'),
+            array('/en/app/example'),
         );
     }
 }

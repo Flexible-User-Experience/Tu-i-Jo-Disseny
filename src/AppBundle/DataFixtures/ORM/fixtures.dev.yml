@@ -4,6 +4,17 @@ AppBundle\Entity\ServiceCategory:
     name: <current()> <sentence(2)>
     position: <current()>
     enabled: <boolean(70)>
+AppBundle\Entity\Translations\ServiceCategoryTranslation:
+  categoryNameEs{1..10}:
+    object: @category<current()>
+    locale: "es"
+    field: "name"
+    content: <current()> <sentence(2)>
+  categoryNameEn{1..10}:
+    object: @category<current()>
+    locale: "en"
+    field: "name"
+    content: <current()> <sentence(2)>
 
 ## Services
 AppBundle\Entity\Service:
