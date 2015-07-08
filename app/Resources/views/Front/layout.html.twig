@@ -14,8 +14,8 @@
 {% block title %}{{ main_brand_title }}{% endblock %}
 
 {% block head_style %}
-    {% stylesheets filter="cssrewrite"
-    '@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle.less'
+    {% stylesheets filter="cssrewrite,less"
+    '@mycss'
     %}
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
     {% endstylesheets %}
@@ -23,9 +23,7 @@
 
 {% block foot_script_assetic %}
     {% javascripts
-    '@jquery'
-    '@MopaBootstrapBundle/Resources/public/bootstrap/js/tooltip.js'
-    '@MopaBootstrapBundle/Resources/public/bootstrap/js/*.js'
+    '@myjs'
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
