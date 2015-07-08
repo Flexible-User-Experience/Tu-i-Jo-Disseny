@@ -92,7 +92,6 @@ class BlogTagAdmin extends BaseAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        // $myEntity = $this->getSubject();
         $formMapper
             ->with('Etiqueta', array('class' => 'col-md-6'))
             ->add(

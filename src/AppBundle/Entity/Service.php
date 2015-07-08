@@ -86,7 +86,8 @@ class Service extends Base
      */
     public function __construct()
     {
-        $this->projects = new ArrayCollection();
+        $this->projects     = new ArrayCollection();
+        $this->translations = new ArrayCollection();
     }
 
     /**

@@ -116,7 +116,6 @@ class ProjectAdmin extends BaseAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        // $myEntity = $this->getSubject();
         $formMapper
             ->with('Projecte', array('class' => 'col-md-7'))
             ->add(
@@ -170,7 +169,7 @@ class ProjectAdmin extends BaseAdmin
                 array(
                     'required'           => false,
                     'label'              => ' ',
-                    'translatable_class' => 'AppBundle\Entity\Translations\ServiceCategoryTranslation',
+                    'translatable_class' => 'AppBundle\Entity\Translations\ProjectTranslation',
                     'fields'             => array(
                         'name' => array(
                             'label'    => 'Nom',

@@ -98,6 +98,27 @@ AppBundle\Entity\Partner:
     twitter: <username()>
     position: <current()>
     enabled: <boolean(70)>
+AppBundle\Entity\Translations\PartnerTranslation:
+  translationPartnerNameEs{1..5}:
+    object: @partner<current()>
+    locale: "es"
+    field: "name"
+    content: <current()> <firstName()> <lastName()>
+  translationPartnerNameEn{1..5}:
+    object: @partner<current()>
+    locale: "en"
+    field: "name"
+    content: <current()> <firstName()> <lastName()>
+  translationPartnerDescriptionEs{1..5}:
+    object: @partner<current()>
+    locale: "es"
+    field: "description"
+    content: <text(100)>
+  translationPartnerDescriptionEn{1..5}:
+    object: @partner<current()>
+    locale: "en"
+    field: "description"
+    content: <text(100)>
 
 ## Tags
 AppBundle\Entity\BlogTag:

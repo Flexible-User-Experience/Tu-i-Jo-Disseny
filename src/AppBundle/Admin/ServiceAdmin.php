@@ -116,7 +116,6 @@ class ServiceAdmin extends BaseAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        // $myEntity = $this->getSubject();
         $formMapper
             ->with('Servei', array('class' => 'col-md-7'))
             ->add(
@@ -164,7 +163,7 @@ class ServiceAdmin extends BaseAdmin
                 array(
                     'required'           => false,
                     'label'              => ' ',
-                    'translatable_class' => 'AppBundle\Entity\Translations\ServiceCategoryTranslation',
+                    'translatable_class' => 'AppBundle\Entity\Translations\ServiceTranslation',
                     'fields'             => array(
                         'name' => array(
                             'label'    => 'Nom',
