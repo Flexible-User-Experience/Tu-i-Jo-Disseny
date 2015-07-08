@@ -118,7 +118,7 @@ class ServiceAdmin extends BaseAdmin
     {
         // $myEntity = $this->getSubject();
         $formMapper
-            ->with('Servei', array('class' => 'col-md-6'))
+            ->with('Servei', array('class' => 'col-md-7'))
             ->add(
                 'name',
                 null,
@@ -146,7 +146,18 @@ class ServiceAdmin extends BaseAdmin
                 )
             )
             ->end()
-            ->with('Traduccions', array('class' => 'col-md-6'))
+            ->with('Imatge', array('class' => 'col-md-5'))
+            ->add(
+                'imageFile',
+                'file',
+                array(
+                    'label'    => 'Arxiu',
+                    'required' => false,
+                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
+                )
+            )
+            ->end()
+            ->with('Traduccions', array('class' => 'col-md-7'))
             ->add(
                 'translations',
                 'a2lix_translations_gedmo',
@@ -171,18 +182,7 @@ class ServiceAdmin extends BaseAdmin
                 )
             )
             ->end()
-            ->with('Imatge', array('class' => 'col-md-6'))
-            ->add(
-                'imageFile',
-                'file',
-                array(
-                    'label'    => 'Arxiu',
-                    'required' => false,
-                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
-                )
-            )
-            ->end()
-            ->with('Controls', array('class' => 'col-md-6'))
+            ->with('Controls', array('class' => 'col-md-5'))
             ->add(
                 'position',
                 null,

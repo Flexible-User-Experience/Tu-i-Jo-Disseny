@@ -56,6 +56,27 @@ AppBundle\Entity\Project:
     position: <current()>
     enabled: <boolean(70)>
     services: <numberBetween(0, 5)>x @service*
+AppBundle\Entity\Translations\ProjectTranslation:
+  translationProjectNameEs{1..20}:
+    object: @project<current()>
+    locale: "es"
+    field: "name"
+    content: <current()> <sentence(3)>
+  translationProjectNameEn{1..20}:
+    object: @project<current()>
+    locale: "en"
+    field: "name"
+    content: <current()> <sentence(3)>
+  translationProjectDescriptionEs{1..20}:
+    object: @project<current()>
+    locale: "es"
+    field: "description"
+    content: <text(1000)>
+  translationProjectDescriptionEn{1..20}:
+    object: @project<current()>
+    locale: "en"
+    field: "description"
+    content: <text(1000)>
 
 ## Project images
 AppBundle\Entity\ProjectImage:
