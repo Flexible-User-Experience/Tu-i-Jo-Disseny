@@ -37,6 +37,7 @@ class Partner extends Base
 
     /**
      * @ORM\Column(type="text", length=2000, nullable=true)
+     * @Gedmo\Translatable
      *
      * @var string
      */

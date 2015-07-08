@@ -135,7 +135,6 @@ class BlogTagAdmin extends BaseAdmin
                     ),
                 )
             )
-            ->end()
-        ;
+            ->end();
     }
 }

@@ -148,6 +148,27 @@ AppBundle\Entity\BlogPost:
     publishedAt: <dateTimeBetween('-2 day', '+2 day')>
     position: <current()>
     enabled: <boolean(70)>
+AppBundle\Entity\Translations\BlogPostTranslation:
+  translationBlogPostNameEs{1..10}:
+    object: @post<current()>
+    locale: "es"
+    field: "name"
+    content: <current()> <sentence(3)>
+  translationBlogPostNameEn{1..10}:
+    object: @post<current()>
+    locale: "en"
+    field: "name"
+    content: <current()> <sentence(3)>
+  translationBlogPostDescriptionEs{1..10}:
+    object: @post<current()>
+    locale: "es"
+    field: "description"
+    content: <text(500)>
+  translationBlogPostDescriptionEn{1..10}:
+    object: @post<current()>
+    locale: "en"
+    field: "description"
+    content: <text(500)>
 
 ## Admin users
 AppBundle\Entity\User:

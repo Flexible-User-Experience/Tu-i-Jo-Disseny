@@ -124,7 +124,7 @@ class BlogPostAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('Article', array('class' => 'col-md-6'))
+            ->with('Article', array('class' => 'col-md-7'))
             ->add(
                 'name',
                 null,
@@ -139,7 +139,7 @@ class BlogPostAdmin extends BaseAdmin
                     'label' => 'Descripció',
                     'attr'  => array(
                         'style' => 'resize:vertical',
-                        'rows'  => 13,
+                        'rows'  => 15,
                     )
                 )
             )
@@ -151,15 +151,8 @@ class BlogPostAdmin extends BaseAdmin
                     'required' => false,
                 )
             )
-            ->add(
-                'publishedAt',
-                null,
-                array(
-                    'label'    => 'Data publicació',
-                )
-            )
             ->end()
-            ->with('Imatge', array('class' => 'col-md-6'))
+            ->with('Imatge', array('class' => 'col-md-5'))
             ->add(
                 'imageFile',
                 'file',
@@ -170,7 +163,39 @@ class BlogPostAdmin extends BaseAdmin
                 )
             )
             ->end()
-            ->with('Controls', array('class' => 'col-md-6'))
+            ->with('Traduccions', array('class' => 'col-md-7'))
+            ->add(
+                'translations',
+                'a2lix_translations_gedmo',
+                array(
+                    'required'           => false,
+                    'label'              => ' ',
+                    'translatable_class' => 'AppBundle\Entity\Translations\BlogPostTranslation',
+                    'fields'             => array(
+                        'name' => array(
+                            'label'    => 'Nom',
+                            'required' => false,
+                        ),
+                        'description' => array(
+                            'label'    => 'Descripció',
+                            'required' => false,
+                            'attr'  => array(
+                                'style' => 'resize:vertical',
+                                'rows'  => 15,
+                            )
+                        ),
+                    ),
+                )
+            )
+            ->end()
+            ->with('Controls', array('class' => 'col-md-5'))
+            ->add(
+                'publishedAt',
+                null,
+                array(
+                    'label'    => 'Data publicació',
+                )
+            )
             ->add(
                 'enabled',
                 null,
