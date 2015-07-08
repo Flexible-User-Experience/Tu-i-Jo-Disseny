@@ -15,10 +15,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class FrontendController extends Controller
 {
     /**
-     * @Route("/app/example", name="homepage")
+     * @Route("/", name="front_homepage")
      */
-    public function indexAction()
+    public function homepageAction()
     {
-        return $this->render('default/index.html.twig');
+        return $this->render('::Front/homepage.html.twig');
     }
 }
