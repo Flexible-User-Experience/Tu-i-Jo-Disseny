@@ -55,9 +55,12 @@ class FrontendController extends Controller
      */
     public function partnersAction()
     {
-        return $this->render('::Front/partners.list.html.twig', array(
-            'partners' => $this->getDoctrine()->getRepository('AppBundle:Partner')->findAllEnabledSortedByName(),
-        ));
+        return $this->render(
+            '::Front/partners.list.html.twig',
+            array(
+                'partners' => $this->getDoctrine()->getRepository('AppBundle:Partner')->findAllEnabledSortedByName(),
+            )
+        );
     }
 
     /**
@@ -65,6 +68,11 @@ class FrontendController extends Controller
      */
     public function blogAction()
     {
-        return $this->render('::Front/blog.list.html.twig');
+        return $this->render(
+            '::Front/blog.list.html.twig',
+            array(
+                'tags' => $this->getDoctrine()->getRepository('AppBundle:BlogTag')->findAllEnabledSortedByName(),
+            )
+        );
     }
 }

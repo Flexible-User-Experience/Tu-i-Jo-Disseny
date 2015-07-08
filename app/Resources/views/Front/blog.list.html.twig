@@ -4,4 +4,17 @@
 
 {% block headline %}{{ 'front.blog' | trans | capitalize }}{% endblock headline %}
 
-{% block content %}{% endblock %}
+{% block content %}
+    <ul class="list-group">
+        {% for tag in tags %}
+            <li class="list-group-item">
+                {{ tag }}
+                <ul class="list-group">
+                    {% for post in tag.posts if post.enabled %}
+                        <li class="list-group-item">{{ post }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
