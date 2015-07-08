@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Tests\Controller;
+namespace AppBundle\Tests;
 
 use Liip\FunctionalTestBundle\Test\WebTestCase;
 
@@ -8,7 +8,7 @@ use Liip\FunctionalTestBundle\Test\WebTestCase;
  * Class FrontendControllerTest
  *
  * @category Test
- * @package  AppBundle\Tests\Controller
+ * @package  AppBundle\Tests
  * @author   David Romaní <david@flux.cat>
  */
 class FrontendControllerTest extends WebTestCase
@@ -17,6 +17,7 @@ class FrontendControllerTest extends WebTestCase
      * Test HTTP request is successful
      *
      * @dataProvider provideUrls
+     *
      * @param string $url
      */
     public function testFrontendPagesAreSuccessful($url)
@@ -39,6 +40,12 @@ class FrontendControllerTest extends WebTestCase
             array('/'),
             array('/es/'),
             array('/en/'),
+            array('/serveis'),
+            array('/es/servicios'),
+            array('/en/services'),
+            array('/projectes'),
+            array('/es/proyectos'),
+            array('/en/projects'),
         );
     }
 }

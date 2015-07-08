@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Tests\Repository;
+namespace AppBundle\Tests;
 
 use Liip\FunctionalTestBundle\Test\WebTestCase;
 
@@ -8,7 +8,7 @@ use Liip\FunctionalTestBundle\Test\WebTestCase;
  * Class RepositoriesTest
  *
  * @category Test
- * @package  AppBundle\Tests\Repository
+ * @package  AppBundle\Tests
  * @author   David Romaní <david@flux.cat>
  */
 class RepositoriesTest extends WebTestCase
