@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Tests\Controller;
+namespace AppBundle\Tests;
 
 use Liip\FunctionalTestBundle\Test\WebTestCase;
 use Symfony\Bundle\FrameworkBundle\Client;
@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Client;
  * Class AdminControllerTest
  *
  * @category Test
- * @package  AppBundle\Tests\Controller
+ * @package  AppBundle\Tests
  * @author   David Romaní <david@flux.cat>
  */
 class AdminControllerTest extends WebTestCase

@@ -22,4 +22,31 @@ abstract class BaseRepository extends EntityRepository
     {
         return count($this->findAll());
     }
+
+    /**
+     * Find only enabled entities sorted by name
+     *
+     * @return array
+     */
+    public function findAllEnabledSortedByName()
+    {
+        return $this->findBy(
+            array(
+                'enabled' => true,
+            ),
+            array(
+                'name' => 'asc',
+            )
+        );
+    }
+
+    /**
+     * Find only enabled entities sorted by name amount
+     *
+     * @return int
+     */
+    public function findAllEnabledSortedByNameAmount()
+    {
+        return count($this->findAllEnabledSortedByName());
+    }
 }

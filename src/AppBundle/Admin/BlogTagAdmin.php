@@ -101,13 +101,6 @@ class BlogTagAdmin extends BaseAdmin
                     'label' => 'Nom',
                 )
             )
-            ->add(
-                'posts',
-                null,
-                array(
-                    'label' => 'Articles',
-                )
-            )
             ->end()
             ->with('Controls', array('class' => 'col-md-5'))
             ->add(

@@ -1,1 +1,5 @@
-homepage: '/app/example'
+front_homepage: '/'
+front_services: '/services'
+front_projects: '/projects'
+front_partners: '/team'
+front_blog: '/blog'

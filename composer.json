@@ -25,6 +25,7 @@
         "incenteev/composer-parameter-handler": "~2.0",
 
         "a2lix/translation-form-bundle": "1.*",
+        "components/jquery": "2.1.*",
         "cypresslab/gitelephant-bundle": "dev-develop",
         "egulias/email-validator": "1.2.*",
         "hautelook/alice-bundle": "0.*",
@@ -32,12 +33,14 @@
         "jms/i18n-routing-bundle": "1.*",
         "liip/functional-test-bundle": "1.2.*",
         "liip/imagine-bundle": "1.*",
+        "mopa/bootstrap-bundle": "3.x-dev",
         "sonata-project/admin-bundle": "2.4.x-dev",
         "sonata-project/datagrid-bundle": "2.2.x-dev",
         "sonata-project/doctrine-orm-admin-bundle": "2.4.x-dev",
         "sonata-project/intl-bundle": "2.2.x-dev",
         "sonata-project/user-bundle": "2.3.x-dev",
         "stof/doctrine-extensions-bundle": "1.*",
+        "twbs/bootstrap": "3.3.*",
         "vich/uploader-bundle": "0.*"
     },
     "require-dev": {
@@ -54,7 +57,8 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
+            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -63,7 +67,8 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
+            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap"
         ]
     },
     "config": {

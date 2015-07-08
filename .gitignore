@@ -38,3 +38,5 @@
 !.travis.yml
 /secret.hack
 /dbreset.sh
+/web/css/
+/web/fonts/
