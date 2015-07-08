@@ -37,4 +37,20 @@ class FrontendController extends Controller
     {
         return $this->render('::Front/projects.list.html.twig');
     }
+
+    /**
+     * @Route("/partners", name="front_partners")
+     */
+    public function partnersAction()
+    {
+        return $this->render('::Front/partners.list.html.twig');
+    }
+
+    /**
+     * @Route("/blog", name="front_blog")
+     */
+    public function blogAction()
+    {
+        return $this->render('::Front/blog.list.html.twig');
+    }
 }

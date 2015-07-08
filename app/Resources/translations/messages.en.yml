@@ -1,3 +1,5 @@
 front:
   services: services
   projects: projects
+  partners: team
+  blog: blog

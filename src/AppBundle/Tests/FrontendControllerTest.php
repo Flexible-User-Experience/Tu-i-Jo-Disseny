@@ -46,6 +46,12 @@ class FrontendControllerTest extends WebTestCase
             array('/projectes'),
             array('/es/proyectos'),
             array('/en/projects'),
+            array('/equip'),
+            array('/es/equipo'),
+            array('/en/team'),
+            array('/blog'),
+            array('/es/blog'),
+            array('/en/blog'),
         );
     }
 }

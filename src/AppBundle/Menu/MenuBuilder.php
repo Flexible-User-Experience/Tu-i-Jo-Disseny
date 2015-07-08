@@ -4,6 +4,7 @@ namespace AppBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
+use Symfony\Component\Translation\Translator;
 
 /**
  * Class MenuBuilder
@@ -17,12 +18,9 @@ class MenuBuilder
     /**
      * Create frontend main menu
      *
-     * @param FactoryInterface $factory
-     * @param array            $options
-     *
      * @return ItemInterface
      */
-    public function frontendMenu(FactoryInterface $factory, array $options)
+    public function frontendMenu(FactoryInterface $factory)
     {
         $menu = $factory->createItem(
             'root',
@@ -31,17 +29,31 @@ class MenuBuilder
             )
         );
         $menu->addChild(
-            'Serveis', // TODO apply i18n
+            'front.services',
             array(
                 //'icon'  => 'home',
                 'route' => 'front_services',
             )
         );
         $menu->addChild(
-            'Projectes', // TODO apply i18n
+            'front.projects',
             array(
                 //'icon'  => 'home',
                 'route' => 'front_projects',
+            )
+        );
+        $menu->addChild(
+            'front.partners',
+            array(
+                //'icon'  => 'home',
+                'route' => 'front_partners',
+            )
+        );
+        $menu->addChild(
+            'front.blog',
+            array(
+                //'icon'  => 'home',
+                'route' => 'front_blog',
             )
         );
 

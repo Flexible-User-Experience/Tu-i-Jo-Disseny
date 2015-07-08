@@ -1,3 +1,5 @@
 front_homepage: '/'
 front_services: '/servicios'
 front_projects: '/proyectos'
+front_partners: '/equipo'
+front_blog: '/blog'

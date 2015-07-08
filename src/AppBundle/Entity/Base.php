@@ -23,6 +23,14 @@ abstract class Base extends AbstractBase
     protected $name;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     * @Gedmo\Slug(fields={"name"})
+     *
+     * @var string
+     */
+    protected $slug;
+
+    /**
      *
      * Methods
      *
@@ -50,6 +58,30 @@ abstract class Base extends AbstractBase
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set Slug
+     *
+     * @param string $slug
+     *
+     * @return $this
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get Slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     /**
