@@ -19,10 +19,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ServiceRepository")
  * @ORM\Table(name="service")
  * @Gedmo\SoftDeleteable(fieldName="removedAt")
+ * @Gedmo\TranslationEntity(class="AppBundle\Entity\Translations\ServiceTranslation")
  * @Vich\Uploadable
  */
 class Service extends Base
 {
+    use Traits\TranslationTrait;
     use Traits\ImageTrait;
 
     /**
@@ -55,10 +57,23 @@ class Service extends Base
 
     /**
      * @ORM\Column(type="text", length=2000, nullable=true)
+     * @Gedmo\Translatable
      *
      * @var string
      */
     protected $description;
+
+    /**
+     * @ORM\OneToMany(
+     *   targetEntity="AppBundle\Entity\Translations\ServiceTranslation",
+     *   mappedBy="object",
+     *   cascade={"persist", "remove"}
+     * )
+     * @Assert\Valid(deep = true)
+     *
+     * @var ArrayCollection
+     */
+    protected $translations;
 
     /**
      *
@@ -71,7 +86,8 @@ class Service extends Base
      */
     public function __construct()
     {
-        $this->projects = new ArrayCollection();
+        $this->projects     = new ArrayCollection();
+        $this->translations = new ArrayCollection();
     }
 
     /**

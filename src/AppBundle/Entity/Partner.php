@@ -19,10 +19,12 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PartnerRepository")
  * @ORM\Table(name="partner")
  * @Gedmo\SoftDeleteable(fieldName="removedAt")
+ * @Gedmo\TranslationEntity(class="AppBundle\Entity\Translations\PartnerTranslation")
  * @Vich\Uploadable
  */
 class Partner extends Base
 {
+    use Traits\TranslationTrait;
     use Traits\ImageTrait;
 
     /**
@@ -35,6 +37,7 @@ class Partner extends Base
 
     /**
      * @ORM\Column(type="text", length=2000, nullable=true)
+     * @Gedmo\Translatable
      *
      * @var string
      */
@@ -80,6 +83,18 @@ class Partner extends Base
     protected $twitter;
 
     /**
+     * @ORM\OneToMany(
+     *   targetEntity="AppBundle\Entity\Translations\PartnerTranslation",
+     *   mappedBy="object",
+     *   cascade={"persist", "remove"}
+     * )
+     * @Assert\Valid(deep = true)
+     *
+     * @var ArrayCollection
+     */
+    protected $translations;
+
+    /**
      *
      * Methods
      *
@@ -90,7 +105,8 @@ class Partner extends Base
      */
     public function __construct()
     {
-        $this->projects = new ArrayCollection();
+        $this->projects     = new ArrayCollection();
+        $this->translations = new ArrayCollection();
     }
 
     /**

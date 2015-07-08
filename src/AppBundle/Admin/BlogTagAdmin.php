@@ -92,9 +92,8 @@ class BlogTagAdmin extends BaseAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        // $myEntity = $this->getSubject();
         $formMapper
-            ->with('Etiqueta', array('class' => 'col-md-6'))
+            ->with('Etiqueta', array('class' => 'col-md-7'))
             ->add(
                 'name',
                 null,
@@ -110,13 +109,30 @@ class BlogTagAdmin extends BaseAdmin
                 )
             )
             ->end()
-            ->with('Controls', array('class' => 'col-md-6'))
+            ->with('Controls', array('class' => 'col-md-5'))
             ->add(
                 'enabled',
                 null,
                 array(
                     'label'    => 'Actiu',
                     'required' => false,
+                )
+            )
+            ->end()
+            ->with('Traduccions', array('class' => 'col-md-7'))
+            ->add(
+                'translations',
+                'a2lix_translations_gedmo',
+                array(
+                    'required'           => false,
+                    'label'              => ' ',
+                    'translatable_class' => 'AppBundle\Entity\Translations\BlogTagTranslation',
+                    'fields'             => array(
+                        'name' => array(
+                            'label'    => 'Nom',
+                            'required' => false,
+                        ),
+                    ),
                 )
             )
             ->end();

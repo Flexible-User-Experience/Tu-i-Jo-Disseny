@@ -116,9 +116,8 @@ class ProjectAdmin extends BaseAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        // $myEntity = $this->getSubject();
         $formMapper
-            ->with('Projecte', array('class' => 'col-md-6'))
+            ->with('Projecte', array('class' => 'col-md-7'))
             ->add(
                 'name',
                 null,
@@ -146,7 +145,7 @@ class ProjectAdmin extends BaseAdmin
                 )
             )
             ->end()
-            ->with('Controls', array('class' => 'col-md-6'))
+            ->with('Controls', array('class' => 'col-md-5'))
             ->add(
                 'position',
                 null,
@@ -163,7 +162,32 @@ class ProjectAdmin extends BaseAdmin
                 )
             )
             ->end()
-            ->with('Imatge principal', array('class' => 'col-md-6'))
+            ->with('Traduccions', array('class' => 'col-md-7'))
+            ->add(
+                'translations',
+                'a2lix_translations_gedmo',
+                array(
+                    'required'           => false,
+                    'label'              => ' ',
+                    'translatable_class' => 'AppBundle\Entity\Translations\ProjectTranslation',
+                    'fields'             => array(
+                        'name' => array(
+                            'label'    => 'Nom',
+                            'required' => false,
+                        ),
+                        'description' => array(
+                            'label'    => 'Descripció',
+                            'required' => false,
+                            'attr'  => array(
+                                'style' => 'resize:vertical',
+                                'rows'  => 13,
+                            )
+                        ),
+                    ),
+                )
+            )
+            ->end()
+            ->with('Imatge principal', array('class' => 'col-md-5'))
             ->add(
                 'imageFile',
                 'file',
@@ -173,10 +197,11 @@ class ProjectAdmin extends BaseAdmin
                     'help'     => $this->getImageHelperFormMapperWithThumbnail(),
                 )
             )
-            ->end();
+            ->end()
+            ;
         if ($this->id($this->getSubject())) { // only on edit mode, disable when creating new subjects
             $formMapper
-                ->with('Imatges addicionals', array('class' => 'col-md-6'))
+                ->with('Imatges addicionals', array('class' => 'col-md-7'))
                 ->add(
                     'images',
                     'sonata_type_collection',

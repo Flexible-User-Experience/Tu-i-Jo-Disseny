@@ -79,7 +79,7 @@ class PartnerAdmin extends BaseAdmin
                 'actions',
                 array(
                     'actions' => array(
-                        'edit'   => array(),
+                        'edit' => array(),
                     ),
                     'label'   => 'Accions',
                 )
@@ -138,9 +138,8 @@ class PartnerAdmin extends BaseAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        // $myEntity = $this->getSubject();
         $formMapper
-            ->with('Col·laborador', array('class' => 'col-md-6'))
+            ->with('Col·laborador', array('class' => 'col-md-7'))
             ->add(
                 'name',
                 null,
@@ -155,7 +154,7 @@ class PartnerAdmin extends BaseAdmin
                     'label' => 'Descripció',
                     'attr'  => array(
                         'style' => 'resize:vertical',
-                        'rows'  => 13,
+                        'rows'  => 5,
                     )
                 )
             )
@@ -168,7 +167,7 @@ class PartnerAdmin extends BaseAdmin
                 )
             )
             ->end()
-            ->with('Imatge', array('class' => 'col-md-6'))
+            ->with('Imatge', array('class' => 'col-md-5'))
             ->add(
                 'imageFile',
                 'file',
@@ -179,7 +178,32 @@ class PartnerAdmin extends BaseAdmin
                 )
             )
             ->end()
-            ->with('Contacte', array('class' => 'col-md-6'))
+            ->with('Traduccions', array('class' => 'col-md-7'))
+            ->add(
+                'translations',
+                'a2lix_translations_gedmo',
+                array(
+                    'required'           => false,
+                    'label'              => ' ',
+                    'translatable_class' => 'AppBundle\Entity\Translations\PartnerTranslation',
+                    'fields'             => array(
+                        'name'        => array(
+                            'label'    => 'Nom',
+                            'required' => false,
+                        ),
+                        'description' => array(
+                            'label'    => 'Descripció',
+                            'required' => false,
+                            'attr'     => array(
+                                'style' => 'resize:vertical',
+                                'rows'  => 5,
+                            )
+                        ),
+                    ),
+                )
+            )
+            ->end()
+            ->with('Contacte', array('class' => 'col-md-5'))
             ->add(
                 'web',
                 null,
@@ -202,7 +226,7 @@ class PartnerAdmin extends BaseAdmin
                 )
             )
             ->end()
-            ->with('Controls', array('class' => 'col-md-6'))
+            ->with('Controls', array('class' => 'col-md-5'))
             ->add(
                 'position',
                 null,

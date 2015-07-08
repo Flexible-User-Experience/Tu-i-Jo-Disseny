@@ -19,10 +19,12 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BlogPostRepository")
  * @ORM\Table(name="blog_post")
  * @Gedmo\SoftDeleteable(fieldName="removedAt")
+ * @Gedmo\TranslationEntity(class="AppBundle\Entity\Translations\BlogPostTranslation")
  * @Vich\Uploadable
  */
 class BlogPost extends Base
 {
+    use Traits\TranslationTrait;
     use Traits\ImageTrait;
 
     /**
@@ -35,6 +37,7 @@ class BlogPost extends Base
 
     /**
      * @ORM\Column(type="text", length=4000, nullable=true)
+     * @Gedmo\Translatable
      *
      * @var string
      */
@@ -59,6 +62,18 @@ class BlogPost extends Base
      */
     protected $publishedAt;
 
+    /**
+     * @ORM\OneToMany(
+     *   targetEntity="AppBundle\Entity\Translations\BlogPostTranslation",
+     *   mappedBy="object",
+     *   cascade={"persist", "remove"}
+     * )
+     * @Assert\Valid(deep = true)
+     *
+     * @var ArrayCollection
+     */
+    protected $translations;
+
     /*
      *
      * Methods
@@ -70,7 +85,8 @@ class BlogPost extends Base
      */
     public function __construct()
     {
-        $this->posts = new ArrayCollection();
+        $this->tags         = new ArrayCollection();
+        $this->translations = new ArrayCollection();
     }
 
     /**

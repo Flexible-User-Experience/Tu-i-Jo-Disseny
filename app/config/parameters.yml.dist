@@ -20,3 +20,6 @@ parameters:
 
     private_test_user: admin
     private_test_pass: admin
+
+    google_analytics_enabled: false
+    google_analytics_account: "UA-fake..."

@@ -16,10 +16,12 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             // Vendors
             new FOS\UserBundle\FOSUserBundle(),
             new Hautelook\AliceBundle\HautelookAliceBundle(),
+            new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
@@ -30,7 +32,8 @@ class AppKernel extends Kernel
             new Sonata\IntlBundle\SonataIntlBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new Vich\UploaderBundle\VichUploaderBundle(),
+            new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(), // keep after Stof
             // App
             new AppBundle\AppBundle(),
         );

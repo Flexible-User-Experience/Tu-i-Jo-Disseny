@@ -16,6 +16,7 @@ abstract class Base extends AbstractBase
 {
     /**
      * @ORM\Column(type="string", length=255)
+     * @Gedmo\Translatable
      *
      * @var string
      */

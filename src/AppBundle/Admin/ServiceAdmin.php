@@ -116,9 +116,8 @@ class ServiceAdmin extends BaseAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        // $myEntity = $this->getSubject();
         $formMapper
-            ->with('Servei', array('class' => 'col-md-6'))
+            ->with('Servei', array('class' => 'col-md-7'))
             ->add(
                 'name',
                 null,
@@ -146,7 +145,7 @@ class ServiceAdmin extends BaseAdmin
                 )
             )
             ->end()
-            ->with('Imatge', array('class' => 'col-md-6'))
+            ->with('Imatge', array('class' => 'col-md-5'))
             ->add(
                 'imageFile',
                 'file',
@@ -157,7 +156,32 @@ class ServiceAdmin extends BaseAdmin
                 )
             )
             ->end()
-            ->with('Controls', array('class' => 'col-md-6'))
+            ->with('Traduccions', array('class' => 'col-md-7'))
+            ->add(
+                'translations',
+                'a2lix_translations_gedmo',
+                array(
+                    'required'           => false,
+                    'label'              => ' ',
+                    'translatable_class' => 'AppBundle\Entity\Translations\ServiceTranslation',
+                    'fields'             => array(
+                        'name' => array(
+                            'label'    => 'Nom',
+                            'required' => false,
+                        ),
+                        'description' => array(
+                            'label'    => 'Descripció',
+                            'required' => false,
+                            'attr'  => array(
+                                'style' => 'resize:vertical',
+                                'rows'  => 13,
+                            )
+                        ),
+                    ),
+                )
+            )
+            ->end()
+            ->with('Controls', array('class' => 'col-md-5'))
             ->add(
                 'position',
                 null,
