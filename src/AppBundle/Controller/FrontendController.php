@@ -27,7 +27,9 @@ class FrontendController extends Controller
      */
     public function servicesAction()
     {
-        return $this->render('::Front/services.list.html.twig');
+        return $this->render('::Front/services.list.html.twig', array(
+            'categories' => $this->getDoctrine()->getRepository('AppBundle:ServiceCategory')->findAllEnabledSortedByName(),
+        ));
     }
 
     /**
