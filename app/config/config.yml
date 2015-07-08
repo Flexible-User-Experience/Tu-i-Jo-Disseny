@@ -135,6 +135,11 @@ liip_imagine:
             filters:
                 thumbnail: { size: [480, null], mode: outbound }
 
+# Mopa Bootstrap
+mopa_bootstrap:
+    form: ~
+    menu: ~
+
 # Sonata Admin
 sonata_admin:
     title: " "
