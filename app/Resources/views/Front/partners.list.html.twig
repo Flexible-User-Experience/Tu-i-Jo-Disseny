@@ -4,4 +4,17 @@
 
 {% block headline %}{{ 'front.partners' | trans | capitalize }}{% endblock headline %}
 
-{% block content %}{% endblock %}
+{% block content %}
+    <ul class="list-group">
+        {% for partner in partners %}
+            <li class="list-group-item">
+                {{ partner }}
+                <ul class="list-group">
+                    {% for project in partner.projects if project.enabled %}
+                        <li class="list-group-item">{{ project }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

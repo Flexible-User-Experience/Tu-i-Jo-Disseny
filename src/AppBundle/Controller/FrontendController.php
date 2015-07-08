@@ -27,9 +27,14 @@ class FrontendController extends Controller
      */
     public function servicesAction()
     {
-        return $this->render('::Front/services.list.html.twig', array(
-            'categories' => $this->getDoctrine()->getRepository('AppBundle:ServiceCategory')->findAllEnabledSortedByName(),
-        ));
+        return $this->render(
+            '::Front/services.list.html.twig',
+            array(
+                'categories' => $this->getDoctrine()->getRepository(
+                    'AppBundle:ServiceCategory'
+                )->findAllEnabledSortedByName(),
+            )
+        );
     }
 
     /**
@@ -37,7 +42,12 @@ class FrontendController extends Controller
      */
     public function projectsAction()
     {
-        return $this->render('::Front/projects.list.html.twig');
+        return $this->render(
+            '::Front/projects.list.html.twig',
+            array(
+                'projects' => $this->getDoctrine()->getRepository('AppBundle:Project')->findAllEnabledSortedByName(),
+            )
+        );
     }
 
     /**
@@ -45,7 +55,9 @@ class FrontendController extends Controller
      */
     public function partnersAction()
     {
-        return $this->render('::Front/partners.list.html.twig');
+        return $this->render('::Front/partners.list.html.twig', array(
+            'partners' => $this->getDoctrine()->getRepository('AppBundle:Partner')->findAllEnabledSortedByName(),
+        ));
     }
 
     /**
