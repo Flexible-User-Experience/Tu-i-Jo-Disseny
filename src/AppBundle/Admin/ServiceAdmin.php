@@ -146,6 +146,31 @@ class ServiceAdmin extends BaseAdmin
                 )
             )
             ->end()
+            ->with('Traduccions', array('class' => 'col-md-6'))
+            ->add(
+                'translations',
+                'a2lix_translations_gedmo',
+                array(
+                    'required'           => false,
+                    'label'              => ' ',
+                    'translatable_class' => 'AppBundle\Entity\Translations\ServiceCategoryTranslation',
+                    'fields'             => array(
+                        'name' => array(
+                            'label'    => 'Nom',
+                            'required' => false,
+                        ),
+                        'description' => array(
+                            'label'    => 'Descripció',
+                            'required' => false,
+                            'attr'  => array(
+                                'style' => 'resize:vertical',
+                                'rows'  => 13,
+                            )
+                        ),
+                    ),
+                )
+            )
+            ->end()
             ->with('Imatge', array('class' => 'col-md-6'))
             ->add(
                 'imageFile',

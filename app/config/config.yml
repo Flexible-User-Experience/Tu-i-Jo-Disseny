@@ -96,7 +96,7 @@ a2lix_translation_form:
     locales:          [ es, en ]
     default_required: true
     manager_registry: doctrine
-    #templating:       "::A2lix/default.html.twig"
+    templating:       "::A2lix/custom_form_widgets.html.twig"
 
 # FOS User
 fos_user:

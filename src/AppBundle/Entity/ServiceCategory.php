@@ -37,6 +37,7 @@ class ServiceCategory extends Base
      *   mappedBy="object",
      *   cascade={"persist", "remove"}
      * )
+     * @Assert\Valid(deep = true)
      *
      * @var ArrayCollection
      */

@@ -25,6 +25,27 @@ AppBundle\Entity\Service:
     position: <current()>
     enabled: <boolean(70)>
     category: @category<numberBetween(1, 10)>
+AppBundle\Entity\Translations\ServiceTranslation:
+  translationServiceNameEs{1..20}:
+    object: @service<current()>
+    locale: "es"
+    field: "name"
+    content: <current()> <sentence(4)>
+  translationServiceNameEn{1..20}:
+    object: @service<current()>
+    locale: "en"
+    field: "name"
+    content: <current()> <sentence(4)>
+  translationServiceDescriptionEs{1..20}:
+    object: @service<current()>
+    locale: "es"
+    field: "description"
+    content: <text(500)>
+  translationServiceDescriptionEn{1..20}:
+    object: @service<current()>
+    locale: "en"
+    field: "description"
+    content: <text(500)>
 
 ## Projects
 AppBundle\Entity\Project:
