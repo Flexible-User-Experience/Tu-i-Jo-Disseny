@@ -27,7 +27,7 @@ class FrontendController extends Controller
      */
     public function servicesAction()
     {
-        return $this->render('::Front/homepage.html.twig');
+        return $this->render('::Front/services.list.html.twig');
     }
 
     /**
@@ -35,6 +35,6 @@ class FrontendController extends Controller
      */
     public function projectsAction()
     {
-        return $this->render('::Front/homepage.html.twig');
+        return $this->render('::Front/projects.list.html.twig');
     }
 }
