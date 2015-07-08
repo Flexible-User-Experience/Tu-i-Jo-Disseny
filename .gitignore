@@ -37,3 +37,4 @@
 !web/uploads/projects/5.jpg
 !.travis.yml
 /secret.hack
+/dbreset.sh

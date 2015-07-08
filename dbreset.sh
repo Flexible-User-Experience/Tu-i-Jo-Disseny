@@ -12,10 +12,10 @@ if [ -z "$1" ]
       then
         if [ "$1" = "remote" ]
           then
-            cap symfony:doctrine:migrations:migrate
-            #cap symfony:doctrine:database:drop
-            #cap symfony:doctrine:database:create
-            #cap symfony:doctrine:schema:update
+            #cap symfony:doctrine:migrations:migrate
+            cap symfony:doctrine:database:drop
+            cap symfony:doctrine:database:create
+            cap symfony:doctrine:schema:update
             #cap symfony:doctrine:load_fixtures
           else
             php app/console doctrine:database:drop --force --env="$1"
