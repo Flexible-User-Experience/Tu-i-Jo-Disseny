@@ -126,6 +126,17 @@ AppBundle\Entity\BlogTag:
     name: <current()> <word()>
     position: <current()>
     enabled: <boolean(70)>
+AppBundle\Entity\Translations\BlogTagTranslation:
+  translationBlogTagrNameEs{1..5}:
+    object: @tag<current()>
+    locale: "es"
+    field: "name"
+    content: <current()> <word()>
+  translationBlogTagrNameEn{1..5}:
+    object: @tag<current()>
+    locale: "en"
+    field: "name"
+    content: <current()> <word()>
 
 ## Posts
 AppBundle\Entity\BlogPost:

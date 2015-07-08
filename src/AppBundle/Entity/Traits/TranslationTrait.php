@@ -44,11 +44,11 @@ trait TranslationTrait
     /**
      * Add translation
      *
-     * @param TranslationInterface $translation
+     * @param mixed $translation
      *
      * @return $this
      */
-    public function addTranslation(TranslationInterface $translation)
+    public function addTranslation($translation)
     {
         if (!$this->translations->contains($translation)) {
             $this->translations[] = $translation;
@@ -61,11 +61,11 @@ trait TranslationTrait
     /**
      * Remove translation
      *
-     * @param TranslationInterface $translation
+     * @param mixed $translation
      *
      * @return $this
      */
-    public function removeTranslation(TranslationInterface $translation)
+    public function removeTranslation($translation)
     {
         $this->translations->removeElement($translation);
 
