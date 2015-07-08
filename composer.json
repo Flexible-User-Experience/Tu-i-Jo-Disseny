@@ -26,6 +26,7 @@
 
         "a2lix/translation-form-bundle": "1.*",
         "components/jquery": "2.1.*",
+        "craue/formflow-bundle": "2.1.*",
         "cypresslab/gitelephant-bundle": "dev-develop",
         "egulias/email-validator": "1.2.*",
         "hautelook/alice-bundle": "0.*",
