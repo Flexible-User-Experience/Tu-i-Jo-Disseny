@@ -1,20 +1,39 @@
 {% extends ':Front:layout.html.twig' %}
 
+{% from 'MopaBootstrapBundle::macros.html.twig' import label, badge %}
+
 {% block title %}{{ 'front.partners' | trans | capitalize }} · {{ parent() }}{% endblock %}
 
 {% block headline %}{{ 'front.partners' | trans | capitalize }}{% endblock headline %}
 
 {% block content %}
-    <ul class="list-group">
+    <div class="col-xs-12">
         {% for partner in partners %}
-            <li class="list-group-item">
-                {{ partner }}
-                <ul class="list-group">
-                    {% for project in partner.projects if project.enabled %}
-                        <li class="list-group-item">{{ project }}</li>
-                    {% endfor %}
-                </ul>
-            </li>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+                                <img class="media-object" src="{{ vich_uploader_asset(partner, 'imageFile') | imagine_filter('60x60') }}" alt="{{ partner.name }}">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">{{ partner.name }}<span class="pull-right">{{ badge(partner.projects | length) }}</span></h4>
+                            <h5>@{{ partner.twitter }}</h5>
+                            <h6>{{ partner.email }}</h6>
+                            <h6>{{ partner.web }}</h6>
+                            <p>{{ partner.description }}</p>
+                        </div>
+                    </div>
+                    <hr/>
+                    <h5>{{ 'front.projects' | trans | capitalize }}</h5>
+                    <ul>
+                        {% for project in partner.projects if project.enabled %}
+                            <li>{{ project.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}
