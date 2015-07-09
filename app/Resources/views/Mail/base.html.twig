@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    {% include ':Mail:base.css.twig' %}
+</head>
+<body>
+<table class="body">
+    <tr>
+        <td class="center" align="center" valign="top">
+            <center>
+                <table class="row header">
+                    <tr>
+                        <td>
+                            <table class="container">
+                                <tr>
+                                    <td class="wrapper">
+                                        <table class="four columns">
+                                            <tr>
+                                                <td class="left-text-pad">
+                                                    <img src="{{ asset('bundles/app/images/logotip-fons-2.png') | imagine_filter('60x60') }}"
+                                                         alt="{{ main_brand_title }} logo"/>
+                                                </td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td class="wrapper last">
+                                        <table class="eight columns">
+                                            <tr>
+                                                <td class="right-text-pad">
+                                                    <h6>{% block title %}{% endblock %}</h6>
+                                                </td>
+                                                <td class="expander"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table class="container">
+                    <tr>
+                        <td>
+                            {% block tablebody %}
+                                <table class="row">
+                                    <tr>
+                                        <td class="wrapper last">
+                                            <table class="twelve columns">
+                                                <tr>
+                                                    <td>
+                                                        {% block body %}body{% endblock %}
+                                                    </td>
+                                                    <td class="expander"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            {% endblock %}
+                            <table class="row footer">
+                                <tr>
+                                    <td class="wrapper last">
+                                        <table class="twelve columns">
+                                            <tr>
+                                                <td class="last right-text-pad">
+                                                    <p>
+                                                        Tu&Jo Disseny<br>
+                                                        C. Campoamor, 20 2on 1a //
+                                                        43870 Amposta //
+                                                        977 071 895<br/>
+                                                        <a href="mailto:estudi@tuijodissey.com">estudi@tuijodissey.com</a>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
