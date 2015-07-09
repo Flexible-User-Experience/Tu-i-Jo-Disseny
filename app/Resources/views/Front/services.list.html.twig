@@ -7,15 +7,28 @@
 {% block headline %}{{ 'front.services' | trans | capitalize }}{% endblock headline %}
 
 {% block content %}
-    {% for category in categories %}
-        <ul class="list-group">
-            <li class="list-group-item">
-                {{ badge(category.services | length) }}
-                {{ label(category) }}
-                {% for service in category.services if service.enabled %}
-                    <p>{{ service }}</p>
-                {% endfor %}
-            </li>
-        </ul>
-    {% endfor %}
+    <div class="col-xs-12">
+        {% for category in categories %}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ category.name }}<span class="pull-right">{{ badge(category.services | length) }}</span></h3>
+                </div>
+                <div class="panel-body">
+                    {% for service in category.services if service.enabled %}
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" src="{{ vich_uploader_asset(service, 'imageFile') | imagine_filter('60x60') }}" alt="{{ service.name }}">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">{{ service.name }}</h4>
+                                <p>{{ service.description }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

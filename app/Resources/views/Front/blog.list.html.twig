@@ -1,20 +1,34 @@
 {% extends ':Front:layout.html.twig' %}
 
+{% from 'MopaBootstrapBundle::macros.html.twig' import label, badge %}
+
 {% block title %}{{ 'front.blog' | trans | capitalize }} · {{ parent() }}{% endblock %}
 
 {% block headline %}{{ 'front.blog' | trans | capitalize }}{% endblock headline %}
 
 {% block content %}
-    <ul class="list-group">
+    <div class="col-xs-12">
         {% for tag in tags %}
-            <li class="list-group-item">
-                {{ tag }}
-                <ul class="list-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ tag.name }}<span class="pull-right">{{ badge(tag.posts | length) }}</span></h3>
+                </div>
+                <div class="panel-body">
                     {% for post in tag.posts if post.enabled %}
-                        <li class="list-group-item">{{ post }}</li>
+                        <div class="media">
+                            <div class="media-left">
+                                <a href="#">
+                                    <img class="media-object" src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('60x60') }}" alt="{{ post.name }}">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">{{ post.name }}<span class="pull-right">{{ post.publishedAt | date('d/m/Y') }}</span></h4>
+                                <p>{{ post.description }}</p>
+                            </div>
+                        </div>
                     {% endfor %}
-                </ul>
-            </li>
+                </div>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
 {% endblock %}
