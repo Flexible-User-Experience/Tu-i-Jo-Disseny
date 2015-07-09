@@ -41,30 +41,30 @@ class MailManager
      */
     public function doTestEmailCommandDelivery()
     {
-        $this->delivery('Test', 'david@flux.cat', 'David', 'Message body test');
+        $this->delivery('Tu&Jo Disseny webapp email test', 'info@flux.cat', 'Flux', 'Message body test');
     }
 
     /**
      * Deliver email notifitacion task
      *
      * @param string $subject
-     * @param string $adress
+     * @param string $address
      * @param string $name
      * @param string $message
      */
-    private function delivery($subject, $adress, $name, $message)
+    private function delivery($subject, $address, $name, $message)
     {
         /** @var \Swift_Message $emailMessage */
         $emailMessage = \Swift_Message::newInstance()
             ->setSubject($subject)
             ->setFrom('estudi@tujodisseny.com')
-            ->setTo($adress, $name)
+            ->setTo($address, $name)
             ->setBody(
                 $this->ts->render(
-                    'Front/contact.email.html.twig',
+                    'Mail/test.html.twig',
                     array(
                         'subject' => $subject,
-                        'adress'  => $adress,
+                        'address' => $address,
                         'name'    => $name,
                         'message' => $message,
                     )

@@ -41,7 +41,7 @@ class TestEmailCommand extends ContainerAwareCommand
         /** @var MailManager $mm */
         $mm = $this->getContainer()->get('app.manager.mail');
         $mm->doTestEmailCommandDelivery();
-        $output->writeln('<info>--- test finished</info>');
+        $output->writeln('<info>--- sending email</info>');
 
         return 0;
     }
