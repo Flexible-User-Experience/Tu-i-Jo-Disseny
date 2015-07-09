@@ -1,4 +1,10 @@
 services:
+# Mailer
+    app.manager.mail:
+        class: AppBundle\Manager\MailManager
+        arguments:
+            - @templating
+            - @mailer
 ### Admin
     sonata.admin.services_category:
         class: AppBundle\Admin\ServiceCategoryAdmin
