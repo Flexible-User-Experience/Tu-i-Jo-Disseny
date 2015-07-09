@@ -23,3 +23,7 @@ parameters:
 
     google_analytics_enabled: false
     google_analytics_account: "UA-fake..."
+
+    path_java:          /usr/bin/java
+    path_node:          /usr/bin/nodejs
+    path_node_modules:  /home/<user>/node_modules

@@ -7,15 +7,17 @@
 {% block headline %}{{ 'front.services' | trans | capitalize }}{% endblock headline %}
 
 {% block content %}
-    {% for category in categories %}
-        <ul class="list-group">
-            <li class="list-group-item">
-                {{ badge(category.services | length) }}
-                {{ label(category) }}
-                {% for service in category.services if service.enabled %}
-                    <p>{{ service }}</p>
-                {% endfor %}
-            </li>
-        </ul>
-    {% endfor %}
+    <div class="col-xs-12">
+        {% for category in categories %}
+            <ul class="list-group">
+                <li class="list-group-item">
+                    {{ badge(category.services | length) }}
+                    {{ label(category) }}
+                    {% for service in category.services if service.enabled %}
+                        <p>{{ service }}</p>
+                    {% endfor %}
+                </li>
+            </ul>
+        {% endfor %}
+    </div>
 {% endblock %}

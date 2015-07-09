@@ -44,13 +44,8 @@ monolog:
 # Assetic local
 assetic:
     use_controller: true
-    node:           /usr/local/bin/node
-    filters:
-        less:
-            node:       /usr/local/bin/node
-            node_paths: [ /usr/local/lib/node_modules ]
 
-#swiftmailer:
+#Swiftmailer:
 #    delivery_address: me@example.com
 
 cypress_git_elephant:
