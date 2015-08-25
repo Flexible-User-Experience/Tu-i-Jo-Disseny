@@ -8,6 +8,7 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
+            // Symfony
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
@@ -34,8 +35,8 @@ class AppKernel extends Kernel
             new Sonata\IntlBundle\SonataIntlBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
-            new Vich\UploaderBundle\VichUploaderBundle(), // keep this bundle after Stof
+            new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(), // keep this bundle after Stof
+            new Vich\UploaderBundle\VichUploaderBundle(),
             // App
             new AppBundle\AppBundle(),
         );
