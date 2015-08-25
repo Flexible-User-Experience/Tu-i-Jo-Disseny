@@ -4,7 +4,6 @@ namespace AppBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
-use Symfony\Component\Translation\Translator;
 
 /**
  * Class MenuBuilder
