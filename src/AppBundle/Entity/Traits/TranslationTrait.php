@@ -3,7 +3,6 @@
 namespace AppBundle\Entity\Traits;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Gedmo\Translator\TranslationInterface;
 
 /**
  * Class TranslationTrait
