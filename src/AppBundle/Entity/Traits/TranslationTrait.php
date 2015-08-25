@@ -20,7 +20,7 @@ trait TranslationTrait
      *
      * @return $this
      */
-    public function setTranslations($translations)
+    public function setTranslations(ArrayCollection $translations)
     {
         foreach ($translations as $translation) {
             $translation->setObject($this);
