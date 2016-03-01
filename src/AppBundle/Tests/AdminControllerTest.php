@@ -2,7 +2,6 @@
 
 namespace AppBundle\Tests;
 
-use Liip\FunctionalTestBundle\Test\WebTestCase;
 use Symfony\Bundle\FrameworkBundle\Client;
 
 /**
@@ -12,16 +11,8 @@ use Symfony\Bundle\FrameworkBundle\Client;
  * @package  AppBundle\Tests
  * @author   David Romaní <david@flux.cat>
  */
-class AdminControllerTest extends WebTestCase
+class AdminControllerTest extends AbstractBaseTest
 {
-    /**
-     * Set up test
-     */
-    public function setUp()
-    {
-        $this->loadFixtures(array('AppBundle\DataFixtures\ORM\LoadFixtures'));
-    }
-
     /**
      * Test HTTP request is successful
      *

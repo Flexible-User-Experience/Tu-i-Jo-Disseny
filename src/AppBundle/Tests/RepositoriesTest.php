@@ -4,8 +4,6 @@ namespace AppBundle\Tests;
 
 use AppBundle\Entity\Base;
 use AppBundle\Entity\ServiceCategory;
-use Doctrine\Common\Collections\ArrayCollection;
-use Liip\FunctionalTestBundle\Test\WebTestCase;
 
 /**
  * Class RepositoriesTest
@@ -14,16 +12,8 @@ use Liip\FunctionalTestBundle\Test\WebTestCase;
  * @package  AppBundle\Tests
  * @author   David Romaní <david@flux.cat>
  */
-class RepositoriesTest extends WebTestCase
+class RepositoriesTest extends AbstractBaseTest
 {
-    /**
-     * Set up test
-     */
-    public function setUp()
-    {
-        $this->loadFixtures(array('AppBundle\DataFixtures\ORM\LoadFixtures'));
-    }
-
     /**
      * Test repository bulk methods
      */
@@ -31,13 +21,13 @@ class RepositoriesTest extends WebTestCase
     {
         $em = $this->getContainer()->get('doctrine')->getManager();
 
-        $this->assertEquals(5, $em->getRepository('AppBundle:ServiceCategory')->getInstancesAmount());
-        $this->assertEquals(10, $em->getRepository('AppBundle:Service')->getInstancesAmount());
-        $this->assertEquals(20, $em->getRepository('AppBundle:Project')->getInstancesAmount());
-        $this->assertEquals(40, $em->getRepository('AppBundle:ProjectImage')->getInstancesAmount());
-        $this->assertEquals(5, $em->getRepository('AppBundle:Partner')->getInstancesAmount());
-        $this->assertEquals(5, $em->getRepository('AppBundle:BlogTag')->getInstancesAmount());
-        $this->assertEquals(10, $em->getRepository('AppBundle:BlogPost')->getInstancesAmount());
+        $this->assertEquals(10, $em->getRepository('AppBundle:ServiceCategory')->getInstancesAmount());
+        $this->assertEquals(20, $em->getRepository('AppBundle:Service')->getInstancesAmount());
+        $this->assertEquals(40, $em->getRepository('AppBundle:Project')->getInstancesAmount());
+        $this->assertEquals(80, $em->getRepository('AppBundle:ProjectImage')->getInstancesAmount());
+        $this->assertEquals(10, $em->getRepository('AppBundle:Partner')->getInstancesAmount());
+        $this->assertEquals(10, $em->getRepository('AppBundle:BlogTag')->getInstancesAmount());
+        $this->assertEquals(40, $em->getRepository('AppBundle:BlogPost')->getInstancesAmount());
         $this->assertEquals(0, $em->getRepository('AppBundle:Group')->getInstancesAmount());
         $this->assertEquals(1, $em->getRepository('AppBundle:User')->getInstancesAmount());
     }

@@ -25,6 +25,7 @@ class ServiceCategoryAdmin extends BaseAdmin
      */
     protected function configureListFields(ListMapper $mapper)
     {
+        unset($this->listModes['mosaic']);
         $mapper
             ->add(
                 'name',
