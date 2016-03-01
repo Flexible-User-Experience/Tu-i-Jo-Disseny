@@ -37,6 +37,7 @@ twig:
         google_analytics_enabled: %google_analytics_enabled%
         google_analytics_account: "%google_analytics_account%"
         main_brand_title:         "%main_brand_title%"
+        admin_tag_version:        "v1.0.01"
 
 # Assetic Configuration
 assetic:
@@ -118,7 +119,7 @@ fos_user:
         group_class:   AppBundle\Entity\Group
         group_manager: sonata.user.orm.group_manager
     service:
-        user_manager: sonata.user.orm.user_manager
+        user_manager:  sonata.user.orm.user_manager
 
 # JMS i18n Routing
 jms_i18n_routing:
@@ -169,9 +170,13 @@ sonata_admin:
     dashboard:
         groups:
             Serveis:
+                icon: "<i class='fa fa-folder'></i>"
             Projectes:
+                icon: "<i class='fa fa-file-text'></i>"
             Equip:
+                icon: "<i class='fa fa-users'></i>"
             Blog:
+                icon: "<i class='fa fa-rss'></i>"
         blocks:
             -
                 position: top
@@ -179,8 +184,8 @@ sonata_admin:
                 class: col-md-12
                 settings:
                     content: >
-                        <h1 style="margin: -20px 0 10px 0">Administrador de continguts</h1>
-                        <h4 style="margin-bottom: 40px">Benvingut a l'administrador de continguts de la pàgina web <a href="http://www.tujodisseny.com" target="_blank">www.tujodisseny.com</a></h4>
+                        <h1 style="margin-top:0">Administrador de continguts</h1>
+                        <h4 style="margin-bottom:40px">Benvingut a l'administrador de continguts de la pàgina web <a href="http://www.tujodisseny.com" target="_blank">www.tujodisseny.com</a></h4>
             -
                 position: left
                 type: sonata.admin.block.admin_list
@@ -197,7 +202,7 @@ sonata_admin:
                 class: col-md-12
                 settings:
                     content: >
-                        <div class="alert alert-primary" style="margin:40px 0"><p><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Per rebre assistència tècnica o ajuda envieu un missatge a <a href="mailto:suport@flux.cat?subject=Ajuda administrador de continguts Tu&Jo Disseny" style="color:#000">suport@flux.cat</a></p></div>
+                        <div><hr style="margin-top:40px;border-top:solid 1px #d2d6de"><p><i class="fa fa-info-circle"></i> Per rebre assistència tècnica o ajuda envieu un missatge a <a href="mailto:suport@flux.cat?subject=Ajuda administrador de continguts Tu&Jo Disseny" style="color:#000">suport@flux.cat</a></p></div>
 
 # Sonata Block
 sonata_block:
@@ -208,6 +213,11 @@ sonata_block:
         sonata.block.service.text:
         sonata.admin.block.admin_list:
             contexts:   [ admin ]
+
+sonata_doctrine_orm_admin:
+    templates:
+        form:
+            - "::Admin/Forms/custom_checkbox_form_template_hack.html.twig"
 
 # Sonata Intl
 #sonata_intl:
