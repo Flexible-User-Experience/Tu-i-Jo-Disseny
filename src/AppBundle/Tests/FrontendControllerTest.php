@@ -2,8 +2,6 @@
 
 namespace AppBundle\Tests;
 
-use Liip\FunctionalTestBundle\Test\WebTestCase;
-
 /**
  * Class FrontendControllerTest
  *
@@ -11,7 +9,7 @@ use Liip\FunctionalTestBundle\Test\WebTestCase;
  * @package  AppBundle\Tests
  * @author   David Romaní <david@flux.cat>
  */
-class FrontendControllerTest extends WebTestCase
+class FrontendControllerTest extends AbstractBaseTest
 {
     /**
      * Test HTTP request is successful

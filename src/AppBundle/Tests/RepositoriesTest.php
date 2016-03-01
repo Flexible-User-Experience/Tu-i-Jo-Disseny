@@ -4,8 +4,6 @@ namespace AppBundle\Tests;
 
 use AppBundle\Entity\Base;
 use AppBundle\Entity\ServiceCategory;
-use Doctrine\Common\Collections\ArrayCollection;
-use Liip\FunctionalTestBundle\Test\WebTestCase;
 
 /**
  * Class RepositoriesTest
@@ -14,16 +12,8 @@ use Liip\FunctionalTestBundle\Test\WebTestCase;
  * @package  AppBundle\Tests
  * @author   David Romaní <david@flux.cat>
  */
-class RepositoriesTest extends WebTestCase
+class RepositoriesTest extends AbstractBaseTest
 {
-    /**
-     * Set up test
-     */
-    public function setUp()
-    {
-        $this->loadFixtures(array('AppBundle\DataFixtures\ORM\LoadFixtures'));
-    }
-
     /**
      * Test repository bulk methods
      */
