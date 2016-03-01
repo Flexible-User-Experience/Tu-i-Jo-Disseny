@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo `date +"%T %d/%m/%Y"`
+
 if [ -z "$1" ]
   then
     phpunit -c app/
