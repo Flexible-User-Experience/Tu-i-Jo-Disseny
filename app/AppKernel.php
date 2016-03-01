@@ -20,7 +20,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             // Vendors
-            new Craue\FormFlowBundle\CraueFormFlowBundle(),
+//            new Craue\FormFlowBundle\CraueFormFlowBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Hautelook\AliceBundle\HautelookAliceBundle(),
             new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
@@ -32,7 +32,7 @@ class AppKernel extends Kernel
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\DatagridBundle\SonataDatagridBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
-            new Sonata\IntlBundle\SonataIntlBundle(),
+//            new Sonata\IntlBundle\SonataIntlBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(), // keep this bundle after Stof
