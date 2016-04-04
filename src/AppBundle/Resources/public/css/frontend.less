@@ -1,1 +1,67 @@
+// Imports
+@import "../../../../../vendor/twbs/bootstrap/less/bootstrap.less";
+@import "../../../../../vendor/components/font-awesome/less/font-awesome.less";
+
+// Variables
+@blue-dark:   #08122F;
+@blue-light:  #2D7477;
+@cream-dark:  #B5AE7F;
+@cream-light: #D2CCA9;
+@white:       #FFFFFF;
+@grey:        #888888;
+@black:       #222222;
+@gap-big: @gap-normal * 2;
+@gap-normal: 20px;
+@gap-small: @gap-normal / 2;
+
+// Fonts
+@icon-font-path: "/bundles/app/fonts/";
+@fa-font-path: "/bundles/app/fonts";
+
+// Colors
+.c-dblue    { color: @blue-dark }
+.c-lblue    { color: @blue-light }
+.c-dcream   { color: @cream-dark }
+.c-lcream   { color: @cream-light }
+.c-white    { color: @white }
+.c-grey     { color: @grey }
+.c-black    { color: @black }
+.bc-dblue   { background-color: @blue-dark }
+.bc-lblue   { background-color: @blue-light }
+.bc-dcream  { background-color: @cream-dark }
+.bc-lcream  { background-color: @cream-light }
+.bc-white   { background-color: @white }
+.bc-grey    { background-color: @grey }
+.bc-black   { background-color: @black }
+
+// Links
+@link-color: @black;
+@text-color: @grey;
+
+// Textarea
+textarea { resize: vertical; }
+
+// Gaps
+.no-m { margin: 0; }
+.no-m-top { margin-top: 0; }
+.no-m-bottom { margin-bottom: 0; }
+.no-m-left { margin-left: 0; }
+.no-m-right { margin-right: 0; }
+.extra-m-top { margin-top: @gap-big; }
+.extra-m-bottom { margin-bottom: @gap-big; }
+.no-p-left { padding-left: 0; }
+.no-p-right { padding-right: 0; }
+.no-h-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// Navbar
+@navbar-margin-bottom: @gap-big;
+@navbar-default-bg: transparent;
+@navbar-default-link-color: @blue-light;
+@navbar-default-link-hover-color: @black;
+@navbar-default-link-active-color: @black;
+@navbar-default-link-active-bg: transparent;
+@navbar-default-border: transparent;
 @navbar-height: 170px;

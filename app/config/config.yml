@@ -40,7 +40,6 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ MopaBootstrapBundle ]
     java:           "%path_java%"
     node:           "%path_node%"
     filters:
@@ -51,13 +50,11 @@ assetic:
     assets:
         mycss:
             inputs:
-                - "@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle-fa4.less"
                 - "@AppBundle/Resources/public/css/frontend.less"
         myjs:
             inputs:
                 - "%kernel.root_dir%/../vendor/components/jquery/jquery.js"
-                - "@MopaBootstrapBundle/Resources/public/bootstrap/js/tooltip.js"
-                - "@MopaBootstrapBundle/Resources/public/bootstrap/js/*.js"
+                - "%kernel.root_dir%/../vendor/twbs/bootstrap/dist/js/bootstrap.js"
 
 # Doctrine Configuration
 doctrine:
@@ -111,13 +108,6 @@ jms_i18n_routing:
     default_locale: "%locale%"
     locales: [ ca, es, en ]
     strategy: prefix_except_default
-
-# Mopa Bootstrap
-mopa_bootstrap:
-    form: ~
-    menu: ~
-    icons:
-        icon_set: fontawesome4
 
 # Swiftmailer Configuration
 swiftmailer:
