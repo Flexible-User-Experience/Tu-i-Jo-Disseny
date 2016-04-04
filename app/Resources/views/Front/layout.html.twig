@@ -41,8 +41,32 @@
     <div class="scroll-top-wrapper"><span class="scroll-top-inner"><i class="fa fa-2x fa-chevron-up"></i></span></div>
     {#<!-- Footer -->#}
     {% block footer %}
-        <hr/>
-        <p>&copy; {{ 'now' | date('Y') }} {{ main_brand_title }}</p>
+        <footer class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <a class="social-network-icon" target="_blank" href="https://www.facebook.com/tuijodissenygrafic/"><i class="fa fa-facebook"></i></a> <a class="social-network-icon" target="_blank" href="https://www.instagram.com/tujo_disseny/"><i class="fa fa-instagram"></i></a> <a class="social-network-icon" target="_blank" href="https://es.pinterest.com/hidraulicadis/"><i class="fa fa-pinterest-p"></i></a>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        NEWSLETTER
+                    </div>
+                    <div class="col-xs-4 text-right">
+                        C. CAMPOAMOR, 20<br>
+                        43870 AMPOSTA<br>
+                        <br>
+                        T. 977 071 895
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <hr>
+                        <i class="fa fa-copyright"></i> {{ 'now' | date('Y') }} {{ main_brand_title }}
+                    </div>
+                </div>
+            </div>
+        </footer>
     {% endblock %}
     {#<!-- Javascripts -->#}
     {% block javascripts %}
@@ -52,7 +76,7 @@
     {% endblock %}
     {% block scroll_top %}
         {#<!-- Scroll-Top effect JS -->#}
-        {#{% include ':Frontend/includes:scroll-to-top-js.html.twig' %}#}
+        {% include ':Front/includes:scroll-to-top-js.html.twig' %}
     {% endblock %}
     {% block analytics %}
         {#<!-- Google Analytics -->#}
