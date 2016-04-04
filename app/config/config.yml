@@ -2,25 +2,20 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-
-parameters:
-    locale: ca
-    main_brand_title: "Tu&Jo Disseny"
+    - { resource: sonata.yml }
+    - { resource: media.yml }
 
 framework:
-    #esi:             ~
     translator:      { fallbacks: [ "%locale%" ] }
     secret:          "%secret%"
     router:
-        resource: "%kernel.root_dir%/config/routing.yml"
+        resource:            "%kernel.root_dir%/config/routing.yml"
         strict_requirements: ~
     form:            ~
     csrf_protection: ~
     validation:      { enable_annotations: true }
-    #serializer:      { enable_annotations: true }
     templating:
         engines: [ "twig" ]
-        #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
     trusted_hosts:   ~
     trusted_proxies: ~
@@ -33,6 +28,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_themes:
+        - "bootstrap_3_layout.html.twig"
     globals:
         google_analytics_enabled: %google_analytics_enabled%
         google_analytics_account: "%google_analytics_account%"
@@ -65,7 +62,7 @@ assetic:
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver:   pdo_mysql
+        driver:   "%database_driver%"
         host:     "%database_host%"
         port:     "%database_port%"
         dbname:   "%database_name%"
@@ -78,22 +75,10 @@ doctrine:
         auto_generate_proxy_classes:  "%kernel.debug%"
         naming_strategy:              doctrine.orm.naming_strategy.underscore
         auto_mapping:                 true
-        mappings:
-            gedmo_translatable:
-                type: annotation
-                prefix: Gedmo\Translatable\Entity
-                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
-                alias: GedmoTranslatable
-                is_bundle: false
-        filters:
-            softdeleteable:
-                class:    Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
-                enabled:  true
 
 # Stof Doctrine Extensions
 stof_doctrine_extensions:
     default_locale:       "%locale%"
-    translation_fallback: true
     orm:
         default:
             translatable:   true
@@ -127,107 +112,12 @@ jms_i18n_routing:
     locales: [ ca, es, en ]
     strategy: prefix_except_default
 
-# Liip Imagine
-liip_imagine:
-    resolvers:
-       default:
-          web_path: ~
-    filter_sets:
-        cache: ~
-        60x60:
-            quality: 95
-            filters:
-                thumbnail: { size: [ 60, 60 ], mode: outbound }
-        250xY:
-            quality: 85
-            filters:
-                thumbnail: { size: [ 250, null ], mode: outbound }
-        480xY:
-            quality: 80
-            filters:
-                thumbnail: { size: [ 480, null ], mode: outbound }
-
 # Mopa Bootstrap
 mopa_bootstrap:
     form: ~
     menu: ~
     icons:
         icon_set: fontawesome4
-
-# Sonata Admin
-sonata_admin:
-    title: "Tu&Jo"
-    title_logo: "/bundles/app/images/logotip-fons-2.png"
-    options:
-        html5_validate: true
-        confirm_exit:   true
-        use_select2:    true
-        pager_links:    10
-    persist_filters: true
-    templates:
-        layout:                 "::Admin/layout.html.twig"
-        outer_list_rows_mosaic: "::Admin/list_outer_rows_mosaic.html.twig"
-    dashboard:
-        groups:
-            Serveis:
-                icon: "<i class='fa fa-folder'></i>"
-            Projectes:
-                icon: "<i class='fa fa-file-text'></i>"
-            Equip:
-                icon: "<i class='fa fa-users'></i>"
-            Blog:
-                icon: "<i class='fa fa-rss'></i>"
-        blocks:
-            -
-                position: top
-                type: sonata.block.service.text
-                class: col-md-12
-                settings:
-                    content: >
-                        <h1 style="margin-top:0">Administrador de continguts</h1>
-                        <h4 style="margin-bottom:40px">Benvingut a l'administrador de continguts de la pàgina web <a href="http://www.tujodisseny.com" target="_blank">www.tujodisseny.com</a></h4>
-            -
-                position: left
-                type: sonata.admin.block.admin_list
-                settings:
-                    groups: [ Serveis, Projectes ]
-            -
-                position: right
-                type: sonata.admin.block.admin_list
-                settings:
-                    groups: [ Equip, Blog ]
-            -
-                position: bottom
-                type: sonata.block.service.text
-                class: col-md-12
-                settings:
-                    content: >
-                        <div><hr style="margin-top:40px;border-top:solid 1px #d2d6de"><p><i class="fa fa-info-circle"></i> Per rebre assistència tècnica o ajuda envieu un missatge a <a href="mailto:suport@flux.cat?subject=Ajuda administrador de continguts Tu&Jo Disseny" style="color:#000">suport@flux.cat</a></p></div>
-
-# Sonata Block
-sonata_block:
-    default_contexts: [ cms ]
-    blocks:
-        sonata.user.block.menu:
-        sonata.user.block.account:
-        sonata.block.service.text:
-        sonata.admin.block.admin_list:
-            contexts:   [ admin ]
-
-sonata_doctrine_orm_admin:
-    templates:
-        form:
-            - "::Admin/Forms/custom_checkbox_form_template_hack.html.twig"
-
-# Sonata Intl
-#sonata_intl:
-#    timezone:
-#        default: Europe/Madrid
-
-# Sonata User
-sonata_user:
-    security_acl: true
-    manager_type: orm
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -239,24 +129,3 @@ swiftmailer:
     username:   "%mailer_user%"
     password:   "%mailer_password%"
     spool:      { type: memory }
-
-# Vich Uploader
-vich_uploader:
-    db_driver: orm
-    mappings:
-        service:
-            namer:              vich_uploader.namer_uniqid
-            uri_prefix:         /uploads/services
-            upload_destination: %kernel.root_dir%/../web/uploads/services
-        project:
-            namer:              vich_uploader.namer_uniqid
-            uri_prefix:         /uploads/projects
-            upload_destination: %kernel.root_dir%/../web/uploads/projects
-        partner:
-            namer:              vich_uploader.namer_uniqid
-            uri_prefix:         /uploads/partners
-            upload_destination: %kernel.root_dir%/../web/uploads/partners
-        post:
-            namer:              vich_uploader.namer_uniqid
-            uri_prefix:         /uploads/posts
-            upload_destination: %kernel.root_dir%/../web/uploads/posts

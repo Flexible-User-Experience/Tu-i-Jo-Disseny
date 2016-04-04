@@ -74,7 +74,7 @@
     "config": {
         "bin-dir": "bin",
         "github-oauth": {
-          "github.com": "1ead0a46c7ba5f78461d074065fe5143a831fb78"
+          "github.com": "5fe704cacea1b4e3da84c226f478c8775a3125f1"
         }
     },
     "extra": {

@@ -1,0 +1,40 @@
+# Liip Imagine
+liip_imagine:
+    resolvers:
+       default:
+          web_path: ~
+    filter_sets:
+        cache: ~
+        60x60:
+            quality: 95
+            filters:
+                thumbnail: { size: [ 60, 60 ], mode: outbound }
+        250xY:
+            quality: 85
+            filters:
+                thumbnail: { size: [ 250, null ], mode: outbound }
+        480xY:
+            quality: 80
+            filters:
+                thumbnail: { size: [ 480, null ], mode: outbound }
+
+# Vich Uploader
+vich_uploader:
+    db_driver: orm
+    mappings:
+        service:
+            namer:              vich_uploader.namer_uniqid
+            uri_prefix:         /uploads/services
+            upload_destination: %kernel.root_dir%/../web/uploads/services
+        project:
+            namer:              vich_uploader.namer_uniqid
+            uri_prefix:         /uploads/projects
+            upload_destination: %kernel.root_dir%/../web/uploads/projects
+        partner:
+            namer:              vich_uploader.namer_uniqid
+            uri_prefix:         /uploads/partners
+            upload_destination: %kernel.root_dir%/../web/uploads/partners
+        post:
+            namer:              vich_uploader.namer_uniqid
+            uri_prefix:         /uploads/posts
+            upload_destination: %kernel.root_dir%/../web/uploads/posts

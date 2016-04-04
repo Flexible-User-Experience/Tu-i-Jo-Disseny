@@ -1,0 +1,64 @@
+# Sonata Admin
+sonata_admin:
+    title: "Tu&Jo"
+    title_logo: "/bundles/app/images/logotip-fons-2.png"
+    options:
+        html5_validate: true
+        confirm_exit:   true
+        use_select2:    true
+        pager_links:    10
+    persist_filters: true
+    templates:
+        layout:                 "::Admin/layout.html.twig"
+        outer_list_rows_mosaic: "::Admin/list_outer_rows_mosaic.html.twig"
+    dashboard:
+        groups:
+            Serveis:
+                icon: "<i class='fa fa-folder'></i>"
+            Projectes:
+                icon: "<i class='fa fa-file-text'></i>"
+            Equip:
+                icon: "<i class='fa fa-users'></i>"
+            Blog:
+                icon: "<i class='fa fa-rss'></i>"
+        blocks:
+            -
+                position: top
+                type: sonata.block.service.text
+                class: col-md-12
+                settings:
+                    content: >
+                        <h1 style="margin-top:0">Administrador de continguts</h1>
+                        <h4 style="margin-bottom:40px">Benvingut a l'administrador de continguts de la pàgina web <a href="http://www.tujodisseny.com" target="_blank">www.tujodisseny.com</a></h4>
+            -
+                position: left
+                type: sonata.admin.block.admin_list
+                settings:
+                    groups: [ Serveis, Projectes ]
+            -
+                position: right
+                type: sonata.admin.block.admin_list
+                settings:
+                    groups: [ Equip, Blog ]
+            -
+                position: bottom
+                type: sonata.block.service.text
+                class: col-md-12
+                settings:
+                    content: >
+                        <div><hr style="margin-top:40px;border-top:solid 1px #d2d6de"><p><i class="fa fa-info-circle"></i> Per rebre assistència tècnica o ajuda envieu un missatge a <a href="mailto:suport@flux.cat?subject=Ajuda administrador de continguts Tu&Jo Disseny" style="color:#000">suport@flux.cat</a></p></div>
+
+# Sonata Block
+sonata_block:
+    default_contexts: [ cms ]
+    blocks:
+        sonata.user.block.menu:
+        sonata.user.block.account:
+        sonata.block.service.text:
+        sonata.admin.block.admin_list:
+            contexts:   [ admin ]
+
+# Sonata User
+sonata_user:
+    security_acl: true
+    manager_type: orm

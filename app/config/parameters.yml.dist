@@ -1,4 +1,5 @@
 parameters:
+    database_driver:   pdo_mysql
     database_host:     127.0.0.1
     database_port:     ~
     database_name:     symfony
@@ -24,3 +25,6 @@ parameters:
     path_java:         /usr/bin/java
     path_node:         /usr/bin/nodejs
     path_node_modules: /home/<user>/node_modules
+
+    locale: ca
+    main_brand_title: "Tu&Jo Disseny"
