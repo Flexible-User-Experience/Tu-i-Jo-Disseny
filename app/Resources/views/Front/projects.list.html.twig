@@ -1,12 +1,8 @@
 {% extends ':Front:layout.html.twig' %}
 
-{% from 'MopaBootstrapBundle::macros.html.twig' import label, badge %}
-
 {% block title %}{{ 'front.projects' | trans | capitalize }} · {{ parent() }}{% endblock %}
 
-{% block headline %}{{ 'front.projects' | trans | capitalize }}{% endblock headline %}
-
-{% block content %}
+{% block main %}
     <div class="col-xs-12">
         {% for project in projects %}
             <div class="panel panel-default">
@@ -18,7 +14,7 @@
                             </a>
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading">{{ project.name }}<span class="pull-right">{{ badge(project.services | length) }}</span></h4>
+                            <h4 class="media-heading">{{ project.name }}<span class="pull-right"></span></h4>
                             <p>{{ project.description }}</p>
                         </div>
                     </div>

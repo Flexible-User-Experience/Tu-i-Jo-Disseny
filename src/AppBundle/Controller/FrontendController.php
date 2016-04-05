@@ -48,9 +48,7 @@ class FrontendController extends Controller
     {
         return $this->render(
             '::Front/projects.list.html.twig',
-            array(
-                'projects' => $this->getDoctrine()->getRepository('AppBundle:Project')->findAllEnabledSortedByName(),
-            )
+            [ 'projects' => $this->getDoctrine()->getRepository('AppBundle:Project')->findAllEnabledSortedByName() ]
         );
     }
 
