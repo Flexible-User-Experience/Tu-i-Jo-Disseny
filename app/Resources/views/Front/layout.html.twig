@@ -34,7 +34,31 @@
 </head>
 <body class="{% block body_class %}base{% endblock %}">
     {#<!-- Head content -->#}
-    {% block header %}{% endblock %}
+    {% block header %}
+        <div class="container">
+            <div class="row">
+                <header class="main">
+                    <div class="col-xs-4">
+                        <ul class="list-unstyled list-inline">
+                            <li><a href="#">{{ 'projectes' | trans }}</a></li>
+                            <li><a href="#">{{ 'serveis' | trans }}</a></li>
+                            <li><a href="#">{{ 'natros' | trans }}</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <img alt="{{ main_brand_title }}" src="{{ asset('bundles/app/vectors/tu-i-jo-logo.svg') }}">
+                    </div>
+                    <div class="col-xs-4 text-right">
+                        <ul class="list-unstyled list-inline">
+                            <li><a href="#">{{ 'estudi' | trans }}</a></li>
+                            <li><a href="#">{{ 'blog' | trans }}</a></li>
+                            <li><a href="#">{{ 'contacte' | trans }}</a></li>
+                        </ul>
+                    </div>
+                </header>
+            </div>
+        </div>
+    {% endblock %}
     {#<!-- Main content -->#}
     {% block main %}{% endblock %}
     {#<!-- Scroll-Top effect -->#}

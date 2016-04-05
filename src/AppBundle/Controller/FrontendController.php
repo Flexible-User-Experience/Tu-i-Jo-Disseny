@@ -25,7 +25,7 @@ class FrontendController extends Controller
     }
 
     /**
-     * @Route("/services", name="front_services")
+     * @Route("/services/", name="front_services")
      * @Method({"GET"})
      */
     public function servicesAction()
@@ -41,7 +41,7 @@ class FrontendController extends Controller
     }
 
     /**
-     * @Route("/projects", name="front_projects")
+     * @Route("/projects/", name="front_projects")
      * @Method({"GET"})
      */
     public function projectsAction()
@@ -55,7 +55,7 @@ class FrontendController extends Controller
     }
 
     /**
-     * @Route("/partners", name="front_partners")
+     * @Route("/partners/", name="front_partners")
      * @Method({"GET"})
      */
     public function partnersAction()
@@ -69,7 +69,7 @@ class FrontendController extends Controller
     }
 
     /**
-     * @Route("/blog", name="front_blog")
+     * @Route("/blog/", name="front_blog")
      * @Method({"GET"})
      */
     public function blogAction()
