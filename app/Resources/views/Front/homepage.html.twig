@@ -13,5 +13,33 @@
                 {% endfor %}
             </div>
         {% endif %}
+        {% if services | length > 0 %}
+            <div id="services-carousel" class="carousel slide" data-ride="carousel">
+                {#<!-- Wrapper for slides -->#}
+                <div class="row">
+                    <div class="col-xs-offset-2 col-xs-8">
+                        <div class="carousel-inner">
+                            {% for service in services %}
+                                <div class="item{% if loop.index == 1 %} active{% endif %}">
+                                    <div class="carousel-content">
+                                        <div>
+                                            <h3>{{ service.name }}</h3>
+                                            <p>{{ service.description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {#<!-- Controls -->#}
+                <a class="left carousel-control" href="#services-carousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#services-carousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

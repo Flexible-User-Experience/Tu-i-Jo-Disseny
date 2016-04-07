@@ -49,7 +49,7 @@ class ProjectRepository extends BaseRepository
     /**
      * @return ArrayCollection
      */
-    public function findAllEnabledAndShowInHomepageSortedByDate()
+    public function findAllEnabledAndShowInHomepageSortedByPosition()
     {
         return $this->findAllEnabledAndShowInHomepageSortedByPositionQ()->getResult();
     }
