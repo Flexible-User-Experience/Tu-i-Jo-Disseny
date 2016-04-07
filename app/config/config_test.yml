@@ -9,7 +9,7 @@ security:
 framework:
     test: ~
     session:
-        storage_id: session.storage.filesystem
+        storage_id: session.storage.mock_file
     profiler:
         collect: false
 
@@ -20,13 +20,13 @@ web_profiler:
 swiftmailer:
     disable_delivery: true
 
-doctrine:
-    dbal:
-        driver: "pdo_sqlite"
-        path:   "%kernel.root_dir%/databases/test.db3"
-
 liip_functional_test:
     cache_sqlite_db: true
     authentication:
         username: "%private_test_user%"
         password: "%private_test_pass%"
+
+doctrine:
+    dbal:
+        driver: pdo_sqlite
+        path:   "%kernel.root_dir%/databases/test.db3"

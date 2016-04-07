@@ -7,8 +7,9 @@
         "psr-4": {
             "": "src/"
         },
-        "files": [
-          "app/AppKernel.php"
+        "classmap": [
+          "app/AppKernel.php",
+          "app/AppCache.php"
         ]
     },
     "require": {
@@ -28,9 +29,9 @@
         "ircmaxell/password-compat": "~1.0",
         "jms/i18n-routing-bundle": "1.*",
         "knplabs/knp-menu-bundle": "^2.0",
+        "knplabs/knp-paginator-bundle": "^2.5",
         "liip/functional-test-bundle": "^1.0",
         "liip/imagine-bundle": "^1.0",
-        "mopa/bootstrap-bundle": "3.x-dev",
         "php": ">=5.3.9",
         "presta/sitemap-bundle": "^1.3",
         "sensio/distribution-bundle": "~5.0",
@@ -38,7 +39,6 @@
         "sonata-project/admin-bundle": "2.4.x-dev",
         "sonata-project/datagrid-bundle": "2.2.x-dev",
         "sonata-project/doctrine-orm-admin-bundle": "2.4.x-dev",
-        "sonata-project/seo-bundle": "2.0.x-dev",
         "sonata-project/user-bundle": "2.3.x-dev",
         "stof/doctrine-extensions-bundle": "^1.2",
         "symfony/assetic-bundle": "^2.7",
@@ -59,22 +59,20 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
-            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap"
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
         ]
     },
     "config": {
         "bin-dir": "bin",
         "github-oauth": {
-          "github.com": "1ead0a46c7ba5f78461d074065fe5143a831fb78"
+          "github.com": "5fe704cacea1b4e3da84c226f478c8775a3125f1"
         }
     },
     "extra": {

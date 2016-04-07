@@ -24,7 +24,7 @@ class FrontendControllerTest extends AbstractBaseTest
         $client = static::createClient();
         $client->request('GET', $url);
 
-        $this->assertTrue($client->getResponse()->isSuccessful());
+        $this->assertStatusCode(200, $client);
     }
 
     /**
@@ -36,20 +36,9 @@ class FrontendControllerTest extends AbstractBaseTest
     {
         return array(
             array('/'),
-            array('/es/'),
-            array('/en/'),
-            array('/serveis'),
-            array('/es/servicios'),
-            array('/en/services'),
             array('/projectes'),
-            array('/es/proyectos'),
-            array('/en/projects'),
-            array('/equip'),
-            array('/es/equipo'),
-            array('/en/team'),
-            array('/blog'),
-            array('/es/blog'),
-            array('/en/blog'),
+//            array('/projecte/ee/'),
+//            array('/blog/'),
         );
     }
 }

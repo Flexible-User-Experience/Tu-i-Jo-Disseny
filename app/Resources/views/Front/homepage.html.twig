@@ -1,3 +1,50 @@
 {% extends ':Front:layout.html.twig' %}
 
-{% block content %}{% endblock %}
+{% block main %}
+    <div class="container">
+        {% if projects | length > 0 %}
+            <div class="row">
+                {% for project in projects %}
+                    <div class="col-sm-6 col-xs-12">
+                        <a href="{{ path('front_project_detail', {slug: project.slug}) }}">
+                            <img class="img-responsive thumb" src="{{ vich_uploader_asset(project, 'imageFile') | imagine_filter('700x495') }}" alt="{{ project.name }}">
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <a href="{{ path('front_projects') }}">VEURE TOTS ELS PROJECTES <i class="fa fa-arrow-right"></i></a>
+                </div>
+            </div>
+        {% endif %}
+        {% if services | length > 0 %}
+            <div id="services-carousel" class="carousel slide" data-ride="carousel">
+                {#<!-- Wrapper for slides -->#}
+                <div class="row">
+                    <div class="col-xs-offset-2 col-xs-8">
+                        <div class="carousel-inner">
+                            {% for service in services %}
+                                <div class="item{% if loop.index == 1 %} active{% endif %}">
+                                    <div class="carousel-content">
+                                        <div>
+                                            <h3>{{ service.name }}</h3>
+                                            <p>{{ service.description }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {#<!-- Controls -->#}
+                <a class="left carousel-control" href="#services-carousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#services-carousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

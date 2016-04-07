@@ -3,6 +3,7 @@
 namespace AppBundle\Tests;
 
 use Liip\FunctionalTestBundle\Test\WebTestCase;
+use Symfony\Bundle\FrameworkBundle\Client;
 
 /**
  * Class abstract base test
@@ -19,5 +20,15 @@ abstract class AbstractBaseTest extends WebTestCase
     public function setUp()
     {
         $this->runCommand('hautelook_alice:doctrine:fixtures:load');
+    }
+
+    /**
+     * Get authenticated user with Liip Funcitonal Test Bundle
+     *
+     * @return Client
+     */
+    protected function getAuthenticadedUser()
+    {
+        return static::makeClient(true);
     }
 }

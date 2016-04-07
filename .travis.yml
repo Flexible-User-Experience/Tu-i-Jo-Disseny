@@ -1,9 +1,9 @@
 language: php
 
 php:
-  - 5.4
   - 5.5
   - 5.6
+#  - 7.0
 
 before_script:
   - mysql -e 'create database IF NOT EXISTS symfony;'
@@ -12,7 +12,7 @@ before_script:
   - composer install
   - php app/console doctrine:databa:create --no-interaction --env=test
   - php app/console doctrine:schema:create --no-interaction --env=test
-  - php app/console doctrine:fixtures:load --no-interaction --env=test
+  - php app/console hautelook_alice:doctrine:fixtures:load --no-interaction --env=test
 
 script:
   - phpunit -c app
