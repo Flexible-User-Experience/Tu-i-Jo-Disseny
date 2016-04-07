@@ -17,6 +17,10 @@ liip_imagine:
             quality: 80
             filters:
                 thumbnail: { size: [ 480, null ], mode: outbound }
+        700x495:
+            quality: 80
+            filters:
+                thumbnail: { size: [ 700, 495 ], mode: inbound }
 
 # Vich Uploader
 vich_uploader:
