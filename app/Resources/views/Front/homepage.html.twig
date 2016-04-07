@@ -7,10 +7,15 @@
                 {% for project in projects %}
                     <div class="col-sm-6 col-xs-12">
                         <a href="{{ path('front_project_detail', {slug: project.slug}) }}">
-                            <img class="img-responsive" src="{{ vich_uploader_asset(project, 'imageFile') | imagine_filter('700x495') }}" alt="{{ project.name }}">
+                            <img class="img-responsive thumb" src="{{ vich_uploader_asset(project, 'imageFile') | imagine_filter('700x495') }}" alt="{{ project.name }}">
                         </a>
                     </div>
                 {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <a href="{{ path('front_projects') }}">VEURE TOTS ELS PROJECTES <i class="fa fa-arrow-right"></i></a>
+                </div>
             </div>
         {% endif %}
         {% if services | length > 0 %}
