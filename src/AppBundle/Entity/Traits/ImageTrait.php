@@ -3,6 +3,7 @@
 namespace AppBundle\Entity\Traits;
 
 use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class ImageTrait
@@ -14,7 +15,7 @@ use Symfony\Component\HttpFoundation\File\File;
 trait ImageTrait
 {
     /**
-     * @ORM\Column(name="image_name", type="string", length=255)
+     * @ORM\Column(name="image_name", type="string", length=255, nullable=true)
      *
      * @var string $imageName
      */

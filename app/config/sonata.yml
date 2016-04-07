@@ -1,6 +1,6 @@
 # Sonata Admin
 sonata_admin:
-    title: "Tu&Jo"
+    title: "CMS"
     title_logo: "/bundles/app/images/logotip-fons-2.png"
     options:
         html5_validate: true
@@ -13,12 +13,8 @@ sonata_admin:
         outer_list_rows_mosaic: "::Admin/list_outer_rows_mosaic.html.twig"
     dashboard:
         groups:
-            Serveis:
+            Web:
                 icon: "<i class='fa fa-folder'></i>"
-            Projectes:
-                icon: "<i class='fa fa-file-text'></i>"
-            Equip:
-                icon: "<i class='fa fa-users'></i>"
             Blog:
                 icon: "<i class='fa fa-rss'></i>"
         blocks:
@@ -34,12 +30,12 @@ sonata_admin:
                 position: left
                 type: sonata.admin.block.admin_list
                 settings:
-                    groups: [ Serveis, Projectes ]
+                    groups: [ Web ]
             -
                 position: right
                 type: sonata.admin.block.admin_list
                 settings:
-                    groups: [ Equip, Blog ]
+                    groups: [ Blog ]
             -
                 position: bottom
                 type: sonata.block.service.text

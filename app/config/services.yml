@@ -6,30 +6,10 @@ services:
             - @templating
             - @mailer
 ### Admin
-    sonata.admin.services_category:
-        class: AppBundle\Admin\ServiceCategoryAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: "Serveis", label: "Categoria" }
-        arguments:
-            - ~
-            - AppBundle\Entity\ServiceCategory
-            - ~
-        calls:
-            - [ setTranslationDomain, [AppBundle] ]
-    sonata.admin.services_service:
-        class: AppBundle\Admin\ServiceAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: "Serveis", label: "Servei" }
-        arguments:
-            - ~
-            - AppBundle\Entity\Service
-            - ~
-        calls:
-            - [ setTranslationDomain, [AppBundle] ]
     sonata.admin.projects_project:
         class: AppBundle\Admin\ProjectAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Projectes", label: "Projecte" }
+            - { name: sonata.admin, manager_type: orm, group: "Web", label: "Projecte" }
         arguments:
             - ~
             - AppBundle\Entity\Project
@@ -39,17 +19,27 @@ services:
     sonata.admin.projects_image:
         class: AppBundle\Admin\ProjectImageAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Projectes", label: "Imatge", show_in_dashboard: false }
+            - { name: sonata.admin, manager_type: orm, group: "Web", label: "Imatge", show_in_dashboard: false }
         arguments:
             - ~
             - AppBundle\Entity\ProjectImage
             - ~
         calls:
             - [ setTranslationDomain, [AppBundle] ]
+    sonata.admin.services_service:
+        class: AppBundle\Admin\ServiceAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Web", label: "Servei" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Service
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle] ]
     sonata.admin.partners_partner:
         class: AppBundle\Admin\PartnerAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Equip", label: "Col·laborador" }
+            - { name: sonata.admin, manager_type: orm, group: "Web", label: "Equip" }
         arguments:
             - ~
             - AppBundle\Entity\Partner

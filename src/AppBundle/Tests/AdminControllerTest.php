@@ -2,8 +2,6 @@
 
 namespace AppBundle\Tests;
 
-use Symfony\Bundle\FrameworkBundle\Client;
-
 /**
  * Class AdminControllerTest
  *
@@ -24,8 +22,7 @@ class AdminControllerTest extends AbstractBaseTest
         $client = $this->getAuthenticadedUser();
         $client->request('GET', $url);
 
-        //$this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertTrue($client->getResponse()->isSuccessful());
+        $this->assertStatusCode(200, $client);
     }
 
     /**
@@ -79,7 +76,7 @@ class AdminControllerTest extends AbstractBaseTest
         $client = $this->getAuthenticadedUser();
         $client->request('GET', $url);
 
-        $this->assertTrue($client->getResponse()->isNotFound());
+        $this->assertStatusCode(404, $client);
     }
 
     /**
@@ -112,15 +109,5 @@ class AdminControllerTest extends AbstractBaseTest
             array('/admin/blog/post/1/delete'),
             array('/admin/blog/post/batch'),
         );
-    }
-
-    /**
-     * Get authenticated user with Liip Funcitonal Test Bundle
-     *
-     * @return Client
-     */
-    private function getAuthenticadedUser()
-    {
-        return static::makeClient(true);
     }
 }

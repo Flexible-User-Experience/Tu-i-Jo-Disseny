@@ -21,10 +21,8 @@ AppBundle\Entity\Service:
   service{1..20}:
     name: <current()> <sentence(4)>
     description: <text(500)>
-    imageName: <numberBetween(1, 5)>.jpg
     position: <current()>
     enabled: <boolean(70)>
-    category: @category<numberBetween(1, 10)>
 AppBundle\Entity\Translations\ServiceTranslation:
   translationServiceNameEs{1..20}:
     object: @service<current()>

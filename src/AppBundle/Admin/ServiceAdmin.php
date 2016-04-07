@@ -25,29 +25,14 @@ class ServiceAdmin extends BaseAdmin
      */
     protected function configureListFields(ListMapper $mapper)
     {
+        unset($this->listModes['mosaic']);
         $mapper
-            ->add(
-                'imageFile',
-                null,
-                array(
-                    'label'    => 'Imatge',
-                    'template' => '::Admin/list__cell_image_field.html.twig'
-                )
-            )
             ->add(
                 'name',
                 null,
                 array(
                     'label'    => 'Nom',
                     'editable' => true,
-                )
-            )
-            ->add(
-                'category',
-                null,
-                array(
-                    'label'    => 'Categoria',
-                    'editable' => false,
                 )
             )
             ->add(
@@ -94,10 +79,10 @@ class ServiceAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'category',
+                'description',
                 null,
                 array(
-                    'label' => 'Categoria',
+                    'label' => 'Descripció',
                 )
             )
             ->add(
@@ -134,50 +119,6 @@ class ServiceAdmin extends BaseAdmin
                         'style' => 'resize:vertical',
                         'rows'  => 13,
                     )
-                )
-            )
-            ->add(
-                'category',
-                null,
-                array(
-                    'label'    => 'Categoria',
-                    'required' => true,
-                )
-            )
-            ->end()
-            ->with('Imatge', array('class' => 'col-md-5'))
-            ->add(
-                'imageFile',
-                'file',
-                array(
-                    'label'    => 'Arxiu',
-                    'required' => false,
-                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
-                )
-            )
-            ->end()
-            ->with('Traduccions', array('class' => 'col-md-7'))
-            ->add(
-                'translations',
-                'a2lix_translations_gedmo',
-                array(
-                    'required'           => false,
-                    'label'              => ' ',
-                    'translatable_class' => 'AppBundle\Entity\Translations\ServiceTranslation',
-                    'fields'             => array(
-                        'name' => array(
-                            'label'    => 'Nom',
-                            'required' => false,
-                        ),
-                        'description' => array(
-                            'label'    => 'Descripció',
-                            'required' => false,
-                            'attr'  => array(
-                                'style' => 'resize:vertical',
-                                'rows'  => 13,
-                            )
-                        ),
-                    ),
                 )
             )
             ->end()
