@@ -21,7 +21,9 @@ class FrontendController extends Controller
      */
     public function homepageAction()
     {
-        return $this->render('::Front/homepage.html.twig');
+        $projects = $this->getDoctrine()->getRepository('AppBundle:Project')->findAllEnabledAndShowInHomepageSortedByDate();
+
+        return $this->render('::Front/homepage.html.twig', [ 'projects' => $projects ]);
     }
 
     /**

@@ -71,6 +71,13 @@ class Project extends Base
     protected $description;
 
     /**
+     * @ORM\Column(type="boolean", options={"default" = false})
+     *
+     * @var boolean
+     */
+    protected $showInHomepage = false;
+
+    /**
      * @ORM\OneToMany(
      *   targetEntity="AppBundle\Entity\Translations\ProjectTranslation",
      *   mappedBy="object",
@@ -278,5 +285,29 @@ class Project extends Base
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Get ShowInHomepage
+     *
+     * @return boolean
+     */
+    public function getShowInHomepage()
+    {
+        return $this->showInHomepage;
+    }
+
+    /**
+     * Set ShowInHomepage
+     *
+     * @param boolean $showInHomepage
+     *
+     * @return $this
+     */
+    public function setShowInHomepage($showInHomepage)
+    {
+        $this->showInHomepage = $showInHomepage;
+
+        return $this;
     }
 }

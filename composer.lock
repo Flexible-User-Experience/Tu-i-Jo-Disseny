@@ -3970,12 +3970,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "d2c8c2bcdb4a87d32b4ac904adfafada06b1bf66"
+                "reference": "08f90d95a5be0db7fc619514f5b942c7e8c226dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/d2c8c2bcdb4a87d32b4ac904adfafada06b1bf66",
-                "reference": "d2c8c2bcdb4a87d32b4ac904adfafada06b1bf66",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/08f90d95a5be0db7fc619514f5b942c7e8c226dd",
+                "reference": "08f90d95a5be0db7fc619514f5b942c7e8c226dd",
                 "shasum": ""
             },
             "require": {
@@ -4040,7 +4040,7 @@
                 "sonata",
                 "user"
             ],
-            "time": "2016-03-28 12:13:53"
+            "time": "2016-04-05 09:39:24"
         },
         {
             "name": "stof/doctrine-extensions-bundle",
