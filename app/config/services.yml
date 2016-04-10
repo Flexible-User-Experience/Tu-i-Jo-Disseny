@@ -66,6 +66,14 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [AppBundle] ]
+    admin.contactmessage:
+        class: AppBundle\Admin\ContactMessageAdmin
+        arguments:
+            - ~
+            - AppBundle\Entity\ContactMessage
+            - AppBundle:Back\ContactMessageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Missatge", group: "Contactes" }
     admin.user:
         class: AppBundle\Admin\UserAdmin
         arguments: [ ~, AppBundle\Entity\User, ~, "@fos_user.user_manager" ]
