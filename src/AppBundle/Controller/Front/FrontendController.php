@@ -108,9 +108,9 @@ class FrontendController extends Controller
 //            $messenger->sendAdminNotification($contact);
             // reset form
             $newsletter = new ContactNewsletter();
-            $form = $this->createForm(ContactMessageType::class, $newsletter);
+            $form = $this->createForm(ContactNewsletterType::class, $newsletter);
             // build flash message
-            $flash = 'frontend.newsletter.contact.form.flash';
+            $flash = 'revisa el teu correu, has de verificar la teva adreça abans de començar rebre el nostre newsletter';
         }
 
         return $this->render(

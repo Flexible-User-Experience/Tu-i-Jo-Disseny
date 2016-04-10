@@ -41,7 +41,7 @@ class ContactNewsletterType extends AbstractType
                 array(
                     'label' => '>',
                     'attr'  => array(
-                        'class' => 'btn-default squared',
+                        'class' => 'btn-default squared no-gap',
                     ),
                 )
             );
