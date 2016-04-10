@@ -23,10 +23,10 @@ class ContactMessageAnswerType extends ContactMessageType
     {
         $builder
             ->add(
-                'description',
+                'answer',
                 TextareaType::class,
                 array(
-                    'label'    => 'backend.admin.answer',
+                    'label'    => 'Resposta',
                     'required' => true,
                     'attr'     => array(
                         'rows' => 6,
@@ -37,7 +37,7 @@ class ContactMessageAnswerType extends ContactMessageType
                 'send',
                 SubmitType::class,
                 array(
-                    'label'    => 'backend.admin.submit',
+                    'label'    => 'Enviar',
                     'attr'  => array(
                         'class' => 'btn-primary',
                     ),
