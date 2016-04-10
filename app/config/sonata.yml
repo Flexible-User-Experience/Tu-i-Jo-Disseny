@@ -17,6 +17,8 @@ sonata_admin:
                 icon: "<i class='fa fa-folder'></i>"
             Blog:
                 icon: "<i class='fa fa-rss'></i>"
+            Usuaris:
+                icon: "<i class='fa fa-user'></i>"
         blocks:
             -
                 position: top
@@ -30,7 +32,7 @@ sonata_admin:
                 position: left
                 type: sonata.admin.block.admin_list
                 settings:
-                    groups: [ Web ]
+                    groups: [ Web, Usuaris ]
             -
                 position: right
                 type: sonata.admin.block.admin_list
