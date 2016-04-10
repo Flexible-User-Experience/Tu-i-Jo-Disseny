@@ -58,6 +58,13 @@ class AdminControllerTest extends AbstractBaseTest
             array('/admin/blog/article/create'),
             array('/admin/blog/article/1/edit'),
             array('/admin/blog/article/1/delete'),
+            array('/admin/contactes/missatge/list'),
+            array('/admin/contactes/missatge/1/show'),
+            array('/admin/contactes/missatge/1/answer'),
+            array('/admin/contactes/newsletter/list'),
+            array('/admin/contactes/newsletter/create'),
+            array('/admin/contactes/newsletter/1/edit'),
+            array('/admin/contactes/newsletter/1/delete'),
         );
     }
 
@@ -95,6 +102,12 @@ class AdminControllerTest extends AbstractBaseTest
             array('/admin/blog/etiqueta/batch'),
             array('/admin/blog/article/1/show'),
             array('/admin/blog/article/batch'),
+            array('/admin/contactes/missatge/create'),
+            array('/admin/contactes/missatge/1/edit'),
+            array('/admin/contactes/missatge/1/delete'),
+            array('/admin/contactes/missatge/batch'),
+            array('/admin/contactes/newsletter/1/show'),
+            array('/admin/contactes/newsletter/batch'),
         );
     }
 }

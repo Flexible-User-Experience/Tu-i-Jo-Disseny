@@ -181,6 +181,15 @@ AppBundle\Entity\ContactMessage:
     updatedAt: <dateTimeThisMonth()>
     enabled: true
 
+# Contact newsletter
+AppBundle\Entity\ContactNewsletter:
+  newsletter{1..10}:
+    email: <safeEmail()>
+    checked: <boolean(70)>
+    enabled: <boolean(30)>
+    createdAt: <dateTimeBetween('-2 months', '-1 months')>
+    updatedAt: <dateTimeThisMonth()>
+
 ## Admin users
 AppBundle\Entity\User:
     admin:

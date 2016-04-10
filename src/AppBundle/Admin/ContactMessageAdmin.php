@@ -12,7 +12,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
  *
  * @category Admin
  * @package  AppBundle\Admin
- * @author   Anton Serra <aserratorta@gmail.com>
+ * @author   David Romaní <david@flux.cat>
  */
 class ContactMessageAdmin extends BaseAdmin
 {
