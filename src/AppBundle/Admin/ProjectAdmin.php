@@ -15,7 +15,8 @@ use Sonata\AdminBundle\Form\FormMapper;
  */
 class ProjectAdmin extends BaseAdmin
 {
-    protected $baseRoutePattern = 'projects/project';
+    protected $classnameLabel = 'Projecte';
+    protected $baseRoutePattern = 'web/projecte';
     protected $datagridValues = array('_sort_by' => 'name');
 
     /**
@@ -40,14 +41,6 @@ class ProjectAdmin extends BaseAdmin
                 array(
                     'label'    => 'Nom',
                     'editable' => true,
-                )
-            )
-            ->add(
-                'services',
-                null,
-                array(
-                    'label'    => 'Serveis',
-                    'editable' => false,
                 )
             )
             ->add(
@@ -94,10 +87,24 @@ class ProjectAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'description',
+                null,
+                array(
+                    'label' => 'Descripció',
+                )
+            )
+            ->add(
                 'services',
                 null,
                 array(
                     'label' => 'Serveis',
+                )
+            )
+            ->add(
+                'position',
+                null,
+                array(
+                    'label' => 'Posició',
                 )
             )
             ->add(
@@ -127,7 +134,7 @@ class ProjectAdmin extends BaseAdmin
             )
             ->add(
                 'description',
-                null,
+                'ckeditor',
                 array(
                     'label' => 'Descripció',
                     'attr'  => array(
@@ -136,6 +143,8 @@ class ProjectAdmin extends BaseAdmin
                     )
                 )
             )
+            ->end()
+            ->with('Controls', array('class' => 'col-md-5'))
             ->add(
                 'services',
                 null,
@@ -144,8 +153,6 @@ class ProjectAdmin extends BaseAdmin
                     'required' => false,
                 )
             )
-            ->end()
-            ->with('Controls', array('class' => 'col-md-5'))
             ->add(
                 'position',
                 null,
@@ -162,31 +169,6 @@ class ProjectAdmin extends BaseAdmin
                 )
             )
             ->end()
-            ->with('Traduccions', array('class' => 'col-md-7'))
-            ->add(
-                'translations',
-                'a2lix_translations_gedmo',
-                array(
-                    'required'           => false,
-                    'label'              => ' ',
-                    'translatable_class' => 'AppBundle\Entity\Translations\ProjectTranslation',
-                    'fields'             => array(
-                        'name' => array(
-                            'label'    => 'Nom',
-                            'required' => false,
-                        ),
-                        'description' => array(
-                            'label'    => 'Descripció',
-                            'required' => false,
-                            'attr'  => array(
-                                'style' => 'resize:vertical',
-                                'rows'  => 13,
-                            )
-                        ),
-                    ),
-                )
-            )
-            ->end()
             ->with('Imatge principal', array('class' => 'col-md-5'))
             ->add(
                 'imageFile',
@@ -197,8 +179,7 @@ class ProjectAdmin extends BaseAdmin
                     'help'     => $this->getImageHelperFormMapperWithThumbnail(),
                 )
             )
-            ->end()
-            ;
+            ->end();
         if ($this->id($this->getSubject())) { // only on edit mode, disable when creating new subjects
             $formMapper
                 ->with('Imatges addicionals', array('class' => 'col-md-7'))
