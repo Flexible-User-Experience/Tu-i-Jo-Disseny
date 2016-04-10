@@ -72,7 +72,9 @@
                         <a class="social-network-icon" target="_blank" href="https://www.facebook.com/tuijodissenygrafic/"><i class="fa fa-facebook"></i></a> <a class="social-network-icon" target="_blank" href="https://www.instagram.com/tujo_disseny/"><i class="fa fa-instagram"></i></a> <a class="social-network-icon" target="_blank" href="https://es.pinterest.com/hidraulicadis/"><i class="fa fa-pinterest-p"></i></a>
                     </div>
                     <div class="col-xs-4 text-center">
-                        NEWSLETTER
+                        {% block bottom_contact_form %}
+                            {{ render(controller('AppBundle:Front/Frontend:newsletter', {request: app.request})) }}
+                        {% endblock %}
                     </div>
                     <div class="col-xs-4 text-right">
                         C. CAMPOAMOR, 20<br>

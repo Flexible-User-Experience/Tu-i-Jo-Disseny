@@ -39,9 +39,9 @@ class ContactNewsletterType extends AbstractType
                 'send',
                 SubmitType::class,
                 array(
-                    'label' => 'ENVIAR',
+                    'label' => '>',
                     'attr'  => array(
-                        'class' => 'btn-default',
+                        'class' => 'btn-default squared',
                     ),
                 )
             );

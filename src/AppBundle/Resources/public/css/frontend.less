@@ -41,6 +41,7 @@
 
 // Inputs
 @input-color: @black;
+@input-bg: transparent;
 @input-color-placeholder: @black;
 @input-border: @black;
 @input-border-focus: @grey;
@@ -51,6 +52,15 @@ input, textarea {
   &.form-control { border: @borderline; }
 }
 textarea { resize: vertical; }
+
+// Buttons
+.btn-default.squared {
+  border-radius: 0;
+  border: @borderline;
+  width: 100%;
+  display: block;
+  background-color: transparent;
+}
 
 // Gaps
 .no-m { margin: 0; }

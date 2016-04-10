@@ -3,7 +3,9 @@
 namespace AppBundle\Controller\Front;
 
 use AppBundle\Entity\ContactMessage;
+use AppBundle\Entity\ContactNewsletter;
 use AppBundle\Form\Type\ContactMessageType;
+use AppBundle\Form\Type\ContactNewsletterType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -29,7 +31,9 @@ class FrontendController extends Controller
     {
         $gms = $this->get('app.google_maps_service');
         $mapObject = $gms->buildMap(40.7097791, 0.5786492, 18);
-        $projects = $this->getDoctrine()->getRepository('AppBundle:Project')->findAllEnabledAndShowInHomepageSortedByPosition();
+        $projects = $this->getDoctrine()->getRepository(
+            'AppBundle:Project'
+        )->findAllEnabledAndShowInHomepageSortedByPosition();
         $services = $this->getDoctrine()->getRepository('AppBundle:Service')->findAllEnabledSortedByPosition();
         $partners = $this->getDoctrine()->getRepository('AppBundle:Partner')->findAllEnabledSortedByPosition();
         $contact = new ContactMessage();
@@ -74,9 +78,46 @@ class FrontendController extends Controller
     public function blogAction()
     {
         return $this->render(
-            '::Front/blog.list.html.twig',
+            '::Front/blog/list.html.twig',
             [
                 'tags' => $this->getDoctrine()->getRepository('AppBundle:BlogTag')->findAllEnabledSortedByName(),
+            ]
+        );
+    }
+
+    /**
+     * @Route("/newsletter-form", name="app_newsletter_form")
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function newsletterAction(Request $request)
+    {
+        $flash = null;
+        $newsletter = new ContactNewsletter();
+        $form = $this->createForm(ContactNewsletterType::class, $newsletter);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            // persist entity
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($newsletter);
+            $em->flush();
+            // send notifications
+            $messenger = $this->get('app.notification');
+//  TODO          $messenger->sendUserNotification($contact);
+//            $messenger->sendAdminNotification($contact);
+            // reset form
+            $newsletter = new ContactNewsletter();
+            $form = $this->createForm(ContactMessageType::class, $newsletter);
+            // build flash message
+            $flash = 'frontend.newsletter.contact.form.flash';
+        }
+
+        return $this->render(
+            ':Front/includes:newsletter_contact_form.html.twig',
+            [
+                'newsletter_form' => $form->createView(),
+                'flash'           => $flash
             ]
         );
     }

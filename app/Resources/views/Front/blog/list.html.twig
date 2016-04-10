@@ -2,28 +2,28 @@
 
 {% from 'MopaBootstrapBundle::macros.html.twig' import label, badge %}
 
-{% block title %}{{ 'front.services' | trans | capitalize }} · {{ parent() }}{% endblock %}
+{% block title %}{{ 'front.blog' | trans | capitalize }} · {{ parent() }}{% endblock %}
 
-{% block headline %}{{ 'front.services' | trans | capitalize }}{% endblock headline %}
+{% block headline %}{{ 'front.blog' | trans | capitalize }}{% endblock headline %}
 
 {% block content %}
     <div class="col-xs-12">
-        {% for category in categories %}
+        {% for tag in tags %}
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{ category.name }}<span class="pull-right">{{ badge(category.services | length) }}</span></h3>
+                    <h3 class="panel-title">{{ tag.name }}<span class="pull-right">{{ badge(tag.posts | length) }}</span></h3>
                 </div>
                 <div class="panel-body">
-                    {% for service in category.services if service.enabled %}
+                    {% for post in tag.posts if post.enabled %}
                         <div class="media">
                             <div class="media-left">
                                 <a href="#">
-                                    <img class="media-object" src="{{ vich_uploader_asset(service, 'imageFile') | imagine_filter('60x60') }}" alt="{{ service.name }}">
+                                    <img class="media-object" src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('60x60') }}" alt="{{ post.name }}">
                                 </a>
                             </div>
                             <div class="media-body">
-                                <h4 class="media-heading">{{ service.name }}</h4>
-                                <p>{{ service.description }}</p>
+                                <h4 class="media-heading">{{ post.name }}<span class="pull-right">{{ post.publishedAt | date('d/m/Y') }}</span></h4>
+                                <p>{{ post.description }}</p>
                             </div>
                         </div>
                     {% endfor %}
