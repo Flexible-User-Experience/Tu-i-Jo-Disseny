@@ -52,6 +52,14 @@ class ProjectAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'showInHomepage',
+                null,
+                array(
+                    'label'    => 'Homepage',
+                    'editable' => true,
+                )
+            )
+            ->add(
                 'enabled',
                 null,
                 array(
@@ -108,6 +116,13 @@ class ProjectAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'showInHomepage',
+                null,
+                array(
+                    'label' => 'Homepage',
+                )
+            )
+            ->add(
                 'enabled',
                 null,
                 array(
@@ -124,7 +139,7 @@ class ProjectAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('Projecte', array('class' => 'col-md-7'))
+            ->with('Projecte', array('class' => 'col-md-8'))
             ->add(
                 'name',
                 null,
@@ -136,15 +151,16 @@ class ProjectAdmin extends BaseAdmin
                 'description',
                 'ckeditor',
                 array(
-                    'label' => 'Descripció',
-                    'attr'  => array(
+                    'label'       => 'Descripció',
+                    'config_name' => 'my_config',
+                    'attr'        => array(
                         'style' => 'resize:vertical',
-                        'rows'  => 13,
+                        'rows'  => 14,
                     )
                 )
             )
             ->end()
-            ->with('Controls', array('class' => 'col-md-5'))
+            ->with('Controls', array('class' => 'col-md-4'))
             ->add(
                 'services',
                 null,
@@ -158,6 +174,14 @@ class ProjectAdmin extends BaseAdmin
                 null,
                 array(
                     'label' => 'Posició',
+                )
+            )
+            ->add(
+                'showInHomepage',
+                null,
+                array(
+                    'label'    => 'Mostrar a la homepage',
+                    'required' => false,
                 )
             )
             ->add(

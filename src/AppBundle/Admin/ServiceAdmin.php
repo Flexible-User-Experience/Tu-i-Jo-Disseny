@@ -15,8 +15,9 @@ use Sonata\AdminBundle\Form\FormMapper;
  */
 class ServiceAdmin extends BaseAdmin
 {
-    protected $baseRoutePattern = 'services/service';
-    protected $datagridValues = array('_sort_by' => 'category.position');
+    protected $classnameLabel = 'Servei';
+    protected $baseRoutePattern = 'web/servei';
+    protected $datagridValues = array('_sort_by' => 'name');
 
     /**
      * Configure list view
