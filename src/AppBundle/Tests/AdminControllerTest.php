@@ -53,9 +53,11 @@ class AdminControllerTest extends AbstractBaseTest
             array('/admin/blog/etiqueta/list'),
             array('/admin/blog/etiqueta/create'),
             array('/admin/blog/etiqueta/1/edit'),
+            array('/admin/blog/etiqueta/1/delete'),
             array('/admin/blog/article/list'),
             array('/admin/blog/article/create'),
             array('/admin/blog/article/1/edit'),
+            array('/admin/blog/article/1/delete'),
         );
     }
 
@@ -90,10 +92,8 @@ class AdminControllerTest extends AbstractBaseTest
             array('/admin/web/equip/1/show'),
             array('/admin/web/equip/batch'),
             array('/admin/blog/etiqueta/1/show'),
-            array('/admin/blog/etiqueta/1/delete'),
             array('/admin/blog/etiqueta/batch'),
             array('/admin/blog/article/1/show'),
-            array('/admin/blog/article/1/delete'),
             array('/admin/blog/article/batch'),
         );
     }

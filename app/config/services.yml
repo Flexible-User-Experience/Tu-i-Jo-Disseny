@@ -6,7 +6,7 @@ services:
             - @templating
             - @mailer
 ### Admin
-    sonata.admin.projects_project:
+    admin.projects_project:
         class: AppBundle\Admin\ProjectAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Web", label: "Projecte" }
@@ -16,7 +16,7 @@ services:
             - AppBundle:Back\ProjectAdmin
         calls:
             - [ setTranslationDomain, [AppBundle] ]
-    sonata.admin.projects_image:
+    admin.projects_image:
         class: AppBundle\Admin\ProjectImageAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Web", label: "Imatge", show_in_dashboard: false }
@@ -26,7 +26,7 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [AppBundle] ]
-    sonata.admin.services_service:
+    admin.services_service:
         class: AppBundle\Admin\ServiceAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Web", label: "Servei" }
@@ -36,7 +36,7 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [AppBundle] ]
-    sonata.admin.partners_partner:
+    admin.partners_partner:
         class: AppBundle\Admin\PartnerAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Web", label: "Equip" }
@@ -46,7 +46,7 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [AppBundle] ]
-    sonata.admin.blog_tag:
+    admin.blog_tag:
         class: AppBundle\Admin\BlogTagAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Blog", label: "Etiqueta" }
@@ -56,7 +56,7 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [AppBundle] ]
-    sonata.admin.blog_post:
+    admin.blog_post:
         class: AppBundle\Admin\BlogPostAdmin
         tags:
             - { name: sonata.admin, manager_type: orm, group: "Blog", label: "Article" }

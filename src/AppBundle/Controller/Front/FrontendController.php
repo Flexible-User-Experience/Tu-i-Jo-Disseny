@@ -50,7 +50,7 @@ class FrontendController extends Controller
     }
 
     /**
-     * @Route("/blog/", name="front_blog")
+     * @Route("/blog", name="front_blog")
      * @Method({"GET"})
      */
     public function blogAction()
