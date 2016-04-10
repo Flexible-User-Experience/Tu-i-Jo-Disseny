@@ -17,7 +17,7 @@ class PartnerAdmin extends BaseAdmin
 {
     protected $classnameLabel = 'Equip';
     protected $baseRoutePattern = 'web/equip';
-    protected $datagridValues = array('_sort_by' => 'position');
+    protected $datagridValues = array('_sort_by' => 'name');
 
     /**
      * Configure list view
@@ -26,6 +26,7 @@ class PartnerAdmin extends BaseAdmin
      */
     protected function configureListFields(ListMapper $mapper)
     {
+        unset($this->listModes['mosaic']);
         $mapper
             ->add(
                 'imageFile',
@@ -52,14 +53,6 @@ class PartnerAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'twitter',
-                null,
-                array(
-                    'label'    => 'Twitter',
-                    'editable' => true,
-                )
-            )
-            ->add(
                 'position',
                 null,
                 array(
@@ -80,7 +73,8 @@ class PartnerAdmin extends BaseAdmin
                 'actions',
                 array(
                     'actions' => array(
-                        'edit' => array(),
+                        'edit'   => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
+                        'delete' => array('template' => '::Admin/Buttons/list__action_delete_button.html.twig'),
                     ),
                     'label'   => 'Accions',
                 )
@@ -103,109 +97,6 @@ class PartnerAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'projects',
-                null,
-                array(
-                    'label' => 'Projectes',
-                )
-            )
-            ->add(
-                'email',
-                null,
-                array(
-                    'label' => 'Email',
-                )
-            )
-            ->add(
-                'twitter',
-                null,
-                array(
-                    'label' => 'Twitter',
-                )
-            )
-            ->add(
-                'enabled',
-                null,
-                array(
-                    'label' => 'Actiu',
-                )
-            );
-    }
-
-    /**
-     * Configure edit view
-     *
-     * @param FormMapper $formMapper
-     */
-    protected function configureFormFields(FormMapper $formMapper)
-    {
-        $formMapper
-            ->with('Col·laborador', array('class' => 'col-md-7'))
-            ->add(
-                'name',
-                null,
-                array(
-                    'label' => 'Nom',
-                )
-            )
-            ->add(
-                'description',
-                null,
-                array(
-                    'label' => 'Descripció',
-                    'attr'  => array(
-                        'style' => 'resize:vertical',
-                        'rows'  => 5,
-                    )
-                )
-            )
-            ->add(
-                'projects',
-                null,
-                array(
-                    'label'    => 'Projectes',
-                    'required' => false,
-                )
-            )
-            ->end()
-            ->with('Imatge', array('class' => 'col-md-5'))
-            ->add(
-                'imageFile',
-                'file',
-                array(
-                    'label'    => 'Arxiu',
-                    'required' => false,
-                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
-                )
-            )
-            ->end()
-            ->with('Traduccions', array('class' => 'col-md-7'))
-            ->add(
-                'translations',
-                'a2lix_translations_gedmo',
-                array(
-                    'required'           => false,
-                    'label'              => ' ',
-                    'translatable_class' => 'AppBundle\Entity\Translations\PartnerTranslation',
-                    'fields'             => array(
-                        'name'        => array(
-                            'label'    => 'Nom',
-                            'required' => false,
-                        ),
-                        'description' => array(
-                            'label'    => 'Descripció',
-                            'required' => false,
-                            'attr'     => array(
-                                'style' => 'resize:vertical',
-                                'rows'  => 5,
-                            )
-                        ),
-                    ),
-                )
-            )
-            ->end()
-            ->with('Contacte', array('class' => 'col-md-5'))
-            ->add(
                 'web',
                 null,
                 array(
@@ -226,8 +117,53 @@ class PartnerAdmin extends BaseAdmin
                     'label' => 'Twitter',
                 )
             )
+            ->add(
+                'position',
+                null,
+                array(
+                    'label' => 'Posició',
+                )
+            )
+            ->add(
+                'enabled',
+                null,
+                array(
+                    'label' => 'Actiu',
+                )
+            );
+    }
+
+    /**
+     * Configure edit view
+     *
+     * @param FormMapper $formMapper
+     */
+    protected function configureFormFields(FormMapper $formMapper)
+    {
+        $formMapper
+            ->with('Equip', array('class' => 'col-md-8'))
+            ->add(
+                'name',
+                null,
+                array(
+                    'label' => 'Nom',
+                )
+            )
+            ->add(
+                'description',
+                'ckeditor',
+                array(
+                    'label'       => 'Descripció',
+                    'required'    => false,
+                    'config_name' => 'my_config',
+                    'attr'        => array(
+                        'style' => 'resize:vertical',
+                        'rows'  => 14,
+                    )
+                )
+            )
             ->end()
-            ->with('Controls', array('class' => 'col-md-5'))
+            ->with('Controls', array('class' => 'col-md-4'))
             ->add(
                 'position',
                 null,
@@ -241,6 +177,40 @@ class PartnerAdmin extends BaseAdmin
                 array(
                     'label'    => 'Actiu',
                     'required' => false,
+                )
+            )
+            ->end()
+            ->with('Imatge', array('class' => 'col-md-5'))
+            ->add(
+                'imageFile',
+                'file',
+                array(
+                    'label'    => 'Arxiu',
+                    'required' => false,
+                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
+                )
+            )
+            ->end()
+            ->with('Contacte', array('class' => 'col-md-7'))
+            ->add(
+                'web',
+                null,
+                array(
+                    'label' => 'Web',
+                )
+            )
+            ->add(
+                'email',
+                null,
+                array(
+                    'label' => 'Email',
+                )
+            )
+            ->add(
+                'twitter',
+                null,
+                array(
+                    'label' => 'Twitter',
                 )
             )
             ->end();

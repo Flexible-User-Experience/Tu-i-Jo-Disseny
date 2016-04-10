@@ -28,13 +28,6 @@ class Project extends Base
     use Traits\ImageTrait;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Partner", mappedBy="projects")
-     *
-     * @var ArrayCollection
-     */
-    protected $partners;
-
-    /**
      * @Vich\UploadableField(mapping="project", fileNameProperty="imageName")
      * @Assert\File(
      *     maxSize = "10M",
@@ -100,62 +93,9 @@ class Project extends Base
      */
     public function __construct()
     {
-        $this->partners     = new ArrayCollection();
         $this->images       = new ArrayCollection();
         $this->services     = new ArrayCollection();
         $this->translations = new ArrayCollection();
-    }
-
-    /**
-     * Set Partners
-     *
-     * @param ArrayCollection $partners
-     *
-     * @return $this
-     */
-    public function setPartners(ArrayCollection $partners)
-    {
-        $this->partners = $partners;
-
-        return $this;
-    }
-
-    /**
-     * Get Partners
-     *
-     * @return ArrayCollection
-     */
-    public function getPartners()
-    {
-        return $this->partners;
-    }
-
-    /**
-     * Add partner
-     *
-     * @param Partner $partner
-     *
-     * @return $this
-     */
-    public function addPartner(Partner $partner)
-    {
-        $this->partners[] = $partner;
-
-        return $this;
-    }
-
-    /**
-     * Remove partner
-     *
-     * @param Partner $partner
-     *
-     * @return $this
-     */
-    public function removePartner(Partner $partner)
-    {
-        $this->partners->removeElement($partner);
-
-        return $this;
     }
 
     /**

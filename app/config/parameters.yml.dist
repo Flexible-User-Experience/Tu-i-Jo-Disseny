@@ -16,8 +16,10 @@ parameters:
 
     secret:            uife79923rkjfow087823kheYU6sss
 
-    private_test_user: admin
-    private_test_pass: admin
+    private_admin_test_user: admin
+    private_admin_test_pass: admin
+    private_editor_test_user: user
+    private_editor_test_pass: user
 
     google_analytics_enabled: false
     google_analytics_account: "UA-fake..."

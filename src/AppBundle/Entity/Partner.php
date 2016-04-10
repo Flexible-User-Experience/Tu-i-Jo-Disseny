@@ -28,14 +28,6 @@ class Partner extends Base
     use Traits\ImageTrait;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Project", inversedBy="partners")
-     * @ORM\JoinTable(name="partners_projects")
-     *
-     * @var ArrayCollection
-     */
-    protected $projects;
-
-    /**
      * @ORM\Column(type="text", length=2000, nullable=true)
      * @Gedmo\Translatable
      *
@@ -101,61 +93,9 @@ class Partner extends Base
      */
     public function __construct()
     {
-        $this->projects     = new ArrayCollection();
         $this->translations = new ArrayCollection();
     }
 
-    /**
-     * Set Projects
-     *
-     * @param ArrayCollection $projects
-     *
-     * @return $this
-     */
-    public function setProjects(ArrayCollection $projects)
-    {
-        $this->projects = $projects;
-
-        return $this;
-    }
-
-    /**
-     * Get Projects
-     *
-     * @return ArrayCollection
-     */
-    public function getProjects()
-    {
-        return $this->projects;
-    }
-
-    /**
-     * Add project
-     *
-     * @param Project $project
-     *
-     * @return $this
-     */
-    public function addProject(Project $project)
-    {
-        $this->projects[] = $project;
-
-        return $this;
-    }
-
-    /**
-     * Remove project
-     *
-     * @param Project $project
-     *
-     * @return $this
-     */
-    public function removeProject(Project $project)
-    {
-        $this->projects->removeElement($project);
-
-        return $this;
-    }
 
     /**
      * Set Description
