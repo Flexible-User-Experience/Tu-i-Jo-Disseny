@@ -13,6 +13,7 @@
 @gap-big: @gap-normal * 2;
 @gap-normal: 20px;
 @gap-small: @gap-normal / 2;
+@borderline: solid 2px @black;
 
 // Fonts
 @icon-font-path: "/bundles/app/fonts/";
@@ -38,8 +39,28 @@
 @link-color: @black;
 @text-color: @grey;
 
-// Textarea
+// Inputs
+@input-color: @black;
+@input-bg: transparent;
+@input-color-placeholder: @black;
+@input-border: @black;
+@input-border-focus: @grey;
+@input-border-radius: 0;
+@input-border-radius-large: 0;
+@input-border-radius-small: 0;
+input, textarea {
+  &.form-control { border: @borderline; }
+}
 textarea { resize: vertical; }
+
+// Buttons
+.btn-default.squared {
+  border-radius: 0;
+  border: @borderline;
+  width: 100%;
+  display: block;
+  background-color: transparent;
+}
 
 // Gaps
 .no-m { margin: 0; }
@@ -86,15 +107,56 @@ footer.main {
   a.social-network-icon {
     margin-right: @gap-small;
     padding: @gap-small;
-    border: 2px solid @black;
+    border: @borderline;
     display: inline-block;
     //width: @gap-normal;
   }
   hr {
     border: 0;
-    border-top: 2px solid @black;
+    border-top: @borderline;
     margin: @gap-big 0 @gap-small 0;
   }
+}
+
+// Hovers
+.hover-effect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: @gap-big;
+  .overlay {
+    padding: @gap-normal;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    .opacity(0);
+    background-color: rgba(0, 0, 0, 0.85);
+    .transition(all .2s ease-in-out);
+  }
+  img {
+    display: block;
+    position: relative;
+  }
+  h2 {
+    color: @grey;
+    position: relative;
+    font-size: 17px;
+    padding: 0;
+    margin: 0 0 @gap-small 0;
+  }
+  h3 {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.hovereffect:hover .overlay {
+  .opacity(1);
 }
 
 // Scroll to top helper

@@ -115,6 +115,13 @@ class ProjectAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'services',
+                null,
+                array(
+                    'label' => 'Serveis',
+                )
+            )
+            ->add(
                 'position',
                 null,
                 array(
@@ -167,6 +174,13 @@ class ProjectAdmin extends BaseAdmin
             )
             ->end()
             ->with('Controls', array('class' => 'col-md-4'))
+            ->add(
+                'services',
+                null,
+                array(
+                    'label' => 'Serveis',
+                )
+            )
             ->add(
                 'position',
                 null,

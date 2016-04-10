@@ -10,6 +10,17 @@ services:
     app.notification:
         class: AppBundle\Service\NotificationService
         arguments: [ "@app.courier", "@twig", "%mailer_destination%", "%mailer_url_base%" ]
+# Repositories
+    app.repository.contact_newsletter:
+        class: AppBundle\Repository\ContactNewsletterRepository
+        factory: [ "@doctrine", getRepository ]
+        arguments:
+            - "AppBundle:ContactNewsletter"
+# Managers
+    app.contact_newsletter_manager:
+        class: AppBundle\Manager\ContactNewsletterManager
+        arguments:
+            - "@app.repository.contact_newsletter"
 ### Admin
     admin.projects_project:
         class: AppBundle\Admin\ProjectAdmin

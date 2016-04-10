@@ -55,6 +55,14 @@ class Service extends Base
     protected $description;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Project", mappedBy="services")
+     * @ORM\JoinTable(name="projects_services")
+     *
+     * @var ArrayCollection
+     */
+    protected $projects;
+
+    /**
      * @ORM\OneToMany(
      *   targetEntity="AppBundle\Entity\Translations\ServiceTranslation",
      *   mappedBy="object",
@@ -77,6 +85,7 @@ class Service extends Base
      */
     public function __construct()
     {
+        $this->projects     = new ArrayCollection();
         $this->translations = new ArrayCollection();
     }
 
@@ -126,5 +135,53 @@ class Service extends Base
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Get Projects
+     *
+     * @return ArrayCollection
+     */
+    public function getProjects()
+    {
+        return $this->projects;
+    }
+
+    /**
+     * Set Projects
+     *
+     * @param ArrayCollection $projects
+     *
+     * @return $this
+     */
+    public function setProjects(ArrayCollection $projects)
+    {
+        $this->projects = $projects;
+
+        return $this;
+    }
+
+    /**
+     * @param Project $project
+     *
+     * @return $this
+     */
+    public function addProject(Project $project)
+    {
+        $this->projects[] = $project;
+
+        return $this;
+    }
+
+    /**
+     * @param Project $project
+     *
+     * @return $this
+     */
+    public function removeProject(Project $project)
+    {
+        $this->projects->removeElement($project);
+
+        return $this;
     }
 }

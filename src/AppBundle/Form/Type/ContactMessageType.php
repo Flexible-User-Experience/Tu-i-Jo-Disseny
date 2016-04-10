@@ -77,7 +77,7 @@ class ContactMessageType extends AbstractType
                 array(
                     'label' => 'ENVIAR',
                     'attr'  => array(
-                        'class' => 'btn-default',
+                        'class' => 'btn-default squared',
                     ),
                 )
             );
