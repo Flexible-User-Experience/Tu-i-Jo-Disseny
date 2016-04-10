@@ -23,7 +23,7 @@ class ProjectsController extends Controller
     public function projectsAction()
     {
         return $this->render(
-            '::Front/projects.list.html.twig',
+            '::Front/projects/list.html.twig',
             [ 'projects' => $this->getDoctrine()->getRepository('AppBundle:Project')->findAllEnabledSortedByName() ]
         );
     }

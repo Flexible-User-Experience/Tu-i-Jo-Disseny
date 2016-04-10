@@ -1,0 +1,3 @@
+<a href="{{ path('front_project_detail', {slug: project.slug}) }}">
+    <img class="img-responsive thumb" src="{{ vich_uploader_asset(project, 'imageFile') | imagine_filter('700x495') }}" alt="{{ project.name }}">
+</a>
