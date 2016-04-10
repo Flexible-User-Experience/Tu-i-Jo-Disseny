@@ -99,8 +99,10 @@ class FrontendController extends Controller
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             // persist entity
+            $cnm = $this->get('app.contact_newsletter_manager');
+            $persistedNewsletter = $cnm->fetchOrCreateNewRecord($newsletter);
             $em = $this->getDoctrine()->getManager();
-            $em->persist($newsletter);
+            $em->persist($persistedNewsletter);
             $em->flush();
             // send notifications
             $messenger = $this->get('app.notification');
