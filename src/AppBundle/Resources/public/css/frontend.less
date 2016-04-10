@@ -13,6 +13,7 @@
 @gap-big: @gap-normal * 2;
 @gap-normal: 20px;
 @gap-small: @gap-normal / 2;
+@borderline: solid 2px @black;
 
 // Fonts
 @icon-font-path: "/bundles/app/fonts/";
@@ -38,7 +39,17 @@
 @link-color: @black;
 @text-color: @grey;
 
-// Textarea
+// Inputs
+@input-color: @black;
+@input-color-placeholder: @black;
+@input-border: @black;
+@input-border-focus: @grey;
+@input-border-radius: 0;
+@input-border-radius-large: 0;
+@input-border-radius-small: 0;
+input, textarea {
+  &.form-control { border: @borderline; }
+}
 textarea { resize: vertical; }
 
 // Gaps
@@ -86,13 +97,13 @@ footer.main {
   a.social-network-icon {
     margin-right: @gap-small;
     padding: @gap-small;
-    border: 2px solid @black;
+    border: @borderline;
     display: inline-block;
     //width: @gap-normal;
   }
   hr {
     border: 0;
-    border-top: 2px solid @black;
+    border-top: @borderline;
     margin: @gap-big 0 @gap-small 0;
   }
 }

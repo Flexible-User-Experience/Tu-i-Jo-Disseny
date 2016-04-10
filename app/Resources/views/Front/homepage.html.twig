@@ -108,19 +108,30 @@
         <div class="row extra-m-bottom">
             {{ form_start(contact_form) }}
             <div class="col-sm-4 col-xs-12">
-                {{ form_widget(contact_form.name) }}
+                <div class="form-group">
+                    {{ form_widget(contact_form.name) }}
+                </div>
             </div>
             <div class="col-sm-4 col-xs-12">
-                {{ form_widget(contact_form.email) }}
+                <div class="form-group">
+                    {{ form_widget(contact_form.email) }}
+                </div>
             </div>
             <div class="col-sm-4 col-xs-12">
-                {{ form_widget(contact_form.phone) }}
+                <div class="form-group">
+                    {{ form_widget(contact_form.phone) }}
+                </div>
             </div>
             <div class="col-xs-12">
-                {{ form_widget(contact_form.message) }}
+                <div class="form-group">
+                    {{ form_widget(contact_form.message) }}
+                </div>
             </div>
+
             <div class="col-xs-12">
-                {{ form_widget(contact_form.send) }}
+                <div class="form-group">
+                    {{ form_widget(contact_form.send) }}
+                </div>
             </div>
             {{ form_rest(contact_form) }}
             {{ form_end(contact_form) }}
