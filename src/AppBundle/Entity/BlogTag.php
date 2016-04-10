@@ -16,7 +16,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BlogTagRepository")
  * @ORM\Table(name="blog_tag")
- * @Gedmo\SoftDeleteable(fieldName="removedAt")
  * @Gedmo\TranslationEntity(class="AppBundle\Entity\Translations\BlogTagTranslation")
  */
 class BlogTag extends Base

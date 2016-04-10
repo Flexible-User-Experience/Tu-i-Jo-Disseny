@@ -36,6 +36,14 @@ class BlogTagAdmin extends BaseAdmin
                     'editable' => true,
                 )
             )
+//            ->add(
+//                'posts',
+//                null,
+//                array(
+//                    'label'    => 'Articles',
+//                    'editable' => false,
+//                )
+//            )
             ->add(
                 'enabled',
                 null,
@@ -115,20 +123,13 @@ class BlogTagAdmin extends BaseAdmin
                 )
             )
             ->end()
-            ->with('Traduccions', array('class' => 'col-md-7'))
+            ->with('Articles', array('class' => 'col-md-12'))
             ->add(
-                'translations',
-                'a2lix_translations_gedmo',
+                'posts',
+                null,
                 array(
-                    'required'           => false,
-                    'label'              => ' ',
-                    'translatable_class' => 'AppBundle\Entity\Translations\BlogTagTranslation',
-                    'fields'             => array(
-                        'name' => array(
-                            'label'    => 'Nom',
-                            'required' => false,
-                        ),
-                    ),
+                    'label'    => 'Articles',
+                    'disabled' => true,
                 )
             )
             ->end();
