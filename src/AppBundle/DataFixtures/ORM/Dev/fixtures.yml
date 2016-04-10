@@ -54,7 +54,6 @@ AppBundle\Entity\Project:
     position: <current()>
     enabled: <boolean(70)>
     showInHomepage: <boolean(50)>
-    services: <numberBetween(0, 5)>x @service*
 AppBundle\Entity\Translations\ProjectTranslation:
   translationProjectNameEs{1..40}:
     object: @project<current()>

@@ -5,6 +5,7 @@ namespace AppBundle\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 /**
  * Class ServiceAdmin
@@ -18,6 +19,15 @@ class ProjectAdmin extends BaseAdmin
     protected $classnameLabel = 'Projecte';
     protected $baseRoutePattern = 'web/projecte';
     protected $datagridValues = array('_sort_by' => 'name');
+
+    /**
+     * @param RouteCollection $collection
+     */
+    public function configureRoutes(RouteCollection $collection)
+    {
+        parent::configureRoutes($collection);
+        $collection->add('preview', $this->getRouterIdParameter() . '/preview');
+    }
 
     /**
      * Configure list view
@@ -73,6 +83,7 @@ class ProjectAdmin extends BaseAdmin
                 'actions',
                 array(
                     'actions' => array(
+                        'preview' => array('template' => '::Admin/Buttons/list__action_preview_button.html.twig'),
                         'edit'   => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
                         'delete' => array('template' => '::Admin/Buttons/list__action_delete_button.html.twig'),
                     ),
@@ -101,13 +112,6 @@ class ProjectAdmin extends BaseAdmin
                 null,
                 array(
                     'label' => 'Descripció',
-                )
-            )
-            ->add(
-                'services',
-                null,
-                array(
-                    'label' => 'Serveis',
                 )
             )
             ->add(
@@ -163,14 +167,6 @@ class ProjectAdmin extends BaseAdmin
             )
             ->end()
             ->with('Controls', array('class' => 'col-md-4'))
-            ->add(
-                'services',
-                null,
-                array(
-                    'label'    => 'Serveis',
-                    'required' => false,
-                )
-            )
             ->add(
                 'position',
                 null,

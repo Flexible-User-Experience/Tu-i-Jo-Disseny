@@ -17,13 +17,12 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  *
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProjectImageRepository")
  * @ORM\Table(name="project_image")
- * @Gedmo\SoftDeleteable(fieldName="removedAt")
  * @Vich\Uploadable
  */
 class ProjectImage extends AbstractBase
 {
     /**
-     * @ORM\ManyToOne(targetEntity="Project", inversedBy="images")
+     * @ORM\ManyToOne(targetEntity="Project", inversedBy="images", cascade={"persist", "remove"})
      * @ORM\JoinColumns({@ORM\JoinColumn(name="project_id", referencedColumnName="id")})
      *
      * @var Project

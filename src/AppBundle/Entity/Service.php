@@ -18,7 +18,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ServiceRepository")
  * @ORM\Table(name="service")
- * @Gedmo\SoftDeleteable(fieldName="removedAt")
  * @Gedmo\TranslationEntity(class="AppBundle\Entity\Translations\ServiceTranslation")
  * @Vich\Uploadable
  */

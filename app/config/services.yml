@@ -13,7 +13,7 @@ services:
         arguments:
             - ~
             - AppBundle\Entity\Project
-            - ~
+            - AppBundle:Back\ProjectAdmin
         calls:
             - [ setTranslationDomain, [AppBundle] ]
     sonata.admin.projects_image:
