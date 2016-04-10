@@ -47,6 +47,14 @@ class Project extends Base
     protected $images;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Service", inversedBy="projects")
+     * @ORM\JoinTable(name="projects_services")
+     *
+     * @var ArrayCollection
+     */
+    protected $services;
+
+    /**
      * @ORM\Column(type="text", length=2000, nullable=true)
      * @Gedmo\Translatable
      *
@@ -85,6 +93,7 @@ class Project extends Base
     public function __construct()
     {
         $this->images       = new ArrayCollection();
+        $this->services     = new ArrayCollection();
         $this->translations = new ArrayCollection();
     }
 
@@ -137,6 +146,58 @@ class Project extends Base
     public function removeImage(ProjectImage $image)
     {
         $this->images->removeElement($image);
+
+        return $this;
+    }
+
+    /**
+     * Set Services
+     *
+     * @param ArrayCollection $services
+     *
+     * @return $this
+     */
+    public function setServices(ArrayCollection $services)
+    {
+        $this->services = $services;
+
+        return $this;
+    }
+
+    /**
+     * Get Services
+     *
+     * @return ArrayCollection
+     */
+    public function getServices()
+    {
+        return $this->services;
+    }
+
+    /**
+     * Add service
+     *
+     * @param Service $service
+     *
+     * @return $this
+     */
+    public function addService(Service $service)
+    {
+        $this->services[] = $service;
+
+        return $this;
+    }
+
+    /**
+     * Remove service
+     *
+     * @param Service $service
+     *
+     * @return $this
+     */
+    public function removeService(Service $service)
+    {
+        $this->services->removeElement($service);
 
         return $this;
     }
