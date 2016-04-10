@@ -15,7 +15,8 @@ use Sonata\AdminBundle\Form\FormMapper;
  */
 class PartnerAdmin extends BaseAdmin
 {
-    protected $baseRoutePattern = 'partners/partner';
+    protected $classnameLabel = 'Equip';
+    protected $baseRoutePattern = 'web/equip';
     protected $datagridValues = array('_sort_by' => 'position');
 
     /**

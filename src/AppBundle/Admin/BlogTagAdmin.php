@@ -15,7 +15,8 @@ use Sonata\AdminBundle\Form\FormMapper;
  */
 class BlogTagAdmin extends BaseAdmin
 {
-    protected $baseRoutePattern = 'blog/tag';
+    protected $classnameLabel = 'Etiqueta';
+    protected $baseRoutePattern = 'blog/etiqueta';
     protected $datagridValues = array('_sort_by' => 'name');
 
     /**

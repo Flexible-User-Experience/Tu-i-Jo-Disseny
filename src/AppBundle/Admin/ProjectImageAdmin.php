@@ -15,7 +15,8 @@ use Sonata\AdminBundle\Form\FormMapper;
  */
 class ProjectImageAdmin extends BaseAdmin
 {
-    protected $baseRoutePattern = 'projects/image';
+    protected $classnameLabel = 'Imatge';
+    protected $baseRoutePattern = 'web/imatge-projecte';
     protected $datagridValues = array('_sort_by' => 'position');
 
     /**

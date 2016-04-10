@@ -15,7 +15,8 @@ use Sonata\AdminBundle\Form\FormMapper;
  */
 class BlogPostAdmin extends BaseAdmin
 {
-    protected $baseRoutePattern = 'blog/post';
+    protected $classnameLabel = 'Artícle';
+    protected $baseRoutePattern = 'blog/article';
     protected $datagridValues = array('_sort_by' => 'publishedAt');
 
     /**
