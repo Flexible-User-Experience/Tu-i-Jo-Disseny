@@ -167,6 +167,20 @@ AppBundle\Entity\Translations\BlogPostTranslation:
     field: "description"
     content: <text(1000)>
 
+# Contact messages
+AppBundle\Entity\ContactMessage:
+  contact{1..10}:
+    name: <name()>
+    phone: <word()>
+    email: <safeEmail()>
+    message: <paragraph()>
+    answer: <paragraph()>
+    checked: <boolean(70)>
+    answered: <boolean(30)>
+    createdAt: <dateTimeBetween('-2 months', '-1 months')>
+    updatedAt: <dateTimeThisMonth()>
+    enabled: true
+
 ## Admin users
 AppBundle\Entity\User:
     admin:
