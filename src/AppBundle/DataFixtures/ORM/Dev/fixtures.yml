@@ -53,7 +53,7 @@ AppBundle\Entity\Project:
     description: <text(1000)>
     position: <current()>
     enabled: <boolean(70)>
-    showInHomepage: <boolean(50)>
+    showInHomepage: <boolean(15)>
 AppBundle\Entity\Translations\ProjectTranslation:
   translationProjectNameEs{1..40}:
     object: @project<current()>
@@ -94,7 +94,7 @@ AppBundle\Entity\Partner:
     email: <email()>
     twitter: <username()>
     position: <current()>
-    enabled: <boolean(70)>
+    enabled: <boolean(25)>
 AppBundle\Entity\Translations\PartnerTranslation:
   translationPartnerNameEs{1..10}:
     object: @partner<current()>

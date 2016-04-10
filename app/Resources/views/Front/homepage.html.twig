@@ -1,15 +1,13 @@
 {% extends ':Front:layout.html.twig' %}
 
 {% block main %}
+    {# Projects section #}
     <div class="container">
-        {# Projects section #}
         {% if projects | length > 0 %}
-            <div class="row extra-m-bottom">
+            <div class="row">
                 {% for project in projects %}
                     <div class="col-sm-6 col-xs-12">
-                        <a href="{{ path('front_project_detail', {slug: project.slug}) }}">
-                            <img class="img-responsive thumb" src="{{ vich_uploader_asset(project, 'imageFile') | imagine_filter('700x495') }}" alt="{{ project.name }}">
-                        </a>
+                        {% include ':Front/includes:project-thumb.html.twig' with {project: project} %}
                     </div>
                 {% endfor %}
             </div>
@@ -19,9 +17,11 @@
                 </div>
             </div>
         {% endif %}
-        {# Services section #}
+    </div>
+    {# Services section #}
+    <div class="container-fluid">
         {% if services | length > 0 %}
-            <div id="services-carousel" class="carousel slide extra-m-bottom" data-ride="carousel">
+            <div id="services" class="carousel slide extra-m-bottom" data-ride="carousel">
                 {#<!-- Wrapper for slides -->#}
                 <div class="row">
                     <div class="col-xs-offset-2 col-xs-8">
@@ -40,35 +40,69 @@
                     </div>
                 </div>
                 {#<!-- Controls -->#}
-                <a class="left carousel-control" href="#services-carousel" data-slide="prev">
+                <a class="left carousel-control" href="#services" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
-                <a class="right carousel-control" href="#services-carousel" data-slide="next">
+                <a class="right carousel-control" href="#services" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </a>
             </div>
         {% endif %}
-        {# About us section #}
-        <div class="row extra-m-bottom">
+    </div>
+    {# About us section #}
+    <div class="container-fluid">
+        <div id="about-us" class="row extra-m-bottom">
             <div class="col-xs-12">
                 <img src="{{ asset('bundles/app/images/about-us.jpg') }}" alt="Secció Natros Tu&Jo Disseny" class="img-responsive">
             </div>
         </div>
-        {# Workspace section #}
-        <div class="row extra-m-bottom">
+    </div>
+    <div class="container extra-m-bottom">
+        {% if partners | length > 0 %}
+            {% for partner in partners %}
+                <div class="row">
+                    {% if loop.index is odd %}
+                        <div class="col-sm-offset-3 col-sm-3 col-xs-12">
+                            <img class="img-responsive thumb" src="{{ vich_uploader_asset(partner, 'imageFile') | imagine_filter('480x640') }}" alt="{{ partner.name }}">
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <h4>{{ partner.name }}</h4>
+                            <p>{{ partner.description | raw }}</p>
+                        </div>
+                    {% else %}
+                        <div class="col-sm-6 col-xs-12">
+                            <h4>{{ partner.name }}</h4>
+                            <p>{{ partner.description | raw }}</p>
+                        </div>
+                        <div class="col-sm-3 col-xs-12">
+                            <img class="img-responsive thumb" src="{{ vich_uploader_asset(partner, 'imageFile') | imagine_filter('480x640') }}" alt="{{ partner.name }}">
+                        </div>
+                        <div class="col-sm-3"></div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    {# Workspace section #}
+    <div class="container-fluid">
+        <div id="workspace" class="row extra-m-bottom">
             <div class="col-xs-12">
                 <img src="{{ asset('bundles/app/images/workspace.jpg') }}" alt="Secció Estudi Tu&Jo Disseny" class="img-responsive">
             </div>
         </div>
+    </div>
+    <div class="container">
         <div class="row extra-m-bottom">
             <div class="col-xs-12 text-center">
-                <p>L’estudi és un lloc lluminós, s’omple del sol del matí, blanc i fusta, net i càlid, que convida a crear.<br>Tot el nostre treball té sentit i parteix de la sensibilitat.</p>
+                <p class="c-black">L’estudi és un lloc lluminós, s’omple del sol del matí, blanc i fusta, net i càlid, que convida a crear.<br>Tot el nostre treball té sentit i parteix de la sensibilitat.</p>
             </div>
         </div>
-        {# Contact section #}
-        <div class="row extra-m-bottom">
+    </div>
+    {# Contact section #}
+    <div class="container">
+        <div id="contact" class="row">
             <div class="col-xs-12 text-center">
-                <h5>HOLA!</h5>
+                <h5 class="c-black">HOLA!</h5>
             </div>
         </div>
         <div class="row extra-m-bottom">
@@ -90,6 +124,11 @@
             </div>
             {{ form_rest(contact_form) }}
             {{ form_end(contact_form) }}
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="google-maps-container">
+            {{ google_map(mapView) }}
         </div>
     </div>
 {% endblock %}

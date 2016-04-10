@@ -35,7 +35,7 @@ twig:
         google_analytics_enabled: %google_analytics_enabled%
         google_analytics_account: "%google_analytics_account%"
         main_brand_title:         "%main_brand_title%"
-        admin_tag_version:        "v1.0.04"
+        admin_tag_version:        "v1.0.05"
 
 # Assetic Configuration
 assetic:
@@ -106,11 +106,11 @@ fos_user:
 
 # Swiftmailer Configuration
 swiftmailer:
-    auth_mode:  "%mailer_auth_mode%"
-    encryption: "%mailer_encryption%"
+#    auth_mode:  "%mailer_auth_mode%"
+#    encryption: "%mailer_encryption%"
     transport:  "%mailer_transport%"
     host:       "%mailer_host%"
-    port:       "%mailer_port%"
+#    port:       "%mailer_port%"
     username:   "%mailer_user%"
     password:   "%mailer_password%"
     spool:      { type: memory }

@@ -3,9 +3,7 @@
 namespace AppBundle\Controller\Front;
 
 use AppBundle\Entity\ContactMessage;
-use AppBundle\Entity\ContactNewsletter;
 use AppBundle\Form\Type\ContactMessageType;
-use AppBundle\Form\Type\ContactNewsletterType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -23,34 +21,48 @@ class FrontendController extends Controller
 {
     /**
      * @Route("/", name="front_homepage")
-     * @Method({"GET"})
      * @param Request $request
      *
      * @return Response
      */
     public function homepageAction(Request $request)
     {
-        $projects = $this->getDoctrine()->getRepository(
-            'AppBundle:Project'
-        )->findAllEnabledAndShowInHomepageSortedByPosition();
+        $gms = $this->get('app.google_maps_service');
+        $mapObject = $gms->buildMap(40.7097791, 0.5786492, 18);
+        $projects = $this->getDoctrine()->getRepository('AppBundle:Project')->findAllEnabledAndShowInHomepageSortedByPosition();
         $services = $this->getDoctrine()->getRepository('AppBundle:Service')->findAllEnabledSortedByPosition();
+        $partners = $this->getDoctrine()->getRepository('AppBundle:Partner')->findAllEnabledSortedByPosition();
         $contact = new ContactMessage();
         $form = $this->createForm(ContactMessageType::class, $contact);
-        $newsletter = new ContactNewsletter();
-        $formNewsletter = $this->createForm(ContactNewsletterType::class, $newsletter);
+//        $newsletter = new ContactNewsletter();
+//        $formNewsletter = $this->createForm(ContactNewsletterType::class, $newsletter);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-
+            // persist entity
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($contact);
+            $em->flush();
+            // send notifications
+            $messenger = $this->get('app.notification');
+            $messenger->sendUserNotification($contact);
+            $messenger->sendAdminNotification($contact);
+            // reset form
+            $contact = new ContactMessage();
+            $form = $this->createForm(ContactMessageType::class, $contact);
+            // build flash message
+            $this->addFlash('msg', 'frontend.form.flash.user');
         }
 
         return $this->render(
             '::Front/homepage.html.twig',
             [
-                'projects'        => $projects,
-                'services'        => $services,
-                'contact_form'    => $form->createView(),
-                'newsletter_form' => $formNewsletter->createView(),
+                'mapView'      => $mapObject,
+                'projects'     => $projects,
+                'services'     => $services,
+                'partners'     => $partners,
+                'contact_form' => $form->createView(),
+//                'newsletter_form' => $formNewsletter->createView(),
             ]
         );
     }
@@ -63,9 +75,9 @@ class FrontendController extends Controller
     {
         return $this->render(
             '::Front/blog.list.html.twig',
-            array(
+            [
                 'tags' => $this->getDoctrine()->getRepository('AppBundle:BlogTag')->findAllEnabledSortedByName(),
-            )
+            ]
         );
     }
 }

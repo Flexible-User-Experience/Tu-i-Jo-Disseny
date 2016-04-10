@@ -1,10 +1,15 @@
 services:
-# Mailer
-    app.manager.mail:
-        class: AppBundle\Manager\MailManager
-        arguments:
-            - @templating
-            - @mailer
+# App
+    app.google_maps_service:
+        class: AppBundle\Service\GoogleMapsService
+        arguments: [ "%locale%" ]
+# Messaging
+    app.courier:
+        class: AppBundle\Service\CourierService
+        arguments: [ "@swiftmailer.mailer" ]
+    app.notification:
+        class: AppBundle\Service\NotificationService
+        arguments: [ "@app.courier", "@twig", "%mailer_destination%", "%mailer_url_base%" ]
 ### Admin
     admin.projects_project:
         class: AppBundle\Admin\ProjectAdmin
