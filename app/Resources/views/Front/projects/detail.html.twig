@@ -2,25 +2,33 @@
 
 {% block title %}{{ project.name | capitalize }} · {{ 'front.projects' | trans | capitalize }} · {{ parent() }}{% endblock %}
 
+{% block top_left_menu %}
+    <li class="current"><a href="{{ path('front_projects') }}">{{ 'front.projects' | trans | upper }}</a></li>
+    <li><a href="{{ path('front_homepage') }}#services">{{ 'front.services' | trans | upper }}</a></li>
+    <li><a href="{{ path('front_homepage') }}#about-us">{{ 'front.about' | trans | upper }}</a></li>
+{% endblock %}
+
+{% block top_right_menu %}
+    <li><a href="{{ path('front_homepage') }}#workspace">{{ 'front.headquarter' | trans | upper }}</a></li>
+    <li><a href="#">{{ 'front.blog' | trans | upper }}</a></li>
+    <li><a href="{{ path('front_homepage') }}#contact">{{ 'front.contact' | trans | upper }}</a></li>
+{% endblock %}
+
 {% block main %}
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-12 extra-m-bottom">
                 <img class="img-responsive thumb" src="{{ vich_uploader_asset(project, 'imageFile') | imagine_filter('1200xY') }}" alt="{{ project.name }}">
             </div>
             <div class="col-xs-12 extra-m-bottom">
-                <h1>{{ project.name }}</h1>
+                <h1 class="no-m-top">{{ project.name }}</h1>
+                {% if project.services | length > 0 %}
+                    {% for service in project.services %}
+                        <h4 class="no-m-top">{{ service.name }}</h4>
+                    {% endfor %}
+                {% endif %}
                 <p>{{ project.description | raw }}</p>
             </div>
         </div>
-        {#{% if projects | length > 0 %}#}
-            {#<div class="row">#}
-                {#{% for project in projects %}#}
-                    {#<div class="col-sm-4 col-xs-12">#}
-                        {#{% include ':Front/includes:project-thumb.html.twig' with {project: project} %}#}
-                    {#</div>#}
-                {#{% endfor %}#}
-            {#</div>#}
-        {#{% endif %}#}
     </div>
 {% endblock %}
