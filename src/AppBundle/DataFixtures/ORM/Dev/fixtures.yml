@@ -94,7 +94,7 @@ AppBundle\Entity\Partner:
     email: <email()>
     twitter: <username()>
     position: <current()>
-    enabled: <boolean(70)>
+    enabled: <boolean(25)>
 AppBundle\Entity\Translations\PartnerTranslation:
   translationPartnerNameEs{1..10}:
     object: @partner<current()>
