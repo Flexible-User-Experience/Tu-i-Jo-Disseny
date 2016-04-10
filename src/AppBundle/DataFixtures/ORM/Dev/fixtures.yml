@@ -53,7 +53,7 @@ AppBundle\Entity\Project:
     description: <text(1000)>
     position: <current()>
     enabled: <boolean(70)>
-    showInHomepage: <boolean(50)>
+    showInHomepage: <boolean(15)>
 AppBundle\Entity\Translations\ProjectTranslation:
   translationProjectNameEs{1..40}:
     object: @project<current()>

@@ -13,6 +13,8 @@ parameters:
     mailer_port:       465
     mailer_user:       ~
     mailer_password:   ~
+    mailer_destination: dummy@dummy.com
+    mailer_url_base: www.dummy.com
 
     secret:            uife79923rkjfow087823kheYU6sss
 

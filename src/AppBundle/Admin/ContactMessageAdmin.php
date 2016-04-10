@@ -208,13 +208,6 @@ class ContactMessageAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'phone',
-                null,
-                array(
-                    'label' => 'Telèfon',
-                )
-            )
-            ->add(
                 'answered',
                 null,
                 array(
