@@ -118,6 +118,47 @@ footer.main {
   }
 }
 
+// Hovers
+.hover-effect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: @gap-big;
+  .overlay {
+    padding: @gap-normal;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    .opacity(0);
+    background-color: rgba(0, 0, 0, 0.85);
+    .transition(all .2s ease-in-out);
+  }
+  img {
+    display: block;
+    position: relative;
+  }
+  h2 {
+    color: @grey;
+    position: relative;
+    font-size: 17px;
+    padding: 0;
+    margin: 0 0 @gap-small 0;
+  }
+  h3 {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.hovereffect:hover .overlay {
+  .opacity(1);
+}
+
 // Scroll to top helper
 .scroll-top-wrapper {
   position: fixed;
