@@ -18,7 +18,6 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  *
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BlogPostRepository")
  * @ORM\Table(name="blog_post")
- * @Gedmo\SoftDeleteable(fieldName="removedAt")
  * @Gedmo\TranslationEntity(class="AppBundle\Entity\Translations\BlogPostTranslation")
  * @Vich\Uploadable
  */

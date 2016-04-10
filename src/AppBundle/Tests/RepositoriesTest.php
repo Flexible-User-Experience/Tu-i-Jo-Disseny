@@ -29,7 +29,7 @@ class RepositoriesTest extends AbstractBaseTest
         $this->assertEquals(10, $em->getRepository('AppBundle:BlogTag')->getInstancesAmount());
         $this->assertEquals(40, $em->getRepository('AppBundle:BlogPost')->getInstancesAmount());
         $this->assertEquals(0, $em->getRepository('AppBundle:Group')->getInstancesAmount());
-        $this->assertEquals(1, $em->getRepository('AppBundle:User')->getInstancesAmount());
+        $this->assertEquals(8, $em->getRepository('AppBundle:User')->getInstancesAmount());
     }
 
     /**

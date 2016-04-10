@@ -15,7 +15,8 @@ use Sonata\AdminBundle\Form\FormMapper;
  */
 class BlogTagAdmin extends BaseAdmin
 {
-    protected $baseRoutePattern = 'blog/tag';
+    protected $classnameLabel = 'Etiqueta';
+    protected $baseRoutePattern = 'blog/etiqueta';
     protected $datagridValues = array('_sort_by' => 'name');
 
     /**
@@ -35,6 +36,14 @@ class BlogTagAdmin extends BaseAdmin
                     'editable' => true,
                 )
             )
+//            ->add(
+//                'posts',
+//                null,
+//                array(
+//                    'label'    => 'Articles',
+//                    'editable' => false,
+//                )
+//            )
             ->add(
                 'enabled',
                 null,
@@ -48,7 +57,8 @@ class BlogTagAdmin extends BaseAdmin
                 'actions',
                 array(
                     'actions' => array(
-                        'edit'   => array(),
+                        'edit'   => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
+                        'delete' => array('template' => '::Admin/Buttons/list__action_delete_button.html.twig'),
                     ),
                     'label'   => 'Accions',
                 )
@@ -113,20 +123,13 @@ class BlogTagAdmin extends BaseAdmin
                 )
             )
             ->end()
-            ->with('Traduccions', array('class' => 'col-md-7'))
+            ->with('Articles', array('class' => 'col-md-12'))
             ->add(
-                'translations',
-                'a2lix_translations_gedmo',
+                'posts',
+                null,
                 array(
-                    'required'           => false,
-                    'label'              => ' ',
-                    'translatable_class' => 'AppBundle\Entity\Translations\BlogTagTranslation',
-                    'fields'             => array(
-                        'name' => array(
-                            'label'    => 'Nom',
-                            'required' => false,
-                        ),
-                    ),
+                    'label'    => 'Articles',
+                    'disabled' => true,
                 )
             )
             ->end();

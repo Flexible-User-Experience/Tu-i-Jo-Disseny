@@ -18,7 +18,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProjectRepository")
  * @ORM\Table(name="project")
- * @Gedmo\SoftDeleteable(fieldName="removedAt")
  * @Gedmo\TranslationEntity(class="AppBundle\Entity\Translations\ProjectTranslation")
  * @Vich\Uploadable
  */
@@ -26,13 +25,6 @@ class Project extends Base
 {
     use Traits\TranslationTrait;
     use Traits\ImageTrait;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Partner", mappedBy="projects")
-     *
-     * @var ArrayCollection
-     */
-    protected $partners;
 
     /**
      * @Vich\UploadableField(mapping="project", fileNameProperty="imageName")
@@ -53,14 +45,6 @@ class Project extends Base
      * @var ArrayCollection
      */
     protected $images;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Service", inversedBy="projects")
-     * @ORM\JoinTable(name="projects_services")
-     *
-     * @var ArrayCollection
-     */
-    protected $services;
 
     /**
      * @ORM\Column(type="text", length=2000, nullable=true)
@@ -100,62 +84,8 @@ class Project extends Base
      */
     public function __construct()
     {
-        $this->partners     = new ArrayCollection();
         $this->images       = new ArrayCollection();
-        $this->services     = new ArrayCollection();
         $this->translations = new ArrayCollection();
-    }
-
-    /**
-     * Set Partners
-     *
-     * @param ArrayCollection $partners
-     *
-     * @return $this
-     */
-    public function setPartners(ArrayCollection $partners)
-    {
-        $this->partners = $partners;
-
-        return $this;
-    }
-
-    /**
-     * Get Partners
-     *
-     * @return ArrayCollection
-     */
-    public function getPartners()
-    {
-        return $this->partners;
-    }
-
-    /**
-     * Add partner
-     *
-     * @param Partner $partner
-     *
-     * @return $this
-     */
-    public function addPartner(Partner $partner)
-    {
-        $this->partners[] = $partner;
-
-        return $this;
-    }
-
-    /**
-     * Remove partner
-     *
-     * @param Partner $partner
-     *
-     * @return $this
-     */
-    public function removePartner(Partner $partner)
-    {
-        $this->partners->removeElement($partner);
-
-        return $this;
     }
 
     /**
@@ -207,58 +137,6 @@ class Project extends Base
     public function removeImage(ProjectImage $image)
     {
         $this->images->removeElement($image);
-
-        return $this;
-    }
-
-    /**
-     * Set Services
-     *
-     * @param ArrayCollection $services
-     *
-     * @return $this
-     */
-    public function setServices(ArrayCollection $services)
-    {
-        $this->services = $services;
-
-        return $this;
-    }
-
-    /**
-     * Get Services
-     *
-     * @return ArrayCollection
-     */
-    public function getServices()
-    {
-        return $this->services;
-    }
-
-    /**
-     * Add service
-     *
-     * @param Service $service
-     *
-     * @return $this
-     */
-    public function addService(Service $service)
-    {
-        $this->services[] = $service;
-
-        return $this;
-    }
-
-    /**
-     * Remove service
-     *
-     * @param Service $service
-     *
-     * @return $this
-     */
-    public function removeService(Service $service)
-    {
-        $this->services->removeElement($service);
 
         return $this;
     }

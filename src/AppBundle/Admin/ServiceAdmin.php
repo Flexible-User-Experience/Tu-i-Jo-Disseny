@@ -15,8 +15,9 @@ use Sonata\AdminBundle\Form\FormMapper;
  */
 class ServiceAdmin extends BaseAdmin
 {
-    protected $baseRoutePattern = 'services/service';
-    protected $datagridValues = array('_sort_by' => 'category.position');
+    protected $classnameLabel = 'Servei';
+    protected $baseRoutePattern = 'web/servei';
+    protected $datagridValues = array('_sort_by' => 'name');
 
     /**
      * Configure list view
@@ -56,7 +57,8 @@ class ServiceAdmin extends BaseAdmin
                 'actions',
                 array(
                     'actions' => array(
-                        'edit'   => array(),
+                        'edit'   => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
+                        'delete' => array('template' => '::Admin/Buttons/list__action_delete_button.html.twig'),
                     ),
                     'label'   => 'Accions',
                 )
@@ -86,6 +88,13 @@ class ServiceAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'position',
+                null,
+                array(
+                    'label' => 'Posició',
+                )
+            )
+            ->add(
                 'enabled',
                 null,
                 array(
@@ -102,7 +111,7 @@ class ServiceAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('Servei', array('class' => 'col-md-7'))
+            ->with('Servei', array('class' => 'col-md-8'))
             ->add(
                 'name',
                 null,
@@ -112,17 +121,18 @@ class ServiceAdmin extends BaseAdmin
             )
             ->add(
                 'description',
-                null,
+                'ckeditor',
                 array(
                     'label' => 'Descripció',
+                    'config_name' => 'my_config',
                     'attr'  => array(
                         'style' => 'resize:vertical',
-                        'rows'  => 13,
+                        'rows'  => 14,
                     )
                 )
             )
             ->end()
-            ->with('Controls', array('class' => 'col-md-5'))
+            ->with('Controls', array('class' => 'col-md-4'))
             ->add(
                 'position',
                 null,

@@ -5,6 +5,7 @@ namespace AppBundle\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 /**
  * Class ServiceAdmin
@@ -15,8 +16,18 @@ use Sonata\AdminBundle\Form\FormMapper;
  */
 class ProjectAdmin extends BaseAdmin
 {
-    protected $baseRoutePattern = 'projects/project';
+    protected $classnameLabel = 'Projecte';
+    protected $baseRoutePattern = 'web/projecte';
     protected $datagridValues = array('_sort_by' => 'name');
+
+    /**
+     * @param RouteCollection $collection
+     */
+    public function configureRoutes(RouteCollection $collection)
+    {
+        parent::configureRoutes($collection);
+        $collection->add('preview', $this->getRouterIdParameter() . '/preview');
+    }
 
     /**
      * Configure list view
@@ -25,6 +36,7 @@ class ProjectAdmin extends BaseAdmin
      */
     protected function configureListFields(ListMapper $mapper)
     {
+        unset($this->listModes['mosaic']);
         $mapper
             ->add(
                 'imageFile',
@@ -43,18 +55,18 @@ class ProjectAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'services',
-                null,
-                array(
-                    'label'    => 'Serveis',
-                    'editable' => false,
-                )
-            )
-            ->add(
                 'position',
                 null,
                 array(
                     'label'    => 'Posició',
+                    'editable' => true,
+                )
+            )
+            ->add(
+                'showInHomepage',
+                null,
+                array(
+                    'label'    => 'Homepage',
                     'editable' => true,
                 )
             )
@@ -71,7 +83,9 @@ class ProjectAdmin extends BaseAdmin
                 'actions',
                 array(
                     'actions' => array(
-                        'edit' => array(),
+                        'preview' => array('template' => '::Admin/Buttons/list__action_preview_button.html.twig'),
+                        'edit'   => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
+                        'delete' => array('template' => '::Admin/Buttons/list__action_delete_button.html.twig'),
                     ),
                     'label'   => 'Accions',
                 )
@@ -94,10 +108,24 @@ class ProjectAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'services',
+                'description',
                 null,
                 array(
-                    'label' => 'Serveis',
+                    'label' => 'Descripció',
+                )
+            )
+            ->add(
+                'position',
+                null,
+                array(
+                    'label' => 'Posició',
+                )
+            )
+            ->add(
+                'showInHomepage',
+                null,
+                array(
+                    'label' => 'Homepage',
                 )
             )
             ->add(
@@ -117,7 +145,7 @@ class ProjectAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('Projecte', array('class' => 'col-md-7'))
+            ->with('Projecte', array('class' => 'col-md-8'))
             ->add(
                 'name',
                 null,
@@ -127,25 +155,18 @@ class ProjectAdmin extends BaseAdmin
             )
             ->add(
                 'description',
-                null,
+                'ckeditor',
                 array(
-                    'label' => 'Descripció',
-                    'attr'  => array(
+                    'label'       => 'Descripció',
+                    'config_name' => 'my_config',
+                    'attr'        => array(
                         'style' => 'resize:vertical',
-                        'rows'  => 13,
+                        'rows'  => 14,
                     )
                 )
             )
-            ->add(
-                'services',
-                null,
-                array(
-                    'label'    => 'Serveis',
-                    'required' => false,
-                )
-            )
             ->end()
-            ->with('Controls', array('class' => 'col-md-5'))
+            ->with('Controls', array('class' => 'col-md-4'))
             ->add(
                 'position',
                 null,
@@ -154,36 +175,19 @@ class ProjectAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'showInHomepage',
+                null,
+                array(
+                    'label'    => 'Mostrar a la homepage',
+                    'required' => false,
+                )
+            )
+            ->add(
                 'enabled',
                 null,
                 array(
                     'label'    => 'Actiu',
                     'required' => false,
-                )
-            )
-            ->end()
-            ->with('Traduccions', array('class' => 'col-md-7'))
-            ->add(
-                'translations',
-                'a2lix_translations_gedmo',
-                array(
-                    'required'           => false,
-                    'label'              => ' ',
-                    'translatable_class' => 'AppBundle\Entity\Translations\ProjectTranslation',
-                    'fields'             => array(
-                        'name' => array(
-                            'label'    => 'Nom',
-                            'required' => false,
-                        ),
-                        'description' => array(
-                            'label'    => 'Descripció',
-                            'required' => false,
-                            'attr'  => array(
-                                'style' => 'resize:vertical',
-                                'rows'  => 13,
-                            )
-                        ),
-                    ),
                 )
             )
             ->end()
@@ -197,8 +201,7 @@ class ProjectAdmin extends BaseAdmin
                     'help'     => $this->getImageHelperFormMapperWithThumbnail(),
                 )
             )
-            ->end()
-            ;
+            ->end();
         if ($this->id($this->getSubject())) { // only on edit mode, disable when creating new subjects
             $formMapper
                 ->with('Imatges addicionals', array('class' => 'col-md-7'))

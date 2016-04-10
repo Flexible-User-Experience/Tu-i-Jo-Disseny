@@ -9,33 +9,33 @@ class AppKernel extends Kernel
     {
         $bundles = array(
             // Symfony
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
-            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            // Doctrine
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
-            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            // Sensio
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            // Vendors
-//            new Craue\FormFlowBundle\CraueFormFlowBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
-            new Hautelook\AliceBundle\HautelookAliceBundle(),
-            new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
-            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            new Liip\ImagineBundle\LiipImagineBundle(),
+            // Sonata
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\CoreBundle\SonataCoreBundle(),
-            new Sonata\DatagridBundle\SonataDatagridBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
-//            new Sonata\IntlBundle\SonataIntlBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            // Vendors
+            new FOS\UserBundle\FOSUserBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
+//            new Presta\SitemapBundle\PrestaSitemapBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(), // keep this bundle after Stof
             new Vich\UploaderBundle\VichUploaderBundle(),
+            new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(), // leave here
             // App
             new AppBundle\AppBundle(),
         );
@@ -47,6 +47,7 @@ class AppKernel extends Kernel
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
             $bundles[] = new Liip\FunctionalTestBundle\LiipFunctionalTestBundle();
             $bundles[] = new Cypress\GitElephantBundle\CypressGitElephantBundle();
+            $bundles[] = new Hautelook\AliceBundle\HautelookAliceBundle();
         }
 
         return $bundles;

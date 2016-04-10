@@ -1,21 +1,69 @@
 security:
     acl:
         connection: default
-    encoders:
-        FOS\UserBundle\Model\UserInterface: bcrypt
+    role_hierarchy:
+        ROLE_SONATA_CMS:
+            - ROLE_ADMIN_CONTACTMESSAGE_LIST
+            - ROLE_ADMIN_CONTACTMESSAGE_VIEW
+            - ROLE_ADMIN_CONTACTMESSAGE_CREATE
+            - ROLE_ADMIN_CONTACTMESSAGE_EDIT
+            - ROLE_ADMIN_CONTACTMESSAGE_DELETE
+            - ROLE_ADMIN_CONTACTMESSAGE_EXPORT
+            - ROLE_ADMIN_PROJECTSPROJECT_LIST
+            - ROLE_ADMIN_PROJECTSPROJECT_VIEW
+            - ROLE_ADMIN_PROJECTSPROJECT_CREATE
+            - ROLE_ADMIN_PROJECTSPROJECT_EDIT
+            - ROLE_ADMIN_PROJECTSPROJECT_DELETE
+            - ROLE_ADMIN_PROJECTSPROJECT_EXPORT
+            - ROLE_ADMIN_PROJECTSIMAGE_LIST
+            - ROLE_ADMIN_PROJECTSIMAGE_VIEW
+            - ROLE_ADMIN_PROJECTSIMAGE_CREATE
+            - ROLE_ADMIN_PROJECTSIMAGE_EDIT
+            - ROLE_ADMIN_PROJECTSIMAGE_DELETE
+            - ROLE_ADMIN_PROJECTSIMAGE_EXPORT
+            - ROLE_ADMIN_SERVICESSERVICE_LIST
+            - ROLE_ADMIN_SERVICESSERVICE_VIEW
+            - ROLE_ADMIN_SERVICESSERVICE_CREATE
+            - ROLE_ADMIN_SERVICESSERVICE_EDIT
+            - ROLE_ADMIN_SERVICESSERVICE_DELETE
+            - ROLE_ADMIN_SERVICESSERVICE_EXPORT
+            - ROLE_ADMIN_PARTNERSPARTNER_LIST
+            - ROLE_ADMIN_PARTNERSPARTNER_VIEW
+            - ROLE_ADMIN_PARTNERSPARTNER_CREATE
+            - ROLE_ADMIN_PARTNERSPARTNER_EDIT
+            - ROLE_ADMIN_PARTNERSPARTNER_DELETE
+            - ROLE_ADMIN_PARTNERSPARTNER_EXPORT
+        ROLE_SONATA_MANAGER:
+            - ROLE_ADMIN_USER_LIST
+            - ROLE_ADMIN_USER_VIEW
+            - ROLE_ADMIN_USER_CREATE
+            - ROLE_ADMIN_USER_EDIT
+            - ROLE_ADMIN_USER_DELETE
+            - ROLE_ADMIN_USER_EXPORT
+        ROLE_CMS:
+            - ROLE_USER
+            - ROLE_SONATA_CMS
+            - ROLE_SONATA_ADMIN
+        ROLE_ADMIN:
+            - ROLE_CMS
+            - ROLE_SONATA_MANAGER
+        ROLE_SUPER_ADMIN:
+            - ROLE_ADMIN
+            - ROLE_ALLOWED_TO_SWITCH
+    access_decision_manager:
+        strategy: unanimous
     providers:
         fos_userbundle:
             id: fos_user.user_provider.username_email
-    role_hierarchy:
-        ROLE_ADMIN:       [ ROLE_USER, ROLE_SONATA_ADMIN ]
-        ROLE_SUPER_ADMIN: [ ROLE_ADMIN ]
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt|error)|css|images|js)/
             security: false
         admin:
-            pattern:            /admin(.*)
-            context:            user
+            pattern: /admin(.*)
+            context: user
             form_login:
                 provider:                       fos_userbundle
                 login_path:                     /admin/login
@@ -29,11 +77,12 @@ security:
                 path:   /admin/logout
                 target: /admin/login
             anonymous:          true
-        default:
-            anonymous: ~
+        frontend:
+            pattern:   ^/(.*)
+            context:   user
+            anonymous: true
     access_control:
-        - { path: ^/_wdt, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/_profiler, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: [ ROLE_USER, ROLE_ADMIN ] }
+        - { path: ^/admin/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, role: ROLE_USER }
         - { path: ^/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }

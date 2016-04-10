@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d21c6f8b7f4c130591f17df744c4ae59",
+    "hash": "8c4d2124d4dc420227c3281193153cc8",
     "content-hash": "1c33699d80089fac0f5cd82ffd665b0e",
     "packages": [
         {
@@ -1357,16 +1357,16 @@
         },
         {
             "name": "egeloen/ckeditor-bundle",
-            "version": "4.0.1",
+            "version": "4.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egeloen/IvoryCKEditorBundle.git",
-                "reference": "da7c2264ba89d834677749e4f041c6a3731eec72"
+                "reference": "161f680774103468e24f8c5f56a8f22e7a2bfa21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/da7c2264ba89d834677749e4f041c6a3731eec72",
-                "reference": "da7c2264ba89d834677749e4f041c6a3731eec72",
+                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/161f680774103468e24f8c5f56a8f22e7a2bfa21",
+                "reference": "161f680774103468e24f8c5f56a8f22e7a2bfa21",
                 "shasum": ""
             },
             "require": {
@@ -1378,12 +1378,12 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0",
-                "satooshi/php-coveralls": "~0.6",
                 "symfony/phpunit-bridge": "~2.7|~3.0",
                 "symfony/yaml": "^2.0.5|~3.0",
                 "twig/twig": "~1.12"
             },
             "suggest": {
+                "egeloen/form-extra-bundle": "Allows to load CKEditor asynchronously",
                 "twig/twig": "Allows to use Twig templates"
             },
             "type": "symfony-bundle",
@@ -1411,7 +1411,7 @@
             "keywords": [
                 "CKEditor"
             ],
-            "time": "2015-12-09 10:54:32"
+            "time": "2016-04-08 12:09:48"
         },
         {
             "name": "egeloen/json-builder",
@@ -2519,16 +2519,16 @@
         },
         {
             "name": "liip/functional-test-bundle",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipFunctionalTestBundle.git",
-                "reference": "9e0aa4fc26daef43f22eb7ec3e310426c0fe11c2"
+                "reference": "23a229daa3a4880a6fd659a24d64639427ed1e7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipFunctionalTestBundle/zipball/9e0aa4fc26daef43f22eb7ec3e310426c0fe11c2",
-                "reference": "9e0aa4fc26daef43f22eb7ec3e310426c0fe11c2",
+                "url": "https://api.github.com/repos/liip/LiipFunctionalTestBundle/zipball/23a229daa3a4880a6fd659a24d64639427ed1e7d",
+                "reference": "23a229daa3a4880a6fd659a24d64639427ed1e7d",
                 "shasum": ""
             },
             "require": {
@@ -2590,7 +2590,7 @@
             "keywords": [
                 "Symfony2"
             ],
-            "time": "2016-04-04 13:32:21"
+            "time": "2016-04-09 16:28:17"
         },
         {
             "name": "liip/imagine-bundle",
@@ -3327,12 +3327,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "1c6a15f39ea7f41d9bc0a5f712932da0c47be27b"
+                "reference": "0eca6bae564201c85fc860d9949e62841f97e3a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/1c6a15f39ea7f41d9bc0a5f712932da0c47be27b",
-                "reference": "1c6a15f39ea7f41d9bc0a5f712932da0c47be27b",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/0eca6bae564201c85fc860d9949e62841f97e3a5",
+                "reference": "0eca6bae564201c85fc860d9949e62841f97e3a5",
                 "shasum": ""
             },
             "require": {
@@ -3410,7 +3410,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2016-04-04 15:25:35"
+            "time": "2016-04-09 13:55:00"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -3618,12 +3618,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDatagridBundle.git",
-                "reference": "0749e710b936bf84736c648eee16bc45e2c04607"
+                "reference": "6e7940af246fb64f7a5c2a902f894691adf7328b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDatagridBundle/zipball/0749e710b936bf84736c648eee16bc45e2c04607",
-                "reference": "0749e710b936bf84736c648eee16bc45e2c04607",
+                "url": "https://api.github.com/repos/sonata-project/SonataDatagridBundle/zipball/6e7940af246fb64f7a5c2a902f894691adf7328b",
+                "reference": "6e7940af246fb64f7a5c2a902f894691adf7328b",
                 "shasum": ""
             },
             "require": {
@@ -3632,7 +3632,6 @@
             },
             "require-dev": {
                 "doctrine/orm": "~2.4",
-                "fabpot/php-cs-fixer": "~0.5|~1.0",
                 "symfony/phpunit-bridge": "~2.7|~3.0"
             },
             "type": "symfony-bundle",
@@ -3667,7 +3666,7 @@
                 "datagrid",
                 "sonata"
             ],
-            "time": "2015-12-16 08:53:13"
+            "time": "2016-04-08 17:08:34"
         },
         {
             "name": "sonata-project/doctrine-extensions",
@@ -3724,12 +3723,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
-                "reference": "e8eb83f7dc5b64113892cbf7367705864c651691"
+                "reference": "9e79f15e43512b4c809a9029a5c0247e7354a277"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/e8eb83f7dc5b64113892cbf7367705864c651691",
-                "reference": "e8eb83f7dc5b64113892cbf7367705864c651691",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/9e79f15e43512b4c809a9029a5c0247e7354a277",
+                "reference": "9e79f15e43512b4c809a9029a5c0247e7354a277",
                 "shasum": ""
             },
             "require": {
@@ -3748,7 +3747,6 @@
                 "sonata-project/admin-bundle-persistency-layer": "1.0.0"
             },
             "require-dev": {
-                "fabpot/php-cs-fixer": "~0.1|~1.0",
                 "simplethings/entity-audit-bundle": "~0.1",
                 "symfony/phpunit-bridge": "~2.7|~3.0"
             },
@@ -3790,7 +3788,7 @@
                 "generator",
                 "sonata"
             ],
-            "time": "2016-01-24 12:24:43"
+            "time": "2016-04-08 16:23:52"
         },
         {
             "name": "sonata-project/easy-extends-bundle",
@@ -3970,12 +3968,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "08f90d95a5be0db7fc619514f5b942c7e8c226dd"
+                "reference": "e1e021a30ca0693e181e17f4bf5636d0e300330f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/08f90d95a5be0db7fc619514f5b942c7e8c226dd",
-                "reference": "08f90d95a5be0db7fc619514f5b942c7e8c226dd",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/e1e021a30ca0693e181e17f4bf5636d0e300330f",
+                "reference": "e1e021a30ca0693e181e17f4bf5636d0e300330f",
                 "shasum": ""
             },
             "require": {
@@ -3996,7 +3994,6 @@
             },
             "require-dev": {
                 "doctrine/orm": "^2.2.3",
-                "fabpot/php-cs-fixer": "~0.1|~1.0",
                 "friendsofsymfony/rest-bundle": "~1.1",
                 "jms/serializer-bundle": "~0.11|~1.0",
                 "nelmio/api-doc-bundle": "~2.4",
@@ -4040,7 +4037,7 @@
                 "sonata",
                 "user"
             ],
-            "time": "2016-04-05 09:39:24"
+            "time": "2016-04-08 16:21:08"
         },
         {
             "name": "stof/doctrine-extensions-bundle",

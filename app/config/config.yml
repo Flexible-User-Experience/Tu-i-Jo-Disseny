@@ -30,11 +30,12 @@ twig:
     strict_variables: "%kernel.debug%"
     form_themes:
         - "bootstrap_3_layout.html.twig"
+        - "SonataCoreBundle:Form:datepicker.html.twig"
     globals:
         google_analytics_enabled: %google_analytics_enabled%
         google_analytics_account: "%google_analytics_account%"
         main_brand_title:         "%main_brand_title%"
-        admin_tag_version:        "v1.0.03"
+        admin_tag_version:        "v1.0.04"
 
 # Assetic Configuration
 assetic:
@@ -103,12 +104,6 @@ fos_user:
     service:
         user_manager:  sonata.user.orm.user_manager
 
-# JMS i18n Routing
-jms_i18n_routing:
-    default_locale: "%locale%"
-    locales: [ ca, es, en ]
-    strategy: prefix_except_default
-
 # Swiftmailer Configuration
 swiftmailer:
     auth_mode:  "%mailer_auth_mode%"
@@ -119,3 +114,10 @@ swiftmailer:
     username:   "%mailer_user%"
     password:   "%mailer_password%"
     spool:      { type: memory }
+
+# CKEditor
+ivory_ck_editor:
+    inline: false
+    configs:
+        my_config:
+            toolbar: basic

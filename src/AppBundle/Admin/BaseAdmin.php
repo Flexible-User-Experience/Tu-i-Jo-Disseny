@@ -17,6 +17,16 @@ use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 abstract class BaseAdmin extends Admin
 {
     /**
+     * @var array
+     */
+    protected $perPageOptions = array(25, 50, 100, 200);
+
+    /**
+     * @var int
+     */
+    protected $maxPerPage = 25;
+
+    /**
      * Configure route collection
      *
      * @param RouteCollection $collection
@@ -24,8 +34,20 @@ abstract class BaseAdmin extends Admin
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection->remove('show');
-        $collection->remove('delete');
         $collection->remove('batch');
+    }
+
+    /**
+     * Remove batch action list view first column
+     *
+     * @return array
+     */
+    public function getBatchActions()
+    {
+        $actions = parent::getBatchActions();
+        unset($actions['delete']);
+
+        return $actions;
     }
 
     /**

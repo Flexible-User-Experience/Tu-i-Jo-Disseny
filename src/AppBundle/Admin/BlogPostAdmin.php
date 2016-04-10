@@ -15,7 +15,8 @@ use Sonata\AdminBundle\Form\FormMapper;
  */
 class BlogPostAdmin extends BaseAdmin
 {
-    protected $baseRoutePattern = 'blog/post';
+    protected $classnameLabel = 'Artícle';
+    protected $baseRoutePattern = 'blog/article';
     protected $datagridValues = array('_sort_by' => 'publishedAt');
 
     /**
@@ -25,6 +26,7 @@ class BlogPostAdmin extends BaseAdmin
      */
     protected function configureListFields(ListMapper $mapper)
     {
+        unset($this->listModes['mosaic']);
         $mapper
             ->add(
                 'imageFile',
@@ -52,10 +54,11 @@ class BlogPostAdmin extends BaseAdmin
             )
             ->add(
                 'publishedAt',
-                null,
+                'date',
                 array(
                     'label'    => 'Data publicació',
                     'editable' => false,
+                    'format'   => 'd/m/Y',
                 )
             )
             ->add(
@@ -71,7 +74,8 @@ class BlogPostAdmin extends BaseAdmin
                 'actions',
                 array(
                     'actions' => array(
-                        'edit'   => array(),
+                        'edit'   => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
+                        'delete' => array('template' => '::Admin/Buttons/list__action_delete_button.html.twig'),
                     ),
                     'label'   => 'Accions',
                 )
@@ -94,17 +98,24 @@ class BlogPostAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'description',
+                null,
+                array(
+                    'label' => 'Descripció',
+                )
+            )
+            ->add(
                 'tags',
                 null,
                 array(
-                    'label'    => 'Etiquetes',
+                    'label' => 'Etiquetes',
                 )
             )
             ->add(
                 'publishedAt',
                 null,
                 array(
-                    'label'    => 'Data publicació',
+                    'label' => 'Data publicació',
                 )
             )
             ->add(
@@ -124,7 +135,7 @@ class BlogPostAdmin extends BaseAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('Article', array('class' => 'col-md-7'))
+            ->with('Article', array('class' => 'col-md-8'))
             ->add(
                 'name',
                 null,
@@ -134,20 +145,39 @@ class BlogPostAdmin extends BaseAdmin
             )
             ->add(
                 'description',
-                null,
+                'ckeditor',
                 array(
-                    'label' => 'Descripció',
-                    'attr'  => array(
+                    'label'       => 'Descripció',
+                    'required'    => false,
+                    'config_name' => 'my_config',
+                    'attr'        => array(
                         'style' => 'resize:vertical',
-                        'rows'  => 15,
+                        'rows'  => 14,
                     )
                 )
             )
+            ->end()
+            ->with('Controls', array('class' => 'col-md-4'))
             ->add(
                 'tags',
                 null,
                 array(
                     'label'    => 'Etiquetes',
+                    'required' => false,
+                )
+            )
+            ->add(
+                'publishedAt',
+                'sonata_type_date_picker',
+                array(
+                    'label' => 'Data publicació',
+                )
+            )
+            ->add(
+                'enabled',
+                null,
+                array(
+                    'label'    => 'Actiu',
                     'required' => false,
                 )
             )
@@ -160,48 +190,6 @@ class BlogPostAdmin extends BaseAdmin
                     'label'    => 'Arxiu',
                     'required' => false,
                     'help'     => $this->getImageHelperFormMapperWithThumbnail(),
-                )
-            )
-            ->end()
-            ->with('Traduccions', array('class' => 'col-md-7'))
-            ->add(
-                'translations',
-                'a2lix_translations_gedmo',
-                array(
-                    'required'           => false,
-                    'label'              => ' ',
-                    'translatable_class' => 'AppBundle\Entity\Translations\BlogPostTranslation',
-                    'fields'             => array(
-                        'name' => array(
-                            'label'    => 'Nom',
-                            'required' => false,
-                        ),
-                        'description' => array(
-                            'label'    => 'Descripció',
-                            'required' => false,
-                            'attr'  => array(
-                                'style' => 'resize:vertical',
-                                'rows'  => 15,
-                            )
-                        ),
-                    ),
-                )
-            )
-            ->end()
-            ->with('Controls', array('class' => 'col-md-5'))
-            ->add(
-                'publishedAt',
-                null,
-                array(
-                    'label'    => 'Data publicació',
-                )
-            )
-            ->add(
-                'enabled',
-                null,
-                array(
-                    'label'    => 'Actiu',
-                    'required' => false,
                 )
             )
             ->end();

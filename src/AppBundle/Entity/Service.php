@@ -18,7 +18,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ServiceRepository")
  * @ORM\Table(name="service")
- * @Gedmo\SoftDeleteable(fieldName="removedAt")
  * @Gedmo\TranslationEntity(class="AppBundle\Entity\Translations\ServiceTranslation")
  * @Vich\Uploadable
  */
@@ -26,14 +25,6 @@ class Service extends Base
 {
     use Traits\TranslationTrait;
     use Traits\ImageTrait;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Project", mappedBy="services", cascade={"persist", "remove"}, orphanRemoval=true)
-     * @ORM\OrderBy({"position" = "ASC"})
-     *
-     * @var ArrayCollection
-     */
-    protected $projects;
 
     /**
      * @ORM\ManyToOne(targetEntity="ServiceCategory", inversedBy="services")
@@ -86,60 +77,7 @@ class Service extends Base
      */
     public function __construct()
     {
-        $this->projects     = new ArrayCollection();
         $this->translations = new ArrayCollection();
-    }
-
-    /**
-     * Set Projects
-     *
-     * @param ArrayCollection $projects
-     *
-     * @return $this
-     */
-    public function setProjects(ArrayCollection $projects)
-    {
-        $this->projects = $projects;
-
-        return $this;
-    }
-
-    /**
-     * Get Projects
-     *
-     * @return ArrayCollection
-     */
-    public function getProjects()
-    {
-        return $this->projects;
-    }
-
-    /**
-     * Add project
-     *
-     * @param Project $project
-     *
-     * @return $this
-     */
-    public function addProject(Project $project)
-    {
-        $this->projects[] = $project;
-
-        return $this;
-    }
-
-    /**
-     * Remove project
-     *
-     * @param Project $project
-     *
-     * @return $this
-     */
-    public function removeProject(Project $project)
-    {
-        $this->projects->removeElement($project);
-
-        return $this;
     }
 
     /**

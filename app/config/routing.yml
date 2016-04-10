@@ -1,5 +1,5 @@
-app:
-    resource: "@AppBundle/Controller/"
+app_frontend:
+    resource: "@AppBundle/Controller/Front"
     type:     annotation
 
 _liip_imagine:
@@ -29,3 +29,12 @@ sonata_user:
     resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
     prefix: /admin
     options: { i18n: false }
+
+app_backend:
+    resource: "@AppBundle/Controller/Back/"
+    type:     annotation
+
+_redirecting_trailing_slashes:
+    resource: "@AppBundle/Controller/RedirectingController.php"
+    type:     annotation
+    options:  { i18n: false }
