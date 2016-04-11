@@ -62,7 +62,8 @@ class ContactNewsletterType extends AbstractType
     {
         $resolver->setDefaults(
             array(
-                'data_class' => 'AppBundle\Entity\ContactNewsletter',
+                'data_class'      => 'AppBundle\Entity\ContactNewsletter',
+                'csrf_protection' => false,
             )
         );
     }
