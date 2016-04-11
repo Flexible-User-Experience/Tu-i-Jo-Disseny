@@ -77,4 +77,19 @@ abstract class BaseAdmin extends Admin
 
         return ($this->getSubject()->getImageName() ? '<img src="' . $lis->getBrowserPath($vus->asset($this->getSubject(), 'imageFile'), '480xY') . '" class="admin-preview" style="width:100%;" alt=""/>' : '') . '<span style="width:100%;display:block;">Màxim 10MB amb format PNG, JPG o GIF. Imatge amb amplada mínima de 1.200px.</span>';
     }
+
+    /**
+     * Get image2 helper form mapper with thumbnail
+     *
+     * @return string
+     */
+    protected function getImage2HelperFormMapperWithThumbnail()
+    {
+        /** @var CacheManager $lis */
+        $lis = $this->getConfigurationPool()->getContainer()->get('liip_imagine.cache.manager');
+        /** @var UploaderHelper $vus */
+        $vus = $this->getConfigurationPool()->getContainer()->get('vich_uploader.templating.helper.uploader_helper');
+
+        return ($this->getSubject()->getImageName2() ? '<img src="' . $lis->getBrowserPath($vus->asset($this->getSubject(), 'imageFile2'), '480xY') . '" class="admin-preview" style="width:100%;" alt=""/>' : '') . '<span style="width:100%;display:block;">Màxim 10MB amb format PNG, JPG o GIF. Imatge amb amplada mínima de 1.200px.</span>';
+    }
 }

@@ -45,10 +45,10 @@ class PartnerAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'email',
+                'studies',
                 null,
                 array(
-                    'label'    => 'Email',
+                    'label'    => 'Estudis',
                     'editable' => true,
                 )
             )
@@ -97,24 +97,17 @@ class PartnerAdmin extends BaseAdmin
                 )
             )
             ->add(
-                'web',
+                'studies',
                 null,
                 array(
-                    'label' => 'Web',
+                    'label' => 'Estudis',
                 )
             )
             ->add(
-                'email',
+                'description',
                 null,
                 array(
-                    'label' => 'Email',
-                )
-            )
-            ->add(
-                'twitter',
-                null,
-                array(
-                    'label' => 'Twitter',
+                    'label' => 'Descripció',
                 )
             )
             ->add(
@@ -150,6 +143,13 @@ class PartnerAdmin extends BaseAdmin
                 )
             )
             ->add(
+                'studies',
+                null,
+                array(
+                    'label' => 'Estudis',
+                )
+            )
+            ->add(
                 'description',
                 'ckeditor',
                 array(
@@ -180,7 +180,7 @@ class PartnerAdmin extends BaseAdmin
                 )
             )
             ->end()
-            ->with('Imatge', array('class' => 'col-md-5'))
+            ->with('Imatge pricipal', array('class' => 'col-md-5'))
             ->add(
                 'imageFile',
                 'file',
@@ -191,26 +191,14 @@ class PartnerAdmin extends BaseAdmin
                 )
             )
             ->end()
-            ->with('Contacte', array('class' => 'col-md-7'))
+            ->with('Imatge secundaria', array('class' => 'col-md-5'))
             ->add(
-                'web',
-                null,
+                'imageFile2',
+                'file',
                 array(
-                    'label' => 'Web',
-                )
-            )
-            ->add(
-                'email',
-                null,
-                array(
-                    'label' => 'Email',
-                )
-            )
-            ->add(
-                'twitter',
-                null,
-                array(
-                    'label' => 'Twitter',
+                    'label'    => 'Arxiu',
+                    'required' => false,
+                    'help'     => $this->getImage2HelperFormMapperWithThumbnail(),
                 )
             )
             ->end();

@@ -47,6 +47,32 @@ class Partner extends Base
     protected $imageFile;
 
     /**
+     * @Vich\UploadableField(mapping="partner", fileNameProperty="imageName2")
+     * @Assert\File(
+     *     maxSize = "10M",
+     *     mimeTypes = {"image/jpg", "image/jpeg", "image/png", "image/gif"},
+     * )
+     * @Assert\Image(minWidth = 1200)
+     *
+     * @var File $imageFile
+     */
+    protected $imageFile2;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @var string $imageName2
+     */
+    protected $imageName2;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @var string
+     */
+    protected $studies;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Url(checkDNS=true)
      *
@@ -95,6 +121,56 @@ class Partner extends Base
         $this->translations = new ArrayCollection();
     }
 
+    /**
+     * Set ImageFile2
+     *
+     * @param File $imageFile
+     *
+     * @return $this
+     */
+    public function setImageFile2(File $imageFile = null)
+    {
+        $this->imageFile2 = $imageFile;
+        if ($imageFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Get ImageFile2
+     *
+     * @return File
+     */
+    public function getImageFile2()
+    {
+        return $this->imageFile2;
+    }
+
+    /**
+     * Set ImageName2
+     *
+     * @param string $imageName
+     *
+     * @return $this
+     */
+    public function setImageName2($imageName)
+    {
+        $this->imageName2 = $imageName;
+
+        return $this;
+    }
+
+    /**
+     * Get ImageName2
+     *
+     * @return string
+     */
+    public function getImageName2()
+    {
+        return $this->imageName2;
+    }
 
     /**
      * Set Description
@@ -118,6 +194,30 @@ class Partner extends Base
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Get Studies
+     *
+     * @return string
+     */
+    public function getStudies()
+    {
+        return $this->studies;
+    }
+
+    /**
+     * Set Studies
+     *
+     * @param string $studies
+     *
+     * @return $this
+     */
+    public function setStudies($studies)
+    {
+        $this->studies = $studies;
+
+        return $this;
     }
 
     /**

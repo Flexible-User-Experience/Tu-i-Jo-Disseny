@@ -90,9 +90,7 @@ AppBundle\Entity\Partner:
     name: <current()> <firstName()> <lastName()>
     description: <text(100)>
     imageName: <numberBetween(1, 5)>.jpg
-    web: <url()>
-    email: <email()>
-    twitter: <username()>
+    studies: <word()>
     position: <current()>
     enabled: <boolean(25)>
 AppBundle\Entity\Translations\PartnerTranslation:
