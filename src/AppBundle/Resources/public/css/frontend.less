@@ -100,6 +100,7 @@ textarea { resize: vertical; }
 .carousel-inner {
   border: @borderline;
   padding: @gap-big;
+  min-height: 300px;
 }
 
 // Header
@@ -150,7 +151,7 @@ footer.main {
     top: 0;
     left: 0;
     .opacity(0);
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(255, 255, 255, 0.85);
     .transition(all .2s ease-in-out);
   }
   img {
@@ -158,19 +159,20 @@ footer.main {
     position: relative;
   }
   h2 {
-    color: @grey;
+    color: @black;
     position: relative;
     font-size: 17px;
     padding: 0;
     margin: 0 0 @gap-small 0;
   }
   h3 {
+    color: lighten(@black, 30%);
+    font-size: 13px;
     padding: 0;
     margin: 0;
   }
 }
-
-.hovereffect:hover .overlay {
+.hover-effect:hover .overlay {
   .opacity(1);
 }
 

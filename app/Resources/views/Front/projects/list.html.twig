@@ -3,14 +3,14 @@
 {% block title %}{{ 'front.projects' | trans | capitalize }} · {{ parent() }}{% endblock %}
 
 {% block top_left_menu %}
-    <li class="current"><a href="{{ path('front_projects') }}">{{ 'front.projects' | trans | upper }}</a></li>
+    <li class="current"><a style="text-decoration:underline" href="{{ path('front_projects') }}">{{ 'front.projects' | trans | upper }}</a></li>
     <li><a href="{{ path('front_homepage') }}#services">{{ 'front.services' | trans | upper }}</a></li>
     <li><a href="{{ path('front_homepage') }}#about-us">{{ 'front.about' | trans | upper }}</a></li>
 {% endblock %}
 
 {% block top_right_menu %}
     <li><a href="{{ path('front_homepage') }}#workspace">{{ 'front.headquarter' | trans | upper }}</a></li>
-    <li><a href="#">{{ 'front.blog' | trans | upper }}</a></li>
+    <li><a href="{{ path('front_blog_posts_list') }}">{{ 'front.blog' | trans | upper }}</a></li>
     <li><a href="{{ path('front_homepage') }}#contact">{{ 'front.contact' | trans | upper }}</a></li>
 {% endblock %}
 

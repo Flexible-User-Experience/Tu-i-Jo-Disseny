@@ -7,7 +7,6 @@ use AppBundle\Entity\ContactNewsletter;
 use AppBundle\Form\Type\ContactMessageType;
 use AppBundle\Form\Type\ContactNewsletterType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -62,20 +61,6 @@ class FrontendController extends Controller
                 'services'     => $services,
                 'partners'     => $partners,
                 'contact_form' => $form->createView(),
-            ]
-        );
-    }
-
-    /**
-     * @Route("/blog", name="front_blog")
-     * @Method({"GET"})
-     */
-    public function blogAction()
-    {
-        return $this->render(
-            '::Front/blog/list.html.twig',
-            [
-                'tags' => $this->getDoctrine()->getRepository('AppBundle:BlogTag')->findAllEnabledSortedByName(),
             ]
         );
     }
