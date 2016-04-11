@@ -1,17 +1,25 @@
 {% extends ':Front:layout.html.twig' %}
 
-{% from 'MopaBootstrapBundle::macros.html.twig' import label, badge %}
-
 {% block title %}{{ 'front.blog' | trans | capitalize }} · {{ parent() }}{% endblock %}
 
-{% block headline %}{{ 'front.blog' | trans | capitalize }}{% endblock headline %}
+{% block top_left_menu %}
+    <li><a href="{{ path('front_projects') }}">{{ 'front.projects' | trans | upper }}</a></li>
+    <li><a href="{{ path('front_homepage') }}#services">{{ 'front.services' | trans | upper }}</a></li>
+    <li><a href="{{ path('front_homepage') }}#about-us">{{ 'front.about' | trans | upper }}</a></li>
+{% endblock %}
+
+{% block top_right_menu %}
+    <li><a href="{{ path('front_homepage') }}#workspace">{{ 'front.headquarter' | trans | upper }}</a></li>
+    <li class="current"><a style="text-decoration:underline" href="{{ path('front_blog_posts_list') }}">{{ 'front.blog' | trans | upper }}</a></li>
+    <li><a href="{{ path('front_homepage') }}#contact">{{ 'front.contact' | trans | upper }}</a></li>
+{% endblock %}
 
 {% block content %}
     <div class="col-xs-12">
         {% for tag in tags %}
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{ tag.name }}<span class="pull-right">{{ badge(tag.posts | length) }}</span></h3>
+                    <h3 class="panel-title">{{ tag.name }}<span class="pull-right">{{ tag.posts | length }}</span></h3>
                 </div>
                 <div class="panel-body">
                     {% for post in tag.posts if post.enabled %}
