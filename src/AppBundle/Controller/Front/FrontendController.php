@@ -31,15 +31,11 @@ class FrontendController extends Controller
     {
         $gms = $this->get('app.google_maps_service');
         $mapObject = $gms->buildMap(40.7097791, 0.5786492, 18);
-        $projects = $this->getDoctrine()->getRepository(
-            'AppBundle:Project'
-        )->findAllEnabledAndShowInHomepageSortedByPosition();
+        $projects = $this->getDoctrine()->getRepository('AppBundle:Project')->findAllEnabledAndShowInHomepageSortedByPosition();
         $services = $this->getDoctrine()->getRepository('AppBundle:Service')->findAllEnabledSortedByPosition();
         $partners = $this->getDoctrine()->getRepository('AppBundle:Partner')->findAllEnabledSortedByPosition();
         $contact = new ContactMessage();
         $form = $this->createForm(ContactMessageType::class, $contact);
-//        $newsletter = new ContactNewsletter();
-//        $formNewsletter = $this->createForm(ContactNewsletterType::class, $newsletter);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -66,7 +62,6 @@ class FrontendController extends Controller
                 'services'     => $services,
                 'partners'     => $partners,
                 'contact_form' => $form->createView(),
-//                'newsletter_form' => $formNewsletter->createView(),
             ]
         );
     }
