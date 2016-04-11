@@ -30,7 +30,8 @@
                                 {% for tag in post.tags if tag.enabled %}
                                     <h6>{{ tag.name }}</h6>
                                 {% endfor %}
-                            <p>{{ post.description }}</p>
+                            <p>{{ post.description | truncate(200) }}</p>
+                            <a href="{{  path('front_blog_posts_detail', {slug: post.slug}) }}" class="btn btn-sm btn-info">Llegir més</a>
                         </div>
                     </div>
                 {% endfor %}
