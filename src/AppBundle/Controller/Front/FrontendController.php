@@ -106,20 +106,46 @@ class FrontendController extends Controller
             $em->flush();
             // send notifications
             $messenger = $this->get('app.notification');
-//  TODO          $messenger->sendUserNotification($contact);
-//            $messenger->sendAdminNotification($contact);
+            $messenger->sendNewsletterUserNotification($persistedNewsletter);
             // reset form
             $newsletter = new ContactNewsletter();
             $form = $this->createForm(ContactNewsletterType::class, $newsletter);
             // build flash message
-            $flash = 'revisa el teu correu, has de verificar la teva adreça abans de començar rebre el nostre newsletter';
+            $flash = 'revisa el correu, has de verificar la teva bústia per rebre el newsletter';
         }
 
         return $this->render(
-            ':Front/includes:newsletter_contact_form.html.twig',
+            ':Front/includes:newsletter-contact-form.html.twig',
             [
                 'newsletter_form' => $form->createView(),
                 'flash'           => $flash
+            ]
+        );
+    }
+
+    /**
+     * @Route("/newsletter-form/confirmation-email/{email}", name="app_newsletter_form_confirmation_email")
+     * @param string $email
+     *
+     * @return Response
+     */
+    public function newsletterConfirmationEmailAction($email)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $contactNewsletter = $em->getRepository('AppBundle:ContactNewsletter')->findOneBy(['email' => $email]);
+        $msg = 'KO';
+
+        if ($contactNewsletter) {
+            $contactNewsletter->setChecked(true);
+            $em->persist($contactNewsletter);
+            $em->flush();
+            $msg = 'OK';
+        }
+
+        return $this->render(
+            ':Front/newsletters:confirmation_ok.html.twig',
+            [
+                'msg' => $msg
             ]
         );
     }

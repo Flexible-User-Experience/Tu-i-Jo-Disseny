@@ -55,6 +55,7 @@ class GoogleMapsService
         $map = new Map();
         $map->setStylesheetOption('width', '100%');
         $map->setStylesheetOption('height', '100%');
+        // https://snazzymaps.com/style/151/ultra-light-with-labels
         $map->setMapOption('styles' , [
             [
                 'featureType' => 'water',
@@ -119,31 +120,6 @@ class GoogleMapsService
                         [ 'lightness' => 21 ],
                     ],
             ],
-//            [
-//                'featureType' => 'labels.text.stroke',
-//                'stylers'     =>
-//                    [
-//                        [ 'color'      => '#ffffff' ],
-//                        [ 'lightness'  => 16 ],
-//                        [ 'visibility' => 'on' ],
-//                    ],
-//            ],
-//            [
-//                'featureType' => 'labels.text.fill',
-//                'stylers'     =>
-//                    [
-//                        [ 'color'      => '#333333' ],
-//                        [ 'lightness'  => 40 ],
-//                        [ 'saturation' => 36 ],
-//                    ],
-//            ],
-//            [
-//                'featureType' => 'labels.icon',
-//                'stylers'     =>
-//                    [
-//                        [ 'visibility' => 'off' ],
-//                    ],
-//            ],
             [
                 'featureType' => 'transit',
                 'elementType' => 'geometry',
