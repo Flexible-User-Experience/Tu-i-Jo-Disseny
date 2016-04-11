@@ -98,7 +98,7 @@ class NotificationService
         $this->messenger->sendEmail(
             $this->amd,
             $contactNewsletter->getEmail(),
-            $this->urlBase . ' contact form answer',
+            $this->urlBase . ' registre newsletter',
             $this->twig->render(':Mails:newsletter_form_user_notification.html.twig', array(
                 'contact' => $contactNewsletter,
             ))
