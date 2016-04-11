@@ -45,9 +45,11 @@ monolog:
 assetic:
     use_controller: true
 
-#Swiftmailer:
-#    delivery_address: me@example.com
+# Swift
+swiftmailer:
+    delivery_address: "%mailer_destination%"
 
+# Cypress
 cypress_git_elephant:
     enable_profiler: false
     profiler_repository_path: "%kernel.root_dir%/../"
