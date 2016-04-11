@@ -14,29 +14,31 @@
     <li><a href="{{ path('front_homepage') }}#contact">{{ 'front.contact' | trans | upper }}</a></li>
 {% endblock %}
 
-{% block content %}
-    <div class="col-xs-12">
-        {% for tag in tags %}
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{ tag.name }}<span class="pull-right">{{ tag.posts | length }}</span></h3>
-                </div>
-                <div class="panel-body">
-                    {% for post in tag.posts if post.enabled %}
-                        <div class="media">
-                            <div class="media-left">
-                                <a href="#">
-                                    <img class="media-object" src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('60x60') }}" alt="{{ post.name }}">
-                                </a>
-                            </div>
-                            <div class="media-body">
-                                <h4 class="media-heading">{{ post.name }}<span class="pull-right">{{ post.publishedAt | date('d/m/Y') }}</span></h4>
-                                <p>{{ post.description }}</p>
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                {% for post in posts %}
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="media">
+                                <div class="media-left">
+                                    <a href="{{ path('front_blog_posts_detail', {slug: post.slug}) }}">
+                                        <img class="media-object" src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('60x60') }}" alt="{{ post.name }}">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">{{ post.name }}<span class="pull-right">{{ post.publishedAt | date('d/m/Y') }}</span></h4>
+                                        {% for tag in post.tags if tag.enabled %}
+                                            <h6>{{ tag.name }}</h6>
+                                        {% endfor %}
+                                    <p>{{ post.description }}</p>
+                                </div>
                             </div>
                         </div>
-                    {% endfor %}
-                </div>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
+        </div>
     </div>
 {% endblock %}
