@@ -31,15 +31,11 @@ class FrontendController extends Controller
     {
         $gms = $this->get('app.google_maps_service');
         $mapObject = $gms->buildMap(40.7097791, 0.5786492, 18);
-        $projects = $this->getDoctrine()->getRepository(
-            'AppBundle:Project'
-        )->findAllEnabledAndShowInHomepageSortedByPosition();
+        $projects = $this->getDoctrine()->getRepository('AppBundle:Project')->findAllEnabledAndShowInHomepageSortedByPosition();
         $services = $this->getDoctrine()->getRepository('AppBundle:Service')->findAllEnabledSortedByPosition();
         $partners = $this->getDoctrine()->getRepository('AppBundle:Partner')->findAllEnabledSortedByPosition();
         $contact = new ContactMessage();
         $form = $this->createForm(ContactMessageType::class, $contact);
-//        $newsletter = new ContactNewsletter();
-//        $formNewsletter = $this->createForm(ContactNewsletterType::class, $newsletter);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -66,7 +62,6 @@ class FrontendController extends Controller
                 'services'     => $services,
                 'partners'     => $partners,
                 'contact_form' => $form->createView(),
-//                'newsletter_form' => $formNewsletter->createView(),
             ]
         );
     }
@@ -106,20 +101,46 @@ class FrontendController extends Controller
             $em->flush();
             // send notifications
             $messenger = $this->get('app.notification');
-//  TODO          $messenger->sendUserNotification($contact);
-//            $messenger->sendAdminNotification($contact);
+            $messenger->sendNewsletterUserNotification($persistedNewsletter);
             // reset form
             $newsletter = new ContactNewsletter();
             $form = $this->createForm(ContactNewsletterType::class, $newsletter);
             // build flash message
-            $flash = 'revisa el teu correu, has de verificar la teva adreça abans de començar rebre el nostre newsletter';
+            $flash = 'revisa el correu, has de verificar la teva bústia per rebre el newsletter';
         }
 
         return $this->render(
-            ':Front/includes:newsletter_contact_form.html.twig',
+            ':Front/includes:newsletter-contact-form.html.twig',
             [
                 'newsletter_form' => $form->createView(),
                 'flash'           => $flash
+            ]
+        );
+    }
+
+    /**
+     * @Route("/newsletter-form/confirmation-email/{email}", name="app_newsletter_form_confirmation_email")
+     * @param string $email
+     *
+     * @return Response
+     */
+    public function newsletterConfirmationEmailAction($email)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $contactNewsletter = $em->getRepository('AppBundle:ContactNewsletter')->findOneBy(['email' => $email]);
+        $msg = 'KO';
+
+        if ($contactNewsletter) {
+            $contactNewsletter->setChecked(true);
+            $em->persist($contactNewsletter);
+            $em->flush();
+            $msg = 'OK';
+        }
+
+        return $this->render(
+            ':Front/newsletters:confirmation_ok.html.twig',
+            [
+                'msg' => $msg
             ]
         );
     }

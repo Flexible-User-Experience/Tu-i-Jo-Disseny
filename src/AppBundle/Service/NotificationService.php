@@ -3,6 +3,7 @@
 namespace AppBundle\Service;
 
 use AppBundle\Entity\ContactMessage;
+use AppBundle\Entity\ContactNewsletter;
 
 /**
  * Class NotificationService
@@ -51,7 +52,7 @@ class NotificationService
         $this->messenger->sendEmail(
             $contactMessage->getEmail(),
             $this->amd,
-            $this->urlBase . ' contact form received',
+            $this->urlBase . ' formulari de contacte rebut',
             $this->twig->render(':Mails:contact_form_admin_notification.html.twig', array(
                 'contact' => $contactMessage,
             ))
@@ -68,7 +69,7 @@ class NotificationService
         $this->messenger->sendEmail(
             $this->amd,
             $contactMessage->getEmail(),
-            $this->urlBase . ' question received',
+            $this->urlBase . ' pregunta rebuda',
             $this->twig->render(':Mails:contact_form_user_notification.html.twig', array(
                 'contact' => $contactMessage,
             ))
@@ -85,9 +86,21 @@ class NotificationService
         $this->messenger->sendEmail(
             $this->amd,
             $contactMessage->getEmail(),
-            $this->urlBase . ' contact form answer',
+            $this->urlBase . ' resposta formulari de contacte',
             $this->twig->render(':Mails:contact_form_user_backend_notification.html.twig', array(
                 'contact' => $contactMessage,
+            ))
+        );
+    }
+
+    public function sendNewsletterUserNotification(ContactNewsletter $contactNewsletter)
+    {
+        $this->messenger->sendEmail(
+            $this->amd,
+            $contactNewsletter->getEmail(),
+            $this->urlBase . ' registre newsletter',
+            $this->twig->render(':Mails:newsletter_form_user_notification.html.twig', array(
+                'contact' => $contactNewsletter,
             ))
         );
     }

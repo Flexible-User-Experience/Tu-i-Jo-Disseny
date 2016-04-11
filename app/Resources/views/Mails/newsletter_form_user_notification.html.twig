@@ -1,0 +1,9 @@
+{% block body %}
+    <h1>Gràcies per registrar-te al newsletter de Tu&Jo Disseny!</h1>
+    <p>
+        Fes clic <a href="{{ path('app_newsletter_form_confirmation_email', {email: contact.email}) }}">aquí</a> per finalitzar correctament el teu registre, necessitem que verfiques la teva adreça correctament. Només trigaràs 30 segons en aconseguir-ho!
+    </p>
+    <br>
+    <br>
+    <p>Seguim en contacte.</p>
+{% endblock %}
