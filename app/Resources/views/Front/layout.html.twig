@@ -38,7 +38,7 @@
         <div class="container">
             <div class="row">
                 <header class="main">
-                    <div class="col-xs-4">
+                    <div class="col-xs-4 m-top">
                         <ul class="list-unstyled list-inline">
                             {% block top_left_menu %}
                                 <li><a href="{{ path('front_projects') }}">{{ 'front.projects' | trans | upper }}</a></li>
@@ -48,9 +48,11 @@
                         </ul>
                     </div>
                     <div class="col-xs-4 text-center">
-                        <a href="{{ path('front_homepage') }}"><img alt="{{ main_brand_title }}" src="{{ asset('bundles/app/vectors/tu-i-jo-logo.svg') }}"></a>
+                        <a href="{{ path('front_homepage') }}">
+                            <img class="m-bottom" alt="{{ main_brand_title }}" src="{{ asset('bundles/app/vectors/tu-i-jo-logo.svg') }}">
+                        </a>
                     </div>
-                    <div class="col-xs-4 text-right">
+                    <div class="col-xs-4 m-top text-right">
                         <ul class="list-unstyled list-inline">
                             {% block top_right_menu %}
                                 <li><a href="#workspace">{{ 'front.headquarter' | trans | upper }}</a></li>
