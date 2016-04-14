@@ -21,7 +21,7 @@
     {# Services section #}
     <div class="container-fluid">
         {% if services | length > 0 %}
-            <div id="services" class="carousel slide extra-m-bottom" data-ride="carousel">
+            <div id="services" class="carousel slide extra-m-bottom" data-ride="carousel" data-interval="false">
                 {#<!-- Wrapper for slides -->#}
                 <div class="row">
                     <div class="col-xs-offset-2 col-xs-8">
@@ -69,12 +69,22 @@
                             <h4>{{ partner.name }}</h4>
                             <h6>{{ partner.studies }}</h6>
                             <p>{{ partner.description | raw }}</p>
+                            <div class="row">
+                                <div class="col-xs-12 text-right">
+                                    {% if partner.imageName2 %}<img class="img-responsive thumb" src="{{ vich_uploader_asset(partner, 'imageFile2') | imagine_filter('350xY') }}" alt="{{ partner.name }} 2">{% endif %}
+                                </div>
+                            </div>
                         </div>
                     {% else %}
                         <div class="col-sm-6 col-xs-12">
                             <h4>{{ partner.name }}</h4>
                             <h6>{{ partner.studies }}</h6>
                             <p>{{ partner.description | raw }}</p>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    {% if partner.imageName2 %}<img class="img-responsive thumb" src="{{ vich_uploader_asset(partner, 'imageFile2') | imagine_filter('350xY') }}" alt="{{ partner.name }} 2">{% endif %}
+                                </div>
+                            </div>
                         </div>
                         <div class="col-sm-3 col-xs-12">
                             {% if partner.imageName %}<img class="img-responsive thumb" src="{{ vich_uploader_asset(partner, 'imageFile') | imagine_filter('480x640') }}" alt="{{ partner.name }}">{% endif %}
