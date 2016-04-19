@@ -74,10 +74,7 @@ class ProjectsController extends Controller
             }
         }
 
-        return $this->render(
-            '::Front/projects/detail.html.twig',
-            [ 'project' => $project ]
-        );
+        return $this->redirectToRoute('front_project_detail', ['slug' => $project->getSlug()]);
     }
 
     /**
@@ -105,9 +102,6 @@ class ProjectsController extends Controller
             }
         }
 
-        return $this->render(
-            '::Front/projects/detail.html.twig',
-            [ 'project' => $project ]
-        );
+        return $this->redirectToRoute('front_project_detail', ['slug' => $project->getSlug()]);
     }
 }
