@@ -2628,16 +2628,16 @@
         },
         {
             "name": "liip/functional-test-bundle",
-            "version": "1.6.1",
+            "version": "1.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipFunctionalTestBundle.git",
-                "reference": "23a229daa3a4880a6fd659a24d64639427ed1e7d"
+                "reference": "7401da84b3da42cbde1fab51f26503ae9d6b8f02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipFunctionalTestBundle/zipball/23a229daa3a4880a6fd659a24d64639427ed1e7d",
-                "reference": "23a229daa3a4880a6fd659a24d64639427ed1e7d",
+                "url": "https://api.github.com/repos/liip/LiipFunctionalTestBundle/zipball/7401da84b3da42cbde1fab51f26503ae9d6b8f02",
+                "reference": "7401da84b3da42cbde1fab51f26503ae9d6b8f02",
                 "shasum": ""
             },
             "require": {
@@ -2699,7 +2699,7 @@
             "keywords": [
                 "Symfony2"
             ],
-            "time": "2016-04-09 16:28:17"
+            "time": "2016-04-15 09:58:44"
         },
         {
             "name": "liip/imagine-bundle",
@@ -2913,16 +2913,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v2.0.1",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "ce5be709d59b32dd8a88c80259028759991a4206"
+                "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/ce5be709d59b32dd8a88c80259028759991a4206",
-                "reference": "ce5be709d59b32dd8a88c80259028759991a4206",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/47b254ea51f1d6d5dc04b9b299e88346bf2369e3",
+                "reference": "47b254ea51f1d6d5dc04b9b299e88346bf2369e3",
                 "shasum": ""
             },
             "require": {
@@ -2938,7 +2938,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "2.1-dev"
                 }
             },
             "autoload": {
@@ -2960,7 +2960,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2016-02-28 19:48:28"
+            "time": "2016-04-19 13:41:41"
         },
         {
             "name": "ocramius/proxy-manager",
@@ -3436,12 +3436,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "0f0acc2be0532ac546e9760d992cf459819c214f"
+                "reference": "4a8a10b12ee368c153db462615a82007ac93f758"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/0f0acc2be0532ac546e9760d992cf459819c214f",
-                "reference": "0f0acc2be0532ac546e9760d992cf459819c214f",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/4a8a10b12ee368c153db462615a82007ac93f758",
+                "reference": "4a8a10b12ee368c153db462615a82007ac93f758",
                 "shasum": ""
             },
             "require": {
@@ -3519,7 +3519,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2016-04-14 12:41:09"
+            "time": "2016-04-19 17:30:08"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -4077,12 +4077,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "e1e021a30ca0693e181e17f4bf5636d0e300330f"
+                "reference": "82e5769c8c1e98fcdb8298d6e0c2054da90d76b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/e1e021a30ca0693e181e17f4bf5636d0e300330f",
-                "reference": "e1e021a30ca0693e181e17f4bf5636d0e300330f",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/82e5769c8c1e98fcdb8298d6e0c2054da90d76b5",
+                "reference": "82e5769c8c1e98fcdb8298d6e0c2054da90d76b5",
                 "shasum": ""
             },
             "require": {
@@ -4146,7 +4146,7 @@
                 "sonata",
                 "user"
             ],
-            "time": "2016-04-08 16:21:08"
+            "time": "2016-04-16 11:21:38"
         },
         {
             "name": "stof/doctrine-extensions-bundle",
