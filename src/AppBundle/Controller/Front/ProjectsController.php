@@ -58,7 +58,6 @@ class ProjectsController extends Controller
      */
     public function nextProjectAction($slug)
     {
-        /** @var array $projects */
         $projects = $this->getDoctrine()->getRepository('AppBundle:Project')->findAllEnabledSortedByName();
         $project = $this->getDoctrine()->getRepository('AppBundle:Project')->findOneBy(
             [ 'slug' => $slug ]
@@ -90,9 +89,21 @@ class ProjectsController extends Controller
      */
     public function prevProjectAction($slug)
     {
+        $projects = $this->getDoctrine()->getRepository('AppBundle:Project')->findAllEnabledSortedByName();
         $project = $this->getDoctrine()->getRepository('AppBundle:Project')->findOneBy(
             [ 'slug' => $slug ]
         );
+        /** @var Project $item */
+        foreach ($projects as $i => $item) {
+            if ($item->getSlug() == $project->getSlug()) {
+                if ($i === 0) {
+                    $project = $projects[(count($projects) - 1)];
+                } else {
+                    $project = $projects[$i - 1];
+                }
+                break;
+            }
+        }
 
         return $this->render(
             '::Front/projects/detail.html.twig',
