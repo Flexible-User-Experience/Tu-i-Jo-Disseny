@@ -16,10 +16,18 @@
 
 {% block main %}
     <div class="container">
-        <div class="row">
-            <div class="col-xs-12 extra-m-bottom">
+        <div class="row extra-m-bottom">
+            <div class="col-xs-1">
+                <a href="{{ path('front_project_prev', {slug: project.slug}) }}"><i class="fa fa-5x fa-chevron-left"></i></a>
+            </div>
+            <div class="col-xs-10">
                 <img class="img-responsive thumb" src="{{ vich_uploader_asset(project, 'imageFile') | imagine_filter('1200xY') }}" alt="{{ project.name }}">
             </div>
+            <div class="col-xs-1">
+                <a href="{{ path('front_project_next', {slug: project.slug}) }}"><i class="fa fa-5x fa-chevron-right"></i></a>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-xs-12 extra-m-bottom">
                 <h1 class="no-m-top c-black">{{ project.name }}</h1>
                 {% if project.services | length > 0 %}

@@ -46,4 +46,42 @@ class ProjectsController extends Controller
             [ 'project' => $project ]
         );
     }
+
+    /**
+     * @Route("/projecte/{slug}/seguent", name="front_project_next")
+     * @Method({"GET"})
+     * @param $slug
+     *
+     * @return Response
+     */
+    public function nextProjectAction($slug)
+    {
+        $project = $this->getDoctrine()->getRepository('AppBundle:Project')->findOneBy(
+            [ 'slug' => $slug ]
+        );
+
+        return $this->render(
+            '::Front/projects/detail.html.twig',
+            [ 'project' => $project ]
+        );
+    }
+
+    /**
+     * @Route("/projecte/{slug}/anterior", name="front_project_prev")
+     * @Method({"GET"})
+     * @param $slug
+     *
+     * @return Response
+     */
+    public function prevProjectAction($slug)
+    {
+        $project = $this->getDoctrine()->getRepository('AppBundle:Project')->findOneBy(
+            [ 'slug' => $slug ]
+        );
+
+        return $this->render(
+            '::Front/projects/detail.html.twig',
+            [ 'project' => $project ]
+        );
+    }
 }
