@@ -1,11 +1,13 @@
-<a href="{{ path('front_project_detail', {slug: project.slug}) }}">
-    <div class="hover-effect">
-        <img class="img-responsive thumb" src="{{ vich_uploader_asset(project, 'imageFile') | imagine_filter('700x495') }}" alt="{{ project.name }}">
-        <div class="overlay">
-            <h2>{{ project.name }}</h2>
-            {% for service in project.services %}
-                <h3>{{ service.name }}</h3>
-            {% endfor %}
+{% if project.imageName %}
+    <a href="{{ path('front_project_detail', {slug: project.slug}) }}">
+        <div class="hover-effect">
+            <img class="img-responsive thumb" src="{{ vich_uploader_asset(project, 'imageFile') | imagine_filter('700x495') }}" alt="{{ project.name }}">
+            <div class="overlay">
+                <h2>{{ project.name }}</h2>
+                {% for service in project.services %}
+                    <h3>{{ service.name }}</h3>
+                {% endfor %}
+            </div>
         </div>
-    </div>
-</a>
+    </a>
+{% endif %}
