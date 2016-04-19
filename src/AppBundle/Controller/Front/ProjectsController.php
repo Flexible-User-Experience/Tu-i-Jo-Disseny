@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller\Front;
 
+use AppBundle\Entity\Project;
+use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -56,9 +58,22 @@ class ProjectsController extends Controller
      */
     public function nextProjectAction($slug)
     {
+        /** @var array $projects */
+        $projects = $this->getDoctrine()->getRepository('AppBundle:Project')->findAllEnabledSortedByName();
         $project = $this->getDoctrine()->getRepository('AppBundle:Project')->findOneBy(
             [ 'slug' => $slug ]
         );
+        /** @var Project $item */
+        foreach ($projects as $i => $item) {
+            if ($item->getSlug() == $project->getSlug()) {
+                if (($i + 1) === count($projects)) {
+                    $project = $projects[0];
+                } else {
+                    $project = $projects[$i + 1];
+                }
+                break;
+            }
+        }
 
         return $this->render(
             '::Front/projects/detail.html.twig',

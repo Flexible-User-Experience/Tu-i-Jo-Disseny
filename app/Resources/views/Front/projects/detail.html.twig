@@ -21,7 +21,9 @@
                 <a href="{{ path('front_project_prev', {slug: project.slug}) }}"><i class="fa fa-5x fa-chevron-left"></i></a>
             </div>
             <div class="col-xs-10">
-                <img class="img-responsive thumb" src="{{ vich_uploader_asset(project, 'imageFile') | imagine_filter('1200xY') }}" alt="{{ project.name }}">
+                {% if project.imageName %}
+                    <img class="img-responsive thumb" src="{{ vich_uploader_asset(project, 'imageFile') | imagine_filter('1200xY') }}" alt="{{ project.name }}">
+                {% endif %}
             </div>
             <div class="col-xs-1">
                 <a href="{{ path('front_project_next', {slug: project.slug}) }}"><i class="fa fa-5x fa-chevron-right"></i></a>
