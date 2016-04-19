@@ -21,13 +21,11 @@
                 <img class="img-responsive thumb" src="{{ vich_uploader_asset(project, 'imageFile') | imagine_filter('1200xY') }}" alt="{{ project.name }}">
             </div>
             <div class="col-xs-12 extra-m-bottom">
-                <h1 class="no-m-top">{{ project.name }}</h1>
+                <h1 class="no-m-top c-black">{{ project.name }}</h1>
                 {% if project.services | length > 0 %}
-                    {% for service in project.services %}
-                        <h4 class="no-m-top">{{ service.name }}</h4>
-                    {% endfor %}
+                    <h4 class="no-m-top">{{ project.services | join(', ') }}</h4>
                 {% endif %}
-                <p>{{ project.description | raw }}</p>
+                <p class="extra-m-top c-black">{{ project.description | raw }}</p>
             </div>
         </div>
     </div>
