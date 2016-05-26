@@ -122,6 +122,7 @@ ul.top-menu {
 .carousel-control.right, .carousel-control.left {
   background-image: none;
   border: @borderline;
+  &.no-border { border: none; }
 }
 .carousel-control.left {
   border-left: none;
@@ -133,6 +134,10 @@ ul.top-menu {
   border: @borderline;
   padding: @gap-big;
   min-height: 300px;
+  &.no-border {
+    border: none;
+    padding: 0;
+  }
 }
 .arrow-v-center {
   position: absolute;
