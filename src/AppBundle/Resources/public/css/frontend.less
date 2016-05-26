@@ -99,6 +99,21 @@ textarea { resize: vertical; }
 @navbar-default-link-active-bg: transparent;
 @navbar-default-border: transparent;
 @navbar-height: 170px;
+ul.top-menu {
+  li {
+    a {
+      &:hover { text-decoration: none; }
+      font-weight: bold;
+      font-size: @font-size-large;
+      @media(max-width: @screen-sm-max) {
+        font-size: @font-size-base;
+      }
+      @media(max-width: @screen-xs-max) {
+        font-size: @font-size-small;
+      }
+    }
+  }
+}
 
 // Carousel
 @carousel-control-color: @black;
@@ -107,6 +122,7 @@ textarea { resize: vertical; }
 .carousel-control.right, .carousel-control.left {
   background-image: none;
   border: @borderline;
+  &.no-border { border: none; }
 }
 .carousel-control.left {
   border-left: none;
@@ -118,6 +134,10 @@ textarea { resize: vertical; }
   border: @borderline;
   padding: @gap-big;
   min-height: 300px;
+  &.no-border {
+    border: none;
+    padding: 0;
+  }
 }
 .arrow-v-center {
   position: absolute;
