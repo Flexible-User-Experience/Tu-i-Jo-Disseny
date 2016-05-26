@@ -18,23 +18,30 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                {% for post in posts %}
-                    <div class="media extra-m-bottom">
-                        <div class="media-left">
-                            <a href="{{ path('front_blog_posts_detail', {slug: post.slug}) }}">
-                                <img class="media-object" src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('256x256') }}" alt="{{ post.name }}">
-                            </a>
+                {% if posts | length > 0 %}
+                    {% for post in posts %}
+                        <div class="media extra-m-bottom">
+                            <div class="media-left">
+                                <a href="{{ path('front_blog_posts_detail', {slug: post.slug}) }}">
+                                    <img class="media-object" src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('256x256') }}" alt="{{ post.name }}">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">{{ post.name }}<span class="pull-right">{{ post.publishedAt | date('d/m/Y') }}</span></h4>
+                                    {% for tag in post.tags if tag.enabled %}
+                                        <h6>{{ tag.name }}</h6>
+                                    {% endfor %}
+                                <p>{{ post.description | truncate(200) }}</p>
+                                <a href="{{  path('front_blog_posts_detail', {slug: post.slug}) }}" class="btn btn-sm btn-info">Llegir més</a>
+                            </div>
                         </div>
-                        <div class="media-body">
-                            <h4 class="media-heading">{{ post.name }}<span class="pull-right">{{ post.publishedAt | date('d/m/Y') }}</span></h4>
-                                {% for tag in post.tags if tag.enabled %}
-                                    <h6>{{ tag.name }}</h6>
-                                {% endfor %}
-                            <p>{{ post.description | truncate(200) }}</p>
-                            <a href="{{  path('front_blog_posts_detail', {slug: post.slug}) }}" class="btn btn-sm btn-info">Llegir més</a>
-                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div style="margin-bottom: 200px" class="alert alert-warning" role="alert">
+                        <h2 class="no-m-top"><i class="fa fa-warning"></i></h2>
+                        <h5>Ho sentim, encara no tenim cap article disponible al blog. Estem treballant per aconseguir-ho el més aviat possible <i class="fa fa-smile-o" aria-hidden="true"></i></h5>
                     </div>
-                {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>
