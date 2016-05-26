@@ -51,11 +51,9 @@
         {% endif %}
     </div>
     {# About us section #}
-    <div class="container-fluid no-h-padding">
-        <div id="about-us" class="row extra-m-bottom no-h-margin">
-            <div class="col-xs-12">
-                <img src="{{ asset('bundles/app/images/about-us.jpg') }}" alt="Secció Natros Tu&Jo Disseny" class="img-responsive">
-            </div>
+    <div class="container-fluid">
+        <div id="about-us" class="row extra-m-bottom">
+            <img src="{{ asset('bundles/app/images/about-us.jpg') }}" alt="Secció Natros Tu&Jo Disseny" class="img-responsive">
         </div>
     </div>
     <div class="container extra-m-bottom">
@@ -97,11 +95,9 @@
         {% endif %}
     </div>
     {# Workspace section #}
-    <div class="container-fluid no-h-padding">
-        <div id="workspace" class="row extra-m-bottom no-h-margin">
-            <div class="col-xs-12">
-                <img src="{{ asset('bundles/app/images/workspace.jpg') }}" alt="Secció Estudi Tu&Jo Disseny" class="img-responsive">
-            </div>
+    <div class="container-fluid">
+        <div id="workspace" class="row extra-m-bottom">
+            <img src="{{ asset('bundles/app/images/workspace.jpg') }}" alt="Secció Estudi Tu&Jo Disseny" class="img-responsive">
         </div>
     </div>
     <div class="container">
@@ -149,9 +145,11 @@
             {{ form_end(contact_form) }}
         </div>
     </div>
-    <div class="container-fluid no-h-padding">
-        <div class="google-maps-container">
-            {{ google_map(mapView) }}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="google-maps-container">
+                {{ google_map(mapView) }}
+            </div>
         </div>
     </div>
 {% endblock %}
