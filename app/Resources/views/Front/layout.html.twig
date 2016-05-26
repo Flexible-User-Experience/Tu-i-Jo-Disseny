@@ -1,14 +1,3 @@
-{#{% block navbar %}#}
-    {#{% embed '@MopaBootstrap/Navbar/navbar.html.twig' with { fixedTop: false } %}#}
-        {#{% block brand %}#}
-            {#<a class="navbar-brand" href="{{ path('front_homepage') }}"><img src="{{ asset('bundles/app/images/logotip-fons-2.png') | imagine_filter('60x60') }}" alt="{{ main_brand_title }}"/></a>#}
-        {#{% endblock %}#}
-        {#{% block menu %}#}
-            {#{{ mopa_bootstrap_menu('AppBundle:MenuBuilder:frontendMenu', { automenu: 'navbar' }) }}#}
-        {#{% endblock %}#}
-    {#{% endembed %}#}
-{#{% endblock %}#}
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>     <html lang="{{ app.request.locale }}" class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]>        <html lang="{{ app.request.locale }}" class="no-js lt-ie9 lt-ie8"><![endif]-->
