@@ -99,6 +99,21 @@ textarea { resize: vertical; }
 @navbar-default-link-active-bg: transparent;
 @navbar-default-border: transparent;
 @navbar-height: 170px;
+ul.top-menu {
+  li {
+    a {
+      &:hover { text-decoration: none; }
+      font-weight: bold;
+      font-size: @font-size-large;
+      @media(max-width: @screen-sm-max) {
+        font-size: @font-size-base;
+      }
+      @media(max-width: @screen-xs-max) {
+        font-size: @font-size-small;
+      }
+    }
+  }
+}
 
 // Carousel
 @carousel-control-color: @black;
