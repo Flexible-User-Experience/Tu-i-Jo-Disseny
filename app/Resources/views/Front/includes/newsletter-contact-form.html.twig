@@ -1,9 +1,5 @@
 <h4 class="no-m-top">NEWSLETTER</h4>
-{{ form_start(newsletter_form, {'attr': {'class': 'form-inline m-bottom'}}) }}
-    {{ form_row(newsletter_form.email) }}
-    {{ form_row(newsletter_form.send) }}
-{{ form_rest(newsletter_form) }}
-{{ form_end(newsletter_form) }}
+{{ form(newsletter_form) }}
 
 {% if flash is not null %}
     <div class="alert alert-success" role="alert">
