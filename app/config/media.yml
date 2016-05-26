@@ -45,16 +45,16 @@ vich_uploader:
         service:
             namer:              vich_uploader.namer_uniqid
             uri_prefix:         /uploads/services
-            upload_destination: %kernel.root_dir%/../web/uploads/services
+            upload_destination: "%kernel.root_dir%/../web/uploads/services"
         project:
             namer:              vich_uploader.namer_uniqid
             uri_prefix:         /uploads/projects
-            upload_destination: %kernel.root_dir%/../web/uploads/projects
+            upload_destination: "%kernel.root_dir%/../web/uploads/projects"
         partner:
             namer:              vich_uploader.namer_uniqid
             uri_prefix:         /uploads/partners
-            upload_destination: %kernel.root_dir%/../web/uploads/partners
+            upload_destination: "%kernel.root_dir%/../web/uploads/partners"
         post:
             namer:              vich_uploader.namer_uniqid
             uri_prefix:         /uploads/posts
-            upload_destination: %kernel.root_dir%/../web/uploads/posts
+            upload_destination: "%kernel.root_dir%/../web/uploads/posts"
