@@ -106,7 +106,7 @@ class ProjectImageAdmin extends BaseAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $imageHelp = $this->getImageHelperFormMapperWithThumbnail();
+        $imageHelp = $this->getProjectImageHelperFormMapperWithThumbnail();
         $formMapper
             ->with('Imatge', array('class' => 'col-md-6'))
             ->add(

@@ -21,15 +21,15 @@ class RepositoriesTest extends AbstractBaseTest
     {
         $em = $this->getContainer()->get('doctrine')->getManager();
 
-        $this->assertEquals(10, $em->getRepository('AppBundle:ServiceCategory')->getInstancesAmount());
-        $this->assertEquals(20, $em->getRepository('AppBundle:Service')->getInstancesAmount());
-        $this->assertEquals(40, $em->getRepository('AppBundle:Project')->getInstancesAmount());
-        $this->assertEquals(80, $em->getRepository('AppBundle:ProjectImage')->getInstancesAmount());
-        $this->assertEquals(10, $em->getRepository('AppBundle:Partner')->getInstancesAmount());
-        $this->assertEquals(10, $em->getRepository('AppBundle:BlogTag')->getInstancesAmount());
-        $this->assertEquals(40, $em->getRepository('AppBundle:BlogPost')->getInstancesAmount());
+        $this->assertEquals(3, $em->getRepository('AppBundle:ServiceCategory')->getInstancesAmount());
+        $this->assertEquals(5, $em->getRepository('AppBundle:Service')->getInstancesAmount());
+        $this->assertEquals(10, $em->getRepository('AppBundle:Project')->getInstancesAmount());
+        $this->assertEquals(20, $em->getRepository('AppBundle:ProjectImage')->getInstancesAmount());
+        $this->assertEquals(2, $em->getRepository('AppBundle:Partner')->getInstancesAmount());
+        $this->assertEquals(2, $em->getRepository('AppBundle:BlogTag')->getInstancesAmount());
+        $this->assertEquals(10, $em->getRepository('AppBundle:BlogPost')->getInstancesAmount());
         $this->assertEquals(0, $em->getRepository('AppBundle:Group')->getInstancesAmount());
-        $this->assertEquals(8, $em->getRepository('AppBundle:User')->getInstancesAmount());
+        $this->assertEquals(2, $em->getRepository('AppBundle:User')->getInstancesAmount());
     }
 
     /**
