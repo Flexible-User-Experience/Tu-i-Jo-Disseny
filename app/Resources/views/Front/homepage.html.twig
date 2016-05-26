@@ -69,7 +69,7 @@
                         <div class="col-sm-6 col-xs-12">
                             <h4 class="c-black">{{ partner.name }}</h4>
                             <h6 class="c-black">{{ partner.studies }}</h6>
-                            <p class="c-black">{{ partner.description | raw }}</p>
+                            <span class="c-black">{{ partner.description | raw }}</span>
                             <div class="row">
                                 <div class="col-xs-12 text-right">
                                     {% if partner.imageName2 %}<img class="img-responsive thumb" src="{{ vich_uploader_asset(partner, 'imageFile2') | imagine_filter('350xY') }}" alt="{{ partner.name }} 2">{% endif %}
@@ -80,7 +80,7 @@
                         <div class="col-sm-6 col-xs-12">
                             <h4 class="c-black">{{ partner.name }}</h4>
                             <h6 class="c-black">{{ partner.studies }}</h6>
-                            <p class="c-black">{{ partner.description | raw }}</p>
+                            <span class="c-black">{{ partner.description | raw }}</span>
                             <div class="row">
                                 <div class="col-xs-12">
                                     {% if partner.imageName2 %}<img class="img-responsive thumb" src="{{ vich_uploader_asset(partner, 'imageFile2') | imagine_filter('350xY') }}" alt="{{ partner.name }} 2">{% endif %}
