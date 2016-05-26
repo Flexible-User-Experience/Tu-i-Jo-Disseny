@@ -15,8 +15,8 @@
 {% endblock %}
 
 {% block main %}
-    <div class="container">
-        <div class="row extra-m-bottom">
+    <div class="container-fluid">
+        <div style="height: 100%; display:table-cell; vertical-align: middle;" class="row extra-m-bottom">
             <div class="col-xs-1">
                 <a href="{{ path('front_project_prev', {slug: project.slug}) }}"><i class="fa fa-5x fa-long-arrow-left"></i></a>
             </div>
@@ -30,13 +30,15 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12 extra-m-bottom">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10 extra-m-bottom">
                 <h1 class="no-m-top c-black">{{ project.name }}</h1>
                 {% if project.services | length > 0 %}
                     <h4 class="no-m-top">{{ project.services | join(', ') }}</h4>
                 {% endif %}
                 <p class="extra-m-top c-black">{{ project.description | raw }}</p>
             </div>
+            <div class="col-xs-1"></div>
         </div>
     </div>
 {% endblock %}
