@@ -85,6 +85,10 @@ textarea { resize: vertical; }
   padding-left: 0;
   padding-right: 0;
 }
+.no-h-margin {
+  margin-left: 0;
+  margin-right: 0;
+}
 
 // Navbar
 @navbar-margin-bottom: @gap-big;
@@ -173,6 +177,7 @@ footer.main {
     background-color: rgba(255, 255, 255, 0.85);
     .transition(all .2s ease-in-out);
     transform: skewX(-10deg);
+    h2, h3 { transform: skewX(10deg); }
   }
   img {
     display: block;

@@ -23,14 +23,14 @@
         {% if services | length > 0 %}
             <div id="services" class="carousel carousel-fade extra-m-bottom" data-ride="carousel" data-interval="false">
                 {#<!-- Wrapper for slides -->#}
-                <div class="row">
+                <div class="row no-h-margin">
                     <div class="col-xs-offset-2 col-xs-8">
                         <div class="carousel-inner">
                             {% for service in services %}
                                 <div class="item{% if loop.index == 1 %} active{% endif %}">
                                     <div class="carousel-content">
-                                        <div>
-                                            <h3 class="c-black">{{ service.name }}</h3>
+                                        <div class="text-center arror-v-center">
+                                            <h3 class="no-m-top c-black">{{ service.name }}</h3>
                                             <span class="c-black">{{ service.description | raw }}</span>
                                         </div>
                                     </div>
@@ -52,7 +52,7 @@
     </div>
     {# About us section #}
     <div class="container-fluid no-h-padding">
-        <div id="about-us" class="row extra-m-bottom">
+        <div id="about-us" class="row extra-m-bottom no-h-margin">
             <div class="col-xs-12">
                 <img src="{{ asset('bundles/app/images/about-us.jpg') }}" alt="Secció Natros Tu&Jo Disseny" class="img-responsive">
             </div>
@@ -98,7 +98,7 @@
     </div>
     {# Workspace section #}
     <div class="container-fluid no-h-padding">
-        <div id="workspace" class="row extra-m-bottom">
+        <div id="workspace" class="row extra-m-bottom no-h-margin">
             <div class="col-xs-12">
                 <img src="{{ asset('bundles/app/images/workspace.jpg') }}" alt="Secció Estudi Tu&Jo Disseny" class="img-responsive">
             </div>
