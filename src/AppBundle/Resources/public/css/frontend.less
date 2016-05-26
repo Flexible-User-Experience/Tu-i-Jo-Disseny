@@ -60,6 +60,7 @@ textarea { resize: vertical; }
   width: 100%;
   display: block;
   background-color: transparent;
+  &.bolder { font-weight: bolder; }
 }
 
 // Gaps
@@ -107,6 +108,11 @@ textarea { resize: vertical; }
   border: @borderline;
   padding: @gap-big;
   min-height: 300px;
+}
+.arrow-v-center {
+  position: absolute;
+  top: 50%;
+  margin-top: -5px;
 }
 
 // Header
