@@ -3,7 +3,6 @@
 namespace AppBundle\Controller\Front;
 
 use AppBundle\Entity\Project;
-use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

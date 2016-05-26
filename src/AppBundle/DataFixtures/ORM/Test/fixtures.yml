@@ -1,16 +1,16 @@
 ## Service categories
 AppBundle\Entity\ServiceCategory:
-  category{1..10}:
+  category{1..3}:
     name: <current()> <sentence(2)>
     position: <current()>
     enabled: <boolean(70)>
 AppBundle\Entity\Translations\ServiceCategoryTranslation:
-  categoryNameEs{1..10}:
+  categoryNameEs{1..3}:
     object: @category<current()>
     locale: "es"
     field: "name"
     content: <current()> <sentence(2)>
-  categoryNameEn{1..10}:
+  categoryNameEn{1..3}:
     object: @category<current()>
     locale: "en"
     field: "name"
@@ -18,28 +18,28 @@ AppBundle\Entity\Translations\ServiceCategoryTranslation:
 
 ## Services
 AppBundle\Entity\Service:
-  service{1..20}:
+  service{1..5}:
     name: <current()> <sentence(4)>
     description: <text(500)>
     position: <current()>
     enabled: <boolean(70)>
 AppBundle\Entity\Translations\ServiceTranslation:
-  translationServiceNameEs{1..20}:
+  translationServiceNameEs{1..5}:
     object: @service<current()>
     locale: "es"
     field: "name"
     content: <current()> <sentence(4)>
-  translationServiceNameEn{1..20}:
+  translationServiceNameEn{1..5}:
     object: @service<current()>
     locale: "en"
     field: "name"
     content: <current()> <sentence(4)>
-  translationServiceDescriptionEs{1..20}:
+  translationServiceDescriptionEs{1..5}:
     object: @service<current()>
     locale: "es"
     field: "description"
     content: <text(500)>
-  translationServiceDescriptionEn{1..20}:
+  translationServiceDescriptionEn{1..5}:
     object: @service<current()>
     locale: "en"
     field: "description"
@@ -47,7 +47,7 @@ AppBundle\Entity\Translations\ServiceTranslation:
 
 ## Projects
 AppBundle\Entity\Project:
-  project{1..40}:
+  project{1..10}:
     name: <current()> <sentence(3)>
     imageName: <numberBetween(1, 5)>.jpg
     description: <text(1000)>
@@ -55,22 +55,22 @@ AppBundle\Entity\Project:
     enabled: <boolean(70)>
     showInHomepage: <boolean(50)>
 AppBundle\Entity\Translations\ProjectTranslation:
-  translationProjectNameEs{1..40}:
+  translationProjectNameEs{1..10}:
     object: @project<current()>
     locale: "es"
     field: "name"
     content: <current()> <sentence(3)>
-  translationProjectNameEn{1..40}:
+  translationProjectNameEn{1..10}:
     object: @project<current()>
     locale: "en"
     field: "name"
     content: <current()> <sentence(3)>
-  translationProjectDescriptionEs{1..40}:
+  translationProjectDescriptionEs{1..10}:
     object: @project<current()>
     locale: "es"
     field: "description"
     content: <text(1000)>
-  translationProjectDescriptionEn{1..40}:
+  translationProjectDescriptionEn{1..10}:
     object: @project<current()>
     locale: "en"
     field: "description"
@@ -78,15 +78,15 @@ AppBundle\Entity\Translations\ProjectTranslation:
 
 ## Project images
 AppBundle\Entity\ProjectImage:
-  imageProject{1..80}:
+  imageProject{1..20}:
     imageName: <numberBetween(1, 5)>.jpg
     position: <current()>
     enabled: <boolean(70)>
-    project: @project<numberBetween(1, 40)>
+    project: @project<numberBetween(1, 10)>
 
 ## Partners
 AppBundle\Entity\Partner:
-  partner{1..10}:
+  partner{1..2}:
     name: <current()> <firstName()> <lastName()>
     description: <text(100)>
     imageName: <numberBetween(1, 5)>.jpg
@@ -96,22 +96,22 @@ AppBundle\Entity\Partner:
     position: <current()>
     enabled: <boolean(70)>
 AppBundle\Entity\Translations\PartnerTranslation:
-  translationPartnerNameEs{1..10}:
+  translationPartnerNameEs{1..2}:
     object: @partner<current()>
     locale: "es"
     field: "name"
     content: <current()> <firstName()> <lastName()>
-  translationPartnerNameEn{1..10}:
+  translationPartnerNameEn{1..2}:
     object: @partner<current()>
     locale: "en"
     field: "name"
     content: <current()> <firstName()> <lastName()>
-  translationPartnerDescriptionEs{1..10}:
+  translationPartnerDescriptionEs{1..2}:
     object: @partner<current()>
     locale: "es"
     field: "description"
     content: <text(100)>
-  translationPartnerDescriptionEn{1..10}:
+  translationPartnerDescriptionEn{1..2}:
     object: @partner<current()>
     locale: "en"
     field: "description"
@@ -119,17 +119,17 @@ AppBundle\Entity\Translations\PartnerTranslation:
 
 ## Tags
 AppBundle\Entity\BlogTag:
-  tag{1..10}:
+  tag{1..2}:
     name: <current()> <word()>
     position: <current()>
     enabled: <boolean(70)>
 AppBundle\Entity\Translations\BlogTagTranslation:
-  translationBlogTagrNameEs{1..10}:
+  translationBlogTagrNameEs{1..2}:
     object: @tag<current()>
     locale: "es"
     field: "name"
     content: <current()> <word()>
-  translationBlogTagrNameEn{1..10}:
+  translationBlogTagrNameEn{1..2}:
     object: @tag<current()>
     locale: "en"
     field: "name"
@@ -137,31 +137,31 @@ AppBundle\Entity\Translations\BlogTagTranslation:
 
 ## Posts
 AppBundle\Entity\BlogPost:
-  post{1..40}:
+  post{1..10}:
     name: <current()> <sentence(4)>
     description: <text(1000)>
-    tags: <numberBetween(0, 6)>x @tag*
+    tags: <numberBetween(0, 2)>x @tag*
     imageName: <numberBetween(1, 5)>.jpg
     publishedAt: <dateTimeBetween('-2 day', '+2 day')>
     position: <current()>
     enabled: <boolean(70)>
 AppBundle\Entity\Translations\BlogPostTranslation:
-  translationBlogPostNameEs{1..40}:
+  translationBlogPostNameEs{1..10}:
     object: @post<current()>
     locale: "es"
     field: "name"
     content: <current()> <sentence(4)>
-  translationBlogPostNameEn{1..40}:
+  translationBlogPostNameEn{1..10}:
     object: @post<current()>
     locale: "en"
     field: "name"
     content: <current()> <sentence(4)>
-  translationBlogPostDescriptionEs{1..40}:
+  translationBlogPostDescriptionEs{1..10}:
     object: @post<current()>
     locale: "es"
     field: "description"
     content: <text(1000)>
-  translationBlogPostDescriptionEn{1..40}:
+  translationBlogPostDescriptionEn{1..10}:
     object: @post<current()>
     locale: "en"
     field: "description"
@@ -169,7 +169,7 @@ AppBundle\Entity\Translations\BlogPostTranslation:
 
 # Contact messages
 AppBundle\Entity\ContactMessage:
-  contact{1..5}:
+  contact{1..2}:
     name: <name()>
     phone: <word()>
     email: <safeEmail()>
@@ -183,7 +183,7 @@ AppBundle\Entity\ContactMessage:
 
 # Contact newsletter
 AppBundle\Entity\ContactNewsletter:
-  newsletter{1..5}:
+  newsletter{1..2}:
     email: <safeEmail()>
     checked: <boolean(70)>
     enabled: <boolean(30)>
@@ -210,21 +210,3 @@ AppBundle\Entity\User:
         enabled: true
         roles:
             - ROLE_CMS
-    cms{1..4}:
-        username: <username()>
-        plainPassword: <password()>
-        email: <safeEmail()>
-        firstname: <name()>
-        lastname: <lastname()>
-        enabled: true
-        roles:
-            - ROLE_CMS
-    manager{1..2}:
-        username: <username()>
-        plainPassword: <password()>
-        email: <safeEmail()>
-        firstname: <name()>
-        lastname: <lastname()>
-        enabled: true
-        roles:
-            - ROLE_ADMIN
