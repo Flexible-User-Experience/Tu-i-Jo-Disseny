@@ -23,27 +23,6 @@ AppBundle\Entity\Service:
     description: <text(500)>
     position: <current()>
     enabled: <boolean(70)>
-AppBundle\Entity\Translations\ServiceTranslation:
-  translationServiceNameEs{1..5}:
-    object: @service<current()>
-    locale: "es"
-    field: "name"
-    content: <current()> <sentence(4)>
-  translationServiceNameEn{1..5}:
-    object: @service<current()>
-    locale: "en"
-    field: "name"
-    content: <current()> <sentence(4)>
-  translationServiceDescriptionEs{1..5}:
-    object: @service<current()>
-    locale: "es"
-    field: "description"
-    content: <text(500)>
-  translationServiceDescriptionEn{1..5}:
-    object: @service<current()>
-    locale: "en"
-    field: "description"
-    content: <text(500)>
 
 ## Projects
 AppBundle\Entity\Project:
@@ -54,27 +33,6 @@ AppBundle\Entity\Project:
     position: <current()>
     enabled: <boolean(70)>
     showInHomepage: <boolean(50)>
-AppBundle\Entity\Translations\ProjectTranslation:
-  translationProjectNameEs{1..10}:
-    object: @project<current()>
-    locale: "es"
-    field: "name"
-    content: <current()> <sentence(3)>
-  translationProjectNameEn{1..10}:
-    object: @project<current()>
-    locale: "en"
-    field: "name"
-    content: <current()> <sentence(3)>
-  translationProjectDescriptionEs{1..10}:
-    object: @project<current()>
-    locale: "es"
-    field: "description"
-    content: <text(1000)>
-  translationProjectDescriptionEn{1..10}:
-    object: @project<current()>
-    locale: "en"
-    field: "description"
-    content: <text(1000)>
 
 ## Project images
 AppBundle\Entity\ProjectImage:
@@ -95,27 +53,6 @@ AppBundle\Entity\Partner:
     twitter: <username()>
     position: <current()>
     enabled: <boolean(70)>
-AppBundle\Entity\Translations\PartnerTranslation:
-  translationPartnerNameEs{1..2}:
-    object: @partner<current()>
-    locale: "es"
-    field: "name"
-    content: <current()> <firstName()> <lastName()>
-  translationPartnerNameEn{1..2}:
-    object: @partner<current()>
-    locale: "en"
-    field: "name"
-    content: <current()> <firstName()> <lastName()>
-  translationPartnerDescriptionEs{1..2}:
-    object: @partner<current()>
-    locale: "es"
-    field: "description"
-    content: <text(100)>
-  translationPartnerDescriptionEn{1..2}:
-    object: @partner<current()>
-    locale: "en"
-    field: "description"
-    content: <text(100)>
 
 ## Tags
 AppBundle\Entity\BlogTag:
@@ -123,17 +60,6 @@ AppBundle\Entity\BlogTag:
     name: <current()> <word()>
     position: <current()>
     enabled: <boolean(70)>
-AppBundle\Entity\Translations\BlogTagTranslation:
-  translationBlogTagrNameEs{1..2}:
-    object: @tag<current()>
-    locale: "es"
-    field: "name"
-    content: <current()> <word()>
-  translationBlogTagrNameEn{1..2}:
-    object: @tag<current()>
-    locale: "en"
-    field: "name"
-    content: <current()> <word()>
 
 ## Posts
 AppBundle\Entity\BlogPost:
@@ -145,27 +71,6 @@ AppBundle\Entity\BlogPost:
     publishedAt: <dateTimeBetween('-2 day', '+2 day')>
     position: <current()>
     enabled: <boolean(70)>
-AppBundle\Entity\Translations\BlogPostTranslation:
-  translationBlogPostNameEs{1..10}:
-    object: @post<current()>
-    locale: "es"
-    field: "name"
-    content: <current()> <sentence(4)>
-  translationBlogPostNameEn{1..10}:
-    object: @post<current()>
-    locale: "en"
-    field: "name"
-    content: <current()> <sentence(4)>
-  translationBlogPostDescriptionEs{1..10}:
-    object: @post<current()>
-    locale: "es"
-    field: "description"
-    content: <text(1000)>
-  translationBlogPostDescriptionEn{1..10}:
-    object: @post<current()>
-    locale: "en"
-    field: "description"
-    content: <text(1000)>
 
 # Contact messages
 AppBundle\Entity\ContactMessage:
