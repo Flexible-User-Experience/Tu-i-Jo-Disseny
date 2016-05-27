@@ -1,3 +1,7 @@
+{% extends ':Mail:base.html.twig' %}
+
+{% block title %}Tu&Jo Disseny{% endblock %}
+
 {% block body %}
     <h1>Has rebut un nou missatge de contacte</h1>
     <p>Revisa la llista de missatges rebuts al CMS <a href="{{ url('admin_app_contactmessage_list') }}">aquí</a>, o respon directament  <a href="{{ url('admin_app_contactmessage_answer', { id: contact.id }) }}">aquí</a></p>

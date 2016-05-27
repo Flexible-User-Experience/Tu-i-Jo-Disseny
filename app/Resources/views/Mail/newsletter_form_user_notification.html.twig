@@ -1,0 +1,13 @@
+{% extends ':Mail:base.html.twig' %}
+
+{% block title %}Tu&Jo Newsletter{% endblock %}
+
+{% block body %}
+    <h3>Gràcies per registrar-te al nostre newsletter!</h3>
+    <p>
+        Fes clic <a href="{{ url('app_newsletter_form_confirmation_email', {email: contact.email}) }}">aquí</a> per finalitzar correctament el teu registre, necessitem que verfiques la teva adreça correctament. Només trigaràs 30 segons en aconseguir-ho!
+    </p>
+    <br>
+    <br>
+    <p>Seguim en contacte.</p>
+{% endblock %}

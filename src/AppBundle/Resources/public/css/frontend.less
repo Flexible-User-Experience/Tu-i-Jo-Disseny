@@ -125,8 +125,17 @@ textarea { resize: vertical; }
 @navbar-height: 170px;
 ul.top-menu {
   li {
+    &.active {
+      a {
+        text-decoration: none;
+        background: url('/bundles/app/vectors/current-menu.svg') 50% 0 no-repeat;
+      }
+    }
     a {
-      &:hover { text-decoration: none; }
+      &:hover {
+        text-decoration: none;
+        background: url('/bundles/app/vectors/current-menu.svg') 50% 0 no-repeat;
+      }
       font-weight: bold;
       font-size: @font-size-large;
       @media(max-width: @screen-sm-max) {
