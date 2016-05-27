@@ -18,7 +18,6 @@ class BlogController extends Controller
 {
     /**
      * @Route("/blog", name="front_blog_posts_list")
-     * @Method({"GET"})
      */
     public function blogListAction()
     {
@@ -33,7 +32,6 @@ class BlogController extends Controller
 
     /**
      * @Route("/blog/{slug}", name="front_blog_posts_detail")
-     * @Method({"GET"})
      * @param $slug
      *
      * @return Response

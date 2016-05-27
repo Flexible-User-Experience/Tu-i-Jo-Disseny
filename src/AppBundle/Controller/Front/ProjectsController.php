@@ -19,7 +19,6 @@ class ProjectsController extends Controller
 {
     /**
      * @Route("/projectes", name="front_projects")
-     * @Method({"GET"})
      */
     public function projectsAction()
     {
@@ -31,7 +30,6 @@ class ProjectsController extends Controller
 
     /**
      * @Route("/projecte/{slug}", name="front_project_detail")
-     * @Method({"GET"})
      * @param $slug
      *
      * @return Response
