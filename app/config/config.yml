@@ -51,7 +51,8 @@ assetic:
     assets:
         mycss:
             inputs:
-                - "@AppBundle/Resources/public/css/frontend.less"
+#                - "@AppBundle/Resources/public/css/frontend.less" # comment this line to avoid double included CSS
+                - "@AppBundle/Resources/public/css/icomoon.less"
         myjs:
             inputs:
                 - "%kernel.root_dir%/../vendor/components/jquery/jquery.js"
