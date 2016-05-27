@@ -18,6 +18,27 @@
 // Fonts
 @icon-font-path: "/bundles/app/fonts/";
 @fa-font-path: "/bundles/app/fonts";
+@font-face {
+  font-family: 'bauer';
+  src:url('@{fa-font-path}/bauerbodonistd-bold.eot');
+  src:url('@{fa-font-path}/bauerbodonistd-bold.eot?#iefix') format('embedded-opentype'),
+  url('@{fa-font-path}/bauerbodonistd-bold.ttf') format('truetype'),
+  url('@{fa-font-path}/bauerbodonistd-bold.woff') format('woff'),
+  url('@{fa-font-path}/bauerbodonistd-bold.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'interstate';
+  src:url('@{fa-font-path}/interstate-regular-2.eot');
+  src:url('@{fa-font-path}/interstate-regular-2.eot?#iefix') format('embedded-opentype'),
+  url('@{fa-font-path}/interstate-regular-2.ttf') format('truetype'),
+  url('@{fa-font-path}/interstate-regular-2.woff') format('woff'),
+  url('@{fa-font-path}/interstate-regular-2.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-family-sans-serif: "interstate", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 // Colors
 .c-dblue    { color: @blue-dark }
@@ -38,6 +59,9 @@
 // Links
 @link-color: @black;
 @text-color: @grey;
+.no-text-decoration, .no-text-decoration:hover {
+  text-decoration: none;
+}
 
 // Inputs
 @input-color: @black;
