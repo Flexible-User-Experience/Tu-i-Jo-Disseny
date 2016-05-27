@@ -37,6 +37,10 @@ liip_imagine:
             quality: 80
             filters:
                 thumbnail: { size: [ 1200, null ], mode: outbound }
+        2300xY:
+            quality: 80
+            filters:
+                thumbnail: { size: [ 2300, null ], mode: outbound }
 
 # Vich Uploader
 vich_uploader:
