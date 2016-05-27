@@ -36,10 +36,8 @@
                             {% endblock %}
                         </ul>
                     </div>
-                    <div class="col-xs-4 text-center">
-                        <a href="{{ path('front_homepage') }}">
-                            <img class="m-bottom" alt="{{ main_brand_title }}" src="{{ asset('bundles/app/vectors/tu-i-jo-logo.svg') }}">
-                        </a>
+                    <div class="col-xs-4 m-bottom text-center">
+                        <a class="no-text-decoration" href="{{ path('front_homepage') }}"><i class="fa-4x icon-tuijo"></i></a>
                     </div>
                     <div class="col-xs-4 m-top text-right">
                         <ul class="top-menu list-unstyled list-inline">
@@ -64,7 +62,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-3">
-                        <a class="social-network-icon" target="_blank" href="https://www.facebook.com/tuijodissenygrafic/"><i class="fa fa-facebook"></i></a> <a class="social-network-icon" target="_blank" href="https://www.instagram.com/tujo_disseny/"><i class="fa fa-instagram"></i></a> <a class="social-network-icon" target="_blank" href="https://es.pinterest.com/hidraulicadis/"><i class="fa fa-pinterest-p"></i></a>
+                        <a class="social-network-icon" target="_blank" href="https://www.facebook.com/tuijodissenygrafic/"><i class="fa-3x icon-facebook"></i></a>
+                        <a class="social-network-icon" target="_blank" href="https://www.instagram.com/tujo_disseny/"><i class="fa-3x icon-instagram"></i></a>
+                        <a class="social-network-icon" target="_blank" href="https://es.pinterest.com/hidraulicadis/"><i class="fa-3x icon-pinterest"></i></a>
                     </div>
                     <div class="col-xs-6 text-center">
                         {% block bottom_contact_form %}
