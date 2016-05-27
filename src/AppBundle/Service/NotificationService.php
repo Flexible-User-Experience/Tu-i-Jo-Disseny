@@ -53,7 +53,7 @@ class NotificationService
             $contactMessage->getEmail(),
             $this->amd,
             $this->urlBase . ' formulari de contacte rebut',
-            $this->twig->render(':Mails:contact_form_admin_notification.html.twig', array(
+            $this->twig->render(':Mail:contact_form_admin_notification.html.twig', array(
                 'contact' => $contactMessage,
             ))
         );
@@ -70,7 +70,7 @@ class NotificationService
             $this->amd,
             $contactMessage->getEmail(),
             $this->urlBase . ' pregunta rebuda',
-            $this->twig->render(':Mails:contact_form_user_notification.html.twig', array(
+            $this->twig->render(':Mail:contact_form_user_notification.html.twig', array(
                 'contact' => $contactMessage,
             ))
         );
@@ -87,7 +87,7 @@ class NotificationService
             $this->amd,
             $contactMessage->getEmail(),
             $this->urlBase . ' resposta formulari de contacte',
-            $this->twig->render(':Mails:contact_form_user_backend_notification.html.twig', array(
+            $this->twig->render(':Mail:contact_form_user_backend_notification.html.twig', array(
                 'contact' => $contactMessage,
             ))
         );
