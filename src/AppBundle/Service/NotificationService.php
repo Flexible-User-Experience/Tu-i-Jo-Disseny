@@ -20,7 +20,7 @@ class NotificationService
     /** @var \Twig_Environment */
     private $twig;
 
-    /** @var string */
+    /** @var string admin mail address */
     private $amd;
 
     /** @var string */
