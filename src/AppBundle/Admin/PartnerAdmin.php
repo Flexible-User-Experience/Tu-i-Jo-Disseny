@@ -2,6 +2,7 @@
 
 namespace AppBundle\Admin;
 
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -151,7 +152,7 @@ class PartnerAdmin extends BaseAdmin
             )
             ->add(
                 'description',
-                'ckeditor',
+                CKEditorType::class,
                 array(
                     'label'       => 'Descripció',
                     'required'    => false,
