@@ -12,6 +12,14 @@ namespace AppBundle\Tests;
 class AdminControllerTest extends AbstractBaseTest
 {
     /**
+     * @return int
+     */
+    public function getOrder()
+    {
+        return 3;
+    }
+
+    /**
      * Test HTTP request is successful
      *
      * @dataProvider provideSuccessfulUrls

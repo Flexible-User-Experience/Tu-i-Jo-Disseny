@@ -14,6 +14,14 @@ use AppBundle\Entity\Base;
 class RepositoriesTest extends AbstractBaseTest
 {
     /**
+     * @return int
+     */
+    public function getOrder()
+    {
+        return 1;
+    }
+
+    /**
      * Test repository bulk methods
      */
     public function testRepositories()
