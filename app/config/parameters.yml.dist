@@ -14,9 +14,9 @@ parameters:
     mailer_user:       ~
     mailer_password:   ~
     mailer_destination: dummy@dummy.com
-    mailer_url_base: www.dummy.com
+    mailer_url_base:    www.dummy.com
 
-    secret:            uife79923rkjfow087823kheYU6sss
+    secret:            ThisTokenIsNotSoSecretChangeIt
 
     private_admin_test_user: admin
     private_admin_test_pass: admin
