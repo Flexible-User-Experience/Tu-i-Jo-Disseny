@@ -39,7 +39,6 @@ class MenuBuilder
             'front.projects',
             array(
                 'route' => 'front_projects',
-                'current' => true,
             )
         );
         $menu->addChild(
