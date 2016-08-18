@@ -20,7 +20,7 @@ abstract class BaseRepository extends EntityRepository
      */
     public function getInstancesAmount()
     {
-        return count($this->findAll());
+        return count($this->createQueryBuilder('p')->getQuery()->getResult());
     }
 
     /**

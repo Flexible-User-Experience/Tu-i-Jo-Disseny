@@ -2,8 +2,8 @@
 
 namespace AppBundle\Tests;
 
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Liip\FunctionalTestBundle\Test\WebTestCase;
-use Symfony\Bundle\FrameworkBundle\Client;
 
 /**
  * Class abstract base test
@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Client;
  * @package  AppBundle\Tests
  * @author   David Romaní <david@flux.cat>
  */
-abstract class AbstractBaseTest extends WebTestCase
+abstract class AbstractBaseTest extends WebTestCase implements OrderedFixtureInterface
 {
     /**
      * Set up test
@@ -20,15 +20,5 @@ abstract class AbstractBaseTest extends WebTestCase
     public function setUp()
     {
         $this->runCommand('hautelook_alice:doctrine:fixtures:load');
-    }
-
-    /**
-     * Get authenticated user with Liip Funcitonal Test Bundle
-     *
-     * @return Client
-     */
-    protected function getAuthenticadedUser()
-    {
-        return static::makeClient(true);
     }
 }

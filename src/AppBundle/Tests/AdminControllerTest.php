@@ -12,6 +12,14 @@ namespace AppBundle\Tests;
 class AdminControllerTest extends AbstractBaseTest
 {
     /**
+     * @return int
+     */
+    public function getOrder()
+    {
+        return 3;
+    }
+
+    /**
      * Test HTTP request is successful
      *
      * @dataProvider provideSuccessfulUrls
@@ -19,7 +27,7 @@ class AdminControllerTest extends AbstractBaseTest
      */
     public function testAdminPagesAreSuccessful($url)
     {
-        $client = $this->getAuthenticadedUser();
+        $client = $this->makeClient(true);
         $client->request('GET', $url);
 
         $this->assertStatusCode(200, $client);
@@ -76,7 +84,7 @@ class AdminControllerTest extends AbstractBaseTest
      */
     public function testAdminPagesAreNotFound($url)
     {
-        $client = $this->getAuthenticadedUser();
+        $client = $this->makeClient(true);
         $client->request('GET', $url);
 
         $this->assertStatusCode(404, $client);

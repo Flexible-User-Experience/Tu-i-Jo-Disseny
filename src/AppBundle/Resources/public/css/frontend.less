@@ -68,7 +68,7 @@
 @input-bg: transparent;
 @input-color-placeholder: @black;
 @input-border: @black;
-@input-border-focus: @grey;
+@input-border-focus: @black;
 @input-border-radius: 0;
 @input-border-radius-large: 0;
 @input-border-radius-small: 0;
@@ -76,6 +76,14 @@ input, textarea {
   &.form-control { border: @borderline; }
 }
 textarea { resize: vertical; }
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { opacity: 1; -webkit-transition: opacity 0.5s; transition: opacity 0.5s; }
+input::-moz-placeholder,          textarea::-moz-placeholder          { opacity: 1; -moz-transition:    opacity 0.5s; transition: opacity 0.5s; }
+input:-moz-placeholder,           textarea:-moz-placeholder           { opacity: 1; -moz-transition:    opacity 0.5s; transition: opacity 0.5s; }
+input:-ms-input-placeholder,      textarea:-ms-input-placeholder      { opacity: 1; -ms-transition:     opacity 0.5s; transition: opacity 0.5s; }
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder { opacity: 0.2; }
+input:focus::-moz-placeholder,          textarea:focus::-moz-placeholder          { opacity: 0.2; }
+input:focus:-moz-placeholder,           textarea:focus:-moz-placeholder           { opacity: 0.2; }
+input:focus:-ms-input-placeholder,      textarea:focus:-ms-input-placeholder      { opacity: 0.2; }
 
 // Buttons
 .btn-default.squared {
