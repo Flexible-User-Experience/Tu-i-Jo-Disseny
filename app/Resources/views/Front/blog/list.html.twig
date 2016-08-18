@@ -10,7 +10,7 @@
 
 {% block top_right_menu %}
     <li><a href="{{ path('front_homepage') }}#workspace">{{ 'front.headquarter' | trans | upper }}</a></li>
-    <li class="current"><a style="text-decoration:underline" href="{{ path('front_blog_posts_list') }}">{{ 'front.blog' | trans | upper }}</a></li>
+    <li class="active"><a href="{{ path('front_blog_posts_list') }}">{{ 'front.blog' | trans | upper }}</a></li>
     <li><a href="{{ path('front_homepage') }}#contact">{{ 'front.contact' | trans | upper }}</a></li>
 {% endblock %}
 

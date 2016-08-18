@@ -10,9 +10,9 @@
 @white:       #FFFFFF;
 @grey:        #DADAD9;
 @black:       #1C1C1B;
-@gap-big: @gap-normal * 2;
+@gap-big:    @gap-normal * 2;
 @gap-normal: 20px;
-@gap-small: @gap-normal / 2;
+@gap-small:  @gap-normal / 2;
 @borderline: solid 2px @black;
 
 // Fonts
@@ -102,16 +102,16 @@ input:focus:-ms-input-placeholder,      textarea:focus:-ms-input-placeholder    
 }
 
 // Gaps
-.no-m { margin: 0; }
-.no-m-top { margin-top: 0; }
+.no-m        { margin: 0; }
+.no-m-top    { margin-top: 0; }
 .no-m-bottom { margin-bottom: 0; }
-.no-m-left { margin-left: 0; }
-.no-m-right { margin-right: 0; }
-.m-top { margin-top: @gap-normal; }
+.no-m-left   { margin-left: 0; }
+.no-m-right  { margin-right: 0; }
+.m-top    { margin-top: @gap-normal; }
 .m-bottom { margin-bottom: @gap-normal; }
-.extra-m-top { margin-top: @gap-big; }
+.extra-m-top    { margin-top: @gap-big; }
 .extra-m-bottom { margin-bottom: @gap-big; }
-.no-p-left { padding-left: 0; }
+.no-p-left  { padding-left: 0; }
 .no-p-right { padding-right: 0; }
 .no-h-padding {
   padding-left: 0;
@@ -144,6 +144,11 @@ ul.top-menu {
         text-decoration: none;
         background: url('/bundles/app/vectors/current-menu.svg') 50% 0 no-repeat;
       }
+      overflow: visible;
+      height: 51px;
+      display: block;
+      padding-top: 14px;
+      margin-top: -16px;
       font-weight: bold;
       font-size: @font-size-large;
       @media(max-width: @screen-sm-max) {
