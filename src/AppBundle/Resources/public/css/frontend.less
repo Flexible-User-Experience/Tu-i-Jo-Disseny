@@ -73,7 +73,7 @@
 @input-border-radius-large: 0;
 @input-border-radius-small: 0;
 input, textarea {
-  &.form-control { border: @borderline; }
+  &.form-control { border: @borderline; outline: none; box-shadow: none !important; }
 }
 textarea { resize: vertical; }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { opacity: 1; -webkit-transition: opacity 0.5s; transition: opacity 0.5s; }

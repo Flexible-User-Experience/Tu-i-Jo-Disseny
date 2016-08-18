@@ -38,7 +38,11 @@
 !.travis.yml
 /secret.hack
 /dbreset.sh
-/web/css/
-/web/fonts/
-/web/js/
+/web/css/*
+!/web/css/.gitkeep
+/web/fonts/*
+/web/js/*
+!/web/js/.gitkeep
+/web/images/*
+!/web/images/.gitkeep
 /web/assetic/
