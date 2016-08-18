@@ -25,6 +25,7 @@ parameters:
 
     google_analytics_enabled: false
     google_analytics_account: "UA-fake..."
+    google_maps_api_key:      "xxxxxxxxxxxxx"
 
     path_java:         /usr/bin/java
     path_node:         /usr/bin/nodejs

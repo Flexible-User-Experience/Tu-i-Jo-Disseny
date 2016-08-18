@@ -17,6 +17,8 @@ class MenuBuilder
     /**
      * Create frontend main menu
      *
+     * @param FactoryInterface $factory
+     *
      * @return ItemInterface
      */
     public function frontendMenu(FactoryInterface $factory)
@@ -30,28 +32,24 @@ class MenuBuilder
         $menu->addChild(
             'front.services',
             array(
-                //'icon'  => 'home',
                 'route' => 'front_services',
             )
         );
         $menu->addChild(
             'front.projects',
             array(
-                //'icon'  => 'home',
                 'route' => 'front_projects',
             )
         );
         $menu->addChild(
             'front.partners',
             array(
-                //'icon'  => 'home',
                 'route' => 'front_partners',
             )
         );
         $menu->addChild(
             'front.blog',
             array(
-                //'icon'  => 'home',
                 'route' => 'front_blog',
             )
         );

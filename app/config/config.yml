@@ -35,7 +35,7 @@ twig:
         google_analytics_enabled: "%google_analytics_enabled%"
         google_analytics_account: "%google_analytics_account%"
         main_brand_title:         "%main_brand_title%"
-        admin_tag_version:        "v1.0.26"
+        admin_tag_version:        "v1.0.27"
 
 # Assetic Configuration
 assetic:
@@ -123,3 +123,14 @@ ivory_ck_editor:
     configs:
         my_config:
             toolbar: basic
+
+# Google Map
+ivory_google_map:
+    map:
+        language: "%locale%"
+    geocoder:
+        provider:
+            locale:  "%locale%"
+            api_key: "%google_maps_api_key%"
+    geocoder_request:
+        sensor: false
