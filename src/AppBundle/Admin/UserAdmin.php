@@ -103,21 +103,21 @@ class UserAdmin extends ParentUserAdmin
             ->end()
             ->with('backend.admin.controls', array('class' => 'col-md-6'))
             ->add(
+                'enabled',
+                'checkbox',
+                array(
+                    'label'    => 'Actiu',
+                    'required' => false,
+                )
+            )
+            ->add(
                 'roles',
                 'choice',
                 array(
                     'label'    => 'Rols',
                     'choices'  => UserRolesEnum::getEnumArray(),
                     'multiple' => true,
-                    'expanded' => true
-                )
-            )
-            ->add(
-                'enabled',
-                'checkbox',
-                array(
-                    'label'    => 'Actiu',
-                    'required' => false,
+                    'expanded' => true,
                 )
             )
             ->end();
