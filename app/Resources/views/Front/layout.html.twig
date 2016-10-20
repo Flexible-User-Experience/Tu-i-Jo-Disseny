@@ -27,7 +27,7 @@
         <div class="container">
             <div class="row">
                 <header class="main">
-                    <div class="col-xs-4 m-top">
+                    <div class="col-xs-5 m-top">
                         <ul class="top-menu list-unstyled list-inline">
                             {% block top_left_menu %}
                                 <li><a href="{{ path('front_projects') }}">{{ 'front.projects' | trans | upper }}</a></li>
@@ -36,10 +36,10 @@
                             {% endblock %}
                         </ul>
                     </div>
-                    <div class="col-xs-4 m-bottom text-center">
+                    <div class="col-xs-2 m-bottom text-center">
                         <a class="no-text-decoration" href="{{ path('front_homepage') }}"><i class="fa-4x icon-tuijo"></i></a>
                     </div>
-                    <div class="col-xs-4 m-top text-right">
+                    <div class="col-xs-5 m-top text-right">
                         <ul class="top-menu list-unstyled list-inline">
                             {% block top_right_menu %}
                                 <li><a href="#workspace">{{ 'front.headquarter' | trans | upper }}</a></li>
