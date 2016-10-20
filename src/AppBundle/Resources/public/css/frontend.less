@@ -150,12 +150,12 @@ ul.top-menu {
       padding-top: 14px;
       margin-top: -16px;
       font-weight: bold;
-      font-size: @font-size-large;
-      @media(max-width: @screen-sm-max) {
+      font-size: @font-size-small;
+      @media(min-width: @screen-xs-max) {
         font-size: @font-size-base;
       }
-      @media(max-width: @screen-xs-max) {
-        font-size: @font-size-small;
+      @media(min-width: @screen-sm-max) {
+        font-size: @font-size-large;
       }
     }
   }
@@ -190,6 +190,8 @@ ul.top-menu {
   top: 50%;
   margin-top: -5px;
   text-shadow: none;
+  &.fa-long-arrow-left { left: 10%; }
+  &.fa-long-arrow-right { right: 10%; }
 }
 
 // Header
