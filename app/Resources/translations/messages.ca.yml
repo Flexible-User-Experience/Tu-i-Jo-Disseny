@@ -6,3 +6,79 @@ front:
   contact: contacte
   headquarter: estudi
   about: natros
+backend:
+    admin:
+        actions: Accions
+        controls: Controls
+        general: General
+        date: Data creació
+        enabled: Actiu
+        submit: Enviar
+        published_date: Data de publicació
+        coworker:
+            name: Nom
+            surname: Cognom
+            email: Correu electrònic
+            description: Descripció
+            position: Ordre
+            social_networks: Xarxes Socials
+            facebook: Facebook
+            twitter: Twitter
+            github: Github
+            linkedin: LinkedIn
+            blog: Blog
+            web: Web
+            instagram: Instagram
+            gif: Gif
+        category:
+            title: Títol
+            category: Dedicació
+        contact:
+            name: Nom
+            email: Correu electrònic
+            checked: Llegit
+            date: Data
+            subject: Tema
+            answered: Contestat
+            answer: Resposta
+            message: Missatge
+            description: Descripció
+            user_question: Pregunta del usuari
+            your_answer: La teva resposta
+        event:
+            title: Títol
+            description: Descripció
+            type: Tipus
+            date: Data
+            image: Imatge
+        post:
+            post: Article
+            image: Imatge color
+            imageBW: Imatge blanc i negre
+            title: Títol
+            tags: Etiquetes
+            description: Descripció
+            metakeywords: Paraules clau
+            metadescription: Metadescripció
+            metakeywordshelp: separades per coma
+            content: Contingut
+        tag:
+            tag: Etiqueta
+            title: Títol
+            posts_amount: Articles vinculats
+            posts: Articles
+        user:
+            user: Usuari
+            editor: Editor
+            admin: Administrador
+            superadmin: Superadministrador
+            firstname: Nom
+            lastname: Cognoms
+            username: Nom usuari
+            email: Correu electrònic
+            plain_password: Contrasenya
+            roles: Rols
+        social_networks:
+            social_networks: Xarxes Socials
+            url: URL
+            category: Xarxa social
