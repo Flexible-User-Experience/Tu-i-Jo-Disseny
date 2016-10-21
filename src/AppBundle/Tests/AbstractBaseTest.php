@@ -2,7 +2,6 @@
 
 namespace AppBundle\Tests;
 
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Liip\FunctionalTestBundle\Test\WebTestCase;
 
 /**
@@ -12,7 +11,7 @@ use Liip\FunctionalTestBundle\Test\WebTestCase;
  * @package  AppBundle\Tests
  * @author   David Romaní <david@flux.cat>
  */
-abstract class AbstractBaseTest extends WebTestCase implements OrderedFixtureInterface
+abstract class AbstractBaseTest extends WebTestCase
 {
     /**
      * Set up test

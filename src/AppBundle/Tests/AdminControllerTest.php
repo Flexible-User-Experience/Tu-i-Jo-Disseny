@@ -12,11 +12,14 @@ namespace AppBundle\Tests;
 class AdminControllerTest extends AbstractBaseTest
 {
     /**
-     * @return int
+     * Test admin login request is successful
      */
-    public function getOrder()
+    public function testAdminLoginPageIsSuccessful()
     {
-        return 3;
+        $client = $this->createClient();           // anonymous user
+        $client->request('GET', '/admin/login');
+
+        $this->assertStatusCode(200, $client);
     }
 
     /**
@@ -27,7 +30,7 @@ class AdminControllerTest extends AbstractBaseTest
      */
     public function testAdminPagesAreSuccessful($url)
     {
-        $client = $this->makeClient(true);
+        $client = $this->makeClient(true);         // authenticated user
         $client->request('GET', $url);
 
         $this->assertStatusCode(200, $client);
@@ -73,6 +76,10 @@ class AdminControllerTest extends AbstractBaseTest
             array('/admin/contactes/newsletter/create'),
             array('/admin/contactes/newsletter/1/edit'),
             array('/admin/contactes/newsletter/1/delete'),
+            array('/admin/usuari/list'),
+            array('/admin/usuari/create'),
+            array('/admin/usuari/1/edit'),
+            array('/admin/usuari/1/delete'),
         );
     }
 
@@ -84,7 +91,7 @@ class AdminControllerTest extends AbstractBaseTest
      */
     public function testAdminPagesAreNotFound($url)
     {
-        $client = $this->makeClient(true);
+        $client = $this->makeClient(true);         // authenticated user
         $client->request('GET', $url);
 
         $this->assertStatusCode(404, $client);

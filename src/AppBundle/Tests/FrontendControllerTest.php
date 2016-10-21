@@ -12,14 +12,6 @@ namespace AppBundle\Tests;
 class FrontendControllerTest extends AbstractBaseTest
 {
     /**
-     * @return int
-     */
-    public function getOrder()
-    {
-        return 2;
-    }
-
-    /**
      * Test HTTP request is successful
      *
      * @dataProvider provideUrls
@@ -28,8 +20,7 @@ class FrontendControllerTest extends AbstractBaseTest
      */
     public function testFrontendPagesAreSuccessful($url)
     {
-        $this->loadFixtures(array());
-        $client = $this->createClient();
+        $client = $this->createClient();           // anonymous user
         $client->request('GET', $url);
 
         $this->assertStatusCode(200, $client);
@@ -45,8 +36,10 @@ class FrontendControllerTest extends AbstractBaseTest
         return array(
             array('/'),
             array('/projectes'),
-//            array('/projecte/ee/'),
-//            array('/blog/'),
+            array('/projecte/my-project'),
+            array('/blog'),
+            array('/blog/my-post'),
+            array('/sitemap/sitemap.default.xml'),
         );
     }
 }
