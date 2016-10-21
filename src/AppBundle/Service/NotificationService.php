@@ -14,17 +14,33 @@ use AppBundle\Entity\ContactNewsletter;
  */
 class NotificationService
 {
-    /** @var CourierService */
+    /**
+     * @var CourierService
+     */
     private $messenger;
 
-    /** @var \Twig_Environment */
+    /**
+     * @var \Twig_Environment
+     */
     private $twig;
 
-    /** @var string admin mail address */
+    /**
+     * @var string admin mail address
+     */
     private $amd;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     private $urlBase;
+
+    /**
+     *
+     *
+     * Methods
+     *
+     *
+     */
 
     /**
      * NotificationService constructor

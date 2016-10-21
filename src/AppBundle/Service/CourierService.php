@@ -2,8 +2,6 @@
 
 namespace AppBundle\Service;
 
-use \Swift_Message;
-
 /**
  * Class CourierService
  *
@@ -13,8 +11,18 @@ use \Swift_Message;
  */
 class CourierService
 {
-    /** @var \Swift_Mailer */
+    /**
+     * @var \Swift_Mailer
+     */
     private $mailer;
+
+    /**
+     *
+     *
+     * Methods
+     *
+     *
+     */
 
     /**
      * CourierService constructor
