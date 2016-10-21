@@ -15,8 +15,18 @@ use Ivory\GoogleMap\Map;
  */
 class GoogleMapsService
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     private $locale;
+
+    /**
+     *
+     *
+     * Methods
+     *
+     *
+     */
 
     /**
      * GoogleMapsService constructor

@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class FrontendController
@@ -112,6 +113,7 @@ class FrontendController extends Controller
     public function newsletterConfirmationEmailAction($email)
     {
         $em = $this->getDoctrine()->getManager();
+        /** @var ContactNewsletter $contactNewsletter */
         $contactNewsletter = $em->getRepository('AppBundle:ContactNewsletter')->findOneBy(['email' => $email]);
         $msg = 'KO';
 
@@ -128,5 +130,23 @@ class FrontendController extends Controller
                 'msg' => $msg
             ]
         );
+    }
+
+    /**
+     * @Route("/test-email", name="front_test_email")
+     *
+     * @return Response
+     * @throws NotFoundHttpException
+     */
+    public function testEmailAction()
+    {
+        if ($this->container->get('kernel')->getEnvironment() == 'prod') {
+            throw new NotFoundHttpException();
+        }
+
+        $contact = new ContactNewsletter();
+        $contact->setEmail('test@test.com');
+
+        return $this->render(':Mail:newsletter_form_user_notification.html.twig', ['contact' => $contact]);
     }
 }
