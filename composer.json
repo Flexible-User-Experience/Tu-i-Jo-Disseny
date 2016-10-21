@@ -25,6 +25,7 @@
         "egeloen/ckeditor-bundle": "^4.0",
         "egeloen/google-map-bundle": "^2.2",
         "egulias/email-validator": "^1.2",
+        "hampe/zurb-ink-bundle": "^2.2",
         "hautelook/alice-bundle": "^1.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "ircmaxell/password-compat": "~1.0",

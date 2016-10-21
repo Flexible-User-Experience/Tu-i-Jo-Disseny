@@ -1,13 +1,29 @@
 {% extends ':Mail:base.html.twig' %}
 
-{% block title %}Tu&Jo Newsletter{% endblock %}
-
-{% block body %}
-    <h3>Gràcies per registrar-te al nostre newsletter!</h3>
-    <p>
-        Fes clic <a href="{{ url('app_newsletter_form_confirmation_email', {email: contact.email}) }}">aquí</a> per finalitzar correctament el teu registre, necessitem que verfiques la teva adreça correctament. Només trigaràs 30 segons en aconseguir-ho!
-    </p>
-    <br>
-    <br>
-    <p>Seguim en contacte.</p>
+{% block content %}
+    <table class="row light-brown-background">
+        <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last vertical-padding">
+                <table>
+                    <tr>
+                        <th>
+                            <h1 class="small-text-center">HOLA!</h1>
+                            <p>Per finalitzar correctament el teu registre, necessitem que verifiques la teva adreça de correu electrònic.</p>
+                            <p>Només trigaràs 5 segons en aconseguir-ho!</p>
+                        </th>
+                        <th class="expander"></th>
+                    </tr>
+                </table>
+            </th>
+        </tr>
+        </tbody>
+    </table>
+    <table class="row">
+        <tbody>
+        <tr>
+            <th><a href="{{ url('app_newsletter_form_confirmation_email', {email: contact.email}) }}"><img src="{{ absolute_url(asset('bundles/app/images/newsletter-footer.jpg')) }}"></a></th>
+        </tr>
+        </tbody>
+    </table>
 {% endblock %}
