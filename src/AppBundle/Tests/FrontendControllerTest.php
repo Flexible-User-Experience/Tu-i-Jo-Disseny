@@ -12,14 +12,6 @@ namespace AppBundle\Tests;
 class FrontendControllerTest extends AbstractBaseTest
 {
     /**
-     * @return int
-     */
-    public function getOrder()
-    {
-        return 2;
-    }
-
-    /**
      * Test HTTP request is successful
      *
      * @dataProvider provideUrls

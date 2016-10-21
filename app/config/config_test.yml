@@ -1,11 +1,6 @@
 imports:
     - { resource: config_dev.yml }
 
-security:
-    firewalls:
-        admin:
-            http_basic: ~
-
 framework:
     test: ~
     session:
@@ -20,13 +15,18 @@ web_profiler:
 swiftmailer:
     disable_delivery: true
 
+doctrine:
+    dbal:
+        driver: "pdo_sqlite"
+        path:   "%kernel.root_dir%/databases/test.db3"
+
 liip_functional_test:
     cache_sqlite_db: true
     authentication:
         username: "%private_admin_test_user%"
         password: "%private_admin_test_pass%"
 
-doctrine:
-    dbal:
-        driver: pdo_sqlite
-        path:   "%kernel.root_dir%/databases/test.db3"
+security:
+    firewalls:
+        admin:
+            http_basic: ~

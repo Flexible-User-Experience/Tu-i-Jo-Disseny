@@ -106,12 +106,3 @@ AppBundle\Entity\User:
         enabled: true
         roles:
             - ROLE_SUPER_ADMIN
-    editor:
-        username: <{private_editor_test_user}>
-        plainPassword: <{private_editor_test_pass}>
-        email: <safeEmail()>
-        firstname: <name()>
-        lastname: <lastname()>
-        enabled: true
-        roles:
-            - ROLE_CMS
