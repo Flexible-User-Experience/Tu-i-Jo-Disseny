@@ -30,8 +30,6 @@ services:
             - ~
             - AppBundle\Entity\Project
             - AppBundle:Back\ProjectAdmin
-        calls:
-            - [ setTranslationDomain, [AppBundle] ]
     admin.projects_image:
         class: AppBundle\Admin\ProjectImageAdmin
         tags:
@@ -40,8 +38,6 @@ services:
             - ~
             - AppBundle\Entity\ProjectImage
             - ~
-        calls:
-            - [ setTranslationDomain, [AppBundle] ]
     admin.services_service:
         class: AppBundle\Admin\ServiceAdmin
         tags:
@@ -50,8 +46,6 @@ services:
             - ~
             - AppBundle\Entity\Service
             - ~
-        calls:
-            - [ setTranslationDomain, [AppBundle] ]
     admin.partners_partner:
         class: AppBundle\Admin\PartnerAdmin
         tags:
@@ -60,8 +54,6 @@ services:
             - ~
             - AppBundle\Entity\Partner
             - ~
-        calls:
-            - [ setTranslationDomain, [AppBundle] ]
     admin.blog_tag:
         class: AppBundle\Admin\BlogTagAdmin
         tags:
@@ -70,8 +62,6 @@ services:
             - ~
             - AppBundle\Entity\BlogTag
             - ~
-        calls:
-            - [ setTranslationDomain, [AppBundle] ]
     admin.blog_post:
         class: AppBundle\Admin\BlogPostAdmin
         tags:
@@ -80,29 +70,36 @@ services:
             - ~
             - AppBundle\Entity\BlogPost
             - ~
-        calls:
-            - [ setTranslationDomain, [AppBundle] ]
     admin.contactmessage:
         class: AppBundle\Admin\ContactMessageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Missatge", group: "Contactes" }
         arguments:
             - ~
             - AppBundle\Entity\ContactMessage
             - AppBundle:Back\ContactMessageAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: "Missatge", group: "Contactes" }
     admin.contactnewsletter:
         class: AppBundle\Admin\ContactNewsletterAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Newsletter", group: "Contactes" }
         arguments:
             - ~
             - AppBundle\Entity\ContactNewsletter
             -
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: "Newsletter", group: "Contactes" }
     admin.user:
         class: AppBundle\Admin\UserAdmin
-        arguments: [ ~, AppBundle\Entity\User, ~, "@fos_user.user_manager" ]
         tags:
             - { name: sonata.admin, manager_type: orm, label: "Usuari", group: "Usuaris" }
+        arguments:
+            - ~
+            - AppBundle\Entity\User
+            - ~
+            - "@fos_user.user_manager"
+# Sitemap
+    app.sitemap:
+        class: AppBundle\Listener\SitemapListener
+        arguments: [ "@router", "@doctrine.orm.entity_manager" ]
+        tags: [ { name: "presta.sitemap.listener" } ]
 # Twig
     app.twig_extension:
         class: AppBundle\Twig\AppExtension
