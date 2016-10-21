@@ -2,7 +2,6 @@
 
 namespace AppBundle\Repository;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
 
@@ -47,10 +46,39 @@ class ProjectRepository extends BaseRepository
     }
 
     /**
-     * @return ArrayCollection
+     * @return array
      */
     public function findAllEnabledAndShowInHomepageSortedByPosition()
     {
         return $this->findAllEnabledAndShowInHomepageSortedByPositionQ()->getResult();
+    }
+
+    /**
+     * @return QueryBuilder
+     */
+    public function findAllEnabledSortedByPositionQB()
+    {
+        $query = $this->createBaseQuery()
+            ->where('p.enabled = :enabled')
+            ->setParameter('enabled', true)
+            ->orderBy('p.position');
+
+        return $query;
+    }
+
+    /**
+     * @return Query
+     */
+    public function findAllEnabledSortedByPositionQ()
+    {
+        return $this->findAllEnabledSortedByPositionQB()->getQuery();
+    }
+
+    /**
+     * @return array
+     */
+    public function findAllEnabledSortedByPosition()
+    {
+        return $this->findAllEnabledSortedByPositionQ()->getResult();
     }
 }

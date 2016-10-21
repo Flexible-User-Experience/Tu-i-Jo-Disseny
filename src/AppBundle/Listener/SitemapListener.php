@@ -2,10 +2,8 @@
 
 namespace AppBundle\Listener;
 
-use AppBundle\Entity\Coworker;
-use AppBundle\Entity\Post;
-use AppBundle\Entity\Event;
-use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\BlogPost;
+use AppBundle\Entity\Project;
 use Doctrine\ORM\EntityManager;
 use Presta\SitemapBundle\Service\SitemapListenerInterface;
 use Presta\SitemapBundle\Event\SitemapPopulateEvent;
@@ -17,25 +15,30 @@ use Symfony\Component\Routing\RouterInterface;
  * Class SitemapListener
  *
  * @category Listener
- * @package  Acme\DemoBundle\EventListener
- * @author   Anton Serra <aserratorta@gmail.com>
+ * @package  AppBundle\Listener
+ * @author   David Romaní <david@flux.cat>
  */
 class SitemapListener implements SitemapListenerInterface
 {
-    /** @var RouterInterface */
+    /**
+     * @var RouterInterface
+     */
     private $router;
 
-    /** @var EntityManager */
+    /**
+     * @var EntityManager
+     */
     private $em;
 
-    /** @var ArrayCollection */
-    private $coworkers;
+    /**
+     * @var array
+     */
+    private $projects;
 
-    /** @var ArrayCollection */
+    /**
+     * @var array
+     */
     private $posts;
-
-    /** @var ArrayCollection */
-    private $events;
 
     /**
      * SitemapListener constructor
@@ -47,9 +50,8 @@ class SitemapListener implements SitemapListenerInterface
     {
         $this->router = $router;
         $this->em = $em;
-        $this->coworkers = $this->em->getRepository('AppBundle:Coworker')->findAllEnabledSortedBySurname();
-        $this->posts = $this->em->getRepository('AppBundle:Post')->getAllEnabledSortedByPublishedDateWithJoin();
-        $this->events = $this->em->getRepository('AppBundle:Event')->findAllEnabledSortedByDate();
+        $this->projects = $this->em->getRepository('AppBundle:Project')->findAllEnabledSortedByPosition();
+        $this->posts = $this->em->getRepository('AppBundle:BlogPost')->getAllEnabledSortedByPublishedDateWithJoin();
     }
 
     /**
@@ -64,34 +66,34 @@ class SitemapListener implements SitemapListenerInterface
             $event
                 ->getUrlContainer()
                 ->addUrl($this->makeUrlConcrete($url), 'default');
-            // Coworkers detail view list
+            // Projects detail view list
             $lastUpdatedAtDate = \DateTime::createFromFormat('d-m-Y', '01-01-2000');
-            /** @var Coworker $coworker */
-            foreach ($this->coworkers as $coworker) {
+            /** @var Project $project */
+            foreach ($this->projects as $project) {
                 $url = $this->router->generate(
-                    'front_coworker_detail',
-                    array('slug' => $coworker->getSlug(),
+                    'front_project_detail',
+                    array('slug' => $project->getSlug(),
                     ),
                     UrlGeneratorInterface::ABSOLUTE_URL
                 );
                 $event
                     ->getUrlContainer()
-                    ->addUrl($this->makeUrlConcrete($url, 0.8, $coworker->getUpdatedAt()), 'default');
-                if ($coworker->getUpdatedAt() > $lastUpdatedAtDate) {
-                    $lastUpdatedAtDate = $coworker->getUpdatedAt();
+                    ->addUrl($this->makeUrlConcrete($url, 0.8, $project->getUpdatedAt()), 'default');
+                if ($project->getUpdatedAt() > $lastUpdatedAtDate) {
+                    $lastUpdatedAtDate = $project->getUpdatedAt();
                 }
             }
-            // Coworker main view
-            $url = $this->makeUrl('front_coworkers_list');
+            // Project main view
+            $url = $this->makeUrl('front_projects');
             $event
                 ->getUrlContainer()
                 ->addUrl($this->makeUrlConcrete($url, 1, $lastUpdatedAtDate), 'default');
             // Posts detail view list
             $lastUpdatedAtDate = \DateTime::createFromFormat('d-m-Y', '01-01-2000');
-            /** @var Post $post */
+            /** @var BlogPost $post */
             foreach ($this->posts as $post) {
                 $url = $this->router->generate(
-                    'front_blog_detail',
+                    'front_blog_posts_detail',
                     array(
                         'year' => $post->getPublishedAt()->format('Y'),
                         'month' => $post->getPublishedAt()->format('m'),
@@ -108,48 +110,10 @@ class SitemapListener implements SitemapListenerInterface
                 }
             }
             // Blog main view
-            $url = $this->makeUrl('front_blog');
+            $url = $this->makeUrl('front_blog_posts_list');
             $event
                 ->getUrlContainer()
                 ->addUrl($this->makeUrlConcrete($url, 1, $lastUpdatedAtDate), 'default');
-            // Events detail view list
-            $lastUpdatedAtDate = \DateTime::createFromFormat('d-m-Y', '01-01-2000');
-            /** @var Event $activity */
-            foreach ($this->events as $activity) {
-                $url = $this->router->generate(
-                    'front_event_detail',
-                    array(
-                        'slug' => $activity->getSlug(),
-                    ),
-                    UrlGeneratorInterface::ABSOLUTE_URL
-                );
-                $event
-                    ->getUrlContainer()
-                    ->addUrl($this->makeUrlConcrete($url, 0.8, $activity->getUpdatedAt()), 'default');
-                if ($activity->getUpdatedAt() > $lastUpdatedAtDate) {
-                    $lastUpdatedAtDate = $activity->getUpdatedAt();
-                }
-            }
-            // Events main view
-            $url = $this->makeUrl('front_events_list');
-            $event
-                ->getUrlContainer()
-                ->addUrl($this->makeUrlConcrete($url, 1, $lastUpdatedAtDate), 'default');
-            // Contact view
-            $url = $this->makeUrl('front_contact');
-            $event
-                ->getUrlContainer()
-                ->addUrl($this->makeUrlConcrete($url, 0.5), 'default');
-            // Privacy Policy view
-            $url = $this->makeUrl('front_privacy_policy');
-            $event
-                ->getUrlContainer()
-                ->addUrl($this->makeUrlConcrete($url, 0.1), 'default');
-            // Credits view
-            $url = $this->makeUrl('front_credits');
-            $event
-                ->getUrlContainer()
-                ->addUrl($this->makeUrlConcrete($url, 0.1), 'default');
         }
     }
 
