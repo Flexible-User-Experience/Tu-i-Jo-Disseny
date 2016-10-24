@@ -1,10 +1,23 @@
 {% extends ':Mail:base.html.twig' %}
 
-{% block title %}Tu&Jo Disseny CMS{% endblock %}
-
-{% block body %}
-    <h1>Has rebut un nou missatge de contacte</h1>
-    <p>Revisa la llista de missatges rebuts al CMS <a href="{{ url('admin_app_contactmessage_list') }}">aquí</a>, o respon directament  <a href="{{ url('admin_app_contactmessage_answer', { id: contact.id }) }}">aquí</a></p>
-    <br>
-    <p>Bona sort!</p>
+{% block content %}
+    <table class="row light-brown-background">
+        <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last vertical-padding">
+                <table>
+                    <tr>
+                        <th>
+                            <h2>Has rebut un nou missatge de contacte</h2>
+                            <p>Revisa la llista de missatges rebuts al CMS <a href="{{ url('admin_app_contactmessage_list') }}">aquí</a>, o respon directament  <a href="{{ url('admin_app_contactmessage_answer', { id: contact.id }) }}">aquí</a></p>
+                            <br><br>
+                            <p>Bona sort!</p>
+                        </th>
+                        <th class="expander"></th>
+                    </tr>
+                </table>
+            </th>
+        </tr>
+        </tbody>
+    </table>
 {% endblock %}

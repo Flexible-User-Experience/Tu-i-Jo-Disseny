@@ -1,17 +1,28 @@
 {% extends ':Mail:base.html.twig' %}
 
-{% block title %}Tu&Jo Disseny{% endblock %}
-
-{% block body %}
-    <h1>Hola de nou!</h1>
-    <p>{{ contact.answer | raw }}</p>
-    <br>
-    <br>
-    <p>
-        Has rebut aquesta notificació per respondre la teva pregunta del {{ contact.createdAt | date('d/m/Y') }} a les {{ contact.createdAt | date('H:i') }}:<br>
-        <em>"{{ contact.message | raw }}"</em>
-    </p>
-    <br>
-    <br>
-    <p>Gràcies per contactar amb nosaltres.</p>
+{% block content %}
+    <table class="row light-brown-background">
+        <tbody>
+        <tr>
+            <th class="small-12 large-12 columns first last vertical-padding">
+                <table>
+                    <tr>
+                        <th>
+                            <h2>Hola de nou!</h2>
+                            <p>{{ contact.answer | raw }}</p>
+                            <br><br>
+                            <p>
+                                Has rebut aquesta notificació per respondre la teva pregunta del {{ contact.createdAt | date('d/m/Y') }} a les {{ contact.createdAt | date('H:i') }}h:<br>
+                                <em>"{{ contact.message | raw }}"</em>
+                            </p>
+                            <br><br>
+                            <p>Gràcies per contactar amb nosaltres.</p>
+                        </th>
+                        <th class="expander"></th>
+                    </tr>
+                </table>
+            </th>
+        </tr>
+        </tbody>
+    </table>
 {% endblock %}

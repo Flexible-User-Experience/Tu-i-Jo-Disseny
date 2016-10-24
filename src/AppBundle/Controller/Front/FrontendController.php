@@ -144,9 +144,8 @@ class FrontendController extends Controller
             throw new NotFoundHttpException();
         }
 
-        $contact = new ContactNewsletter();
-        $contact->setEmail('test@test.com');
+        $contact = $this->getDoctrine()->getRepository('AppBundle:ContactMessage')->find(1);
 
-        return $this->render(':Mail:newsletter_form_user_notification.html.twig', ['contact' => $contact]);
+        return $this->render(':Mail:contact_form_user_backend_notification.html.twig', ['contact' => $contact]);
     }
 }
