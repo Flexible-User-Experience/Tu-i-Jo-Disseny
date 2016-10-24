@@ -146,6 +146,6 @@ class FrontendController extends Controller
 
         $contact = $this->getDoctrine()->getRepository('AppBundle:ContactMessage')->find(1);
 
-        return $this->render(':Mail:contact_form_admin_notification.html.twig', ['contact' => $contact]);
+        return $this->render(':Mail:contact_form_user_backend_notification.html.twig', ['contact' => $contact]);
     }
 }
