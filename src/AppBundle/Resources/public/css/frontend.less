@@ -38,6 +38,7 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-size-base: 12px;
 @font-family-sans-serif: "interstate", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 // Colors
@@ -133,6 +134,8 @@ input:focus:-ms-input-placeholder,      textarea:focus:-ms-input-placeholder    
 @navbar-height: 170px;
 ul.top-menu {
   li {
+    &.extra-m-left  { margin-left: @gap-normal;  }
+    &.extra-m-right { margin-right: @gap-normal; }
     &.active {
       a {
         text-decoration: none;
