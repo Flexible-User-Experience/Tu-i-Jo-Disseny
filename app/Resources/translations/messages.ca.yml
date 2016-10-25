@@ -6,6 +6,7 @@ front:
   contact: contacte
   headquarter: estudi
   about: natros
+  cms: "[ cms ]"
 backend:
     admin:
         actions: Accions

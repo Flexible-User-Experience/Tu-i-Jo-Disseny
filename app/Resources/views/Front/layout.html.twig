@@ -24,33 +24,56 @@
 <body class="{% block body_class %}base{% endblock %}">
     {#<!-- Head content -->#}
     {% block header %}
-        <div class="container">
-            <div class="row">
-                <header class="main">
-                    <div class="col-xs-5 m-top">
-                        <ul class="top-menu list-unstyled list-inline">
-                            {% block top_left_menu %}
-                                <li class="extra-m-right"><a href="{{ path('front_projects') }}">{{ 'front.projects' | trans | upper }}</a></li>
-                                <li class="extra-m-right"><a href="#services">{{ 'front.services' | trans | upper }}</a></li>
-                                <li><a href="#about-us">{{ 'front.about' | trans | upper }}</a></li>
-                            {% endblock %}
-                        </ul>
-                    </div>
-                    <div class="col-xs-2 m-bottom text-center">
-                        <a class="no-text-decoration" href="{{ path('front_homepage') }}"><i class="fa-4x icon-tuijo"></i></a>
-                    </div>
-                    <div class="col-xs-5 m-top text-right">
-                        <ul class="top-menu list-unstyled list-inline">
-                            {% block top_right_menu %}
-                                <li><a href="#workspace">{{ 'front.headquarter' | trans | upper }}</a></li>
-                                <li class="extra-m-left"><a href="{{ path('front_blog_posts_list') }}">{{ 'front.blog' | trans | upper }}</a></li>
-                                <li class="extra-m-left"><a href="#contact">{{ 'front.contact' | trans | upper }}</a></li>
-                            {% endblock %}
-                        </ul>
-                    </div>
-                </header>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                {#<!-- Brand and toggle get grouped for better mobile display -->#}
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand navbar-brand-logo" href="{{ path('front_homepage') }}">
+                        <i class="fa-4x icon-tuijo"></i>
+                        {#<svg height="70" width="70" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">#}
+                            {#<image height="70" width="70" class="navbar-logo" xlink:href="{{ asset('bundles/app/svg/logo-header.svg') }}" alt="Espai Kowo Logo"></image>#}
+                        {#</svg>#}
+                    </a>
+                </div>
+                {#<!-- Collect the nav links, forms, and other content for toggling -->#}
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    {{ knp_menu_render('top', {currentClass: 'active'}) }}
+                </div>
             </div>
-        </div>
+        </nav>
+        {#<div class="container">#}
+            {#<div class="row">#}
+                {#<header class="main">#}
+                    {#<div class="col-xs-5 m-top">#}
+                        {#<ul class="top-menu list-unstyled list-inline">#}
+                            {#{% block top_left_menu %}#}
+                                {#<li class="extra-m-right"><a href="{{ path('front_projects') }}">{{ 'front.projects' | trans | upper }}</a></li>#}
+                                {#<li class="extra-m-right"><a href="#services">{{ 'front.services' | trans | upper }}</a></li>#}
+                                {#<li><a href="#about-us">{{ 'front.about' | trans | upper }}</a></li>#}
+                            {#{% endblock %}#}
+                        {#</ul>#}
+                    {#</div>#}
+                    {#<div class="col-xs-2 m-bottom text-center">#}
+                        {#<a class="no-text-decoration" href="{{ path('front_homepage') }}"><i class="fa-4x icon-tuijo"></i></a>#}
+                    {#</div>#}
+                    {#<div class="col-xs-5 m-top text-right">#}
+                        {#<ul class="top-menu list-unstyled list-inline">#}
+                            {#{% block top_right_menu %}#}
+                                {#<li><a href="#workspace">{{ 'front.headquarter' | trans | upper }}</a></li>#}
+                                {#<li class="extra-m-left"><a href="{{ path('front_blog_posts_list') }}">{{ 'front.blog' | trans | upper }}</a></li>#}
+                                {#<li class="extra-m-left"><a href="#contact">{{ 'front.contact' | trans | upper }}</a></li>#}
+                            {#{% endblock %}#}
+                        {#</ul>#}
+                    {#</div>#}
+                {#</header>#}
+            {#</div>#}
+        {#</div>#}
     {% endblock %}
     {#<!-- Main content -->#}
     {% block main %}{% endblock %}
