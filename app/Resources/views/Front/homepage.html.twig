@@ -6,7 +6,7 @@
         {% if projects | length > 0 %}
             <div class="row">
                 {% for project in projects %}
-                    <div class="col-sm-6 col-xs-12">
+                    <div class="col-sm-6 col-md-4 col-xs-12">
                         {% include ':Front/includes:project-thumb.html.twig' with {project: project} %}
                     </div>
                 {% endfor %}
