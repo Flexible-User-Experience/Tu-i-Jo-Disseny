@@ -126,12 +126,19 @@ input:focus:-ms-input-placeholder,      textarea:focus:-ms-input-placeholder    
 // Navbar
 @navbar-margin-bottom: @gap-big;
 @navbar-default-bg: transparent;
-@navbar-default-link-color: @blue-light;
+@navbar-default-link-color: @black;
 @navbar-default-link-hover-color: @black;
 @navbar-default-link-active-color: @black;
 @navbar-default-link-active-bg: transparent;
 @navbar-default-border: transparent;
-@navbar-height: 170px;
+@navbar-border-radius: 0;
+@navbar-height: 50px;
+.navbar {
+  margin-top: @gap-big;
+  margin-bottom: @gap-big;
+  border: 0;
+  .navbar-collapse { padding-right: 0; }
+}
 ul.top-menu {
   li {
     &.extra-m-left  { margin-left: @gap-normal;  }
@@ -139,19 +146,20 @@ ul.top-menu {
     &.active {
       a {
         text-decoration: none;
-        background: url('/bundles/app/vectors/current-menu.svg') 50% 0 no-repeat;
+        background: url('/bundles/app/vectors/current-menu.svg') 50% 50% no-repeat;
       }
     }
     a {
       &:hover {
         text-decoration: none;
-        background: url('/bundles/app/vectors/current-menu.svg') 50% 0 no-repeat;
+        background: url('/bundles/app/vectors/current-menu.svg') 50% 50% no-repeat;
       }
+      text-transform: uppercase;
       overflow: visible;
-      height: 51px;
+      //height: 51px;
       display: block;
-      padding-top: 14px;
-      margin-top: -16px;
+      //padding-top: 14px;
+      //margin-top: -16px;
       font-weight: bold;
       font-size: @font-size-small;
       @media(min-width: @screen-xs-max) {
@@ -165,41 +173,26 @@ ul.top-menu {
 }
 
 // Carousel
+@carousel-text-shadow: none;
 @carousel-control-color: @black;
 @carousel-control-opacity: 1;
-@carousel-indicator-border-color: @black;
 .carousel-control.right, .carousel-control.left {
   background-image: none;
-  border: @borderline;
-  &.no-border { border: none; }
 }
-.carousel-control.left {
-  border-left: none;
-}
-.carousel-control.right {
-  border-right: none;
-}
-.carousel-inner {
-  border: @borderline;
-  padding: @gap-big;
-  min-height: 300px;
-  &.no-border {
-    border: none;
-    padding: 0;
-  }
+.carousel-caption {
+  bottom: 35%;
 }
 .arrow-v-center {
   position: absolute;
   top: 50%;
   margin-top: -5px;
   text-shadow: none;
-  &.fa-long-arrow-left { left: 10%; }
-  &.fa-long-arrow-right { right: 10%; }
 }
 
 // Header
 header.main {
   padding: @gap-normal 0;
+  margin-top: @gap-normal;
   margin-bottom: @gap-normal;
 }
 
