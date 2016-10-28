@@ -5,6 +5,7 @@ namespace AppBundle\Menu;
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationChecker;
 
 /**
@@ -27,6 +28,11 @@ class FrontendMenuBuilder
     private $ac;
 
     /**
+     * @var UrlGeneratorInterface
+     */
+    private $router;
+
+    /**
      *
      *
      * Methods
@@ -35,13 +41,15 @@ class FrontendMenuBuilder
      */
 
     /**
-     * @param FactoryInterface     $factory
-     * @param AuthorizationChecker $ac
+     * @param FactoryInterface      $factory
+     * @param AuthorizationChecker  $ac
+     * @param UrlGeneratorInterface $router
      */
-    public function __construct(FactoryInterface $factory, AuthorizationChecker $ac)
+    public function __construct(FactoryInterface $factory, AuthorizationChecker $ac, UrlGeneratorInterface $router)
     {
         $this->factory = $factory;
-        $this->ac = $ac;
+        $this->ac      = $ac;
+        $this->router  = $router;
     }
 
     /**
@@ -72,11 +80,43 @@ class FrontendMenuBuilder
             )
         );
         $menu->addChild(
+            'front.services',
+            array(
+                'label'   => 'front.services',
+                'uri'     => $this->router->generate('front_homepage') . '#serveis',
+                'current' => $route == $this->router->generate('front_homepage') . '#serveis',
+            )
+        );
+        $menu->addChild(
+            'front.team',
+            array(
+                'label'   => 'front.about',
+                'uri'     => $this->router->generate('front_homepage') . '#natros',
+                'current' => $route == $this->router->generate('front_homepage') . '#natros',
+            )
+        );
+        $menu->addChild(
+            'front.headquarter',
+            array(
+                'label'   => 'front.headquarter',
+                'uri'     => $this->router->generate('front_homepage') . '#estudi',
+                'current' => $route == $this->router->generate('front_homepage') . '#estudi',
+            )
+        );
+        $menu->addChild(
             'front.blog',
             array(
                 'label'   => 'front.blog',
                 'route'   => 'front_blog_posts_list',
                 'current' => $route == 'front_blog_posts_list' || $route == 'front_blog_posts_detail',
+            )
+        );
+        $menu->addChild(
+            'front.contact',
+            array(
+                'label'   => 'front.contact',
+                'uri'     => $this->router->generate('front_homepage') . '#contacte',
+                'current' => $route == $this->router->generate('front_homepage') . '#contacte',
             )
         );
 
