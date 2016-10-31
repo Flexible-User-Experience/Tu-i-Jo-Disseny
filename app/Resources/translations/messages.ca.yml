@@ -83,3 +83,11 @@ backend:
             social_networks: Xarxes Socials
             url: URL
             category: Xarxa social
+form:
+    label:
+        name: NOM
+        email: EMAIL
+        phone: TELÈFON
+        message: MISSATGE
+        send: ENVIAR
+        forward: ">"

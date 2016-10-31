@@ -33,7 +33,7 @@ class ContactMessageType extends AbstractType
                     'label'    => false,
                     'required' => true,
                     'attr'     => array(
-                        'placeholder' => 'NOM',
+                        'placeholder' => 'form.label.name',
                     ),
                 )
             )
@@ -44,7 +44,7 @@ class ContactMessageType extends AbstractType
                     'label'    => false,
                     'required' => true,
                     'attr'     => array(
-                        'placeholder' => 'EMAIL',
+                        'placeholder' => 'form.label.email',
                     ),
                 )
             )
@@ -55,7 +55,7 @@ class ContactMessageType extends AbstractType
                     'label'    => false,
                     'required' => false,
                     'attr'     => array(
-                        'placeholder' => 'TELÈFON',
+                        'placeholder' => 'form.label.phone',
                     ),
                 )
             )
@@ -67,7 +67,7 @@ class ContactMessageType extends AbstractType
                     'required' => true,
                     'attr'     => array(
                         'rows'        => 5,
-                        'placeholder' => 'MISSATGE',
+                        'placeholder' => 'form.label.message',
                     ),
                 )
             )
@@ -75,7 +75,7 @@ class ContactMessageType extends AbstractType
                 'send',
                 SubmitType::class,
                 array(
-                    'label' => 'ENVIAR',
+                    'label' => 'form.label.send',
                     'attr'  => array(
                         'class' => 'btn-default squared bolder',
                     ),
