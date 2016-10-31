@@ -23,22 +23,6 @@
         {% if services | length > 0 %}
             <div id="serveis" class="carousel slide extra-m-bottom" data-ride="carousel" data-interval="false">
                 {#<!-- Wrapper for slides -->#}
-                {#<div class="row no-h-margin">#}
-                    {#<div class="col-xs-offset-2 col-xs-8">#}
-                        {#<div class="carousel-inner">#}
-                            {#{% for service in services %}#}
-                                {#<div class="item{% if loop.index == 1 %} active{% endif %}">#}
-                                    {#<div class="carousel-content">#}
-                                        {#<div class="text-center arror-v-center">#}
-                                            {#<h3 class="no-m-top c-black">{{ service.name }}</h3>#}
-                                            {#<span class="c-black">{{ service.description | raw }}</span>#}
-                                        {#</div>#}
-                                    {#</div>#}
-                                {#</div>#}
-                            {#{% endfor %}#}
-                        {#</div>#}
-                    {#</div>#}
-                {#</div>#}
                 <div class="carousel-inner" role="listbox">
                     {% for service in services %}
                         <div class="item{% if loop.index == 1 %} active{% endif %}">
@@ -71,34 +55,35 @@
             {% for partner in partners %}
                 <div class="row">
                     {% if loop.index is odd %}
-                        <div class="col-sm-offset-3 col-sm-3 col-xs-12">
+                        <div class="col-sm-offset-2 col-sm-4 col-xs-12">
                             {% if partner.imageName %}<img class="img-responsive thumb" src="{{ vich_uploader_asset(partner, 'imageFile') | imagine_filter('480x640') }}" alt="{{ partner.name }}">{% endif %}
                         </div>
-                        <div class="col-sm-6 col-xs-12">
-                            <h4 class="c-black">{{ partner.name }}</h4>
-                            <h6 class="c-black">{{ partner.studies }}</h6>
-                            <span class="c-black">{{ partner.description | raw }}</span>
+                        <div class="col-sm-4 col-xs-12">
+                            <h4 class="c-black no-m-top minus-left-margin">{{ partner.name }}</h4>
+                            <h6 class="c-black minus-left-margin-small m-bottom display-block">{{ partner.studies }}</h6>
+                            <span class="c-black extra-m-bottom display-block">{{ partner.description | raw }}</span>
+                            <div class="row">
+                                <div class="col-xs-12 ">
+                                    {% if partner.imageName2 %}<img class="img-responsive thumb" src="{{ vich_uploader_asset(partner, 'imageFile2') | imagine_filter('390xY') }}" alt="{{ partner.name }} 2">{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2"></div>
+                    {% else %}
+                        <div class="col-sm-offset-2 col-sm-4 col-xs-12 text-right">
+                            <h4 class="c-black no-m-top minus-right-margin">{{ partner.name }}</h4>
+                            <h6 class="c-black minus-right-margin-small m-bottom display-block">{{ partner.studies }}</h6>
+                            <span class="c-black extra-m-bottom display-block">{{ partner.description | raw }}</span>
                             <div class="row">
                                 <div class="col-xs-12 text-right">
-                                    {% if partner.imageName2 %}<img class="img-responsive thumb" src="{{ vich_uploader_asset(partner, 'imageFile2') | imagine_filter('350xY') }}" alt="{{ partner.name }} 2">{% endif %}
+                                    {% if partner.imageName2 %}<img class="img-responsive thumb display-block" src="{{ vich_uploader_asset(partner, 'imageFile2') | imagine_filter('390xY') }}" alt="{{ partner.name }} 2">{% endif %}
                                 </div>
                             </div>
                         </div>
-                    {% else %}
-                        <div class="col-sm-6 col-xs-12">
-                            <h4 class="c-black">{{ partner.name }}</h4>
-                            <h6 class="c-black">{{ partner.studies }}</h6>
-                            <span class="c-black">{{ partner.description | raw }}</span>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    {% if partner.imageName2 %}<img class="img-responsive thumb" src="{{ vich_uploader_asset(partner, 'imageFile2') | imagine_filter('350xY') }}" alt="{{ partner.name }} 2">{% endif %}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3 col-xs-12">
+                        <div class="col-sm-4 col-xs-12">
                             {% if partner.imageName %}<img class="img-responsive thumb" src="{{ vich_uploader_asset(partner, 'imageFile') | imagine_filter('480x640') }}" alt="{{ partner.name }}">{% endif %}
                         </div>
-                        <div class="col-sm-3"></div>
+                        <div class="col-sm-2"></div>
                     {% endif %}
                 </div>
             {% endfor %}
