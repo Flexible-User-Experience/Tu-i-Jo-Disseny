@@ -85,9 +85,21 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-3">
-                        <a class="social-network-icon" target="_blank" href="https://www.facebook.com/tuijodissenygrafic/"><i class="fa-3x icon-facebook"></i></a>
-                        <a class="social-network-icon" target="_blank" href="https://www.instagram.com/tujo_disseny/"><i class="fa-3x icon-instagram"></i></a>
-                        <a class="social-network-icon" target="_blank" href="https://es.pinterest.com/tujodisseny/"><i class="fa-3x icon-pinterest"></i></a>
+                        <a class="social-network-icon" target="_blank" href="https://www.facebook.com/tuijodissenygrafic/">
+                            <svg height="50" width="50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <image height="50" width="50" class="navbar-logo" xlink:href="{{ asset('bundles/app/vectors/icon-facebook.svg') }}"></image>
+                            </svg>
+                        </a>
+                        <a class="social-network-icon" target="_blank" href="https://www.instagram.com/tujo_disseny/">
+                            <svg height="50" width="50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <image height="50" width="50" xlink:href="{{ asset('bundles/app/vectors/icon-instagram.svg') }}"></image>
+                            </svg>
+                        </a>
+                        <a class="social-network-icon" target="_blank" href="https://es.pinterest.com/tujodisseny/">
+                            <svg height="50" width="50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <image height="50" width="50" xlink:href="{{ asset('bundles/app/vectors/icon-pinterest.svg') }}"></image>
+                            </svg>
+                        </a>
                     </div>
                     <div class="col-xs-6 text-center">
                         {% block bottom_contact_form %}
