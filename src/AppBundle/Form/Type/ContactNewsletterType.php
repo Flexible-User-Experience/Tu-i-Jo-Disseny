@@ -31,7 +31,7 @@ class ContactNewsletterType extends AbstractType
                     'label'    => false,
                     'required' => true,
                     'attr'     => array(
-                        'placeholder' => 'EMAIL',
+                        'placeholder' => 'form.label.email',
                     ),
                 )
             )
@@ -39,7 +39,7 @@ class ContactNewsletterType extends AbstractType
                 'send',
                 SubmitType::class,
                 array(
-                    'label' => '>',
+                    'label' => 'form.label.forward',
                     'attr'  => array(
                         'class' => 'btn-default squared no-gap newsletter',
                     ),
