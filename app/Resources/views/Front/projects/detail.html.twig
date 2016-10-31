@@ -1,6 +1,6 @@
 {% extends ':Front:layout.html.twig' %}
 
-{% block title %}{{ project.name | capitalize }} · {{ 'front.projects' | trans | capitalize }} · {{ parent() }}{% endblock %}
+{% block title %}{{ project.name | title }} · {{ 'front.projects' | trans | capitalize }} · {{ parent() }}{% endblock %}
 
 {% block main %}
     <div class="container-fluid no-h-padding">
@@ -32,13 +32,27 @@
         <div class="row">
             <div class="col-xs-1"></div>
             <div class="col-xs-10 extra-m-bottom">
-                <h1 class="no-m-top c-black">{{ project.name }}</h1>
-                {% if project.services | length > 0 %}
-                    <h4 class="no-m-top">{{ project.services | join(', ') }}</h4>
-                {% endif %}
-                <p class="extra-m-top c-black">{{ project.description | raw }}</p>
+                {#<h1 class="no-m-top c-black">{{ project.name }}</h1>#}
+                {#{% if project.services | length > 0 %}#}
+                    {#<h4 class="no-m-top">{{ project.services | join(', ') }}</h4>#}
+                {#{% endif %}#}
+                <span class="extra-m-top c-black block text-center">{{ project.description | raw }}</span>
             </div>
             <div class="col-xs-1"></div>
         </div>
+        {% if true %}
+
+            {% for image in project.images %}
+                {% if image.imageName %}
+                    <div class="row extra-m-bottom">
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-10">
+                            <img class="img-responsive center-block" src="{{ vich_uploader_asset(image, 'imageFile') | imagine_filter('1200xY') }}" alt="{{ image.imageName }} photo">
+                        </div>
+                        <div class="col-xs-1"></div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
     </div>
 {% endblock %}
