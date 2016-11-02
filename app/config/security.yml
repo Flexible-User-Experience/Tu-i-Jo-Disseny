@@ -46,7 +46,7 @@ security:
             logout:
                 path:   /admin/logout
                 target: /admin/login
-            anonymous:          true
+            anonymous: true
         frontend:
             pattern:   ^/(.*)
             context:   user
