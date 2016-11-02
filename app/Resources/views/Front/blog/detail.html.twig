@@ -20,11 +20,11 @@
                 <hr class="c-black">
                 <h4 class="text-center extra-m-top c-black">COMPARTEIX</h4>
                 <ul class="list-inline m-top center-block text-center">
-                    <li><a href="#">FACEBOOK</a></li>
-                    <li><a href="#">PINTEREST</a></li>
-                    <li><a href="mailto:?subject=Et comparteixo un article interessant&body={{ absolute_url('front_blog_posts_detail', {year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug}) }}">EMAIL</a></li>
-                    <li><a href="#">GOOGLE+</a></li>
-                    <li><a href="#">TWITTER</a></li>
+                    <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ url('front_blog_posts_detail', {year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug}) | url_encode }}">FACEBOOK</a></li>
+                    <li><a href="https://pinterest.com/pin/create/link/?url={{ url('front_blog_posts_detail', {year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug}) }}&media={{ vich_uploader_asset(post, 'imageFile') | imagine_filter('1140x684') }}&description={{ post.description }}">PINTEREST</a></li>
+                    <li><a href="mailto:?subject=Et comparteixo un article interessant&body={{ url('front_blog_posts_detail', {year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug}) }}">EMAIL</a></li>
+                    <li><a href="https://plus.google.com/share?&url={{ url('front_blog_posts_detail', {year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug}) }}">GOOGLE+</a></li>
+                    <li><a href="https://twitter.com/share?&text={{ post.name }}&url={{ url('front_blog_posts_detail', {year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug}) }}">TWITTER</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-4">
