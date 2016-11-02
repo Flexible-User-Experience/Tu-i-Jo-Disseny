@@ -9,14 +9,21 @@
                 <h2 class="text-center no-m-top c-black">{{ post.name }}</h2>
                 <h5 class="text-center extra-m-bottom c-black">{{ post.publishedAt | date('d/m/Y') }}</h5>
                 <img class="img-responsive extra-m-bottom center-block" src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('1200xY') }}" alt="{{ post.name }}">
-                <span class="c-black">{{ post.description | raw }}</span>
+                <span class="c-black extra-m-bottom display-block">{{ post.description | raw }}</span>
+                <hr class="c-black">
+                <h4 class="text-center extra-m-top c-black">COMPARTEIX</h4>
+                <ul class="list-inline m-top center-block text-center">
+                    <li><a href="#">FACEBOOK</a></li>
+                    <li><a href="#">PINTEREST</a></li>
+                    <li><a href="#">EMAIL</a></li>
+                    <li><a href="#">GOOGLE+</a></li>
+                    <li><a href="#">TWITTER</a></li>
+                </ul>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-4">
-
                 {% for tag in post.tags if tag.enabled %}
                     <h6>{{ tag.name }}</h6>
                 {% endfor %}
-
             </div>
         </div>
     </div>
