@@ -87,6 +87,7 @@ form:
     label:
         name: NOM
         email: EMAIL
+        newsletteremail: INTRODUEIX EL TEU EMAIL
         phone: TELÈFON
         message: MISSATGE
         send: ENVIAR

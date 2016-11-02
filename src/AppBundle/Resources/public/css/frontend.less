@@ -112,8 +112,10 @@ input:focus:-ms-input-placeholder,      textarea:focus:-ms-input-placeholder    
 .m-bottom { margin-bottom: @gap-normal; }
 .extra-m-top    { margin-top: @gap-big; }
 .extra-m-bottom { margin-bottom: @gap-big; }
-.no-p-left  { padding-left: 0; }
-.no-p-right { padding-right: 0; }
+.no-p-top    { padding-top: 0; }
+.no-p-bottom { padding-bottom: 0; }
+.no-p-left   { padding-left: 0; }
+.no-p-right  { padding-right: 0; }
 .no-h-padding {
   padding-left: 0;
   padding-right: 0;
@@ -217,7 +219,7 @@ ul.blog-tags {
       font-weight: bold;
       text-transform: uppercase;
       border-top: none;
-      padding: 0 @gap-normal @gap-normal @gap-normal;
+      &.no-p-top { padding-top: 0; }
     }
     &:nth-child(2) { border-top: none; }
   }
