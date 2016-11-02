@@ -141,6 +141,7 @@ input:focus:-ms-input-placeholder,      textarea:focus:-ms-input-placeholder    
   margin-top: @gap-big;
   margin-bottom: @gap-big;
   border: 0;
+  a.navbar-brand.navbar-brand-logo { margin-top: -@gap-normal; }
   .navbar-collapse { padding-right: 0; }
 }
 ul.top-menu {
@@ -160,10 +161,7 @@ ul.top-menu {
       }
       text-transform: uppercase;
       overflow: visible;
-      //height: 51px;
       display: block;
-      //padding-top: 14px;
-      //margin-top: -16px;
       font-weight: bold;
       font-size: @font-size-small;
       @media(min-width: @screen-xs-max) {
@@ -231,7 +229,9 @@ footer.main {
   color: @black;
   background-color: @grey;
   a.social-network-icon {
+    margin-top: 25px;
     margin-right: @gap-small;
+    display: inline-block;
     &:hover { text-decoration: none; }
   }
   hr {
