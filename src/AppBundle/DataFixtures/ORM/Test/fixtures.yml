@@ -52,7 +52,11 @@ AppBundle\Entity\Partner:
 
 ## Tags
 AppBundle\Entity\BlogTag:
-  tag{1..2}:
+  tag{1}:
+    name: mytag
+    position: <current()>
+    enabled: true
+  tag{2..3}:
     name: <current()> <word()>
     position: <current()>
     enabled: <boolean(70)>
@@ -62,7 +66,7 @@ AppBundle\Entity\BlogPost:
   post{1}:
     name: my post
     description: <text(1000)>
-    tags: <numberBetween(0, 2)>x @tag*
+    tags: [ @tag1 ]
     imageName: <numberBetween(1, 5)>.jpg
     publishedAt: <(new DateTime("2016-11-01"))>
     position: <current()>
