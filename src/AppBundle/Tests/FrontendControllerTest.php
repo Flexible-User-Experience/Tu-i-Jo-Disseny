@@ -38,6 +38,7 @@ class FrontendControllerTest extends AbstractBaseTest
             array('/projectes'),
             array('/projecte/my-project'),
             array('/blog'),
+            array('/blog/categoria/mytag'),
             array('/blog/2016/11/01/my-post'),
             array('/sitemap/sitemap.default.xml'),
         );
