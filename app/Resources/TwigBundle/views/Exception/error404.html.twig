@@ -2,4 +2,6 @@
 
 {% block title %}Error 404 · {{ parent() }}{% endblock %}
 
-{% block error_text %}Error 404 · Pàgina no trobada{% endblock %}
+{% block asset_svg %}{{ asset('bundles/app/vectors/error404.svg') }}{% endblock %}
+
+{% block error_text %}404 · Pàgina no trobada{% endblock %}

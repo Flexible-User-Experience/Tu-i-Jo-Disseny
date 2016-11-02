@@ -2,4 +2,6 @@
 
 {% block title %}Error 403 · {{ parent() }}{% endblock %}
 
-{% block error_text %}Error 403 · Prohibit{% endblock %}
+{% block asset_svg %}{{ asset('bundles/app/vectors/error404.svg') }}{% endblock %}
+
+{% block error_text %}403 · Prohibit{% endblock %}

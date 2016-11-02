@@ -5,15 +5,13 @@
 {% block main %}
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 c-grey">
-                <p class="no-m-bottom">{{ randomErrorText() }}</p>
-            </div>
-            <div class="col-xs-12">
-                <h1 class="no-m-top no-m-bottom text-center"><i
-                            class="fa fa-exclamation-triangle"></i> {% block error_text %}Error{% endblock %}</h1>
-            </div>
-            <div class="col-xs-12 c-grey">
-                <p class="no-m-bottom">{{ randomErrorText() }}</p>
+            <div class="col-xs-12 text-center">
+                <svg height="300" width="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <image height="300" width="300" class="navbar-logo" xlink:href="{% block asset_svg %}{{ asset('bundles/app/vectors/error404.svg') }}{% endblock %}"></image>
+                </svg>
+                <h1 class="extra-m-bottom c-black">
+                    OOPS! S'HA PRODUÏT UN ERROR {% block error_text %}{% endblock %}
+                </h1>
             </div>
         </div>
     </div>
