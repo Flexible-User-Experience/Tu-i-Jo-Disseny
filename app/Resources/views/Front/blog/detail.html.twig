@@ -21,6 +21,7 @@
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-4">
+                {{ form(blog_form) }}
                 {% if post.tags | length > 0 %}
                     <ul class="blog-tags list-unstyled center-block text-center">
                         <li class="title">CATEGORIES</li>
