@@ -28,26 +28,7 @@
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-4">
-                <div class="extra-m-bottom">
-                    <ul class="blog-tags list-unstyled center-block text-center">
-                        <li class="title no-p-top">SUBSCRIU-TE</li>
-                    </ul>
-                    {{ form(blog_form) }}
-                    {% if flash is not null %}
-                        <div class="alert alert-success" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="fa fa-times"></i></button>
-                            <i class="fa fa-paper-plane-o"></i> {{ flash | trans }}
-                        </div>
-                    {% endif %}
-                </div>
-                {% if post.tags | length > 0 %}
-                    <ul class="extra-m-top blog-tags list-unstyled center-block text-center">
-                        <li class="title">CATEGORIES</li>
-                        {% for tag in post.tags %}
-                            <li>{{ tag.name }}</li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
+                {% include ':Front/includes:blog-common-right-column.html.twig' with {form: blog_form, tags: post.tags} %}
             </div>
         </div>
     </div>

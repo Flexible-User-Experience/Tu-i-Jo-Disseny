@@ -108,7 +108,7 @@ class FrontendMenuBuilder
             array(
                 'label'   => 'front.blog',
                 'route'   => 'front_blog_posts_list',
-                'current' => $route == 'front_blog_posts_list' || $route == 'front_blog_posts_detail',
+                'current' => $route == 'front_blog_posts_list' || $route == 'front_blog_tag_detail' || $route == 'front_blog_posts_detail',
             )
         );
         $menu->addChild(
