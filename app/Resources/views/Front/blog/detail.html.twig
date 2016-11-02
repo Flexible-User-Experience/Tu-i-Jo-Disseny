@@ -15,15 +15,18 @@
                 <ul class="list-inline m-top center-block text-center">
                     <li><a href="#">FACEBOOK</a></li>
                     <li><a href="#">PINTEREST</a></li>
-                    <li><a href="#">EMAIL</a></li>
+                    <li><a href="mailto:?subject=Et comparteixo un article interessant&body={{ absolute_url('front_blog_posts_detail', {year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug}) }}">EMAIL</a></li>
                     <li><a href="#">GOOGLE+</a></li>
                     <li><a href="#">TWITTER</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-4">
+                <ul class="blog-tags list-unstyled center-block text-center">
+                    <li class="title">SUBSCRIU-TE</li>
+                </ul>
                 {{ form(blog_form) }}
                 {% if post.tags | length > 0 %}
-                    <ul class="blog-tags list-unstyled center-block text-center">
+                    <ul class="extra-m-top blog-tags list-unstyled center-block text-center">
                         <li class="title">CATEGORIES</li>
                         {% for tag in post.tags %}
                             <li>{{ tag.name }}</li>
