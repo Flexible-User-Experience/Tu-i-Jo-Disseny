@@ -28,10 +28,12 @@
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-4">
-                <ul class="blog-tags list-unstyled center-block text-center">
-                    <li class="title">SUBSCRIU-TE</li>
-                </ul>
-                {{ form(blog_form) }}
+                <div class="extra-m-bottom">
+                    <ul class="blog-tags list-unstyled center-block text-center">
+                        <li class="title no-p-top">SUBSCRIU-TE</li>
+                    </ul>
+                    {{ form(blog_form) }}
+                </div>
                 {% if post.tags | length > 0 %}
                     <ul class="extra-m-top blog-tags list-unstyled center-block text-center">
                         <li class="title">CATEGORIES</li>
