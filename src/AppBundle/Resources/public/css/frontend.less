@@ -208,12 +208,30 @@ img.thumb { margin-bottom: @gap-normal; }
 // Map
 .google-maps-container { height: 300px; }
 
+// Unsorted Lists
+ul.blog-tags {
+  li {
+    color: @black;
+    padding: @gap-small;
+    border-top: solid 1px @black;
+    &.title {
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-top: none;
+      padding: 0 @gap-normal @gap-normal @gap-normal;
+    }
+    &:nth-child(2) { border-top: none; }
+  }
+}
+
 // Footer
 footer.main {
   padding: @gap-big 0;
   color: @black;
   background-color: @grey;
   a.social-network-icon {
+    margin-right: @gap-small;
     &:hover { text-decoration: none; }
   }
   hr {
@@ -290,5 +308,8 @@ footer.main {
   }
   i.fa { line-height: inherit; }
 }
+
+// Other customizations
+hr.c-black { border-top-color: @black; }
 
 .display-block { display: block; }

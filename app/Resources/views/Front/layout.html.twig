@@ -4,7 +4,7 @@
 <!--[if IE 8]>        <html lang="{{ app.request.locale }}" class="no-js lt-ie9"><![endif]-->
 <!--[if gt IE 8]><!--><html lang="{{ app.request.locale }}" class="no-js"><!--<![endif]-->
 <head>
-    <meta name="description" content="{% block metadescription %}{# TODO set metadescription #}{% endblock %}">
+    <meta name="description" content="{% block metadescription %}{% endblock %}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="author" content="www.flux.cat">
     <meta charset="UTF-8">
@@ -47,33 +47,6 @@
                 </div>
             </div>
         </nav>
-        {#<div class="container">#}
-            {#<div class="row">#}
-                {#<header class="main">#}
-                    {#<div class="col-xs-5 m-top">#}
-                        {#<ul class="top-menu list-unstyled list-inline">#}
-                            {#{% block top_left_menu %}#}
-                                {#<li class="extra-m-right"><a href="{{ path('front_projects') }}">{{ 'front.projects' | trans | upper }}</a></li>#}
-                                {#<li class="extra-m-right"><a href="#services">{{ 'front.services' | trans | upper }}</a></li>#}
-                                {#<li><a href="#about-us">{{ 'front.about' | trans | upper }}</a></li>#}
-                            {#{% endblock %}#}
-                        {#</ul>#}
-                    {#</div>#}
-                    {#<div class="col-xs-2 m-bottom text-center">#}
-                        {#<a class="no-text-decoration" href="{{ path('front_homepage') }}"><i class="fa-4x icon-tuijo"></i></a>#}
-                    {#</div>#}
-                    {#<div class="col-xs-5 m-top text-right">#}
-                        {#<ul class="top-menu list-unstyled list-inline">#}
-                            {#{% block top_right_menu %}#}
-                                {#<li><a href="#workspace">{{ 'front.headquarter' | trans | upper }}</a></li>#}
-                                {#<li class="extra-m-left"><a href="{{ path('front_blog_posts_list') }}">{{ 'front.blog' | trans | upper }}</a></li>#}
-                                {#<li class="extra-m-left"><a href="#contact">{{ 'front.contact' | trans | upper }}</a></li>#}
-                            {#{% endblock %}#}
-                        {#</ul>#}
-                    {#</div>#}
-                {#</header>#}
-            {#</div>#}
-        {#</div>#}
     {% endblock %}
     {#<!-- Main content -->#}
     {% block main %}{% endblock %}
@@ -86,18 +59,18 @@
                 <div class="row">
                     <div class="col-xs-3">
                         <a class="social-network-icon" target="_blank" href="https://www.facebook.com/tuijodissenygrafic/">
-                            <svg height="50" width="50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <image height="50" width="50" class="navbar-logo" xlink:href="{{ asset('bundles/app/vectors/icon-facebook.svg') }}"></image>
+                            <svg height="30" width="30" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <image height="30" width="30" class="navbar-logo" xlink:href="{{ asset('bundles/app/vectors/icon-facebook.svg') }}"></image>
                             </svg>
                         </a>
                         <a class="social-network-icon" target="_blank" href="https://www.instagram.com/tujo_disseny/">
-                            <svg height="50" width="50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <image height="50" width="50" xlink:href="{{ asset('bundles/app/vectors/icon-instagram.svg') }}"></image>
+                            <svg height="30" width="30" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <image height="30" width="30" xlink:href="{{ asset('bundles/app/vectors/icon-instagram.svg') }}"></image>
                             </svg>
                         </a>
                         <a class="social-network-icon" target="_blank" href="https://es.pinterest.com/tujodisseny/">
-                            <svg height="50" width="50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                <image height="50" width="50" xlink:href="{{ asset('bundles/app/vectors/icon-pinterest.svg') }}"></image>
+                            <svg height="30" width="30" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <image height="30" width="30" xlink:href="{{ asset('bundles/app/vectors/icon-pinterest.svg') }}"></image>
                             </svg>
                         </a>
                     </div>

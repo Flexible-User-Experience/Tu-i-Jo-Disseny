@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\BlogPost;
+
 /**
  * Class BlogTagRepository
  *
@@ -11,4 +13,21 @@ namespace AppBundle\Repository;
  */
 class BlogTagRepository extends BaseRepository
 {
+    /**
+     * @param BlogPost $post
+     *
+     * @return array
+     */
+    public function getPostTagsSortedByTitle(BlogPost $post)
+    {
+        $query = $this->createQueryBuilder('t')
+            ->where('p.id = :pid')
+            ->andWhere('t.enabled = :enabled')
+            ->setParameter('pid', $post->getId())
+            ->setParameter('enabled', true)
+            ->join('t.posts', 'p')
+            ->orderBy('t.name');
+
+        return $query->getQuery()->getResult();
+    }
 }

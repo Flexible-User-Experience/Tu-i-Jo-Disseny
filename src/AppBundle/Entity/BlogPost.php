@@ -30,7 +30,7 @@ class BlogPost extends Base
      * @ORM\ManyToMany(targetEntity="BlogTag", inversedBy="posts")
      * @ORM\JoinTable(name="posts_tags")
      *
-     * @var ArrayCollection
+     * @var array
      */
     protected $tags;
 
@@ -91,11 +91,11 @@ class BlogPost extends Base
     /**
      * Set Tags
      *
-     * @param ArrayCollection $tags
+     * @param array $tags
      *
      * @return $this
      */
-    public function setTags(ArrayCollection $tags)
+    public function setTags($tags)
     {
         $this->tags = $tags;
 
@@ -105,7 +105,7 @@ class BlogPost extends Base
     /**
      * Get Tags
      *
-     * @return ArrayCollection
+     * @return array
      */
     public function getTags()
     {

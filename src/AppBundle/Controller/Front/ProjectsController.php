@@ -30,6 +30,7 @@ class ProjectsController extends Controller
 
     /**
      * @Route("/projecte/{slug}", name="front_project_detail")
+     *
      * @param $slug
      *
      * @return Response
@@ -49,6 +50,7 @@ class ProjectsController extends Controller
     /**
      * @Route("/projecte/{slug}/seguent", name="front_project_next")
      * @Method({"GET"})
+     *
      * @param $slug
      *
      * @return Response
@@ -77,6 +79,7 @@ class ProjectsController extends Controller
     /**
      * @Route("/projecte/{slug}/anterior", name="front_project_prev")
      * @Method({"GET"})
+     *
      * @param $slug
      *
      * @return Response
