@@ -3,6 +3,7 @@
 namespace AppBundle\Controller\Front;
 
 use AppBundle\Entity\BlogPost;
+use AppBundle\Entity\BlogTag;
 use AppBundle\Entity\ContactNewsletter;
 use AppBundle\Form\Type\BlogNewsletterType;
 use Doctrine\ORM\EntityNotFoundException;
@@ -27,7 +28,7 @@ class BlogController extends Controller
      *
      * @return Response
      */
-    public function blogListAction(Request $request)
+    public function blogPostsListAction(Request $request)
     {
         $flash = null;
         $newsletter = new ContactNewsletter();
@@ -64,7 +65,7 @@ class BlogController extends Controller
      * @return Response
      * @throws EntityNotFoundException
      */
-    public function projectAction(Request $request, $year, $month, $day, $slug)
+    public function blogPostDetailAction(Request $request, $year, $month, $day, $slug)
     {
         $date = \DateTime::createFromFormat('Y-m-d', $year . '-' . $month . '-' . $day);
         /** @var BlogPost $post */
@@ -96,6 +97,47 @@ class BlogController extends Controller
             ':Front/blog:detail.html.twig',
             [
                 'post'      => $post,
+                'blog_form' => $form->createView(),
+                'flash'     => $flash,
+            ]
+        );
+    }
+
+    /**
+     * @Route("/blog/categoria/{slug}", name="front_blog_tag_detail")
+     *
+     * @param Request $request
+     * @param string  $slug
+     *
+     * @return Response
+     * @throws EntityNotFoundException
+     */
+    public function blogTagDetailAction(Request $request, $slug)
+    {
+        /** @var BlogTag $tag */
+        $tag = $this->getDoctrine()->getRepository('AppBundle:BlogTag')->findOneBy(['slug' => $slug]);
+        if (!$tag) {
+            throw new EntityNotFoundException();
+        }
+
+        $flash = null;
+        $newsletter = new ContactNewsletter();
+        $form = $this->createForm(BlogNewsletterType::class, $newsletter);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            // handle submit
+            $flash = $this->commonFromSubmitHandler($newsletter);
+            // reset form
+            $newsletter = new ContactNewsletter();
+            $form = $this->createForm(BlogNewsletterType::class, $newsletter);
+        }
+
+        return $this->render(
+            ':Front/blog:tag_list.html.twig',
+            [
+                'tag'       => $tag,
+                'tags'      => $this->getDoctrine()->getRepository('AppBundle:BlogTag')->findAllEnabledSortedByName(),
+                'posts'     => $this->getDoctrine()->getRepository('AppBundle:BlogPost')->getAllEnabledSortedByPublishedDateWithJoinUntilNowByTag($tag),
                 'blog_form' => $form->createView(),
                 'flash'     => $flash,
             ]

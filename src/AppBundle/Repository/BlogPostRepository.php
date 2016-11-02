@@ -2,6 +2,7 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\BlogTag;
 use Doctrine\ORM\QueryBuilder;
 
 /**
@@ -47,6 +48,25 @@ class BlogPostRepository extends BaseRepository
         $query = $this->commonGetAllEnabledSortedByPublishedDateWithJoinQB();
         $query
             ->andWhere('p.publishedAt <= :published')
+            ->setParameter('published', $now->format('Y-m-d'));
+
+        return $query->getQuery()->getResult();
+    }
+
+    /**
+     * @param BlogTag $tag
+     *
+     * @return array
+     */
+    public function getAllEnabledSortedByPublishedDateWithJoinUntilNowByTag(BlogTag $tag)
+    {
+        $now = new \DateTime();
+
+        $query = $this->commonGetAllEnabledSortedByPublishedDateWithJoinQB();
+        $query
+            ->andWhere('t.id = :tag')
+            ->andWhere('p.publishedAt <= :published')
+            ->setParameter('tag', $tag->getId())
             ->setParameter('published', $now->format('Y-m-d'));
 
         return $query->getQuery()->getResult();
