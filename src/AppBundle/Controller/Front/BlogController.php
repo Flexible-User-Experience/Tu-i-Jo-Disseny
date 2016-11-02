@@ -25,7 +25,7 @@ class BlogController extends Controller
             ':Front/blog:list.html.twig',
             [
                 'tags'  => $this->getDoctrine()->getRepository('AppBundle:BlogTag')->findAllEnabledSortedByName(),
-                'posts' => $this->getDoctrine()->getRepository('AppBundle:BlogPost')->findAllEnabledSortedByName(),
+                'posts' => $this->getDoctrine()->getRepository('AppBundle:BlogPost')->getAllEnabledSortedByPublishedDateWithJoinUntilNow(),
             ]
         );
     }
