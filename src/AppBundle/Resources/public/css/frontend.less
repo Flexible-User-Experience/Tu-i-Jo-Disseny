@@ -208,6 +208,23 @@ img.thumb { margin-bottom: @gap-normal; }
 // Map
 .google-maps-container { height: 300px; }
 
+// Unsorted Lists
+ul.blog-tags {
+  li {
+    color: @black;
+    padding: @gap-small;
+    border-top: solid 1px @black;
+    &.title {
+      font-size: 16px;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-top: none;
+      padding: 0 @gap-normal @gap-normal @gap-normal;
+    }
+    &:nth-child(2) { border-top: none; }
+  }
+}
+
 // Footer
 footer.main {
   padding: @gap-big 0;

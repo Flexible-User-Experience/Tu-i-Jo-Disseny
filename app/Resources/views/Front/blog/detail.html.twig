@@ -21,9 +21,14 @@
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-5 col-md-4">
-                {% for tag in post.tags if tag.enabled %}
-                    <h6>{{ tag.name }}</h6>
-                {% endfor %}
+                {% if post.tags | length > 0 %}
+                    <ul class="blog-tags list-unstyled center-block text-center">
+                        <li class="title">CATEGORIES</li>
+                        {% for tag in post.tags %}
+                            <li>{{ tag.name }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
             </div>
         </div>
     </div>
