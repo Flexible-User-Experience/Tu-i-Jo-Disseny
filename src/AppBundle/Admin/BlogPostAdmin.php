@@ -171,8 +171,9 @@ class BlogPostAdmin extends BaseAdmin
                 'publishedAt',
                 'sonata_type_date_picker',
                 array(
-                    'label'  => 'Data publicació',
-                    'format' => 'd/M/y'
+                    'label'    => 'Data publicació',
+                    'format'   => 'd/M/y',
+                    'required' => true,
                 )
             )
             ->add(

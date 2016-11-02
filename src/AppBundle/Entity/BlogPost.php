@@ -56,6 +56,7 @@ class BlogPost extends Base
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotNull()
      *
      * @var \DateTime
      */
