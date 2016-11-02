@@ -22,14 +22,32 @@ class BlogController extends Controller
 {
     /**
      * @Route("/blog", name="front_blog_posts_list")
+     *
+     * @param Request $request
+     *
+     * @return Response
      */
-    public function blogListAction()
+    public function blogListAction(Request $request)
     {
+        $flash = null;
+        $newsletter = new ContactNewsletter();
+        $form = $this->createForm(BlogNewsletterType::class, $newsletter);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            // handle submit
+            $flash = $this->commonFromSubmitHandler($newsletter);
+            // reset form
+            $newsletter = new ContactNewsletter();
+            $form = $this->createForm(BlogNewsletterType::class, $newsletter);
+        }
+
         return $this->render(
             ':Front/blog:list.html.twig',
             [
-                'tags'  => $this->getDoctrine()->getRepository('AppBundle:BlogTag')->findAllEnabledSortedByName(),
-                'posts' => $this->getDoctrine()->getRepository('AppBundle:BlogPost')->getAllEnabledSortedByPublishedDateWithJoinUntilNow(),
+                'tags'      => $this->getDoctrine()->getRepository('AppBundle:BlogTag')->findAllEnabledSortedByName(),
+                'posts'     => $this->getDoctrine()->getRepository('AppBundle:BlogPost')->getAllEnabledSortedByPublishedDateWithJoinUntilNow(),
+                'blog_form' => $form->createView(),
+                'flash'     => $flash,
             ]
         );
     }
@@ -67,20 +85,11 @@ class BlogController extends Controller
         $form = $this->createForm(BlogNewsletterType::class, $newsletter);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            // persist entity
-            $cnm = $this->get('app.contact_newsletter_manager');
-            $persistedNewsletter = $cnm->fetchOrCreateNewRecord($newsletter);
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($persistedNewsletter);
-            $em->flush();
-            // send notifications
-            $messenger = $this->get('app.notification');
-            $messenger->sendNewsletterUserNotification($persistedNewsletter);
+            // handle submit
+            $flash = $this->commonFromSubmitHandler($newsletter);
             // reset form
             $newsletter = new ContactNewsletter();
             $form = $this->createForm(BlogNewsletterType::class, $newsletter);
-            // build flash message
-            $flash = 'revisa el correu, has de verificar la teva bústia per rebre el newsletter';
         }
 
         return $this->render(
@@ -91,5 +100,27 @@ class BlogController extends Controller
                 'flash'     => $flash,
             ]
         );
+    }
+
+    /**
+     * @param ContactNewsletter $newsletter
+     *
+     * @return string
+     */
+    private function commonFromSubmitHandler(ContactNewsletter $newsletter)
+    {
+        // persist entity
+        $cnm = $this->get('app.contact_newsletter_manager');
+        $persistedNewsletter = $cnm->fetchOrCreateNewRecord($newsletter);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($persistedNewsletter);
+        $em->flush();
+        // send notifications
+        $messenger = $this->get('app.notification');
+        $messenger->sendNewsletterUserNotification($persistedNewsletter);
+        // TODO send admin notification
+
+        // build flash message
+        return 'revisa el correu, has de verificar la teva bústia per rebre el newsletter';
     }
 }
