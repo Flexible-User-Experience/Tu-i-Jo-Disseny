@@ -3,7 +3,6 @@
 namespace AppBundle\Controller\Front;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -31,12 +30,13 @@ class BlogController extends Controller
     }
 
     /**
-     * @Route("/blog/{slug}", name="front_blog_posts_detail")
+     * @Route("/blog/{year}/{month}/{day}/{slug}", name="front_blog_posts_detail")
+     *
      * @param $slug
      *
      * @return Response
      */
-    public function projectAction($slug)
+    public function projectAction($year, $month, $day, $slug)
     {
         $post = $this->getDoctrine()->getRepository('AppBundle:BlogPost')->findOneBy(
             [ 'slug' => $slug ]

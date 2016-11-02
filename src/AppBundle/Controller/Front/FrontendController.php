@@ -23,6 +23,7 @@ class FrontendController extends Controller
 {
     /**
      * @Route("/", name="front_homepage")
+     *
      * @param Request $request
      *
      * @return Response
@@ -68,6 +69,7 @@ class FrontendController extends Controller
 
     /**
      * @Route("/newsletter-form", name="app_newsletter_form")
+     *
      * @param Request $request
      *
      * @return Response
@@ -106,6 +108,7 @@ class FrontendController extends Controller
 
     /**
      * @Route("/newsletter-form/confirmation-email/{email}", name="app_newsletter_form_confirmation_email")
+     *
      * @param string $email
      *
      * @return Response

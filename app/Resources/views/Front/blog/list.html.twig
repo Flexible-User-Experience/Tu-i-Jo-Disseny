@@ -10,7 +10,7 @@
                     {% for post in posts %}
                         <div class="media extra-m-bottom">
                             <div class="media-left">
-                                <a href="{{ path('front_blog_posts_detail', {slug: post.slug}) }}">
+                                <a href="{{ path('front_blog_posts_detail', {year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug}) }}">
                                     <img class="media-object" src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('256x256') }}" alt="{{ post.name }}">
                                 </a>
                             </div>
@@ -20,7 +20,7 @@
                                         <h6>{{ tag.name }}</h6>
                                     {% endfor %}
                                 <p>{{ post.description | truncate(200) }}</p>
-                                <a href="{{  path('front_blog_posts_detail', {slug: post.slug}) }}" class="btn btn-sm btn-info">Llegir més</a>
+                                <a href="{{  path('front_blog_posts_detail', {year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug}) }}" class="btn btn-sm btn-info">Llegir més</a>
                             </div>
                         </div>
                     {% endfor %}
