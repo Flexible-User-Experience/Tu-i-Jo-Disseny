@@ -1,0 +1,7 @@
+{% extends 'TwigBundle:Exception:error.html.twig' %}
+
+{% block title %}Error 404 · {{ parent() }}{% endblock %}
+
+{% block asset_svg %}{{ asset('bundles/app/vectors/error404.svg') }}{% endblock %}
+
+{% block error_text %}404 · Pàgina no trobada{% endblock %}

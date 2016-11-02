@@ -1,0 +1,7 @@
+{% extends 'TwigBundle:Exception:error.html.twig' %}
+
+{% block title %}Error 500 · {{ parent() }}{% endblock %}
+
+{% block asset_svg %}{{ asset('bundles/app/vectors/error500.svg') }}{% endblock %}
+
+{% block error_text %}500 · Error Intern de Servidor{% endblock %}
