@@ -2,6 +2,13 @@
 
 {% block title %}{{ post.name | title }} · {{ 'front.blog' | trans | capitalize }} · {{ parent() }}{% endblock %}
 
+{% block extrametas %}
+    <meta name="og:site_name" content="{{ main_brand_title }}" />
+    <meta name="og:title" content="{{ post.name }}" />
+    <meta name="og:description" content="{{ post.description | striptags }}" />
+    <meta name="og:image" content="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('1140x684') }}" />
+{% endblock %}
+
 {% block main %}
     <div class="container">
         <div class="row">
