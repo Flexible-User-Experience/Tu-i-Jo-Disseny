@@ -22,7 +22,31 @@
     <table class="row">
         <tbody>
         <tr>
-            <th><a href="{{ url('app_newsletter_form_confirmation_email', {email: contact.email}) }}"><img src="{{ absolute_url(asset('bundles/app/images/newsletter-footer.jpg')) }}"></a></th>
+            <th class="small-12 large-12 columns first last vertical-padding">
+                <table>
+                    <tr>
+                        <th>
+                            <center>
+                                <br align="center" class="text-center"><br align="center" class="text-center">
+                                <table class="button text-center">
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <a href="{{ url('app_newsletter_form_confirmation_email', {email: contact.email}) }}">FES CLIC AQUÍ PER CONFIRMAR</a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </center>
+                        </th>
+                        <th class="expander"></th>
+                    </tr>
+                </table>
+            </th>
         </tr>
         </tbody>
     </table>
