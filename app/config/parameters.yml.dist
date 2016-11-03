@@ -33,3 +33,5 @@ parameters:
 
     locale: ca
     main_brand_title: "Tu&Jo Disseny"
+    mailchimp_api_key: xxxxxxx-us5
+    mailchimp_newsletter_list_id: xxxxxxx
