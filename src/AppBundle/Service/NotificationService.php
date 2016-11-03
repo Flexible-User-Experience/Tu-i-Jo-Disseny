@@ -97,7 +97,7 @@ class NotificationService
      *
      * @param ContactMessage $contactMessage
      */
-    public function senddUserBackendNotification(ContactMessage $contactMessage)
+    public function sendUserBackendNotification(ContactMessage $contactMessage)
     {
         $this->messenger->sendEmail(
             $this->amd,
@@ -109,6 +109,11 @@ class NotificationService
         );
     }
 
+    /**
+     * Send subscribe to newsletter notification to web user
+     *
+     * @param ContactNewsletter $contactNewsletter
+     */
     public function sendNewsletterUserNotification(ContactNewsletter $contactNewsletter)
     {
         $this->messenger->sendEmail(
@@ -117,6 +122,23 @@ class NotificationService
             $this->urlBase . ' registre newsletter',
             $this->twig->render(':Mail:newsletter_form_user_notification.html.twig', array(
                 'contact' => $contactNewsletter,
+            ))
+        );
+    }
+
+    /**
+     * Send a common notification mail to admin user
+     *
+     * @param string $text
+     */
+    public function sendCommonAdminNotification($text)
+    {
+        $this->messenger->sendEmail(
+            $this->amd,
+            $this->amd,
+            'Notificació pàgina web ' . $this->urlBase,
+            $this->twig->render(':Mails:common_admin_notification.html.twig', array(
+                'text' => $text,
             ))
         );
     }

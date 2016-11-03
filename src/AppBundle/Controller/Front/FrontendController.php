@@ -48,6 +48,9 @@ class FrontendController extends Controller
             $messenger = $this->get('app.notification');
             $messenger->sendUserNotification($contact);
             $messenger->sendAdminNotification($contact);
+            // subscribe contact to Mailchimp
+            $mailchimpManager = $this->get('app.mailchimp_manager');
+            $mailchimpManager->subscribeContactToList($contact->getEmail(), $this->getParameter('mailchimp_newsletter_list_id'));
             // reset form
             $contact = new ContactMessage();
             $form = $this->createForm(ContactMessageType::class, $contact);
@@ -90,6 +93,7 @@ class FrontendController extends Controller
             // send notifications
             $messenger = $this->get('app.notification');
             $messenger->sendNewsletterUserNotification($persistedNewsletter);
+            $messenger->sendCommonAdminNotification('En ' . $persistedNewsletter->getEmail() . ' s\'ha registrat a la llista Newsletter de Mailchimp correctament.');
             // reset form
             $newsletter = new ContactNewsletter();
             $form = $this->createForm(ContactNewsletterType::class, $newsletter);
@@ -121,9 +125,14 @@ class FrontendController extends Controller
         $msg = 'KO';
 
         if ($contactNewsletter) {
+            // update & persist entity changes
             $contactNewsletter->setChecked(true);
             $em->persist($contactNewsletter);
             $em->flush();
+            // subscribe contact to Mailchimp
+            $mailchimpManager = $this->get('app.mailchimp_manager');
+            $mailchimpManager->subscribeContactToList($contactNewsletter->getEmail(), $this->getParameter('mailchimp_newsletter_list_id'));
+            // set flash message
             $msg = 'OK';
         }
 
