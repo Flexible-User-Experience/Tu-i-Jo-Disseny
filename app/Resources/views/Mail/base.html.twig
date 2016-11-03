@@ -34,7 +34,10 @@
                                         <tbody>
                                         <tr>
                                             <th class="vertical-padding">
-                                                <img style="margin-top:80px;margin-bottom:100px" class="text-center" alt="logo" src="{{ absolute_url(asset('bundles/app/images/logotip-small.png')) }}">
+                                                <a href="{{ url('front_homepage') }}">
+                                                    <img style="margin-top:80px;margin-bottom:100px" class="text-center" alt="logo" src="{{ absolute_url(asset('bundles/app/images/logotip-small.png')) }}">
+                                                </a>
+
                                             </th>
                                         </tr>
                                         </tbody>
@@ -45,11 +48,33 @@
                                     {% block footer %}
                                         <table class="row">
                                             <tbody>
+                                            <tr>
+                                                <th class="small-12 large-12 columns first last">
+                                                    <table>
+                                                        <tr>
+                                                            <th>&#xA0;</th>
+                                                            <th class="expander"></th>
+                                                        </tr>
+                                                    </table>
+                                                </th>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <table class="row">
+                                            <tbody>
                                             <th class="small-6 large-6 columns first vertical-padding">
                                                 <table>
                                                     <tr>
                                                         <th>
-                                                            {#<h1>footer left</h1>#}
+                                                            <a href="https://www.facebook.com/tuijodissenygrafic/">
+                                                                <img style="display:inline-block;width:45px;margin-right:10px" alt="facebook logo" src="{{ absolute_url(asset('bundles/app/images/icon-facebook.png')) }}">
+                                                            </a>
+                                                            <a href="https://www.instagram.com/tujo_disseny/">
+                                                                <img style="display:inline-block;width:45px;margin-right:10px" alt="instagram logo" src="{{ absolute_url(asset('bundles/app/images/icon-instagram.png')) }}">
+                                                            </a>
+                                                            <a href="https://es.pinterest.com/tujodisseny/">
+                                                                <img style="display:inline-block;width:45px" alt="pinterest logo" src="{{ absolute_url(asset('bundles/app/images/icon-pinterest.png')) }}">
+                                                            </a>
                                                         </th>
                                                         <th class="expander"></th>
                                                     </tr>
