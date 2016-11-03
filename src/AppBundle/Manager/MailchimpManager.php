@@ -48,34 +48,20 @@ class MailchimpManager
     /**
      * Mailchimp Manager
      *
-     * @param ContactMessage $contact
-     * @param string         $listId
+     * @param string $email
+     * @param string $listId
      *
      * @return boolean       $result
      */
-    public function subscribeContactToList(ContactMessage $contact, $listId)
+    public function subscribeContactToList($email, $listId)
     {
         $this->mailChimp->setListID($listId);
         $list = $this->mailChimp->getList();
-        //Evaluate contact name
-        $explodeName = explode(" ", $contact->getName());
-        if(count($explodeName) === 1){
-            $list->setMerge(array(
-                'FNAME' => $explodeName[0]
-                )
-            );
-        } else if (count($explodeName) >= 2) {
-            $list->setMerge(array(
-                'FNAME' => $explodeName[0],
-                'LNAME' => $explodeName[1]
-                )
-            );
-        }
         $list->setDoubleOptin(false);
-        $result = $list->Subscribe($contact->getEmail());
+        $result = $list->Subscribe($email);
         // Check contact to list
         if ($result == false) {
-            $this->messenger->sendCommonAdminNotification('En ' . $contact->getEmail() . ' no s\'ha pogut registrar a la llista de Mailchimp');
+            $this->messenger->sendCommonAdminNotification('En ' . $email . ' no s\'ha pogut registrar a la llista Newsletter de Mailchimp per algun motiu desconegut');
         }
 
         return $result;

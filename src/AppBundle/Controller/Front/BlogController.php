@@ -161,6 +161,9 @@ class BlogController extends Controller
         $messenger = $this->get('app.notification');
         $messenger->sendNewsletterUserNotification($persistedNewsletter);
         // TODO send admin notification
+        // subscribe contact to Mailchimp
+        $mailchimpManager = $this->get('app.mailchimp_manager');
+        $mailchimpManager->subscribeContactToList($persistedNewsletter->getEmail(), $this->getParameter('mailchimp_newsletter_list_id'));
 
         // build flash message
         return 'revisa el correu, has de verificar la teva bústia per rebre el newsletter';
