@@ -19,8 +19,10 @@ services:
 # Managers
     app.contact_newsletter_manager:
         class: AppBundle\Manager\ContactNewsletterManager
-        arguments:
-            - "@app.repository.contact_newsletter"
+        arguments: [ "@app.repository.contact_newsletter" ]
+    app.mailchimp_manager:
+        class: AppBundle\Manager\MailchimpManager
+        arguments: [ "@mailchimp", "@app.notification" ]
 # Menu
     app.frontend_menu_builder:
         class: AppBundle\Menu\FrontendMenuBuilder
