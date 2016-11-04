@@ -1,22 +1,20 @@
 {% extends ':Mail:base.html.twig' %}
 
 {% block content %}
-    <table class="row light-brown-background">
+    <table class="row">
         <tbody>
         <tr>
             <th class="small-12 large-12 columns first last vertical-padding">
                 <table>
                     <tr>
                         <th>
-                            <h2>Hola de nou!</h2>
-                            <p>{{ contact.answer | raw }}</p>
+                            <h4 class="text-center" style="margin-bottom:30px">HOLA DE NOU!</h4>
+                            <p class="text-center">{{ contact.answer | raw }}</p>
                             <br><br>
-                            <p>
+                            <p class="text-center" style="margin-bottom:50px">
                                 Has rebut aquesta notificació per respondre la teva pregunta del {{ contact.createdAt | date('d/m/Y') }} a les {{ contact.createdAt | date('H:i') }}h:<br>
-                                <em>"{{ contact.message | raw }}"</em>
+                                <em class="text-center">"{{ contact.message | raw }}"</em>
                             </p>
-                            <br><br>
-                            <p>Gràcies per contactar amb nosaltres.</p>
                         </th>
                         <th class="expander"></th>
                     </tr>
