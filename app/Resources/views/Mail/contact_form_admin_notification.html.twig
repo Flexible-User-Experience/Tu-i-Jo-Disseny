@@ -1,17 +1,17 @@
 {% extends ':Mail:base.html.twig' %}
 
 {% block content %}
-    <table class="row light-brown-background">
+    <table class="row">
         <tbody>
         <tr>
             <th class="small-12 large-12 columns first last vertical-padding">
                 <table>
                     <tr>
                         <th>
-                            <h2>Has rebut un nou missatge de contacte</h2>
-                            <p>Revisa la llista de missatges rebuts al CMS <a href="{{ url('admin_app_contactmessage_list') }}">aquí</a>, o respon directament  <a href="{{ url('admin_app_contactmessage_answer', { id: contact.id }) }}">aquí</a></p>
+                            <h4 class="text-center" style="margin-bottom:30px">HAS REBUT UN MISSATGE DE CONTACTE</h4>
+                            <p class="text-center">Revisa la llista de missatges rebuts al CMS <a href="{{ url('admin_app_contactmessage_list') }}">aquí</a>, o respon directament  <a href="{{ url('admin_app_contactmessage_answer', { id: contact.id }) }}">aquí</a></p>
                             <br><br>
-                            <p>Bona sort!</p>
+                            <p class="text-center" style="margin-bottom:50px">Bona sort!</p>
                         </th>
                         <th class="expander"></th>
                     </tr>
