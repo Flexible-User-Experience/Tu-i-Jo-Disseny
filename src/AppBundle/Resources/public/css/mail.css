@@ -21,3 +21,19 @@
 .left-margin-negative {
    margin-left: 15px;
 }
+
+/* Custom buttons */
+table.button td a, table.tiny-button td a, table.small-button td a, table.medium-button td a, table.large-button td a {
+   display: block !important;
+}
+table.button.empty-with-border td {
+   background: #FFFFFF;
+   border-color: #000000;
+}
+table.button.empty-with-border:hover td {
+   background: #134b90 !important;
+}
+table.button.empty-with-border td a {
+   color: #000000;
+   padding: 15px 50px;
+}
