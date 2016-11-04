@@ -1,18 +1,18 @@
 {% extends ':Mail:base.html.twig' %}
 
 {% block content %}
-    <table class="row light-brown-background">
+    <table class="row">
         <tbody>
         <tr>
             <th class="small-12 large-12 columns first last vertical-padding">
                 <table>
                     <tr>
                         <th>
-                            <h2>Gràcies per contactar amb nosaltres!</h2>
-                            <p>Hem rebut la teva pregunta:</p>
-                            <p><em>"{{ contact.message | raw }}"</em></p>
+                            <h4 class="text-center" style="margin-bottom:30px">GRÀCIES PER CONTACTAR AMB NATROS!</h4>
+                            <p class="text-center">Hem rebut la teva pregunta:</p>
+                            <p class="text-center"><em>"{{ contact.message | raw }}"</em></p>
                             <br><br>
-                            <p>Et respondre'm el més aviat possible. Salutacions.</p>
+                            <h5 class="text-center" style="margin-bottom:50px">Et respondre'm el més aviat possible.</h5>
                         </th>
                         <th class="expander"></th>
                     </tr>
