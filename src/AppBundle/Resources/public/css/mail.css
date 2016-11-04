@@ -6,6 +6,9 @@
 .green-color      { color: #A1C548; }
 .grey-color       { color: #8B8B8B; }
 
+/* Body */
+html { background-color: #FFFFFF; }
+
 /* Margins */
 .vertical-padding { padding: 20px 0; }
 .padding-bottom   { padding: 16px 0; }
