@@ -2,30 +2,18 @@
 
 {% block title %}Confirmació newsletter · {{ parent() }}{% endblock %}
 
-{% block top_left_menu %}
-    <li><a href="{{ path('front_projects') }}">{{ 'front.projects' | trans | upper }}</a></li>
-    <li><a href="{{ path('front_homepage') }}#services">{{ 'front.services' | trans | upper }}</a></li>
-    <li><a href="{{ path('front_homepage') }}#about-us">{{ 'front.about' | trans | upper }}</a></li>
-{% endblock %}
-
-{% block top_right_menu %}
-    <li><a href="{{ path('front_homepage') }}#workspace">{{ 'front.headquarter' | trans | upper }}</a></li>
-    <li><a href="#">{{ 'front.blog' | trans | upper }}</a></li>
-    <li><a href="{{ path('front_homepage') }}#contact">{{ 'front.contact' | trans | upper }}</a></li>
-{% endblock %}
-
 {% block main %}
     <div class="container">
         <div class="row">
             <div class="col-xs-12 extra-m-bottom">
-                {% if msg == 'OK' %}
-                    <div class="alert alert-success" role="alert">
-                        <i class="fa fa-check"></i> Registre completat correctament. Gràcies.
-                    </div>
+                {% if msg != 'OK' %}
+                    <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <image height="100%" width="100%" xlink:href="{{ asset('bundles/app/vectors/email_confirmation_ok_banner.svg') }}"></image>
+                    </svg>
                 {% else %}
-                    <div class="alert alert-danger" role="alert">
-                        <i class="fa fa-times"></i> Ho sentim, la teva adreça no és correcta.
-                    </div>
+                    <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <image height="100%" width="100%" xlink:href="{{ asset('bundles/app/vectors/email_confirmation_ko_banner.svg') }}"></image>
+                    </svg>
                 {% endif %}
             </div>
         </div>
