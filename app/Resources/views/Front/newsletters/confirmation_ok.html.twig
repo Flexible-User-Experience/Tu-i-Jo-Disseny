@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 extra-m-bottom">
-                {% if msg == 'OK' %}
+                {% if msg != 'OK' %}
                     <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <image height="100%" width="100%" xlink:href="{{ asset('bundles/app/vectors/email_confirmation_ok_banner.svg') }}"></image>
                     </svg>
