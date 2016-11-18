@@ -2,9 +2,8 @@
 
 namespace AppBundle\Manager;
 
-use AppBundle\Entity\ContactMessage;
 use AppBundle\Service\NotificationService;
-use MZ\MailChimpBundle\Services\MailChimp;
+use \DrewM\MailChimp\MailChimp;
 
 /**
  * Class MailchimpManager
@@ -36,12 +35,12 @@ class MailchimpManager
     /**
      * MailchimpManager constructor.
      *
-     * @param MailChimp           $mailChimp
      * @param NotificationService $messenger
+     * @param string              $mailchimpApiKey
      */
-    public function __construct(MailChimp $mailChimp, NotificationService $messenger)
+    public function __construct(NotificationService $messenger, $mailchimpApiKey)
     {
-        $this->mailChimp = $mailChimp;
+        $this->mailChimp = new MailChimp($mailchimpApiKey);
         $this->messenger = $messenger;
     }
 
@@ -51,17 +50,19 @@ class MailchimpManager
      * @param string $email
      * @param string $listId
      *
-     * @return boolean       $result
+     * @return boolean $result
      */
     public function subscribeContactToList($email, $listId)
     {
-        $this->mailChimp->setListID($listId);
-        $list = $this->mailChimp->getList();
-        $list->setDoubleOptin(false);
-        $result = $list->Subscribe($email);
-        // Check contact to list
-        if ($result == false) {
-            $this->messenger->sendCommonAdminNotification('En ' . $email . ' no s\'ha pogut registrar a la llista Newsletter de Mailchimp per algun motiu desconegut');
+        // make HTTP API request
+        $result = $this->mailChimp->post('lists/' . $listId . '/members', array(
+            'email_address' => $email,
+            'status'        => 'subscribed',
+        ));
+
+        // check error
+        if ($result === false) {
+            $this->messenger->sendCommonAdminNotification('El mail ' . $email . ' no s\'ha pogut registrar a la llista de Mailchimp');
         }
 
         return $result;

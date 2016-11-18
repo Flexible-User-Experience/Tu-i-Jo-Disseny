@@ -22,7 +22,7 @@ services:
         arguments: [ "@app.repository.contact_newsletter" ]
     app.mailchimp_manager:
         class: AppBundle\Manager\MailchimpManager
-        arguments: [ "@mailchimp", "@app.notification" ]
+        arguments: [ "@app.notification", "%mailchimp_api_key%" ]
 # Menu
     app.frontend_menu_builder:
         class: AppBundle\Menu\FrontendMenuBuilder
