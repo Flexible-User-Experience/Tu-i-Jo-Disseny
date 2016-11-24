@@ -228,19 +228,30 @@ ul.top-menu {
 @carousel-control-color: @black;
 @carousel-control-opacity: 1;
 div#serveis {
+  min-height: 300px;
+  min-width: 100%;
   .carousel-control.right, .carousel-control.left {
     background-image: none;
   }
   .carousel-caption {
-    bottom: 35%;
-    @media(max-width: @screen-xs-max) {
-      bottom: 0;
-    }
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: initial;
   }
   img {
+    min-height: 300px;
+    min-width: 100%;
     visibility: visible;
     @media(max-width: @screen-xs-max) {
       visibility: hidden;
+    }
+  }
+  .carousel-inner {
+    .item {
+      -webkit-transform-style: preserve-3d;
+      -moz-transform-style: preserve-3d;
+      transform-style: preserve-3d;
     }
   }
 }
