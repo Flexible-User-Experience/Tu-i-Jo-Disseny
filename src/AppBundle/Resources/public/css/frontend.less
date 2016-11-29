@@ -85,6 +85,17 @@ input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholde
 input:focus::-moz-placeholder,          textarea:focus::-moz-placeholder          { opacity: 0.2; }
 input:focus:-moz-placeholder,           textarea:focus:-moz-placeholder           { opacity: 0.2; }
 input:focus:-ms-input-placeholder,      textarea:focus:-ms-input-placeholder      { opacity: 0.2; }
+@media(max-width: @screen-xs-max) {
+  input#contact_newsletter_email {
+    width: 90%;
+    float: left;
+    margin-bottom: 20px;
+  }
+  button#contact_newsletter_send {
+    width: 10%;
+    float: left;
+  }
+}
 
 // Buttons
 .btn-default.squared {
