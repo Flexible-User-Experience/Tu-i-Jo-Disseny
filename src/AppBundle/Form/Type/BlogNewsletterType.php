@@ -5,6 +5,7 @@ namespace AppBundle\Form\Type;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Class ContactNewsletterType
@@ -30,7 +31,6 @@ class BlogNewsletterType extends ContactNewsletterType
                     'required' => true,
                     'attr'     => array(
                         'placeholder' => 'form.label.newsletteremail',
-                        'style'       => 'width:325px',
                     ),
                 )
             )
@@ -44,6 +44,22 @@ class BlogNewsletterType extends ContactNewsletterType
                     ),
                 )
             );
+    }
+
+    /**
+     * @param OptionsResolver $resolver
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(
+            array(
+                'data_class'      => 'AppBundle\Entity\ContactNewsletter',
+                'csrf_protection' => false,
+                'attr'  => array(
+                    'class' => 'm-bottom',
+                ),
+            )
+        );
     }
 
     /**
