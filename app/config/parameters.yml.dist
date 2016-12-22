@@ -17,7 +17,7 @@ parameters:
     mailer_destination: dummy@dummy.com
     mailer_url_base:    www.dummy.com
 
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    secret:            ThXXTokRRIsNotFETSed4ftCh4ng31t
 
     private_admin_test_user: admin
     private_admin_test_pass: admin
