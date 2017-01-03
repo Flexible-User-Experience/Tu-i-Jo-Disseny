@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 class ProjectsController extends Controller
 {
     /**
-     * @Route("/projectes", name="front_projects")
+     * @Route("/projectes/", name="front_projects")
      */
     public function projectsAction()
     {
@@ -29,7 +29,7 @@ class ProjectsController extends Controller
     }
 
     /**
-     * @Route("/projecte/{slug}", name="front_project_detail")
+     * @Route("/projecte/{slug}/", name="front_project_detail")
      *
      * @param $slug
      *
@@ -48,7 +48,7 @@ class ProjectsController extends Controller
     }
 
     /**
-     * @Route("/projecte/{slug}/seguent", name="front_project_next")
+     * @Route("/projecte/{slug}/seguent/", name="front_project_next")
      * @Method({"GET"})
      *
      * @param $slug
@@ -77,7 +77,7 @@ class ProjectsController extends Controller
     }
 
     /**
-     * @Route("/projecte/{slug}/anterior", name="front_project_prev")
+     * @Route("/projecte/{slug}/anterior/", name="front_project_prev")
      * @Method({"GET"})
      *
      * @param $slug

@@ -71,7 +71,7 @@ class FrontendController extends Controller
     }
 
     /**
-     * @Route("/newsletter-form", name="app_newsletter_form")
+     * @Route("/newsletter-form/", name="app_newsletter_form")
      *
      * @param Request $request
      *
@@ -111,7 +111,7 @@ class FrontendController extends Controller
     }
 
     /**
-     * @Route("/newsletter-form/confirmation-email/{email}", name="app_newsletter_form_confirmation_email")
+     * @Route("/newsletter-form/confirmation-email/{email}/", name="app_newsletter_form_confirmation_email")
      *
      * @param string $email
      *
@@ -145,7 +145,7 @@ class FrontendController extends Controller
     }
 
     /**
-     * @Route("/test-email", name="front_test_email")
+     * @Route("/test-email/", name="front_test_email")
      *
      * @return Response
      * @throws NotFoundHttpException
