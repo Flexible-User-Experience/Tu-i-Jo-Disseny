@@ -22,7 +22,7 @@ use Symfony\Component\HttpFoundation\Response;
 class BlogController extends Controller
 {
     /**
-     * @Route("/blog/", name="front_blog_posts_list")
+     * @Route("/blog", name="front_blog_posts_list")
      *
      * @param Request $request
      *
@@ -54,7 +54,7 @@ class BlogController extends Controller
     }
 
     /**
-     * @Route("/blog/{year}/{month}/{day}/{slug}/", name="front_blog_posts_detail")
+     * @Route("/blog/{year}/{month}/{day}/{slug}", name="front_blog_posts_detail")
      *
      * @param Request $request
      * @param string  $year
@@ -104,7 +104,7 @@ class BlogController extends Controller
     }
 
     /**
-     * @Route("/blog/categoria/{slug}/", name="front_blog_tag_detail")
+     * @Route("/blog/categoria/{slug}", name="front_blog_tag_detail")
      *
      * @param Request $request
      * @param string  $slug
