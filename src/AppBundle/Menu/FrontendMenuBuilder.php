@@ -7,6 +7,7 @@ use Knp\Menu\ItemInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationChecker;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**
  * Class MenuBuilder
@@ -33,6 +34,11 @@ class FrontendMenuBuilder
     private $router;
 
     /**
+     * @var TokenStorageInterface
+     */
+    private $ts;
+
+    /**
      *
      *
      * Methods
@@ -43,12 +49,14 @@ class FrontendMenuBuilder
     /**
      * @param FactoryInterface      $factory
      * @param AuthorizationChecker  $ac
+     * @param TokenStorageInterface $ts
      * @param UrlGeneratorInterface $router
      */
-    public function __construct(FactoryInterface $factory, AuthorizationChecker $ac, UrlGeneratorInterface $router)
+    public function __construct(FactoryInterface $factory, AuthorizationChecker $ac, TokenStorageInterface $ts, UrlGeneratorInterface $router)
     {
         $this->factory = $factory;
         $this->ac      = $ac;
+        $this->ts      = $ts;
         $this->router  = $router;
     }
 
@@ -62,7 +70,7 @@ class FrontendMenuBuilder
         $route = $requestStack->getCurrentRequest()->get('_route');
         $menu = $this->factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav navbar-nav navbar-right top-menu');
-        if ($this->ac->isGranted('ROLE_CMS')) {
+        if ($this->ts->getToken() && $this->ac->isGranted('ROLE_CMS')) {
             $menu->addChild(
                 'admin',
                 array(
