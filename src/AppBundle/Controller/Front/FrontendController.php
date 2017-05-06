@@ -31,7 +31,7 @@ class FrontendController extends Controller
     public function homepageAction(Request $request)
     {
         $gms = $this->get('app.google_maps_service');
-        $mapObject = $gms->buildMap(40.7097791, 0.5786492, 18);
+        $mapObject = $gms->buildMap(40.709573, 0.578438, 18);
         $projects = $this->getDoctrine()->getRepository('AppBundle:Project')->findAllEnabledAndShowInHomepageSortedByPosition();
         $services = $this->getDoctrine()->getRepository('AppBundle:Service')->findAllEnabledSortedByPosition();
         $partners = $this->getDoctrine()->getRepository('AppBundle:Partner')->findAllEnabledSortedByPosition();
