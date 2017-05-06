@@ -21,11 +21,7 @@ class GoogleMapsService
     private $locale;
 
     /**
-     *
-     *
      * Methods
-     *
-     *
      */
 
     /**
