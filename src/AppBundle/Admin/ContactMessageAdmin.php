@@ -226,6 +226,7 @@ class ContactMessageAdmin extends BaseAdmin
                             'template' => '::Admin/Cells/list__action_answer.html.twig'
                         )
                     ),
+                    'label'   => 'Accions',
                 )
             );
     }
