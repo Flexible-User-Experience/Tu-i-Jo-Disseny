@@ -133,3 +133,8 @@ ivory_google_map:
             api_key: "%google_maps_api_key%"
     geocoder_request:
         sensor: false
+
+# Google reCaptcha
+beelab_recaptcha2:
+    site_key: "%recaptcha_site_key%"
+    secret:   "%recaptcha_secret%"

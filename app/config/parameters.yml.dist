@@ -28,6 +28,9 @@ parameters:
     google_analytics_account: "UA-fake..."
     google_maps_api_key:      "xxxxxxxxxxxxx"
 
+    recaptcha_site_key: "xxxxxxxxxxxxx"
+    recaptcha_secret:   "xxxxxxxxxxxxx"
+
     path_java:         /usr/bin/java
     path_node:         /usr/bin/nodejs
     path_node_modules: /home/<user>/node_modules
