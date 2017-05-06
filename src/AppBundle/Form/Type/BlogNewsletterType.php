@@ -56,7 +56,9 @@ class BlogNewsletterType extends ContactNewsletterType
                 'data_class'      => 'AppBundle\Entity\ContactNewsletter',
                 'csrf_protection' => true,
                 'attr'  => array(
-                    'class' => 'm-bottom',
+                    'class' => 'm-bottom g-recaptcha',
+                    'data-sitekey' => $this->recaptchaSiteKey,
+                    'data-callback' => 'TODO',
                 ),
             )
         );
