@@ -1,0 +1,40 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: espaikowo
+    database_user: userflux
+    database_password: flux
+    mailer_transport: smtp
+    mailer_host: smtp.espaikowo.cat
+    mailer_user: info@espaikowo.cat
+    mailer_password: 4ndr01d34ndr0
+    secret: 2f80cc548d175a865d2bd60144acedf86de65844
+    google_analytics_enabled: true
+    google_analytics_account: UA-67148466-1
+    path_java: /usr/bin/java
+    path_node: /usr/bin/nodejs
+    path_node_modules: /usr/lib/nodejs
+    mailer_destination: info@espaikowo.cat
+    mailer_url_base: www.espaikowo.cat
+    locale: ca
+    private_admin_test_user: admin
+    private_admin_test_pass: admin
+    private_editor_test_user: user
+    private_editor_test_pass: user
+    project_web_title: 'Espai Kowo'
+    private_admin_prod_user: dromani
+    private_admin_prod_pass: 4ndr01d3
+    private_admin_prod_email: david@flux.cat
+    private_admin_prod_firstname: David
+    private_admin_prod_lastname: Romaní
+    recaptcha_public_key: 6LeeICoTAAAAAPQJgNjo1XHFKMk5FsDq6wnYrDyC
+    recaptcha_private_key: 6LeeICoTAAAAAHeQaUVYUhH6NhEng918umCCv4_O
+    database_server_version: 5.5
+    facebook_pixel_enabled: true
+    facebook_pixel_id: 188330984940067
+    mailchimp_api_key: 896c75a907d705ffc1f25f312caa69b0-us11
+    mailchimp_newsletter_list_id: ad2298109f
+    mailchimp_free_trial_list_id: afccd946a6
+    knp_disqus.api_key: 8SLxbM8VXCQ7zJlf7aDiHBMY4CDOj0fVGVhXVIXM5muN6aAxAs0l2SeYuYkd4kae
+    knp_disqus.blog.shortname: espaikowo
