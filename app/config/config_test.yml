@@ -26,6 +26,9 @@ liip_functional_test:
         username: "%private_admin_test_user%"
         password: "%private_admin_test_pass%"
 
+beelab_recaptcha2:
+    enabled: false
+
 security:
     firewalls:
         admin:
