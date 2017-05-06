@@ -54,7 +54,7 @@ class BlogNewsletterType extends ContactNewsletterType
         $resolver->setDefaults(
             array(
                 'data_class'      => 'AppBundle\Entity\ContactNewsletter',
-                'csrf_protection' => false,
+                'csrf_protection' => true,
                 'attr'  => array(
                     'class' => 'm-bottom',
                 ),
