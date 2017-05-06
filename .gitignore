@@ -46,3 +46,8 @@
 /web/images/*
 !/web/images/.gitkeep
 /web/assetic/
+
+# Ansible
+/app/ansible/vars/
+!/app/ansible/vars/.gitkeep
+/app/ansible/*.retry
