@@ -33,7 +33,6 @@ class ContactMessageAdmin extends BaseAdmin
         $collection
             ->remove('create')
             ->remove('edit')
-            ->remove('delete')
             ->remove('batch')
             ->add('answer', $this->getRouterIdParameter() . '/answer');
     }
@@ -224,7 +223,10 @@ class ContactMessageAdmin extends BaseAdmin
                         ),
                         'answer' => array(
                             'template' => '::Admin/Cells/list__action_answer.html.twig'
-                        )
+                        ),
+                        'delete' => array(
+                            'template' => '::Admin/Buttons/list__action_delete_button.html.twig'
+                        ),
                     ),
                     'label'   => 'Accions',
                 )
