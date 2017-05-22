@@ -107,6 +107,9 @@ fos_user:
         group_manager: sonata.user.orm.group_manager
     service:
         user_manager:  sonata.user.orm.user_manager
+    from_email:
+        address:     "%mailer_destination%"
+        sender_name: "%main_brand_title%"
 
 # Swiftmailer Configuration
 swiftmailer:
