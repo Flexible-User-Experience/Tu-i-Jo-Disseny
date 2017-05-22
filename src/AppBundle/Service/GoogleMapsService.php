@@ -2,8 +2,9 @@
 
 namespace AppBundle\Service;
 
-use Ivory\GoogleMap\Overlays\Animation;
-use Ivory\GoogleMap\Overlays\Marker;
+use Ivory\GoogleMap\Base\Coordinate;
+use Ivory\GoogleMap\Overlay\Animation;
+use Ivory\GoogleMap\Overlay\Marker;
 use Ivory\GoogleMap\Map;
 
 /**
@@ -40,24 +41,14 @@ class GoogleMapsService
      * @param float       $latitude
      * @param float       $longitude
      * @param int         $zoom
-     * @param string|null $language
      *
      * @return Map
-     * @throws \Ivory\GoogleMap\Exception\AssetException
-     * @throws \Ivory\GoogleMap\Exception\MapException
-     * @throws \Ivory\GoogleMap\Exception\OverlayException
      */
-    public function buildMap($latitude, $longitude, $zoom = 15, $language = null)
+    public function buildMap($latitude, $longitude, $zoom = 15)
     {
-        if (!$language) {
-            $language = $this->locale;
-        }
-        /** @var Marker $marker */
-        $marker = new Marker();
-        $marker->setPrefixJavascriptVariable('marker_');
-        $marker->setPosition($latitude, $longitude, true);
+        $position = new Coordinate($latitude, $longitude);
+        $marker = new Marker($position);
         $marker->setAnimation(Animation::DROP);
-        /** @var Map $map */
         $map = new Map();
         $map->setStylesheetOption('width', '100%');
         $map->setStylesheetOption('height', '100%');
@@ -155,10 +146,9 @@ class GoogleMapsService
                     ],
             ],
         ]);
-        $map->setLanguage($language);
-        $map->setCenter($latitude, $longitude, true);
+        $map->setCenter($position);
         $map->setMapOption('zoom', $zoom);
-        $map->addMarker($marker);
+        $map->getOverlayManager()->addMarker($marker);
 
         return $map;
     }

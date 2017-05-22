@@ -127,12 +127,7 @@ ivory_ck_editor:
 ivory_google_map:
     map:
         language: "%locale%"
-    geocoder:
-        provider:
-            locale:  "%locale%"
-            api_key: "%google_maps_api_key%"
-    geocoder_request:
-        sensor: false
+        api_key:  "%google_maps_api_key%"
 
 # Google reCaptcha
 beelab_recaptcha2:
