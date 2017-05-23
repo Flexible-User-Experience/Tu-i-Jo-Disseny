@@ -117,7 +117,8 @@ class ContactMessageType extends AbstractType
     {
         $resolver->setDefaults(
             array(
-                'data_class' => 'AppBundle\Entity\ContactMessage',
+                'data_class'      => 'AppBundle\Entity\ContactMessage',
+                'csrf_protection' => true,
             )
         );
     }

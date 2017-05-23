@@ -83,7 +83,7 @@ class ContactNewsletterType extends AbstractType
             array(
                 'data_class'      => 'AppBundle\Entity\ContactNewsletter',
                 'csrf_protection' => true,
-                'attr'  => array(
+                'attr'            => array(
                     'class' => 'form-inline m-bottom',
                 ),
             )
