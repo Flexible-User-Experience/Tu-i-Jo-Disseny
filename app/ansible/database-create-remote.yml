@@ -7,7 +7,7 @@
     - name: create remote database
       mysql_db:
         state: present
-        name: "{{ mysql_db_name }}"
+        name: "{{ mysql_db_remote_name }}"
         login_user: "{{ mysql_db_remote_root_user }}"
         login_password: "{{ mysql_db_remote_root_password }}"
     - name: set user privileges
