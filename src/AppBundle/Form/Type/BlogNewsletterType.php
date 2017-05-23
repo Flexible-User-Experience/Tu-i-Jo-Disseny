@@ -40,10 +40,21 @@ class BlogNewsletterType extends ContactNewsletterType
                 array(
                     'label' => 'form.label.forward',
                     'attr'  => array(
-                        'class' => 'btn-default squared no-gap newsletter',
+                        'class' => 'btn-default squared no-gap newsletter g-recaptcha',
+                        'data-sitekey' => $this->recaptchaSiteKey,
+                        'data-callback' => 'onSubmitBlogNewsletter',
+                        'data-size' => 'invisible',
                     ),
                 )
             );
+    }
+
+    /**
+     * @return string
+     */
+    public function getBlockPrefix()
+    {
+        return 'blog_newsletter';
     }
 
     /**
@@ -55,20 +66,7 @@ class BlogNewsletterType extends ContactNewsletterType
             array(
                 'data_class'      => 'AppBundle\Entity\ContactNewsletter',
                 'csrf_protection' => true,
-                'attr'  => array(
-                    'class' => 'm-bottom g-recaptcha',
-                    'data-sitekey' => $this->recaptchaSiteKey,
-                    'data-callback' => 'TODO',
-                ),
             )
         );
-    }
-
-    /**
-     * @return string
-     */
-    public function getBlockPrefix()
-    {
-        return 'blog_newsletter';
     }
 }

@@ -95,7 +95,8 @@ class ContactMessageType extends AbstractType
                     'attr'  => array(
                         'class' => 'btn-default squared bolder g-recaptcha',
                         'data-sitekey' => $this->recaptchaSiteKey,
-                        'data-callback' => 'TODO',
+                        'data-callback' => 'onSubmitContactMessage',
+                        'data-size' => 'invisible',
                     ),
                 )
             );
@@ -116,7 +117,8 @@ class ContactMessageType extends AbstractType
     {
         $resolver->setDefaults(
             array(
-                'data_class' => 'AppBundle\Entity\ContactMessage',
+                'data_class'      => 'AppBundle\Entity\ContactMessage',
+                'csrf_protection' => true,
             )
         );
     }
