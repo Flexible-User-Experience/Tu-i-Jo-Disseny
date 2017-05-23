@@ -137,7 +137,7 @@ class NotificationService
             $this->amd,
             $this->amd,
             'Notificació pàgina web ' . $this->urlBase,
-            $this->twig->render(':Mails:common_admin_notification.html.twig', array(
+            $this->twig->render(':Mail:common_admin_notification.html.twig', array(
                 'text' => $text,
             ))
         );
