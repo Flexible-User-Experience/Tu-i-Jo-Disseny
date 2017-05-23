@@ -95,7 +95,8 @@ class ContactMessageType extends AbstractType
                     'attr'  => array(
                         'class' => 'btn-default squared bolder g-recaptcha',
                         'data-sitekey' => $this->recaptchaSiteKey,
-                        'data-callback' => 'TODO',
+                        'data-callback' => 'onSubmitContactMessage',
+                        'data-size' => 'invisible',
                     ),
                 )
             );

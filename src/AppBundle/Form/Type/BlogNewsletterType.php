@@ -58,7 +58,8 @@ class BlogNewsletterType extends ContactNewsletterType
                 'attr'  => array(
                     'class' => 'm-bottom g-recaptcha',
                     'data-sitekey' => $this->recaptchaSiteKey,
-                    'data-callback' => 'TODO',
+                    'data-callback' => 'onSubmitBlogNewsletter',
+                    'data-size' => 'invisible',
                 ),
             )
         );

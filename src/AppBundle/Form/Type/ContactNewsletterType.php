@@ -59,7 +59,8 @@ class ContactNewsletterType extends AbstractType
                     'attr'  => array(
                         'class' => 'btn-default squared no-gap newsletter g-recaptcha',
                         'data-sitekey' => $this->recaptchaSiteKey,
-                        'data-callback' => 'TODO',
+                        'data-callback' => 'onSubmitContactNewsletter',
+                        'data-size' => 'invisible',
                     ),
                 )
             );
