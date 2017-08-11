@@ -16,13 +16,3 @@
     <span class="mosaic-box-label label label-primary pull-right">#{{ object.position }}</span>
     {#{{ meta.description }}#}
 {% endblock %}
-
-{#{% block sonata_mosaic_description %}#}
-    {#{% if admin.isGranted('EDIT', object) and admin.hasRoute('edit') %}#}
-        {#<a class="mosaic-inner-link" href="{{ admin.generateUrl('edit', {'id' : object|sonata_urlsafeid(admin) }) }}">{{ meta.title|truncate(40) }}Q</a>#}
-    {#{% elseif admin.isGranted('SHOW', object) and admin.hasRoute('show') %}#}
-        {#<a class="mosaic-inner-link" href="{{ admin.generateUrl('show', {'id' : object|sonata_urlsafeid(admin) }) }}">{{ meta.title|truncate(40) }}W</a>#}
-    {#{% else %}#}
-        {#{{ meta.title|truncate(40) }}E#}
-    {#{% endif %}#}
-{#{% endblock %}#}

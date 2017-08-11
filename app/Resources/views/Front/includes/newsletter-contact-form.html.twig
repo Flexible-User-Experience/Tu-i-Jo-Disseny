@@ -1,5 +1,11 @@
 <h4 class="no-m-top">NEWSLETTER</h4>
-{{ form(newsletter_form) }}
+{{ form_start(newsletter_form) }}
+    {{ form_row(newsletter_form.email) }}
+    {{ form_row(newsletter_form.send) }}
+    <br>
+    {{ form_row(newsletter_form.captcha) }}
+    {{ form_rest(newsletter_form) }}
+{{ form_end(newsletter_form) }}
 
 {% if flash is not null %}
     <div class="alert alert-success" role="alert">

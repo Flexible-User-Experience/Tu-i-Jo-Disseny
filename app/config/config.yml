@@ -35,7 +35,7 @@ twig:
         google_analytics_enabled: "%google_analytics_enabled%"
         google_analytics_account: "%google_analytics_account%"
         main_brand_title:         "%main_brand_title%"
-        admin_tag_version:        "v1.0.69"
+        admin_tag_version:        "v1.0.70"
 
 # Assetic Configuration
 assetic:
@@ -138,4 +138,4 @@ ewz_recaptcha:
     private_key: "%recaptcha_secret%"
     locale_key:  "%locale%"
     enabled:     true
-#    ajax:        true
+    ajax:        false

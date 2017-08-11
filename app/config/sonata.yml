@@ -1,6 +1,6 @@
 # Sonata Admin
 sonata_admin:
-    title: "CMS"
+    title:      "CMS"
     title_logo: "/bundles/app/images/logotip-fons-2.png"
     options:
         html5_validate: true
