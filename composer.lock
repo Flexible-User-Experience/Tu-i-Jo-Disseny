@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8caae585a636048614bf6b82129af355",
+    "content-hash": "258844c3d9fc1dff7e7f5611eb2219b3",
     "packages": [
         {
             "name": "a2lix/translation-form-bundle",
@@ -67,62 +67,6 @@
                 "translation"
             ],
             "time": "2013-12-17T18:40:49+00:00"
-        },
-        {
-            "name": "beelab/recaptcha2-bundle",
-            "version": "v1.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Bee-Lab/BeelabRecaptcha2Bundle.git",
-                "reference": "8232ebe4a65388c9001c4deeb380ae57afaaa327"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Bee-Lab/BeelabRecaptcha2Bundle/zipball/8232ebe4a65388c9001c4deeb380ae57afaaa327",
-                "reference": "8232ebe4a65388c9001c4deeb380ae57afaaa327",
-                "shasum": ""
-            },
-            "require": {
-                "google/recaptcha": "^1.1",
-                "php": ">=7.0",
-                "symfony/form": "^2.8|^3.2",
-                "symfony/framework-bundle": "^2.8|^3.2",
-                "symfony/validator": "^2.8|^3.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^6.0",
-                "symfony/expression-language": "^2.8|^3.2",
-                "symfony/phpunit-bridge": "^2.8|^3.2"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.4.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Beelab\\Recaptcha2Bundle\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Massimiliano Arione",
-                    "email": "massimiliano.arione@bee-lab.net"
-                }
-            ],
-            "description": "Provide Google Recaptch2 form type ",
-            "homepage": "https://bee-lab.net",
-            "keywords": [
-                "form",
-                "recaptcha",
-                "symfony"
-            ],
-            "time": "2017-08-08T12:36:09+00:00"
         },
         {
             "name": "behat/transliterator",
@@ -1818,6 +1762,53 @@
             "time": "2017-02-03T22:48:59+00:00"
         },
         {
+            "name": "excelwebzone/recaptcha-bundle",
+            "version": "v1.4.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/excelwebzone/EWZRecaptchaBundle.git",
+                "reference": "bff309088ce9bbe7cb8f154e2bb9376f0c7b41fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/excelwebzone/EWZRecaptchaBundle/zipball/bff309088ce9bbe7cb8f154e2bb9376f0c7b41fd",
+                "reference": "bff309088ce9bbe7cb8f154e2bb9376f0c7b41fd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6",
+                "symfony/form": "^2.8 || ^3.0",
+                "symfony/framework-bundle": "^2.8 || ^3.0",
+                "symfony/validator": "^2.8 || ^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.3"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "EWZ\\Bundle\\RecaptchaBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael H. Arieli",
+                    "email": "excelwebzone@gmail.com",
+                    "homepage": "http://excelwebzone.com/"
+                }
+            ],
+            "description": "This bundle provides easy reCAPTCHA form field integration",
+            "homepage": "https://github.com/excelwebzone/EWZRecaptchaBundle",
+            "keywords": [
+                "recaptcha"
+            ],
+            "time": "2017-05-28T00:57:14+00:00"
+        },
+        {
             "name": "friendsofsymfony/user-bundle",
             "version": "v1.3.7",
             "target-dir": "FOS/UserBundle",
@@ -2009,51 +2000,6 @@
                 "uploadable"
             ],
             "time": "2017-07-02T09:46:37+00:00"
-        },
-        {
-            "name": "google/recaptcha",
-            "version": "1.1.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/google/recaptcha.git",
-                "reference": "5a56d15ca10a7b75158178752b2ad8f755eb4f78"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/google/recaptcha/zipball/5a56d15ca10a7b75158178752b2ad8f755eb4f78",
-                "reference": "5a56d15ca10a7b75158178752b2ad8f755eb4f78",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "ReCaptcha\\": "src/ReCaptcha"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "Client library for reCAPTCHA, a free service that protect websites from spam and abuse.",
-            "homepage": "http://www.google.com/recaptcha/",
-            "keywords": [
-                "Abuse",
-                "captcha",
-                "recaptcha",
-                "spam"
-            ],
-            "time": "2017-03-09T18:44:34+00:00"
         },
         {
             "name": "hampe/inky",

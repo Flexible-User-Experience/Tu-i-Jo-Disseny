@@ -52,13 +52,7 @@ class ContactNewsletterType extends AbstractType
                     ),
                 )
             )
-            ->add(
-                'captcha',
-                RecaptchaType::class,
-                array(
-                    'mapped' => false,
-                )
-            )
+
             ->add(
                 'send',
                 SubmitType::class,
@@ -71,7 +65,15 @@ class ContactNewsletterType extends AbstractType
 //                        'data-size' => 'invisible',
                     ),
                 )
-            );
+            )
+            ->add(
+                'captcha',
+                RecaptchaType::class,
+                array(
+                    'mapped' => true,
+                )
+            )
+        ;
     }
 
     /**
