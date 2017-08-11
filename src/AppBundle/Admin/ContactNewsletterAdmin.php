@@ -92,7 +92,7 @@ class ContactNewsletterAdmin extends BaseAdmin
                 'enabled',
                 null,
                 array(
-                    'label' => 'Enabled',
+                    'label' => 'Actiu',
                     'editable' => true,
                 )
             )

@@ -20,22 +20,6 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class ContactMessageType extends AbstractType
 {
     /**
-     * @var string
-     */
-    protected $recaptchaSiteKey;
-
-    /**
-     * Methods
-     */
-
-    /**
-     * @param string $recaptchaSiteKey
-     */
-    public function __construct($recaptchaSiteKey) {
-        $this->recaptchaSiteKey = $recaptchaSiteKey;
-    }
-
-    /**
      * @param FormBuilderInterface $builder
      * @param array                $options
      */
