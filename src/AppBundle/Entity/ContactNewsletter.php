@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints as Recaptcha;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -28,6 +29,8 @@ class ContactNewsletter extends AbstractBase
 
     /**
      * @var string
+     *
+     * @Recaptcha\IsTrue
      */
     private $captcha;
 

@@ -2,7 +2,7 @@
 
 namespace AppBundle\Form\Type;
 
-use Beelab\Recaptcha2Bundle\Form\Type\RecaptchaType;
+use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -68,9 +68,15 @@ class ContactNewsletterType extends AbstractType
             )
             ->add(
                 'captcha',
-                RecaptchaType::class,
+                EWZRecaptchaType::class,
                 array(
-                    'mapped' => true,
+//                    'attr' => array(
+//                        'options' => array(
+//                            'theme' => 'light',
+//                            'type'  => 'image',
+//                            'size'  => 'compact',
+//                        )
+//                    )
                 )
             )
         ;
