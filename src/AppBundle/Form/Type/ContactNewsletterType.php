@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form\Type;
 
+use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,22 +18,6 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
  */
 class ContactNewsletterType extends AbstractType
 {
-    /**
-     * @var string
-     */
-    protected $recaptchaSiteKey;
-
-    /**
-     * Methods
-     */
-
-    /**
-     * @param string $recaptchaSiteKey
-     */
-    public function __construct($recaptchaSiteKey) {
-        $this->recaptchaSiteKey = $recaptchaSiteKey;
-    }
-
     /**
      * @param FormBuilderInterface $builder
      * @param array                $options
@@ -51,19 +36,32 @@ class ContactNewsletterType extends AbstractType
                     ),
                 )
             )
+
             ->add(
                 'send',
                 SubmitType::class,
                 array(
                     'label' => 'form.label.forward',
                     'attr'  => array(
-                        'class' => 'btn-default squared no-gap newsletter g-recaptcha',
-                        'data-sitekey' => $this->recaptchaSiteKey,
-                        'data-callback' => 'onSubmitContactNewsletter',
-                        'data-size' => 'invisible',
+                        'class' => 'btn-default squared no-gap newsletter',
                     ),
                 )
-            );
+            )
+            ->add(
+                'captcha',
+                EWZRecaptchaType::class,
+                array(
+                    'label' => ' ',
+                    'attr' => array(
+                        'options' => array(
+                            'theme' => 'light',
+                            'type'  => 'image',
+                            'size'  => 'normal',
+                        )
+                    ),
+                )
+            )
+        ;
     }
 
     /**

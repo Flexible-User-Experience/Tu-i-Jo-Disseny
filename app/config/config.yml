@@ -35,7 +35,7 @@ twig:
         google_analytics_enabled: "%google_analytics_enabled%"
         google_analytics_account: "%google_analytics_account%"
         main_brand_title:         "%main_brand_title%"
-        admin_tag_version:        "v1.0.68"
+        admin_tag_version:        "v1.0.69"
 
 # Assetic Configuration
 assetic:
@@ -73,9 +73,9 @@ doctrine:
             json: Sonata\Doctrine\Types\JsonType
         server_version: "%database_server_version%"
     orm:
-        auto_generate_proxy_classes:  "%kernel.debug%"
-        naming_strategy:              doctrine.orm.naming_strategy.underscore
-        auto_mapping:                 true
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy:             doctrine.orm.naming_strategy.underscore
+        auto_mapping:                true
 
 # Stof Doctrine Extensions
 stof_doctrine_extensions:
@@ -133,6 +133,9 @@ ivory_google_map:
         api_key:  "%google_maps_api_key%"
 
 # Google reCaptcha
-beelab_recaptcha2:
-    site_key: "%recaptcha_site_key%"
-    secret:   "%recaptcha_secret%"
+ewz_recaptcha:
+    public_key:  "%recaptcha_site_key%"
+    private_key: "%recaptcha_secret%"
+    locale_key:  "%locale%"
+    enabled:     true
+#    ajax:        true

@@ -33,23 +33,6 @@ services:
         arguments: [ "@request_stack" ]
         tags:
             - { name: knp_menu.menu, alias: top }
-# Forms
-    app.form_contact_newsletter:
-        class: AppBundle\Form\Type\ContactNewsletterType
-        arguments: [ "%recaptcha_site_key%" ]
-        tags: [ name: form.type ]
-    app.form_contact_message:
-        class: AppBundle\Form\Type\ContactMessageType
-        arguments: [ "%recaptcha_site_key%" ]
-        tags: [ name: form.type ]
-    app.form_contact_message_answer:
-        class: AppBundle\Form\Type\ContactMessageAnswerType
-        arguments: [ "%recaptcha_site_key%" ]
-        tags: [ name: form.type ]
-    app.form_blog_newsletter:
-        class: AppBundle\Form\Type\BlogNewsletterType
-        arguments: [ "%recaptcha_site_key%" ]
-        tags: [ name: form.type ]
 ### Admin
     admin.projects_project:
         class: AppBundle\Admin\ProjectAdmin

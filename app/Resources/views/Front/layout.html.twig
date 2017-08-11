@@ -111,24 +111,8 @@
                 if (envelopeNode.length > 0) {
                     jQuery('html,body').animate({scrollTop: envelopeNode.offset().top - 100}, 'slow');
                 }
-                var contact_message_send = jQuery('#contact_message_send');
-                var contact_newsletter_send = jQuery('#contact_newsletter_send');
-                var blog_newsletter_send = jQuery('#blog_newsletter_send');
-                if (contact_message_send.length > 0) {
-                    console.log(contact_message_send);
-                    contact_message_send.click(function(){grecaptcha.execute();});
-                }
-                if (contact_newsletter_send.length > 0) {
-                    console.log(contact_newsletter_send);
-                    contact_newsletter_send.click(function(){grecaptcha.execute();});
-                }
-                if (blog_newsletter_send.length > 0) {
-                    console.log(blog_newsletter_send);
-                    blog_newsletter_send.click(function(){grecaptcha.execute();});
-                }
             });
         </script>
-        <script type="text/javascript" src="//www.google.com/recaptcha/api.js?hl={{ app.request.locale }}" async defer></script>
     {% endblock %}
     {% block scroll_top %}
         {#<!-- Scroll-Top effect JS -->#}

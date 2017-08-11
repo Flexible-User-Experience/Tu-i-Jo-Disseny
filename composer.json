@@ -13,8 +13,7 @@
         ]
     },
     "require": {
-        "a2lix/translation-form-bundle": "1.*",
-        "beelab/recaptcha2-bundle": "^1.0",
+        "a2lix/translation-form-bundle": "^1.0",
         "components/font-awesome": "^4.0",
         "components/jquery": "^2.0",
         "cypresslab/gitelephant-bundle": "^0.0.6",
@@ -27,6 +26,7 @@
         "egeloen/ckeditor-bundle": "^4.0",
         "egeloen/google-map-bundle": "^3.0",
         "egulias/email-validator": "^1.2",
+        "excelwebzone/recaptcha-bundle": "^1.4",
         "hampe/zurb-ink-bundle": "^2.2",
         "hautelook/alice-bundle": "^1.0",
         "incenteev/composer-parameter-handler": "~2.0",
