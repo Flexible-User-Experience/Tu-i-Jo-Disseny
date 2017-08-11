@@ -40,10 +40,7 @@ class BlogNewsletterType extends ContactNewsletterType
                 array(
                     'label' => 'form.label.forward',
                     'attr'  => array(
-                        'class' => 'btn-default squared no-gap newsletter g-recaptcha',
-                        'data-sitekey' => $this->recaptchaSiteKey,
-                        'data-callback' => 'onSubmitBlogNewsletter',
-                        'data-size' => 'invisible',
+                        'class' => 'btn-default squared no-gap newsletter',
                     ),
                 )
             );

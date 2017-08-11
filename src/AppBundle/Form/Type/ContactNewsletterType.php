@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form\Type;
 
+use Beelab\Recaptcha2Bundle\Form\Type\RecaptchaType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -52,15 +53,22 @@ class ContactNewsletterType extends AbstractType
                 )
             )
             ->add(
+                'captcha',
+                RecaptchaType::class,
+                array(
+                    'mapped' => false,
+                )
+            )
+            ->add(
                 'send',
                 SubmitType::class,
                 array(
                     'label' => 'form.label.forward',
                     'attr'  => array(
-                        'class' => 'btn-default squared no-gap newsletter g-recaptcha',
-                        'data-sitekey' => $this->recaptchaSiteKey,
-                        'data-callback' => 'onSubmitContactNewsletter',
-                        'data-size' => 'invisible',
+                        'class' => 'btn-default squared no-gap newsletter',
+//                        'data-sitekey' => $this->recaptchaSiteKey,
+//                        'data-callback' => 'onSubmitContactNewsletter',
+//                        'data-size' => 'invisible',
                     ),
                 )
             );
