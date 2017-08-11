@@ -19,22 +19,6 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 class ContactNewsletterType extends AbstractType
 {
     /**
-     * @var string
-     */
-    protected $recaptchaSiteKey;
-
-    /**
-     * Methods
-     */
-
-    /**
-     * @param string $recaptchaSiteKey
-     */
-    public function __construct($recaptchaSiteKey) {
-        $this->recaptchaSiteKey = $recaptchaSiteKey;
-    }
-
-    /**
      * @param FormBuilderInterface $builder
      * @param array                $options
      */
@@ -60,9 +44,6 @@ class ContactNewsletterType extends AbstractType
                     'label' => 'form.label.forward',
                     'attr'  => array(
                         'class' => 'btn-default squared no-gap newsletter',
-//                        'data-sitekey' => $this->recaptchaSiteKey,
-//                        'data-callback' => 'onSubmitContactNewsletter',
-//                        'data-size' => 'invisible',
                     ),
                 )
             )
@@ -70,13 +51,14 @@ class ContactNewsletterType extends AbstractType
                 'captcha',
                 EWZRecaptchaType::class,
                 array(
-//                    'attr' => array(
-//                        'options' => array(
-//                            'theme' => 'light',
-//                            'type'  => 'image',
-//                            'size'  => 'compact',
-//                        )
-//                    )
+                    'label' => ' ',
+                    'attr' => array(
+                        'options' => array(
+                            'theme' => 'light',
+                            'type'  => 'image',
+                            'size'  => 'normal',
+                        )
+                    ),
                 )
             )
         ;

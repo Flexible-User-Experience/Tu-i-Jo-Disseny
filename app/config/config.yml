@@ -138,4 +138,4 @@ ewz_recaptcha:
     private_key: "%recaptcha_secret%"
     locale_key:  "%locale%"
     enabled:     true
-    ajax:        true
+#    ajax:        true

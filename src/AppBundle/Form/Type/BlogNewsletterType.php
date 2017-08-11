@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form\Type;
 
+use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -43,7 +44,22 @@ class BlogNewsletterType extends ContactNewsletterType
                         'class' => 'btn-default squared no-gap newsletter',
                     ),
                 )
-            );
+            )
+            ->add(
+                'captcha',
+                EWZRecaptchaType::class,
+                array(
+                    'label' => ' ',
+                    'attr' => array(
+                        'options' => array(
+                            'theme' => 'light',
+                            'type'  => 'image',
+                            'size'  => 'normal',
+                        )
+                    ),
+                )
+            )
+        ;
     }
 
     /**
