@@ -7,8 +7,6 @@ parameters:
     database_password: ~
     database_server_version: 5.5
 
-    mailer_auth_mode:  login
-    mailer_encryption: ssl
     mailer_transport:  smtp
     mailer_host:       127.0.0.1
     mailer_port:       465
@@ -16,8 +14,17 @@ parameters:
     mailer_password:   ~
     mailer_destination: dummy@dummy.com
     mailer_url_base:    www.dummy.com
+    mailer_auth_mode:  login
+    mailer_encryption: ssl
 
     secret:            ThXXTokRRIsNotFETSed4ftCh4ng31t
+
+    path_java:         /usr/bin/java
+    path_node:         /usr/bin/nodejs
+    path_node_modules: /home/<user>/node_modules
+
+    locale: ca
+    main_brand_title: "Tu&Jo Disseny"
 
     private_admin_test_user: admin
     private_admin_test_pass: admin
@@ -28,14 +35,8 @@ parameters:
     google_analytics_account: "UA-fake..."
     google_maps_api_key:      "xxxxxxxxxxxxx"
 
-    recaptcha_site_key: "xxxxxxxxxxxxx"
-    recaptcha_secret:   "xxxxxxxxxxxxx"
-
-    path_java:         /usr/bin/java
-    path_node:         /usr/bin/nodejs
-    path_node_modules: /home/<user>/node_modules
-
-    locale: ca
-    main_brand_title: "Tu&Jo Disseny"
     mailchimp_api_key: xxxxxxx-us5
     mailchimp_newsletter_list_id: xxxxxxx
+
+    recaptcha_site_key: "xxxxxxxxxxxxx"
+    recaptcha_secret:   "xxxxxxxxxxxxx"
