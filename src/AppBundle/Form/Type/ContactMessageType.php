@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form\Type;
 
+use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -80,7 +81,22 @@ class ContactMessageType extends AbstractType
                         'class' => 'btn-default squared bolder',
                     ),
                 )
-            );
+            )
+            ->add(
+                'captcha',
+                EWZRecaptchaType::class,
+                array(
+                    'label' => ' ',
+                    'attr' => array(
+                        'options' => array(
+                            'theme' => 'light',
+                            'type'  => 'image',
+                            'size'  => 'normal',
+                        )
+                    ),
+                )
+            )
+        ;
     }
 
     /**
@@ -88,7 +104,7 @@ class ContactMessageType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'contact_message';
+        return 'jiden_blok';
     }
 
     /**

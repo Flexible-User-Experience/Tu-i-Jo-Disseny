@@ -28,13 +28,6 @@ class ContactNewsletter extends AbstractBase
     private $email;
 
     /**
-     * @var string
-     *
-     * @Recaptcha\IsTrue
-     */
-    private $captcha;
-
-    /**
      * @var boolean
      *
      * @ORM\Column(type="boolean", options={"default" = false})
@@ -42,11 +35,14 @@ class ContactNewsletter extends AbstractBase
     private $checked = false;
 
     /**
+     * @var string
      *
-     *
+     * @Recaptcha\IsTrue
+     */
+    private $captcha;
+
+    /**
      * Methods
-     *
-     *
      */
 
     /**
@@ -74,26 +70,6 @@ class ContactNewsletter extends AbstractBase
     }
 
     /**
-     * @return string
-     */
-    public function getCaptcha()
-    {
-        return $this->captcha;
-    }
-
-    /**
-     * @param string $captcha
-     *
-     * @return $this
-     */
-    public function setCaptcha($captcha)
-    {
-        $this->captcha = $captcha;
-
-        return $this;
-    }
-
-    /**
      * Get Checked
      *
      * @return boolean
@@ -113,6 +89,26 @@ class ContactNewsletter extends AbstractBase
     public function setChecked($checked)
     {
         $this->checked = $checked;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCaptcha()
+    {
+        return $this->captcha;
+    }
+
+    /**
+     * @param string $captcha
+     *
+     * @return $this
+     */
+    public function setCaptcha($captcha)
+    {
+        $this->captcha = $captcha;
 
         return $this;
     }

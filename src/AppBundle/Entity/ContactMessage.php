@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints as Recaptcha;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -71,11 +72,14 @@ class ContactMessage extends AbstractBase
     private $answer;
 
     /**
+     * @var string
      *
-     *
+     * @Recaptcha\IsTrue
+     */
+    private $captcha;
+
+    /**
      * Methods
-     *
-     *
      */
 
     /**
@@ -242,6 +246,26 @@ class ContactMessage extends AbstractBase
     public function setAnswer($answer)
     {
         $this->answer = $answer;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCaptcha()
+    {
+        return $this->captcha;
+    }
+
+    /**
+     * @param string $captcha
+     *
+     * @return $this
+     */
+    public function setCaptcha($captcha)
+    {
+        $this->captcha = $captcha;
 
         return $this;
     }
