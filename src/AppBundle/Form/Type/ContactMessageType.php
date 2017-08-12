@@ -80,7 +80,8 @@ class ContactMessageType extends AbstractType
                         'class' => 'btn-default squared bolder',
                     ),
                 )
-            );
+            )
+        ;
     }
 
     /**
@@ -88,7 +89,7 @@ class ContactMessageType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'contact_message';
+        return 'jiden_blog';
     }
 
     /**
