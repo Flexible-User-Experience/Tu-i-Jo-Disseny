@@ -47,20 +47,6 @@ class ContactNewsletterType extends AbstractType
                     ),
                 )
             )
-            ->add(
-                'captcha',
-                EWZRecaptchaType::class,
-                array(
-                    'label' => ' ',
-                    'attr' => array(
-                        'options' => array(
-                            'theme' => 'light',
-                            'type'  => 'image',
-                            'size'  => 'normal',
-                        )
-                    ),
-                )
-            )
         ;
     }
 
