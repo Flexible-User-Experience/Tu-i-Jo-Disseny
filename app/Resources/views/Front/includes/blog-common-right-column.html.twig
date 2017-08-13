@@ -1,4 +1,14 @@
-<div class="extra-m-bottom">
+{% if tags | length > 0 %}
+    <div class="extra-m-bottom">
+        <ul class="blog-tags list-unstyled center-block text-center">
+            <li class="title">CATEGORIES</li>
+            {% for tag in tags if tag.posts | length > 0 %}
+                <li><a href="{{ path('front_blog_tag_detail', {slug: tag.slug}) }}">{{ tag.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+<div class="extra-m-top">
     <ul class="blog-tags list-unstyled center-block text-center">
         <li class="title no-p-top">SUBSCRIU-TE</li>
     </ul>
@@ -10,11 +20,3 @@
         </div>
     {% endif %}
 </div>
-{% if tags | length > 0 %}
-    <ul class="extra-m-top blog-tags list-unstyled center-block text-center">
-        <li class="title">CATEGORIES</li>
-        {% for tag in tags if tag.posts | length > 0 %}
-            <li><a href="{{ path('front_blog_tag_detail', {slug: tag.slug}) }}">{{ tag.name }}</a></li>
-        {% endfor %}
-    </ul>
-{% endif %}
