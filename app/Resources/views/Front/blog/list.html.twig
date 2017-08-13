@@ -15,7 +15,9 @@
                         </a>
                         <span class="c-black display-block">{{ post.description | striptags | truncate(100, true) | raw  }}</span>
                         <a style="font-weight:bold" class="extra-m-bottom display-block" href="{{ path('front_blog_posts_detail', {year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug}) }}">LLEGIR MÉS</a>
-                        <hr class="c-black">
+                        {% if not loop.last %}
+                            <hr class="c-black">
+                        {% endif %}
                     {% endfor %}
                 {% else %}
                     <div style="margin-bottom:200px;" class="alert alert-warning" role="alert">
