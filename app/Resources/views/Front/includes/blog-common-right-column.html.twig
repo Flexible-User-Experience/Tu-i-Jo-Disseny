@@ -12,7 +12,7 @@
     <ul class="blog-tags list-unstyled center-block text-center">
         <li class="title no-p-top">SUBSCRIU-TE</li>
     </ul>
-    {{ form(form) }}
+    {{ form(form, {attr: {class: 'extra-m-bottom'}}) }}
     {% if flash is not null %}
         <div class="alert alert-success" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="fa fa-times"></i></button>
