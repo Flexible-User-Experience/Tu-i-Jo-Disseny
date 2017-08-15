@@ -155,3 +155,17 @@
         </div>
     </div>
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            jQuery('div#bs-example-navbar-collapse-1 li a').click(function(event) {
+                if (event.target.innerHTML != 'projectes' && event.target.innerHTML != 'blog') {
+                    event.preventDefault();
+                    jQuery('html,body').animate({scrollTop: jQuery(event.target.hash).offset().top}, "slow");
+                }
+            });
+        });
+    </script>
+{% endblock %}

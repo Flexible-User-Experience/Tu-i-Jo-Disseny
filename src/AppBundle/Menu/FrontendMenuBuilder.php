@@ -39,11 +39,7 @@ class FrontendMenuBuilder
     private $ts;
 
     /**
-     *
-     *
      * Methods
-     *
-     *
      */
 
     /**
