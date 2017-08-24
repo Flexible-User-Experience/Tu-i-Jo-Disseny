@@ -1,3 +1,19 @@
+"Projecte List": Projectes
+"Projecte Delete": Esborrar
+"Servei List": Serveis
+"Servei Delete": Esborrar
+"Equip List": Equip
+"Equip Delete": Esborrar
+"Etiqueta List": Etiquetes
+"Etiqueta Delete": Esborrar
+"Article List": Articles
+"Article Delete": Esborrar
+"Usuari List": Usuaris
+"Usuari Delete": Esborrar
+"Missatge Contacte List": Missatges
+"Missatge Contacte Delete": Esborrar
+"Newsletter List": Newsletters
+"Newsletter Delete": Esborrar
 front:
   services: serveis
   projects: projectes
