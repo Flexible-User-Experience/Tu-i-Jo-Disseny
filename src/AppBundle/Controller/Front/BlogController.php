@@ -111,15 +111,16 @@ class BlogController extends Controller
     }
 
     /**
-     * @Route("/blog/categoria/{slug}", name="front_blog_tag_detail")
+     * @Route("/blog/categoria/{slug}/{pagina}", name="front_blog_tag_detail")
      *
      * @param Request $request
      * @param string  $slug
+     * @param int     $pagina
      *
      * @return Response
      * @throws EntityNotFoundException
      */
-    public function blogTagDetailAction(Request $request, $slug)
+    public function blogTagDetailAction(Request $request, $slug, $pagina = 1)
     {
         /** @var BlogTag $tag */
         $tag = $this->getDoctrine()->getRepository('AppBundle:BlogTag')->findOneBy(['slug' => $slug]);
@@ -139,12 +140,16 @@ class BlogController extends Controller
             $form = $this->createForm(BlogNewsletterType::class, $newsletter);
         }
 
+        $paginator = $this->get('knp_paginator');
+        $posts = $this->getDoctrine()->getRepository('AppBundle:BlogPost')->getAllEnabledSortedByPublishedDateWithJoinUntilNowByTag($tag);
+        $postsPaginator = $paginator->paginate($posts, $pagina, self::PAGE_LIMIT);
+
         return $this->render(
             ':Front/blog:tag_list.html.twig',
             [
                 'tag'       => $tag,
                 'tags'      => $this->getDoctrine()->getRepository('AppBundle:BlogTag')->findAllEnabledSortedByName(),
-                'posts'     => $this->getDoctrine()->getRepository('AppBundle:BlogPost')->getAllEnabledSortedByPublishedDateWithJoinUntilNowByTag($tag),
+                'posts'     => $postsPaginator,
                 'blog_form' => $form->createView(),
                 'flash'     => $flash,
             ]
