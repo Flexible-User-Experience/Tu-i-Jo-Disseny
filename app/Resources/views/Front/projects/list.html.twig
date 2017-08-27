@@ -13,5 +13,6 @@
                 {% endfor %}
             </div>
         {% endif %}
+        {% include ':Front/includes:paginator_buttons_bar.html.twig' with {pagination: projects} %}
     </div>
 {% endblock %}

@@ -17,14 +17,24 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class ProjectsController extends Controller
 {
+    const PAGE_LIMIT = 9;
+
     /**
-     * @Route("/projectes", name="front_projects")
+     * @Route("/projectes/{pagina}", name="front_projects")
+     *
+     * @param int $pagina
+     *
+     * @return Response
      */
-    public function projectsAction()
+    public function projectsAction($pagina = 1)
     {
+        $paginator = $this->get('knp_paginator');
+        $projects = $this->getDoctrine()->getRepository('AppBundle:Project')->findAllEnabledSortedByName();
+        $projectsPaginator = $paginator->paginate($projects, $pagina, self::PAGE_LIMIT);
+
         return $this->render(
             '::Front/projects/list.html.twig',
-            [ 'projects' => $this->getDoctrine()->getRepository('AppBundle:Project')->findAllEnabledSortedByName() ]
+            [ 'projects' => $projectsPaginator, ]
         );
     }
 
