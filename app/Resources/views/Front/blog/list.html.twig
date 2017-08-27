@@ -25,6 +25,7 @@
                         <h4 class="no-m-bottom">Estem treballant per aconseguir-ho el més aviat possible <i class="fa fa-smile-o" aria-hidden="true"></i></h4>
                     </div>
                 {% endif %}
+                {% include ':Front/includes:paginator_buttons_bar.html.twig' with {pagination: posts} %}
             </div>
             <div class="col-xs-12 col-sm-5 col-md-4">
                 {% include ':Front/includes:blog-common-right-column.html.twig' with {form: blog_form, tags: tags} %}
