@@ -21,14 +21,17 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class BlogController extends Controller
 {
+    const PAGE_LIMIT = 5;
+
     /**
-     * @Route("/blog", name="front_blog_posts_list")
+     * @Route("/blog/{pagina}", name="front_blog_posts_list")
      *
      * @param Request $request
+     * @param int     $pagina
      *
      * @return Response
      */
-    public function blogPostsListAction(Request $request)
+    public function blogPostsListAction(Request $request, $pagina = 1)
     {
         $flash = null;
         $newsletter = new ContactNewsletter();
@@ -42,11 +45,15 @@ class BlogController extends Controller
             $form = $this->createForm(BlogNewsletterType::class, $newsletter);
         }
 
+        $paginator = $this->get('knp_paginator');
+        $posts = $this->getDoctrine()->getRepository('AppBundle:BlogPost')->getAllEnabledSortedByPublishedDateWithJoinUntilNow();
+        $postsPaginator = $paginator->paginate($posts, $pagina, self::PAGE_LIMIT);
+
         return $this->render(
             ':Front/blog:list.html.twig',
             [
                 'tags'      => $this->getDoctrine()->getRepository('AppBundle:BlogTag')->findAllEnabledSortedByName(),
-                'posts'     => $this->getDoctrine()->getRepository('AppBundle:BlogPost')->getAllEnabledSortedByPublishedDateWithJoinUntilNow(),
+                'posts'     => $postsPaginator,
                 'blog_form' => $form->createView(),
                 'flash'     => $flash,
             ]
