@@ -67,7 +67,6 @@ class FrontendControllerTest extends AbstractBaseTest
     public function provideBrokenUrls()
     {
         return array(
-            array('/projectes/fake'),
             array('/broken-page'),
         );
     }
