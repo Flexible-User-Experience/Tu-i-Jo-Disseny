@@ -15,7 +15,7 @@
             <div class="col-xs-12 col-sm-7 col-md-8 extra-m-bottom">
                 <h2 class="text-center no-m-top c-black">{{ post.name }}</h2>
                 <h5 class="text-center extra-m-bottom c-black">{{ post.publishedAt | date('d/m/Y') }}</h5>
-                <img class="img-responsive extra-m-bottom center-block" src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('1200xY') }}" alt="{{ post.name }}">
+                <img class="img-responsive extra-m-bottom center-block" src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('750xY') }}" alt="{{ post.name }}">
                 <span class="c-black extra-m-bottom display-block">{{ post.description | raw }}</span>
                 <hr class="c-black">
                 <h4 class="text-center extra-m-top c-black">COMPARTEIX</h4>
