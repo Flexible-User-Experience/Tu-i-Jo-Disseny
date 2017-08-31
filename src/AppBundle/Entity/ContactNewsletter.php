@@ -3,7 +3,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use EWZ\Bundle\RecaptchaBundle\Validator\Constraints as Recaptcha;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -33,13 +32,6 @@ class ContactNewsletter extends AbstractBase
      * @ORM\Column(type="boolean", options={"default" = false})
      */
     private $checked = false;
-
-    /**
-     * @var string
-     *
-     * @Recaptcha\IsTrue
-     */
-    private $captcha;
 
     /**
      * Methods
@@ -89,26 +81,6 @@ class ContactNewsletter extends AbstractBase
     public function setChecked($checked)
     {
         $this->checked = $checked;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCaptcha()
-    {
-        return $this->captcha;
-    }
-
-    /**
-     * @param string $captcha
-     *
-     * @return $this
-     */
-    public function setCaptcha($captcha)
-    {
-        $this->captcha = $captcha;
 
         return $this;
     }

@@ -2,7 +2,6 @@
 
 namespace AppBundle\Form\Type;
 
-use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
