@@ -11,7 +11,7 @@
                         <h2 class="text-center c-black{% if loop.first %} no-m-top{% else %} extra-m-top{% endif %}">{{ post.name }}</h2>
                         <h5 class="text-center extra-m-bottom c-black">{{ post.publishedAt | date('d/m/Y') }}</h5>
                         <a href="{{ path('front_blog_posts_detail', {year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug}) }}">
-                            <img class="img-responsive extra-m-bottom center-block" src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('1200xY') }}" alt="{{ post.name }}">
+                            <img class="img-responsive extra-m-bottom center-block" src="{{ vich_uploader_asset(post, 'imageFile') | imagine_filter('750xY') }}" alt="{{ post.name }}">
                         </a>
                         <span class="c-black display-block">{{ post.description | striptags | truncate(100, true) | raw  }}</span>
                         <a style="font-weight:bold;margin-top:5px;" class="extra-m-bottom display-block" href="{{ path('front_blog_posts_detail', {year: post.publishedAt | date('Y'), month: post.publishedAt | date('m'), day: post.publishedAt | date('d'), slug: post.slug}) }}">LLEGIR MÉS</a>
