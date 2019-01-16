@@ -10,20 +10,18 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Class Project
+ * Class Project.
  *
  * @category Entity
- * @package  AppBundle\Entity
+ *
  * @author   David Romaní <david@flux.cat>
  *
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProjectRepository")
  * @ORM\Table(name="project")
- * @Gedmo\TranslationEntity(class="AppBundle\Entity\Translations\ProjectTranslation")
  * @Vich\Uploadable
  */
 class Project extends Base
 {
-    use Traits\TranslationTrait;
     use Traits\ImageTrait;
 
     /**
@@ -34,7 +32,7 @@ class Project extends Base
      * )
      * @Assert\Image(minWidth = 1200)
      *
-     * @var File $imageFile
+     * @var File
      */
     protected $imageFile;
 
@@ -65,40 +63,25 @@ class Project extends Base
     /**
      * @ORM\Column(type="boolean", options={"default" = false})
      *
-     * @var boolean
+     * @var bool
      */
     protected $showInHomepage = false;
 
     /**
-     * @ORM\OneToMany(
-     *   targetEntity="AppBundle\Entity\Translations\ProjectTranslation",
-     *   mappedBy="object",
-     *   cascade={"persist", "remove"}
-     * )
-     * @Assert\Valid(deep = true)
-     *
-     * @var ArrayCollection
-     */
-    protected $translations;
-
-    /**
-     *
-     * Methods
-     *
+     * Methods.
      */
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
-        $this->images       = new ArrayCollection();
-        $this->services     = new ArrayCollection();
-        $this->translations = new ArrayCollection();
+        $this->images = new ArrayCollection();
+        $this->services = new ArrayCollection();
     }
 
     /**
-     * Set Images
+     * Set Images.
      *
      * @param ArrayCollection $images
      *
@@ -112,7 +95,7 @@ class Project extends Base
     }
 
     /**
-     * Get Images
+     * Get Images.
      *
      * @return ArrayCollection
      */
@@ -122,7 +105,7 @@ class Project extends Base
     }
 
     /**
-     * Add image
+     * Add image.
      *
      * @param ProjectImage $image
      *
@@ -137,7 +120,7 @@ class Project extends Base
     }
 
     /**
-     * Remove image
+     * Remove image.
      *
      * @param ProjectImage $image
      *
@@ -151,7 +134,7 @@ class Project extends Base
     }
 
     /**
-     * Set Services
+     * Set Services.
      *
      * @param ArrayCollection $services
      *
@@ -165,7 +148,7 @@ class Project extends Base
     }
 
     /**
-     * Get Services
+     * Get Services.
      *
      * @return ArrayCollection
      */
@@ -175,7 +158,7 @@ class Project extends Base
     }
 
     /**
-     * Add service
+     * Add service.
      *
      * @param Service $service
      *
@@ -189,7 +172,7 @@ class Project extends Base
     }
 
     /**
-     * Remove service
+     * Remove service.
      *
      * @param Service $service
      *
@@ -203,7 +186,7 @@ class Project extends Base
     }
 
     /**
-     * Set Description
+     * Set Description.
      *
      * @param string $description
      *
@@ -217,7 +200,7 @@ class Project extends Base
     }
 
     /**
-     * Get Description
+     * Get Description.
      *
      * @return string
      */
@@ -227,9 +210,9 @@ class Project extends Base
     }
 
     /**
-     * Get ShowInHomepage
+     * Get ShowInHomepage.
      *
-     * @return boolean
+     * @return bool
      */
     public function getShowInHomepage()
     {
@@ -237,9 +220,9 @@ class Project extends Base
     }
 
     /**
-     * Set ShowInHomepage
+     * Set ShowInHomepage.
      *
-     * @param boolean $showInHomepage
+     * @param bool $showInHomepage
      *
      * @return $this
      */

@@ -84,19 +84,12 @@ stof_doctrine_extensions:
     translation_fallback:  true
     orm:
         default:
-            translatable:   true
+            translatable:   false
             softdeleteable: true
             timestampable:  true
             sluggable:      true
             tree:           false
             sortable:       false
-
-# A2lix Translations
-a2lix_translation_form:
-    locales:          [ es, en ]
-    default_required: true
-    manager_registry: doctrine
-    templating:       "::A2lix/custom_form_widgets.html.twig"
 
 # FOS User
 fos_user:

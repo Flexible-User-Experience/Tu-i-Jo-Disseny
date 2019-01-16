@@ -10,20 +10,18 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * Class BlogPost
+ * Class BlogPost.
  *
  * @category Entity
- * @package  AppBundle\Entity
+ *
  * @author   David Romaní <david@flux.cat>
  *
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BlogPostRepository")
  * @ORM\Table(name="blog_post")
- * @Gedmo\TranslationEntity(class="AppBundle\Entity\Translations\BlogPostTranslation")
  * @Vich\Uploadable
  */
 class BlogPost extends Base
 {
-    use Traits\TranslationTrait;
     use Traits\ImageTrait;
 
     /**
@@ -50,7 +48,7 @@ class BlogPost extends Base
      * )
      * @Assert\Image(minWidth = 1200)
      *
-     * @var File $imageFile
+     * @var File
      */
     protected $imageFile;
 
@@ -63,34 +61,19 @@ class BlogPost extends Base
     protected $publishedAt;
 
     /**
-     * @ORM\OneToMany(
-     *   targetEntity="AppBundle\Entity\Translations\BlogPostTranslation",
-     *   mappedBy="object",
-     *   cascade={"persist", "remove"}
-     * )
-     * @Assert\Valid(deep = true)
-     *
-     * @var ArrayCollection
-     */
-    protected $translations;
-
-    /*
-     *
-     * Methods
-     *
+     * Methods.
      */
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
-        $this->tags         = new ArrayCollection();
-        $this->translations = new ArrayCollection();
+        $this->tags = new ArrayCollection();
     }
 
     /**
-     * Set Tags
+     * Set Tags.
      *
      * @param array $tags
      *
@@ -104,7 +87,7 @@ class BlogPost extends Base
     }
 
     /**
-     * Get Tags
+     * Get Tags.
      *
      * @return array
      */
@@ -114,7 +97,7 @@ class BlogPost extends Base
     }
 
     /**
-     * Add tag
+     * Add tag.
      *
      * @param BlogTag $tag
      *
@@ -128,7 +111,7 @@ class BlogPost extends Base
     }
 
     /**
-     * Remove tag
+     * Remove tag.
      *
      * @param BlogTag $tag
      *
@@ -142,7 +125,7 @@ class BlogPost extends Base
     }
 
     /**
-     * Set Description
+     * Set Description.
      *
      * @param string $description
      *
@@ -156,7 +139,7 @@ class BlogPost extends Base
     }
 
     /**
-     * Get Description
+     * Get Description.
      *
      * @return string
      */
@@ -166,7 +149,7 @@ class BlogPost extends Base
     }
 
     /**
-     * Set PublishedAt
+     * Set PublishedAt.
      *
      * @param \DateTime $publishedAt
      *
@@ -180,7 +163,7 @@ class BlogPost extends Base
     }
 
     /**
-     * Get PublishedAt
+     * Get PublishedAt.
      *
      * @return \DateTime
      */
