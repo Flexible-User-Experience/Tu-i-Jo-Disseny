@@ -6,12 +6,14 @@ use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\Form\Type\DatePickerType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 /**
- * Class BlogPostAdmin
+ * Class BlogPostAdmin.
  *
  * @category Admin
- * @package  AppBundle\Admin
+ *
  * @author   David Romaní <david@flux.cat>
  */
 class BlogPostAdmin extends BaseAdmin
@@ -21,7 +23,7 @@ class BlogPostAdmin extends BaseAdmin
     protected $datagridValues = array('_sort_by' => 'publishedAt');
 
     /**
-     * Configure list view
+     * Configure list view.
      *
      * @param ListMapper $mapper
      */
@@ -33,15 +35,15 @@ class BlogPostAdmin extends BaseAdmin
                 'imageFile',
                 null,
                 array(
-                    'label'    => 'Imatge',
-                    'template' => '::Admin/list__cell_image_field.html.twig'
+                    'label' => 'Imatge',
+                    'template' => '::Admin/list__cell_image_field.html.twig',
                 )
             )
             ->add(
                 'name',
                 null,
                 array(
-                    'label'    => 'Nom',
+                    'label' => 'Nom',
                     'editable' => true,
                 )
             )
@@ -49,7 +51,7 @@ class BlogPostAdmin extends BaseAdmin
                 'tags',
                 null,
                 array(
-                    'label'    => 'Etiquetes',
+                    'label' => 'Etiquetes',
                     'editable' => false,
                 )
             )
@@ -57,16 +59,16 @@ class BlogPostAdmin extends BaseAdmin
                 'publishedAt',
                 'date',
                 array(
-                    'label'    => 'Data publicació',
+                    'label' => 'Data publicació',
                     'editable' => false,
-                    'format'   => 'd/m/Y',
+                    'format' => 'd/m/Y',
                 )
             )
             ->add(
                 'enabled',
                 null,
                 array(
-                    'label'    => 'Actiu',
+                    'label' => 'Actiu',
                     'editable' => true,
                 )
             )
@@ -75,16 +77,16 @@ class BlogPostAdmin extends BaseAdmin
                 'actions',
                 array(
                     'actions' => array(
-                        'edit'   => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
+                        'edit' => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
                         'delete' => array('template' => '::Admin/Buttons/list__action_delete_button.html.twig'),
                     ),
-                    'label'   => 'Accions',
+                    'label' => 'Accions',
                 )
             );
     }
 
     /**
-     * Configure list view filters
+     * Configure list view filters.
      *
      * @param DatagridMapper $datagrid
      */
@@ -129,7 +131,7 @@ class BlogPostAdmin extends BaseAdmin
     }
 
     /**
-     * Configure edit view
+     * Configure edit view.
      *
      * @param FormMapper $formMapper
      */
@@ -148,13 +150,13 @@ class BlogPostAdmin extends BaseAdmin
                 'description',
                 CKEditorType::class,
                 array(
-                    'label'       => 'Descripció',
-                    'required'    => false,
+                    'label' => 'Descripció',
+                    'required' => false,
                     'config_name' => 'my_config',
-                    'attr'        => array(
+                    'attr' => array(
                         'style' => 'resize:vertical',
-                        'rows'  => 14,
-                    )
+                        'rows' => 14,
+                    ),
                 )
             )
             ->end()
@@ -163,16 +165,16 @@ class BlogPostAdmin extends BaseAdmin
                 'tags',
                 null,
                 array(
-                    'label'    => 'Etiquetes',
+                    'label' => 'Etiquetes',
                     'required' => false,
                 )
             )
             ->add(
                 'publishedAt',
-                'sonata_type_date_picker',
+                DatePickerType::class,
                 array(
-                    'label'    => 'Data publicació',
-                    'format'   => 'd/M/y',
+                    'label' => 'Data publicació',
+                    'format' => 'd/M/y',
                     'required' => true,
                 )
             )
@@ -180,7 +182,7 @@ class BlogPostAdmin extends BaseAdmin
                 'enabled',
                 null,
                 array(
-                    'label'    => 'Actiu',
+                    'label' => 'Actiu',
                     'required' => false,
                 )
             )
@@ -188,13 +190,14 @@ class BlogPostAdmin extends BaseAdmin
             ->with('Imatge', array('class' => 'col-md-5'))
             ->add(
                 'imageFile',
-                'file',
+                FileType::class,
                 array(
-                    'label'    => 'Arxiu',
+                    'label' => 'Arxiu',
                     'required' => false,
-                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
+                    'help' => $this->getImageHelperFormMapperWithThumbnail(),
                 )
             )
-            ->end();
+            ->end()
+        ;
     }
 }

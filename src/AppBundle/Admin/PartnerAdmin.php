@@ -6,12 +6,13 @@ use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 /**
- * Class PartnerAdmin
+ * Class PartnerAdmin.
  *
  * @category Admin
- * @package  AppBundle\Admin
+ *
  * @author   David Romaní <david@flux.cat>
  */
 class PartnerAdmin extends BaseAdmin
@@ -21,7 +22,7 @@ class PartnerAdmin extends BaseAdmin
     protected $datagridValues = array('_sort_by' => 'name');
 
     /**
-     * Configure list view
+     * Configure list view.
      *
      * @param ListMapper $mapper
      */
@@ -33,15 +34,15 @@ class PartnerAdmin extends BaseAdmin
                 'imageFile',
                 null,
                 array(
-                    'label'    => 'Imatge',
-                    'template' => '::Admin/list__cell_image_field.html.twig'
+                    'label' => 'Imatge',
+                    'template' => '::Admin/list__cell_image_field.html.twig',
                 )
             )
             ->add(
                 'name',
                 null,
                 array(
-                    'label'    => 'Nom',
+                    'label' => 'Nom',
                     'editable' => true,
                 )
             )
@@ -49,7 +50,7 @@ class PartnerAdmin extends BaseAdmin
                 'studies',
                 null,
                 array(
-                    'label'    => 'Estudis',
+                    'label' => 'Estudis',
                     'editable' => true,
                 )
             )
@@ -57,7 +58,7 @@ class PartnerAdmin extends BaseAdmin
                 'position',
                 null,
                 array(
-                    'label'    => 'Posició',
+                    'label' => 'Posició',
                     'editable' => true,
                 )
             )
@@ -65,7 +66,7 @@ class PartnerAdmin extends BaseAdmin
                 'enabled',
                 null,
                 array(
-                    'label'    => 'Actiu',
+                    'label' => 'Actiu',
                     'editable' => true,
                 )
             )
@@ -74,16 +75,16 @@ class PartnerAdmin extends BaseAdmin
                 'actions',
                 array(
                     'actions' => array(
-                        'edit'   => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
+                        'edit' => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
                         'delete' => array('template' => '::Admin/Buttons/list__action_delete_button.html.twig'),
                     ),
-                    'label'   => 'Accions',
+                    'label' => 'Accions',
                 )
             );
     }
 
     /**
-     * Configure list view filters
+     * Configure list view filters.
      *
      * @param DatagridMapper $datagrid
      */
@@ -128,7 +129,7 @@ class PartnerAdmin extends BaseAdmin
     }
 
     /**
-     * Configure edit view
+     * Configure edit view.
      *
      * @param FormMapper $formMapper
      */
@@ -154,13 +155,13 @@ class PartnerAdmin extends BaseAdmin
                 'description',
                 CKEditorType::class,
                 array(
-                    'label'       => 'Descripció',
-                    'required'    => false,
+                    'label' => 'Descripció',
+                    'required' => false,
                     'config_name' => 'my_config',
-                    'attr'        => array(
+                    'attr' => array(
                         'style' => 'resize:vertical',
-                        'rows'  => 14,
-                    )
+                        'rows' => 14,
+                    ),
                 )
             )
             ->end()
@@ -176,7 +177,7 @@ class PartnerAdmin extends BaseAdmin
                 'enabled',
                 null,
                 array(
-                    'label'    => 'Actiu',
+                    'label' => 'Actiu',
                     'required' => false,
                 )
             )
@@ -184,24 +185,25 @@ class PartnerAdmin extends BaseAdmin
             ->with('Imatge pricipal', array('class' => 'col-md-5'))
             ->add(
                 'imageFile',
-                'file',
+                FileType::class,
                 array(
-                    'label'    => 'Arxiu',
+                    'label' => 'Arxiu',
                     'required' => false,
-                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
+                    'help' => $this->getImageHelperFormMapperWithThumbnail(),
                 )
             )
             ->end()
             ->with('Imatge secundaria', array('class' => 'col-md-5'))
             ->add(
                 'imageFile2',
-                'file',
+                FileType::class,
                 array(
-                    'label'    => 'Arxiu',
+                    'label' => 'Arxiu',
                     'required' => false,
-                    'help'     => $this->getImage2HelperFormMapperWithThumbnail(),
+                    'help' => $this->getImage2HelperFormMapperWithThumbnail(),
                 )
             )
-            ->end();
+            ->end()
+        ;
     }
 }
