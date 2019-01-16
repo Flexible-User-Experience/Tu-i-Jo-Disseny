@@ -7,7 +7,6 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\Form\Type\DatePickerType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 /**
@@ -37,7 +36,8 @@ class ContactMessageAdmin extends BaseAdmin
             ->remove('create')
             ->remove('edit')
             ->remove('batch')
-            ->add('answer', $this->getRouterIdParameter().'/answer');
+            ->add('answer', $this->getRouterIdParameter().'/answer')
+        ;
     }
 
     /**
@@ -120,7 +120,7 @@ class ContactMessageAdmin extends BaseAdmin
             )
             ->add(
                 'createdAt',
-                DateType::class,
+                'date',
                 array(
                     'label' => 'Data',
                     'format' => 'd/m/Y H:i',
