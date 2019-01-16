@@ -5,12 +5,13 @@ namespace AppBundle\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\Form\Type\DatePickerType;
 
 /**
- * Class ContactNewsletterAdmin
+ * Class ContactNewsletterAdmin.
  *
  * @category Admin
- * @package  AppBundle\Admin
+ *
  * @author   David Romaní <david@flux.cat>
  */
 class ContactNewsletterAdmin extends BaseAdmin
@@ -18,7 +19,7 @@ class ContactNewsletterAdmin extends BaseAdmin
     protected $classnameLabel = 'Newsletter';
     protected $baseRoutePattern = 'contactes/newsletter';
     protected $datagridValues = array(
-        '_sort_by'    => 'createdAt',
+        '_sort_by' => 'createdAt',
         '_sort_order' => 'desc',
     );
 
@@ -32,8 +33,8 @@ class ContactNewsletterAdmin extends BaseAdmin
                 'createdAt',
                 'doctrine_orm_date',
                 array(
-                    'label'      => 'Data',
-                    'field_type' => 'sonata_type_date_picker',
+                    'label' => 'Data',
+                    'field_type' => DatePickerType::class,
                 )
             )
             ->add(
@@ -70,8 +71,8 @@ class ContactNewsletterAdmin extends BaseAdmin
                 'createdAt',
                 'date',
                 array(
-                    'label'  => 'Data',
-                    'format' => 'd/m/Y'
+                    'label' => 'Data',
+                    'format' => 'd/m/Y',
                 )
             )
             ->add(
@@ -101,16 +102,16 @@ class ContactNewsletterAdmin extends BaseAdmin
                 'actions',
                 array(
                     'actions' => array(
-                        'edit'   => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
+                        'edit' => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
                         'delete' => array('template' => '::Admin/Buttons/list__action_delete_button.html.twig'),
                     ),
-                    'label'   => 'Accions',
+                    'label' => 'Accions',
                 )
             );
     }
 
     /**
-     * Configure edit view
+     * Configure edit view.
      *
      * @param FormMapper $formMapper
      */

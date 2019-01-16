@@ -6,13 +6,15 @@ use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Form\Type\CollectionType;
 use Sonata\AdminBundle\Route\RouteCollection;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 /**
- * Class ServiceAdmin
+ * Class ServiceAdmin.
  *
  * @category Admin
- * @package  AppBundle\Admin
+ *
  * @author   David Romaní <david@flux.cat>
  */
 class ProjectAdmin extends BaseAdmin
@@ -27,11 +29,11 @@ class ProjectAdmin extends BaseAdmin
     public function configureRoutes(RouteCollection $collection)
     {
         parent::configureRoutes($collection);
-        $collection->add('preview', $this->getRouterIdParameter() . '/preview');
+        $collection->add('preview', $this->getRouterIdParameter().'/preview');
     }
 
     /**
-     * Configure list view
+     * Configure list view.
      *
      * @param ListMapper $mapper
      */
@@ -43,15 +45,15 @@ class ProjectAdmin extends BaseAdmin
                 'imageFile',
                 null,
                 array(
-                    'label'    => 'Imatge',
-                    'template' => '::Admin/list__cell_image_field.html.twig'
+                    'label' => 'Imatge',
+                    'template' => '::Admin/list__cell_image_field.html.twig',
                 )
             )
             ->add(
                 'name',
                 null,
                 array(
-                    'label'    => 'Nom',
+                    'label' => 'Nom',
                     'editable' => true,
                 )
             )
@@ -59,7 +61,7 @@ class ProjectAdmin extends BaseAdmin
                 'position',
                 null,
                 array(
-                    'label'    => 'Posició',
+                    'label' => 'Posició',
                     'editable' => true,
                 )
             )
@@ -67,7 +69,7 @@ class ProjectAdmin extends BaseAdmin
                 'showInHomepage',
                 null,
                 array(
-                    'label'    => 'Homepage',
+                    'label' => 'Homepage',
                     'editable' => true,
                 )
             )
@@ -75,7 +77,7 @@ class ProjectAdmin extends BaseAdmin
                 'enabled',
                 null,
                 array(
-                    'label'    => 'Actiu',
+                    'label' => 'Actiu',
                     'editable' => true,
                 )
             )
@@ -85,16 +87,16 @@ class ProjectAdmin extends BaseAdmin
                 array(
                     'actions' => array(
                         'preview' => array('template' => '::Admin/Buttons/list__action_preview_button.html.twig'),
-                        'edit'   => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
+                        'edit' => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
                         'delete' => array('template' => '::Admin/Buttons/list__action_delete_button.html.twig'),
                     ),
-                    'label'   => 'Accions',
+                    'label' => 'Accions',
                 )
             );
     }
 
     /**
-     * Configure list view filters
+     * Configure list view filters.
      *
      * @param DatagridMapper $datagrid
      */
@@ -146,7 +148,7 @@ class ProjectAdmin extends BaseAdmin
     }
 
     /**
-     * Configure edit view
+     * Configure edit view.
      *
      * @param FormMapper $formMapper
      */
@@ -165,12 +167,12 @@ class ProjectAdmin extends BaseAdmin
                 'description',
                 CKEditorType::class,
                 array(
-                    'label'       => 'Descripció',
+                    'label' => 'Descripció',
                     'config_name' => 'my_config',
-                    'attr'        => array(
+                    'attr' => array(
                         'style' => 'resize:vertical',
-                        'rows'  => 14,
-                    )
+                        'rows' => 14,
+                    ),
                 )
             )
             ->end()
@@ -193,7 +195,7 @@ class ProjectAdmin extends BaseAdmin
                 'showInHomepage',
                 null,
                 array(
-                    'label'    => 'Mostrar a la homepage',
+                    'label' => 'Mostrar a la homepage',
                     'required' => false,
                 )
             )
@@ -201,7 +203,7 @@ class ProjectAdmin extends BaseAdmin
                 'enabled',
                 null,
                 array(
-                    'label'    => 'Actiu',
+                    'label' => 'Actiu',
                     'required' => false,
                 )
             )
@@ -209,11 +211,11 @@ class ProjectAdmin extends BaseAdmin
             ->with('Imatge principal', array('class' => 'col-md-5'))
             ->add(
                 'imageFile',
-                'file',
+                FileType::class,
                 array(
-                    'label'    => 'Arxiu',
+                    'label' => 'Arxiu',
                     'required' => false,
-                    'help'     => $this->getImageHelperFormMapperWithThumbnail(),
+                    'help' => $this->getImageHelperFormMapperWithThumbnail(),
                 )
             )
             ->end();
@@ -222,15 +224,15 @@ class ProjectAdmin extends BaseAdmin
                 ->with('Imatges addicionals', array('class' => 'col-md-7'))
                 ->add(
                     'images',
-                    'sonata_type_collection',
+                    CollectionType::class,
                     array(
-                        'label'              => ' ',
-                        'required'           => false,
+                        'label' => ' ',
+                        'required' => false,
                         'cascade_validation' => true,
                     ),
                     array(
-                        'edit'     => 'inline',
-                        'inline'   => 'table',
+                        'edit' => 'inline',
+                        'inline' => 'table',
                         'sortable' => 'position',
                     )
                 )

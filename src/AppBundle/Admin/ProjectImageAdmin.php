@@ -5,12 +5,13 @@ namespace AppBundle\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 /**
- * Class ProjectImageAdmin
+ * Class ProjectImageAdmin.
  *
  * @category Admin
- * @package  AppBundle\Admin
+ *
  * @author   David Romaní <david@flux.cat>
  */
 class ProjectImageAdmin extends BaseAdmin
@@ -20,7 +21,7 @@ class ProjectImageAdmin extends BaseAdmin
     protected $datagridValues = array('_sort_by' => 'position');
 
     /**
-     * Configure list view
+     * Configure list view.
      *
      * @param ListMapper $mapper
      */
@@ -31,18 +32,18 @@ class ProjectImageAdmin extends BaseAdmin
                 'imageFile',
                 null,
                 array(
-                    'label'    => 'Imatge',
-                    'template' => '::Admin/list__cell_image_field.html.twig'
+                    'label' => 'Imatge',
+                    'template' => '::Admin/list__cell_image_field.html.twig',
                 )
             )
             ->add(
                 'project',
                 null,
                 array(
-                    'label'                            => 'Projecte',
-                    'editable'                         => false,
-                    'sortable'                         => true,
-                    'sort_field_mapping'               => array('fieldName' => 'name'),
+                    'label' => 'Projecte',
+                    'editable' => false,
+                    'sortable' => true,
+                    'sort_field_mapping' => array('fieldName' => 'name'),
                     'sort_parent_association_mappings' => array(array('fieldName' => 'project')),
                 )
             )
@@ -50,7 +51,7 @@ class ProjectImageAdmin extends BaseAdmin
                 'position',
                 null,
                 array(
-                    'label'    => 'Posició',
+                    'label' => 'Posició',
                     'editable' => true,
                 )
             )
@@ -58,7 +59,7 @@ class ProjectImageAdmin extends BaseAdmin
                 'enabled',
                 null,
                 array(
-                    'label'    => 'Actiu',
+                    'label' => 'Actiu',
                     'editable' => true,
                 )
             )
@@ -67,16 +68,16 @@ class ProjectImageAdmin extends BaseAdmin
                 'actions',
                 array(
                     'actions' => array(
-                        'edit'   => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
+                        'edit' => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
                         'delete' => array('template' => '::Admin/Buttons/list__action_delete_button.html.twig'),
                     ),
-                    'label'   => 'Accions',
+                    'label' => 'Accions',
                 )
             );
     }
 
     /**
-     * Configure list view filters
+     * Configure list view filters.
      *
      * @param DatagridMapper $datagrid
      */
@@ -100,7 +101,7 @@ class ProjectImageAdmin extends BaseAdmin
     }
 
     /**
-     * Configure edit view
+     * Configure edit view.
      *
      * @param FormMapper $formMapper
      */
@@ -111,12 +112,12 @@ class ProjectImageAdmin extends BaseAdmin
             ->with('Imatge', array('class' => 'col-md-6'))
             ->add(
                 'imageFile',
-                'file',
+                FileType::class,
                 array(
-                    'label'       => 'Arxiu',
-                    'required'    => false,
+                    'label' => 'Arxiu',
+                    'required' => false,
                     'sonata_help' => $imageHelp,
-                    'help'        => $imageHelp,
+                    'help' => $imageHelp,
                 )
             )
             ->add(
@@ -124,9 +125,9 @@ class ProjectImageAdmin extends BaseAdmin
                 null,
                 array(
                     'label' => 'Projecte',
-                    'attr'  => array(
+                    'attr' => array(
                         'hidden' => true,
-                    )
+                    ),
                 )
             )
             ->end()
@@ -142,7 +143,7 @@ class ProjectImageAdmin extends BaseAdmin
                 'enabled',
                 null,
                 array(
-                    'label'    => 'Actiu',
+                    'label' => 'Actiu',
                     'required' => false,
                 )
             )

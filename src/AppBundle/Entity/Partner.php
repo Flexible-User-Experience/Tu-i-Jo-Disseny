@@ -2,7 +2,6 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\HttpFoundation\File\File;
@@ -10,20 +9,18 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * Class Partner
+ * Class Partner.
  *
  * @category Entity
- * @package  AppBundle\Entity
+ *
  * @author   David Romaní <david@flux.cat>
  *
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PartnerRepository")
  * @ORM\Table(name="partner")
- * @Gedmo\TranslationEntity(class="AppBundle\Entity\Translations\PartnerTranslation")
  * @Vich\Uploadable
  */
 class Partner extends Base
 {
-    use Traits\TranslationTrait;
     use Traits\ImageTrait;
 
     /**
@@ -42,7 +39,7 @@ class Partner extends Base
      * )
      * @Assert\Image(minWidth = 1200)
      *
-     * @var File $imageFile
+     * @var File
      */
     protected $imageFile;
 
@@ -54,14 +51,14 @@ class Partner extends Base
      * )
      * @Assert\Image(minWidth = 1200)
      *
-     * @var File $imageFile
+     * @var File
      */
     protected $imageFile2;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
-     * @var string $imageName2
+     * @var string
      */
     protected $imageName2;
 
@@ -96,33 +93,11 @@ class Partner extends Base
     protected $twitter;
 
     /**
-     * @ORM\OneToMany(
-     *   targetEntity="AppBundle\Entity\Translations\PartnerTranslation",
-     *   mappedBy="object",
-     *   cascade={"persist", "remove"}
-     * )
-     * @Assert\Valid(deep = true)
-     *
-     * @var ArrayCollection
-     */
-    protected $translations;
-
-    /**
-     *
-     * Methods
-     *
+     * Methods.
      */
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->translations = new ArrayCollection();
-    }
-
-    /**
-     * Set ImageFile2
+     * Set ImageFile2.
      *
      * @param File $imageFile
      *
@@ -139,7 +114,7 @@ class Partner extends Base
     }
 
     /**
-     * Get ImageFile2
+     * Get ImageFile2.
      *
      * @return File
      */
@@ -149,7 +124,7 @@ class Partner extends Base
     }
 
     /**
-     * Set ImageName2
+     * Set ImageName2.
      *
      * @param string $imageName
      *
@@ -163,7 +138,7 @@ class Partner extends Base
     }
 
     /**
-     * Get ImageName2
+     * Get ImageName2.
      *
      * @return string
      */
@@ -173,7 +148,7 @@ class Partner extends Base
     }
 
     /**
-     * Set Description
+     * Set Description.
      *
      * @param string $description
      *
@@ -187,7 +162,7 @@ class Partner extends Base
     }
 
     /**
-     * Get Description
+     * Get Description.
      *
      * @return string
      */
@@ -197,7 +172,7 @@ class Partner extends Base
     }
 
     /**
-     * Get Studies
+     * Get Studies.
      *
      * @return string
      */
@@ -207,7 +182,7 @@ class Partner extends Base
     }
 
     /**
-     * Set Studies
+     * Set Studies.
      *
      * @param string $studies
      *
@@ -221,7 +196,7 @@ class Partner extends Base
     }
 
     /**
-     * Set Web
+     * Set Web.
      *
      * @param string $web
      *
@@ -235,7 +210,7 @@ class Partner extends Base
     }
 
     /**
-     * Get Web
+     * Get Web.
      *
      * @return string
      */
@@ -245,7 +220,7 @@ class Partner extends Base
     }
 
     /**
-     * Set Email
+     * Set Email.
      *
      * @param string $email
      *
@@ -259,7 +234,7 @@ class Partner extends Base
     }
 
     /**
-     * Get Email
+     * Get Email.
      *
      * @return string
      */
@@ -269,7 +244,7 @@ class Partner extends Base
     }
 
     /**
-     * Set Twitter
+     * Set Twitter.
      *
      * @param string $twitter
      *
@@ -283,7 +258,7 @@ class Partner extends Base
     }
 
     /**
-     * Get Twitter
+     * Get Twitter.
      *
      * @return string
      */

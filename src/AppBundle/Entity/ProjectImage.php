@@ -3,16 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * Class ProjectImage
+ * Class ProjectImage.
  *
  * @category Entity
- * @package  AppBundle\Entity
+ *
  * @author   David Romaní <david@flux.cat>
  *
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProjectImageRepository")
@@ -37,25 +36,23 @@ class ProjectImage extends AbstractBase
      * )
      * @Assert\Image(minWidth = 1200)
      *
-     * @var File $imageFile
+     * @var File
      */
     protected $imageFile;
 
     /**
      * @ORM\Column(name="image_name", type="string", length=255)
      *
-     * @var string $imageName
+     * @var string
      */
     protected $imageName;
 
     /**
-     *
-     * Methods
-     *
+     * Methods.
      */
 
     /**
-     * Set Project
+     * Set Project.
      *
      * @param Project $project
      *
@@ -69,7 +66,7 @@ class ProjectImage extends AbstractBase
     }
 
     /**
-     * Get Project
+     * Get Project.
      *
      * @return Project
      */
@@ -79,7 +76,7 @@ class ProjectImage extends AbstractBase
     }
 
     /**
-     * Set ImageFile
+     * Set ImageFile.
      *
      * @param File $imageFile
      *
@@ -96,7 +93,7 @@ class ProjectImage extends AbstractBase
     }
 
     /**
-     * Get ImageFile
+     * Get ImageFile.
      *
      * @return File
      */
@@ -106,7 +103,7 @@ class ProjectImage extends AbstractBase
     }
 
     /**
-     * Set ImageName
+     * Set ImageName.
      *
      * @param string $imageName
      *
@@ -120,7 +117,7 @@ class ProjectImage extends AbstractBase
     }
 
     /**
-     * Get ImageName
+     * Get ImageName.
      *
      * @return string
      */
@@ -130,7 +127,7 @@ class ProjectImage extends AbstractBase
     }
 
     /**
-     * To string
+     * To string.
      *
      * @return string
      */

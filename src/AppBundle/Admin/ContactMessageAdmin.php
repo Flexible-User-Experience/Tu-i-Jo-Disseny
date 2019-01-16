@@ -6,12 +6,14 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\Form\Type\DatePickerType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 /**
- * Class ContactMessageAdmin
+ * Class ContactMessageAdmin.
  *
  * @category Admin
- * @package  AppBundle\Admin
+ *
  * @author   David Romaní <david@flux.cat>
  */
 class ContactMessageAdmin extends BaseAdmin
@@ -19,12 +21,12 @@ class ContactMessageAdmin extends BaseAdmin
     protected $classnameLabel = 'Missatge contacte';
     protected $baseRoutePattern = 'contactes/missatge';
     protected $datagridValues = array(
-        '_sort_by'    => 'createdAt',
+        '_sort_by' => 'createdAt',
         '_sort_order' => 'desc',
     );
 
     /**
-     * Configure route collection
+     * Configure route collection.
      *
      * @param RouteCollection $collection
      */
@@ -34,7 +36,8 @@ class ContactMessageAdmin extends BaseAdmin
             ->remove('create')
             ->remove('edit')
             ->remove('batch')
-            ->add('answer', $this->getRouterIdParameter() . '/answer');
+            ->add('answer', $this->getRouterIdParameter().'/answer')
+        ;
     }
 
     /**
@@ -54,8 +57,8 @@ class ContactMessageAdmin extends BaseAdmin
                 'createdAt',
                 'doctrine_orm_date',
                 array(
-                    'label'      => 'Data',
-                    'field_type' => 'sonata_type_date_picker',
+                    'label' => 'Data',
+                    'field_type' => DatePickerType::class,
                 )
             )
             ->add(
@@ -119,7 +122,7 @@ class ContactMessageAdmin extends BaseAdmin
                 'createdAt',
                 'date',
                 array(
-                    'label'  => 'Data',
+                    'label' => 'Data',
                     'format' => 'd/m/Y H:i',
                 )
             )
@@ -146,7 +149,7 @@ class ContactMessageAdmin extends BaseAdmin
             )
             ->add(
                 'message',
-                'textarea',
+                TextareaType::class,
                 array(
                     'label' => 'Missatge',
                 )
@@ -162,7 +165,7 @@ class ContactMessageAdmin extends BaseAdmin
             $showMapper
                 ->add(
                     'answer',
-                    'textarea',
+                    TextareaType::class,
                     array(
                         'label' => 'Resposta',
                     )
@@ -188,8 +191,8 @@ class ContactMessageAdmin extends BaseAdmin
                 'createdAt',
                 'date',
                 array(
-                    'label'  => 'Data',
-                    'format' => 'd/m/Y'
+                    'label' => 'Data',
+                    'format' => 'd/m/Y',
                 )
             )
             ->add(
@@ -218,18 +221,19 @@ class ContactMessageAdmin extends BaseAdmin
                 'actions',
                 array(
                     'actions' => array(
-                        'show'   => array(
-                            'template' => '::Admin/Buttons/list__action_show_button.html.twig'
+                        'show' => array(
+                            'template' => '::Admin/Buttons/list__action_show_button.html.twig',
                         ),
                         'answer' => array(
-                            'template' => '::Admin/Cells/list__action_answer.html.twig'
+                            'template' => '::Admin/Cells/list__action_answer.html.twig',
                         ),
                         'delete' => array(
-                            'template' => '::Admin/Buttons/list__action_delete_button.html.twig'
+                            'template' => '::Admin/Buttons/list__action_delete_button.html.twig',
                         ),
                     ),
-                    'label'   => 'Accions',
+                    'label' => 'Accions',
                 )
-            );
+            )
+        ;
     }
 }

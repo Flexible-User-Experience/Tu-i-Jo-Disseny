@@ -5,24 +5,20 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Class ServiceCategory
+ * Class ServiceCategory.
  *
  * @category Entity
- * @package  AppBundle\Entity
+ *
  * @author   David Romaní <david@flux.cat>
  *
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ServiceCategoryRepository")
  * @ORM\Table(name="service_category")
  * @Gedmo\SoftDeleteable(fieldName="removedAt")
- * @Gedmo\TranslationEntity(class="AppBundle\Entity\Translations\ServiceCategoryTranslation")
  */
 class ServiceCategory extends Base
 {
-    use Traits\TranslationTrait;
-
     /**
      * @ORM\OneToMany(targetEntity="Service", mappedBy="category", cascade={"persist", "remove"}, orphanRemoval=true)
      * @ORM\OrderBy({"position" = "ASC"})
@@ -32,34 +28,19 @@ class ServiceCategory extends Base
     protected $services;
 
     /**
-     * @ORM\OneToMany(
-     *   targetEntity="AppBundle\Entity\Translations\ServiceCategoryTranslation",
-     *   mappedBy="object",
-     *   cascade={"persist", "remove"}
-     * )
-     * @Assert\Valid(deep = true)
-     *
-     * @var ArrayCollection
-     */
-    protected $translations;
-
-    /*
-     *
-     * Methods
-     *
+     * Methods.
      */
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
-        $this->services     = new ArrayCollection();
-        $this->translations = new ArrayCollection();
+        $this->services = new ArrayCollection();
     }
 
     /**
-     * Set Services
+     * Set Services.
      *
      * @param ArrayCollection $services
      *
@@ -73,7 +54,7 @@ class ServiceCategory extends Base
     }
 
     /**
-     * Get Services
+     * Get Services.
      *
      * @return ArrayCollection
      */
@@ -83,7 +64,7 @@ class ServiceCategory extends Base
     }
 
     /**
-     * Add service
+     * Add service.
      *
      * @param Service $service
      *
@@ -98,7 +79,7 @@ class ServiceCategory extends Base
     }
 
     /**
-     * Remove service
+     * Remove service.
      *
      * @param Service $service
      *
