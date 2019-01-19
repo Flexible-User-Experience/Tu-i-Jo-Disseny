@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "content-hash": "2210cd6cdf145cb34230c900297a8c4c",
@@ -3839,16 +3839,16 @@
         },
         {
             "name": "sonata-project/core-bundle",
-            "version": "3.14.0",
+            "version": "3.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataCoreBundle.git",
-                "reference": "d1b6800485b98eb40ef3d8bb039b77e8bf0beb03"
+                "reference": "b38dfe1709c02cb9bb95f38c48103803f0aaaf3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/d1b6800485b98eb40ef3d8bb039b77e8bf0beb03",
-                "reference": "d1b6800485b98eb40ef3d8bb039b77e8bf0beb03",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/b38dfe1709c02cb9bb95f38c48103803f0aaaf3c",
+                "reference": "b38dfe1709c02cb9bb95f38c48103803f0aaaf3c",
                 "shasum": ""
             },
             "require": {
@@ -3919,7 +3919,7 @@
             "keywords": [
                 "sonata"
             ],
-            "time": "2019-01-13T14:19:40+00:00"
+            "time": "2019-01-17T07:33:02+00:00"
         },
         {
             "name": "sonata-project/datagrid-bundle",
@@ -3982,16 +3982,16 @@
         },
         {
             "name": "sonata-project/doctrine-extensions",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/sonata-doctrine-extensions.git",
-                "reference": "1f619e6f5a27b5bbaa48ab0872b19dc2064bc03f"
+                "reference": "187495be73b2099c6ff8d0c2384ca31a8adca66e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/sonata-doctrine-extensions/zipball/1f619e6f5a27b5bbaa48ab0872b19dc2064bc03f",
-                "reference": "1f619e6f5a27b5bbaa48ab0872b19dc2064bc03f",
+                "url": "https://api.github.com/repos/sonata-project/sonata-doctrine-extensions/zipball/187495be73b2099c6ff8d0c2384ca31a8adca66e",
+                "reference": "187495be73b2099c6ff8d0c2384ca31a8adca66e",
                 "shasum": ""
             },
             "require": {
@@ -4046,7 +4046,7 @@
                 "doctrine2",
                 "json"
             ],
-            "time": "2019-01-15T23:01:57+00:00"
+            "time": "2019-01-19T09:07:22+00:00"
         },
         {
             "name": "sonata-project/doctrine-orm-admin-bundle",
