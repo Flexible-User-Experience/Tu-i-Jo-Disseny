@@ -6,8 +6,8 @@ use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\AdminBundle\Form\Type\CollectionType;
 use Sonata\AdminBundle\Route\RouteCollection;
+use Sonata\Form\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 /**
@@ -92,7 +92,8 @@ class ProjectAdmin extends BaseAdmin
                     ),
                     'label' => 'Accions',
                 )
-            );
+            )
+        ;
     }
 
     /**
@@ -144,7 +145,8 @@ class ProjectAdmin extends BaseAdmin
                 array(
                     'label' => 'Actiu',
                 )
-            );
+            )
+        ;
     }
 
     /**
@@ -236,7 +238,8 @@ class ProjectAdmin extends BaseAdmin
                         'sortable' => 'position',
                     )
                 )
-                ->end();
+                ->end()
+            ;
         }
     }
 }

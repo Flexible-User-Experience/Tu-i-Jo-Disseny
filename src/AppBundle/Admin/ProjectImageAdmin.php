@@ -5,6 +5,7 @@ namespace AppBundle\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 /**
@@ -73,7 +74,8 @@ class ProjectImageAdmin extends BaseAdmin
                     ),
                     'label' => 'Accions',
                 )
-            );
+            )
+        ;
     }
 
     /**
@@ -97,7 +99,8 @@ class ProjectImageAdmin extends BaseAdmin
                 array(
                     'label' => 'Actiu',
                 )
-            );
+            )
+        ;
     }
 
     /**
@@ -141,12 +144,13 @@ class ProjectImageAdmin extends BaseAdmin
             )
             ->add(
                 'enabled',
-                null,
+                CheckboxType::class,
                 array(
                     'label' => 'Actiu',
                     'required' => false,
                 )
             )
-            ->end();
+            ->end()
+        ;
     }
 }
