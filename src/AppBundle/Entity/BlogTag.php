@@ -4,24 +4,19 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Class BlogTag
+ * Class BlogTag.
  *
  * @category Entity
- * @package  AppBundle\Entity
+ *
  * @author   David Romaní <david@flux.cat>
  *
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BlogTagRepository")
  * @ORM\Table(name="blog_tag")
- * @Gedmo\TranslationEntity(class="AppBundle\Entity\Translations\BlogTagTranslation")
  */
 class BlogTag extends Base
 {
-    use Traits\TranslationTrait;
-
     /**
      * @ORM\ManyToMany(targetEntity="BlogPost", mappedBy="tags", cascade={"persist", "remove"}, orphanRemoval=true)
      *
@@ -30,34 +25,19 @@ class BlogTag extends Base
     protected $posts;
 
     /**
-     * @ORM\OneToMany(
-     *   targetEntity="AppBundle\Entity\Translations\BlogTagTranslation",
-     *   mappedBy="object",
-     *   cascade={"persist", "remove"}
-     * )
-     * @Assert\Valid(deep = true)
-     *
-     * @var ArrayCollection
-     */
-    protected $translations;
-
-    /*
-     *
-     * Methods
-     *
+     * Methods.
      */
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
-        $this->posts        = new ArrayCollection();
-        $this->translations = new ArrayCollection();
+        $this->posts = new ArrayCollection();
     }
 
     /**
-     * Set Posts
+     * Set Posts.
      *
      * @param ArrayCollection $posts
      *
@@ -71,7 +51,7 @@ class BlogTag extends Base
     }
 
     /**
-     * Get Posts
+     * Get Posts.
      *
      * @return ArrayCollection
      */
@@ -81,7 +61,7 @@ class BlogTag extends Base
     }
 
     /**
-     * Add post
+     * Add post.
      *
      * @param BlogPost $post
      *
@@ -95,7 +75,7 @@ class BlogTag extends Base
     }
 
     /**
-     * Remove post
+     * Remove post.
      *
      * @param BlogPost $post
      *

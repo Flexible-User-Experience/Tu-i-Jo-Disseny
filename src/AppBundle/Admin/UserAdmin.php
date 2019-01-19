@@ -9,12 +9,15 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use FOS\UserBundle\Model\UserManagerInterface;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 /**
- * Class UserAdmin
+ * Class UserAdmin.
  *
  * @category Admin
- * @package  AppBundle\Admin
+ *
  * @author   David Romaní <david@flux.cat>
  */
 class UserAdmin extends ParentUserAdmin
@@ -27,7 +30,7 @@ class UserAdmin extends ParentUserAdmin
     protected $classnameLabel = 'Usuari';
     protected $baseRoutePattern = 'usuari';
     protected $datagridValues = array(
-        '_sort_by'    => 'username',
+        '_sort_by' => 'username',
         '_sort_order' => 'asc',
     );
 
@@ -38,7 +41,7 @@ class UserAdmin extends ParentUserAdmin
     }
 
     /**
-     * Available routes
+     * Available routes.
      *
      * @param RouteCollection $collection
      */
@@ -50,7 +53,7 @@ class UserAdmin extends ParentUserAdmin
     }
 
     /**
-     * Remove batch action list view first column
+     * Remove batch action list view first column.
      *
      * @return array
      */
@@ -67,14 +70,14 @@ class UserAdmin extends ParentUserAdmin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
-        /** @var object $formMapper */
+        /* @var object $formMapper */
         $formMapper
             ->with('backend.admin.general', array('class' => 'col-md-6'))
             ->add(
                 'firstname',
                 null,
                 array(
-                    'label'    => 'Nom',
+                    'label' => 'Nom',
                     'required' => false,
                 )
             )
@@ -94,28 +97,28 @@ class UserAdmin extends ParentUserAdmin
             )
             ->add(
                 'plainPassword',
-                'text',
+                TextType::class,
                 array(
-                    'label'    => 'Password',
-                    'required' => (!$this->getSubject() || is_null($this->getSubject()->getId()))
+                    'label' => 'Password',
+                    'required' => (!$this->getSubject() || is_null($this->getSubject()->getId())),
                 )
             )
             ->end()
             ->with('backend.admin.controls', array('class' => 'col-md-6'))
             ->add(
                 'enabled',
-                'checkbox',
+                CheckboxType::class,
                 array(
-                    'label'    => 'Actiu',
+                    'label' => 'Actiu',
                     'required' => false,
                 )
             )
             ->add(
                 'roles',
-                'choice',
+                ChoiceType::class,
                 array(
-                    'label'    => 'Rols',
-                    'choices'  => UserRolesEnum::getEnumArray(),
+                    'label' => 'Rols',
+                    'choices' => UserRolesEnum::getEnumArray(),
                     'multiple' => true,
                     'expanded' => true,
                 )
@@ -171,7 +174,7 @@ class UserAdmin extends ParentUserAdmin
                 'username',
                 null,
                 array(
-                    'label'    => 'Nom d\'usuari',
+                    'label' => 'Nom d\'usuari',
                     'editable' => true,
                 )
             )
@@ -179,7 +182,7 @@ class UserAdmin extends ParentUserAdmin
                 'email',
                 null,
                 array(
-                    'label'    => 'Email',
+                    'label' => 'Email',
                     'editable' => true,
                 )
             )
@@ -187,7 +190,7 @@ class UserAdmin extends ParentUserAdmin
                 'roles',
                 null,
                 array(
-                    'label'    => 'Rols',
+                    'label' => 'Rols',
                     'template' => '::Admin/Cells/list__cell_user_roles.html.twig',
                 )
             )
@@ -195,7 +198,7 @@ class UserAdmin extends ParentUserAdmin
                 'enabled',
                 null,
                 array(
-                    'label'    => 'Actiu',
+                    'label' => 'Actiu',
                     'editable' => true,
                 )
             )
@@ -203,9 +206,9 @@ class UserAdmin extends ParentUserAdmin
                 '_action',
                 'actions',
                 array(
-                    'label'   => 'Accions',
+                    'label' => 'Accions',
                     'actions' => array(
-                        'edit'   => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
+                        'edit' => array('template' => '::Admin/Buttons/list__action_edit_button.html.twig'),
                         'delete' => array('template' => '::Admin/Buttons/list__action_delete_button.html.twig'),
                     ),
                 )

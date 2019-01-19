@@ -10,20 +10,18 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Class Service
+ * Class Service.
  *
  * @category Entity
- * @package  AppBundle\Entity
+ *
  * @author   David Romaní <david@flux.cat>
  *
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ServiceRepository")
  * @ORM\Table(name="service")
- * @Gedmo\TranslationEntity(class="AppBundle\Entity\Translations\ServiceTranslation")
  * @Vich\Uploadable
  */
 class Service extends Base
 {
-    use Traits\TranslationTrait;
     use Traits\ImageTrait;
 
     /**
@@ -42,7 +40,7 @@ class Service extends Base
      * )
      * @Assert\Image(minWidth = 1200)
      *
-     * @var File $imageFile
+     * @var File
      */
     protected $imageFile;
 
@@ -63,34 +61,19 @@ class Service extends Base
     protected $projects;
 
     /**
-     * @ORM\OneToMany(
-     *   targetEntity="AppBundle\Entity\Translations\ServiceTranslation",
-     *   mappedBy="object",
-     *   cascade={"persist", "remove"}
-     * )
-     * @Assert\Valid(deep = true)
-     *
-     * @var ArrayCollection
-     */
-    protected $translations;
-
-    /**
-     *
-     * Methods
-     *
+     * Methods.
      */
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
-        $this->projects     = new ArrayCollection();
-        $this->translations = new ArrayCollection();
+        $this->projects = new ArrayCollection();
     }
 
     /**
-     * Set Category
+     * Set Category.
      *
      * @param ServiceCategory $category
      *
@@ -104,7 +87,7 @@ class Service extends Base
     }
 
     /**
-     * Get Category
+     * Get Category.
      *
      * @return ServiceCategory
      */
@@ -114,7 +97,7 @@ class Service extends Base
     }
 
     /**
-     * Set Description
+     * Set Description.
      *
      * @param string $description
      *
@@ -128,7 +111,7 @@ class Service extends Base
     }
 
     /**
-     * Get Description
+     * Get Description.
      *
      * @return string
      */
@@ -138,7 +121,7 @@ class Service extends Base
     }
 
     /**
-     * Get Projects
+     * Get Projects.
      *
      * @return ArrayCollection
      */
@@ -148,7 +131,7 @@ class Service extends Base
     }
 
     /**
-     * Set Projects
+     * Set Projects.
      *
      * @param ArrayCollection $projects
      *

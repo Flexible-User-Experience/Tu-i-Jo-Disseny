@@ -1,6 +1,6 @@
 {
     "name": "flux/tu-i-jo-disseny",
-    "description": "Tu&Jo Disseny Symfony2 webapp",
+    "description": "Tu&Jo Disseny Symfony 2 Website",
     "license": "proprietary",
     "type": "project",
     "autoload": {
@@ -13,7 +13,6 @@
         ]
     },
     "require": {
-        "a2lix/translation-form-bundle": "^1.0",
         "components/font-awesome": "^4.0",
         "components/jquery": "^2.0",
         "doctrine/doctrine-bundle": "~1.4",
@@ -34,7 +33,7 @@
         "knplabs/knp-menu-bundle": "^2.0",
         "knplabs/knp-paginator-bundle": "^2.5",
         "liip/functional-test-bundle": "^1.0",
-        "liip/imagine-bundle": "^1.0",
+        "liip/imagine-bundle": "^1.7",
         "php": ">=7.1.0",
         "presta/sitemap-bundle": "^1.3",
         "sensio/distribution-bundle": "~5.0",
@@ -49,15 +48,16 @@
         "symfony/swiftmailer-bundle": "~2.3",
         "twbs/bootstrap": "^3.0",
         "twig/extensions": "^1.3",
-        "vich/uploader-bundle": "^1.1"
+        "vich/uploader-bundle": "^1.5"
     },
     "require-dev": {
+        "cypresslab/gitelephant": "3.0.0",
         "cypresslab/gitelephant-bundle": "^0.0.6",
-        "sensio/generator-bundle": "~3.0",
-        "phpunit/phpunit": "^5.0"
+        "phpunit/phpunit": "^5.0",
+        "sensio/generator-bundle": "~3.0"
     },
     "scripts": {
-        "post-install-cmd": [
+        "symfony-scripts": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
@@ -65,12 +65,11 @@
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
         ],
+        "post-install-cmd": [
+            "@symfony-scripts"
+        ],
         "post-update-cmd": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+            "@symfony-scripts"
         ]
     },
     "config": {

@@ -3,6 +3,7 @@
 namespace AppBundle\Form\Type;
 
 use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\IsTrue as RecaptchaTrue;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -56,6 +57,10 @@ class BlogNewsletterType extends ContactNewsletterType
                             'type'  => 'image',
                             'size'  => 'normal',
                         )
+                    ),
+                    'mapped' => false,
+                    'constraints' => array(
+                        new RecaptchaTrue(),
                     ),
                 )
             )
